@@ -12,8 +12,8 @@ class Map:
     tile_gap = tile_length - non_obstacle_tile_width
     arena_border_left = 5
     arena_border_up = 5
-    arena_border_right = tile_length * 12
-    arena_border_down = tile_length * 17
+    arena_border_right = tile_length * 13
+    arena_border_down = tile_length * 18
 
     def __init__(self):
         pass

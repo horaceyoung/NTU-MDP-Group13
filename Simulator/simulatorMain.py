@@ -10,7 +10,9 @@ pg.display.set_caption("MDP Arena Simulator")
 
 player_robot = robot.Robot()
 robot_group = pg.sprite.Group(player_robot)
-
+sensor_group = pg.sprite.Group()
+for censor in player_robot.censors:
+    sensor_group.add(censor)
 running = True
 
 while running:
@@ -21,6 +23,7 @@ while running:
     arena_map.generate_map(screen)
 
     robot_group.draw(screen)
+    sensor_group.draw(screen)
     # controls
     for event in pg.event.get():
         if event.type == pg.QUIT:
