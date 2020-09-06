@@ -18,11 +18,12 @@ class Robot(pg.sprite.Sprite):
         self.rect.y = self.spawn_point + map.Map.tile_gap #position of the robot
         self.center = pg.math.Vector2(self.rect.x+50, self.rect.y+50)
 
-        self.censors = []
-        self.add_censor(20, 40)
+        self.censors = pg.sprite.Group()
+        self.add_censor(20, 40, 0, -50)
+        self.add_censor(20, 40, 40, -50)
 
-    def add_censor(self, width, height):
-        self.censors.append(Censor(width, height, 0, -50, self))
+    def add_censor(self, width, height, center_x_offset, center_y_offset):
+        self.censors.add(Censor(width, height, center_x_offset, center_y_offset, self))
 
     def is_in_arena(self, rect):
         if rect.x>= map.Map.arena_border_left and rect.x <= map.Map.arena_border_right and rect.y >= map.Map.arena_border_up and rect.y <= map.Map.arena_border_down:

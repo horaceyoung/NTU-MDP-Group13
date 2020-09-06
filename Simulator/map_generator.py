@@ -15,17 +15,31 @@ class Map:
     arena_border_right = tile_length * 13
     arena_border_down = tile_length * 18
 
+    tiles = pg.sprite.Group()
+
     def __init__(self):
         pass
 
-    def generate_map(self, screen):
+    def generate_map(self):
+        tile_x = 5
+        tile_y = 5
 
-        tile_pos_x = tile_pos_y= self.tile_gap
+        for row in range (1, 21):
+            for col in range (0, 15):
+                tile = Tile(tile_x, tile_y)
+                self.tiles.add(tile)
+                tile_x += tile.length + tile.gap
+            tile_x = 5
+            tile_y = 5 + (tile.length + tile.gap) *  row
 
-        for horizontal in range(0, self.height):
-            for vertical in range(0, self.width):
-                pg.draw.rect(screen, non_obstacle_tile_color, (tile_pos_x, tile_pos_y,
-                                                               self.non_obstacle_tile_width, self.non_obstacle_tile_width), 0)
-                tile_pos_x += self.tile_length
-            tile_pos_x = self.tile_gap
-            tile_pos_y +=self.tile_length
+class Tile(pg.sprite.Sprite):
+    def __init__(self, x, y):
+        pg.sprite.Sprite.__init__(self)
+        self.length = 30
+        self.gap = 5
+        self.color = (255, 255, 255)
+        self.image = pg.Surface((self.length, self.length))
+        self.rect = self.image.get_rect()
+        pg.draw.rect(self.image, self.color, self.rect)
+        self.rect.x = x
+        self.rect.y = y
