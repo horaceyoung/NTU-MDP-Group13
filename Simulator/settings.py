@@ -5,8 +5,9 @@ cwd = os.getcwd()
 
 non_obstacle_tile_color = (255,255,255)
 
-
 robot_image = pg.transform.scale(
-    pg.image.load(cwd + "\\assets\icons\\robot.png"),
+    pg.image.load(cwd + "\\assets\\icons\\robot.png"),
     (100, 100)
     )
+
+map_config_path = cwd + "\\assets\\map\\"

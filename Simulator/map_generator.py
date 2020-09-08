@@ -15,22 +15,47 @@ class Map:
     arena_border_right = tile_length * 13
     arena_border_down = tile_length * 18
 
-    tiles = pg.sprite.Group()
+    tiles_group = pg.sprite.Group() # the tiles sprite group
+    map_tiles = [] # a 20 * 15  list holding tile objects
 
     def __init__(self):
         pass
 
-    def generate_map(self):
-        tile_x = 5
-        tile_y = 5
+    def generate_map(self, map_config):
 
-        for row in range (1, 21):
-            for col in range (0, 15):
-                tile = Tile(tile_x, tile_y)
-                self.tiles.add(tile)
-                tile_x += tile.length + tile.gap
+        with open(map_config_path + map_config, 'r') as map_config:
             tile_x = 5
-            tile_y = 5 + (tile.length + tile.gap) *  row
+            tile_y = 5
+            for row in range(1, 21):
+                line = map_config.readline()
+                tile_row = []
+                for col in range (0, 15):
+                    if line[col] == '0':
+                        tile = Tile(tile_x, tile_y)
+                    elif line[col] == '1':
+                        tile = Tile(tile_x, tile_y)
+                        tile.is_obstacle = True
+                    elif line[col] =='2':
+                        tile = Tile(tile_x, tile_y)
+                        tile.update_color((255, 255, 0))
+                        tile.is_start_goal_zone = True
+                    tile.row = row-1
+                    tile.col = col
+                    tile_row.append(tile)
+                    tile_x += tile.length + tile.gap
+                self.map_tiles.append(tile_row)
+                tile_x = 5
+                tile_y = 5 + (tile.length + tile.gap) *  row
+
+        for tile in self.map_tiles:
+            self.tiles_group.add(tile)
+
+    def map_update(self):
+        for tile_row in self.map_tiles:
+            for tile in tile_row:
+                if tile.is_obstacle == False and tile.discovered ==True and tile.is_start_goal_zone == False:
+                    self.tiles_group.remove(tile)
+
 
 class Tile(pg.sprite.Sprite):
     def __init__(self, x, y):
@@ -43,3 +68,13 @@ class Tile(pg.sprite.Sprite):
         pg.draw.rect(self.image, self.color, self.rect)
         self.rect.x = x
         self.rect.y = y
+        self.row = None
+        self.col = None
+        self.is_start_goal_zone = False
+        self.is_obstacle = False
+        self.discovered = False
+
+    def update_color(self, color):
+        self.color = color
+        pg.draw.rect(self.image, self.color, pg.Rect(0,0, 35, 35))
+

@@ -21,6 +21,7 @@ class Robot(pg.sprite.Sprite):
         self.censors = pg.sprite.Group()
         self.add_censor(20, 40, 0, -50)
         self.add_censor(20, 40, 40, -50)
+        self.add_censor(20, 40, -40, -50)
 
     def add_censor(self, width, height, center_x_offset, center_y_offset):
         self.censors.add(Censor(width, height, center_x_offset, center_y_offset, self))
@@ -73,7 +74,22 @@ class Censor(pg.sprite.Sprite):
         self.rect.center = robot.rect.center + rotated_center_diff_vec
         self.image = pg.transform.rotate(self.image, degree)
 
-
-
     def position_update(self, robot):
         self.rect.center += robot.velocity * robot.direction
+
+    def collision_update(self, map):
+        collided_tiles = pg.sprite.spritecollide(self, map.tiles_group, False)
+        collided_tiles_with_distance = []
+        for collided_tile in collided_tiles:
+            collided_tiles_with_distance.append((collided_tile, pg.math.Vector2(self.rect.x, self.rect.y).distance_to(
+                pg.math.Vector2(collided_tile.rect.x, collided_tile.rect.y))))
+
+        #sort the tiles by the distance between its center and the center of the censor
+        collided_tiles_with_distance.sort(key=lambda x:x[1])
+        for collided_tile_tuple in collided_tiles_with_distance:
+            map.map_tiles[collided_tile_tuple[0].row][collided_tile_tuple[0].col].discovered = True
+            if collided_tile_tuple[0].is_obstacle:
+                collided_tile_tuple[0].update_color((0, 0, 255))
+                break
+
+
