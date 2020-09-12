@@ -62,9 +62,9 @@ class pcComm(object):
                 return pc_data
             print ('Read from PC: ' + pc_data.rstrip())
             return pc_data
-        except Exception as e:
-            print ('pcMod/PC Read Failed: %s' % str(e))
-            if ('Broken pipe' in str(e) or 'Connection reset by peer' in str(e)):
+        except Exception as error:
+            print ('pcMod/PC Read Failed: %s' % str(error))
+            if ('Broken pipe' in str(error) or 'Connection reset by peer' in str(error)):
                 self.close_pc_socket()
                 cprint(BOLD + RED, 'PC broken pipe.. PC read failed.. Retrying PC connection..')
                 self.connect_pc()
@@ -78,5 +78,5 @@ class pcComm(object):
             message = message.encode(LOCALE)
             self.client.sendto(message, self.addr)
             print ('Write to PC: ' + message)
-        except Exception as e:
-            print ('pcMod/PC Write Failed: %s' % str(e))
+        except Exception as error:
+            print ('pcMod/PC Write Failed: %s' % str(error))

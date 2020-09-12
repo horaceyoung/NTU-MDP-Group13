@@ -96,6 +96,7 @@ class Main(threading.Thread):
             print("Successfully read data from PC to Algorithm: %s" % readPCMessage[1:].rstrip())
             self.writeArduino(readPCMessage[1:] + "\r\n")
         elif(readPCMessage[1].upper()=='P'):
+            self.writePC("u")
             print("Taking image..")
             start_time=time.time()
             camera=PiCamera()
@@ -133,7 +134,7 @@ class Main(threading.Thread):
         self.pc_thread.write_PC(messageToPC)
         print("Successfully written data to PC: %s \r\n" % messageToPC.rstrip())
 
-    #write function for tablet commnuication via bluetooth
+    #write function for tablet communication via bluetooth
     def writeTablet(self, messageToTablet):
         self.tablet_thread.write_tablet(messageToTablet)
         print("Successfully written data to Tablet: %s" % messageToTablet.rstrip())
@@ -167,7 +168,7 @@ class Main(threading.Thread):
             if (not retry):
                 break
             self.tablet_thread.disconnect_tablet()
-            print ('Re-establishing tablet bluetooh connection..')
+            print ('Re-establishing tablet bluetooth connection..')
             self.tablet_thread.connect_tablet()
 
     def initialize_threads(self):

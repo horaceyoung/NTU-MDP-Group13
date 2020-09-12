@@ -29,12 +29,6 @@ BASE_IP = 'tcp://192.168.13.'
 PORT = ':5555'
 
 IMAGE_PROCESSING_SERVER_URLS = {
-    'cheyanne': BASE_IP + '54' + PORT,
-    'elbert': BASE_IP + '00' + PORT,  # don't have elbert's ip address yet
-    'jason': BASE_IP + '52' + PORT,
-    'joshua': BASE_IP + '93' + PORT,
-    'mingyang': BASE_IP + '74' + PORT,
-    'reuben': BASE_IP + '00' + PORT,  # don't have reuben's ip address yet
-    'winston': BASE_IP + '55' + PORT,
-    'yingting': BASE_IP + '90' + PORT,
+    'yinyi': BASE_IP + '00' + PORT,  # don't have ip address yet
+    'zhenyan': BASE_IP + '00' + PORT,  # don't have ip address yet
 }

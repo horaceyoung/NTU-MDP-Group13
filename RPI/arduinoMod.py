@@ -33,9 +33,10 @@ class arduinoComm(object):
     def disconnect_arduino(self):
         if self.ser:
             self.ser.close()
-            self.arduino_is_connected = False
-            if (not self.arduino_is_connected):
-                print ('Successfully Disconected Arduino!')
+            print ('Disconnecting Arduino..')
+        self.arduino_is_connected = False
+        if (not self.arduino_is_connected):
+            print ('Successfully Disconected Arduino!')
 
     def read_arduino(self):
         try:
