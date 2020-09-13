@@ -1,3 +1,6 @@
+import configurations
+
+
 #Node class for A* path finding
 class Node():
 
@@ -13,7 +16,7 @@ class Node():
     #to compare if 2 nodes are equal by comparing their positions
     def __eq__(self, other):
         return self.position == other.position
-        
+
 
 #A* path finding algorithm
 def astar(maze, start, end):
@@ -53,11 +56,11 @@ def astar(maze, start, end):
             while current is not None:
                 path.append(current.position)
                 current = current.parent
-                
+
             #Return reversed path
             return path[::-1]
 
-        
+
         #Generate children
         children = []
         for new_position in [(0,-1),(0,1),(-1,0),(1,0)]:
@@ -66,11 +69,11 @@ def astar(maze, start, end):
             node_position = (current_node.position[0] + new_position[0], current_node.position[1] + new_position[1])
 
             #Ensure the position is within the maze
-            if node_position[0] > len(maze)-1 or node_position[0] < 0 or node_position[1] > len(maze[0])-1 or node_position[1] < 0:
+            if node_position[0] > configurations.MAP_ROWS-1 or node_position[0] < 0 or node_position[1] > configurations.MAP_COLS-1 or node_position[1] < 0:  ############## Made Changes Here
                 continue
 
             #Ensure the new position is not an obstacle
-            if maze[node_position[0]][node_position[1]] != 0:
+            if (maze.getCell(node_position[0],node_position[1]).getIsObstacle() != 0 or maze.getCell(node_position[0],node_position[1]).isExplored == False): ################ Made Changes Here
                 continue
 
             #Create new node
@@ -111,6 +114,34 @@ def astar(maze, start, end):
                 open_list.append(child)
 
 
+# Added New Stuff #####################
+def runAStar(path,maze):
+    for cell in path:
+        maze.getCell(cell[0],cell[1]).isPath = True
+    printPathMap(maze)
+
+# Added New Stuff ######################
+def printPathMap(maze):
+    print_row = ""
+    printList = []
+    for x in range(configurations.MAP_ROWS):
+        for y in range(configurations.MAP_COLS):
+            #string = str(test_map.grid[x][y].row) + " "
+            if(maze.getCell(x,y).isPath):
+                string = "8 "
+            elif(maze.getCell(x,y).isExplored):
+                string = "1 "
+            else:
+                string = "0 "
+            print_row = print_row + string
+        printList.append(print_row)
+        print_row = ""
+
+    for i in range(len(printList)):
+        print(printList[i])
+    #print(print_row)
+    #    print_row = ""
+
 def main():
 
     maze = [[0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -140,6 +171,3 @@ def main():
 
 if __name__ == '__main__':
     main()
-        
-        
-        
