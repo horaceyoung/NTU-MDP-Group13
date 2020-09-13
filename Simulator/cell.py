@@ -7,6 +7,7 @@ class Cell:
         self.isVirtualWall = False
         self.isExplored = False
         self.isObstacle = False
+        self.isPath = False
 
     def setIsObstacle(self,value):
         self.isObstacle = value
@@ -20,3 +21,9 @@ class Cell:
 
     def setIsExplored(self,value):
         self.isExplored = value
+
+    def getIsObstacle(self):
+        if(self.isObstacle==True):
+            return 1
+        else:
+            return 0

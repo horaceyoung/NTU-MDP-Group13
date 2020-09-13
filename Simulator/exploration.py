@@ -3,6 +3,7 @@ import map
 import configurations
 import robot
 import time
+import fastestPath
 #import commMgr
 
 class Exploration:
@@ -15,6 +16,7 @@ class Exploration:
         self.startTime = 0
         self.endTime = 0
         self.areaExplored = 0
+
 
     def runExploration(self):
         print("Starting Exploration...")
@@ -37,6 +39,8 @@ class Exploration:
             if(self.areaExplored >= self.coverageLimit or time.time() >= self.endTime):
                 print("areaExplored, coverageLimit, curTime, endTime: ", self.areaExplored,self.coverageLimit,time.time(),self.endTime)
                 break
+        #path = fastestPath.astar(self.exploredMap, (self.bot.posRow,self.bot.posCol) , (configurations.START_ROW,configurations.START_COL))
+        #fastestPath.runAStar(path,self.exploredMap)
         #self.goHome()
 
 

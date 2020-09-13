@@ -6,6 +6,7 @@ import robot
 import configurations
 import map
 import exploration
+import fastestPath
 
 pg.init()
 screen = pg.display.set_mode((1024, 768))
@@ -30,6 +31,7 @@ exploredMap = map.Map(test_robot)
 realMap = map.Map(test_robot)
 exploredMap.setAllUnexplored()
 explorer = exploration.Exploration(exploredMap,realMap,test_robot,300,5/100000)
+path = fastestPath.astar(explorer.exploredMap, (explorer.bot.posRow,explorer.bot.posCol), (configurations.START_ROW,configurations.START_COL))
 #######################################################################
 
 
@@ -48,7 +50,8 @@ while running:
             if event.key == pg.K_w:
                 explorer.runExploration()
             if event.key == pg.K_a:
-                player_robot.rotate(-90)
+                fastestPath.runAStar(path,explorer.exploredMap)
+                #player_robot.rotate(-90)
             if event.key == pg.K_d:
                 player_robot.rotate(90)
     pg.sprite.groupcollide(player_robot.censors, arena_map.tiles, False, True)

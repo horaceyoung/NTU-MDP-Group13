@@ -105,7 +105,9 @@ class Map:
         for x in range(configurations.MAP_ROWS):
             for y in range(configurations.MAP_COLS):
                 #string = str(test_map.grid[x][y].row) + " "
-                if(self.grid[x][y].isExplored):
+                if(self.grid[x][y].isPath):
+                    string = "8 "
+                elif(self.grid[x][y].isExplored):
                     string = "1 "
                 else:
                     string = "0 "
