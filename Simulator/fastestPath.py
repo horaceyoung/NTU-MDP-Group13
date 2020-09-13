@@ -127,10 +127,10 @@ def printPathMap(maze):
     for x in range(configurations.MAP_ROWS):
         for y in range(configurations.MAP_COLS):
             #string = str(test_map.grid[x][y].row) + " "
-            if(maze.getCell(x,y).isPath):
-                string = "8 "
-            elif(maze.getCell(x,y).isExplored):
+            if(maze.inStartZone(x,y) or maze.inGoalZone(x,y)):
                 string = "1 "
+            elif(maze.getCell(x,y).isPath):
+                string = "8 "
             else:
                 string = "0 "
             print_row = print_row + string

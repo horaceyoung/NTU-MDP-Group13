@@ -31,7 +31,7 @@ exploredMap = map.Map(test_robot)
 realMap = map.Map(test_robot)
 exploredMap.setAllUnexplored()
 explorer = exploration.Exploration(exploredMap,realMap,test_robot,300,5/100000)
-path = fastestPath.astar(explorer.exploredMap, (explorer.bot.posRow,explorer.bot.posCol), (configurations.START_ROW,configurations.START_COL))
+#path = fastestPath.astar(explorer.exploredMap, (explorer.bot.posRow,explorer.bot.posCol), (configurations.START_ROW,configurations.START_COL))
 #######################################################################
 
 
@@ -50,6 +50,7 @@ while running:
             if event.key == pg.K_w:
                 explorer.runExploration()
             if event.key == pg.K_a:
+                path = fastestPath.astar(explorer.exploredMap, (explorer.bot.posRow,explorer.bot.posCol), (configurations.GOAL_ROW,configurations.GOAL_COL))
                 fastestPath.runAStar(path,explorer.exploredMap)
                 #player_robot.rotate(-90)
             if event.key == pg.K_d:
