@@ -1,29 +1,22 @@
-import configurations
+import pygame as pg
 
-class Cell:
-    def __init__(self,row,col):
-        self.row = row
-        self.col = col
-        self.isVirtualWall = False
-        self.isExplored = False
-        self.isObstacle = False
-        self.isPath = False
+class cell(pg.sprite.Sprite):
+    def __init__(self, x, y):
+        pg.sprite.Sprite.__init__(self)
+        self.length = 30
+        self.gap = 5
+        self.color = (255, 255, 255)
+        self.image = pg.Surface((self.length, self.length))
+        self.rect = self.image.get_rect()
+        pg.draw.rect(self.image, self.color, self.rect)
+        self.rect.x = x
+        self.rect.y = y
+        self.row = None
+        self.col = None
+        self.is_start_goal_zone = False
+        self.is_obstacle = False
+        self.discovered = False
 
-    def setIsObstacle(self,value):
-        self.isObstacle = value
-
-    def setVirtualWall(self,value):
-        if(value):
-            self.isVirtualWall = True
-        else:
-            if(self.row !=0 and self.row != (configurations.MAP_ROWS -1) and self.col != 0 and self.col != (configurations.MAP_COLS - 1)):
-                self.isVirtualWall = false
-
-    def setIsExplored(self,value):
-        self.isExplored = value
-
-    def getIsObstacle(self):
-        if(self.isObstacle==True):
-            return 1
-        else:
-            return 0
+    def update_color(self, color):
+        self.color = color
+        pg.draw.rect(self.image, self.color, pg.Rect(0,0, 35, 35))
