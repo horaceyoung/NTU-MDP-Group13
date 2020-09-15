@@ -4,6 +4,8 @@ import numpy
 class Sensor(pg.sprite.Sprite):
     def __init__(self, width, height, center_x_offset, center_y_offset, direction, robot):
         pg.sprite.Sprite.__init__(self)
+        self.width = width
+        self.height = height
         self.image = pg.Surface((width, height), pg.SRCALPHA, 32)
         self.rect = self.image.get_rect()
         self.rect.center = robot.rect.center + pg.math.Vector2(center_x_offset, center_y_offset)
@@ -11,7 +13,7 @@ class Sensor(pg.sprite.Sprite):
         self.border_width = 10
         self.direction = direction
 
-        pg.draw.rect(self.image, self.color, pg.Rect(0, 0, width, height), self.border_width)
+        pg.draw.rect(self.image, self.color, pg.Rect(0, 0, self.width, self.height), self.border_width)
 
     def rotation_update(self, robot, degree):
         center_diff_vec = pg.math.Vector2(tuple(numpy.subtract(self.rect.center, robot.rect.center)))
@@ -24,7 +26,7 @@ class Sensor(pg.sprite.Sprite):
     def position_update(self, robot):
         self.rect.center += robot.velocity * robot.direction
 
-    def collision_update(self, map):
+    def sense(self, map):
         collided_cells = pg.sprite.spritecollide(self, map.cells_group, False)
         collided_cells_with_distance = []
         for collided_cell in collided_cells:
@@ -32,9 +34,11 @@ class Sensor(pg.sprite.Sprite):
                 pg.math.Vector2(collided_cell.rect.x, collided_cell.rect.y))))
 
         #sort the cells by the distance between its center and the center of the sensor
-        collided_cells_with_distance.sort(key=lambda x:x[1])
+        collided_cells_with_distance.sort(key=lambda x:x[1], reverse=True)
         for collided_cell_tuple in collided_cells_with_distance:
             map.map_cells[collided_cell_tuple[0].row][collided_cell_tuple[0].col].discovered = True
             if collided_cell_tuple[0].is_obstacle:
                 collided_cell_tuple[0].update_color((0, 0, 255))
                 break
+            elif not collided_cell_tuple[0].is_start_goal_zone:
+                map.cells_group.remove(collided_cell_tuple[0])

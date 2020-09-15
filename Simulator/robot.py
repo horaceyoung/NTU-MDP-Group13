@@ -43,6 +43,7 @@ class Robot(pg.sprite.Sprite):
         self.add_sensor(Map.cell_length * 15, 20, -Map.cell_length * 9, 0, Direction.LEFT) # long-range sensor
         # right sensors
         self.add_sensor(Map.cell_length * 8, 20, Map.cell_length * 5.5, - Map.cell_length * 1, Direction.RIGHT)
+
     def is_in_arena(self, rect):
         if rect.x>= Map.arena_border_left and rect.x <= Map.arena_border_right and rect.y >= Map.arena_border_up and rect.y <= Map.arena_border_down:
             return True

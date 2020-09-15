@@ -22,14 +22,14 @@ while running:
     arena_map.cells_group.draw(screen)
     robot_group.draw(screen)
     player_robot.sensors.draw(screen)
-    #sensors update
-    '''for sensor in player_robot.sensors:
-        sensor.collision_update(arena_map)'''
     # map update
     arena_map.map_update()
 
     # controls
     for event in pg.event.get():
+        # sensors update
+        for sensor in player_robot.sensors:
+            sensor.sense(arena_map)
         if event.type == pg.QUIT:
             running = False
         if event.type == pg.KEYDOWN:
