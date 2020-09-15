@@ -41,6 +41,7 @@ class Map:
                     elif line[col] =='2':
                         cell = Cell(cell_x, cell_y)
                         cell.update_color((255, 255, 0))
+                        cell.discovered =  True
                         cell.is_start_goal_zone = True
                     cell.row = row-1
                     cell.col = col

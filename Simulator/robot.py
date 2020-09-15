@@ -3,6 +3,7 @@ import pygame as pg
 from map import Map
 from sensor import Sensor
 from configurations import *
+from vec2D import swap_coordinates
 
 class Robot(pg.sprite.Sprite):
     def __init__(self):
@@ -20,6 +21,7 @@ class Robot(pg.sprite.Sprite):
 
         self.sensors = pg.sprite.Group()
         self.initialize_sensors()
+        self.location =  pg.math.Vector2(18, 1)
 
 
     def add_sensor(self, width, height, center_x_offset, center_y_offset, direction):
@@ -35,14 +37,14 @@ class Robot(pg.sprite.Sprite):
                        [X] [X] [X]
         """
         # up sensors
-        self.add_sensor(20, Map.cell_length* 8, 0, -Map.cell_length* 5.5, Direction.UP)
-        self.add_sensor(20, Map.cell_length* 8, 30, -Map.cell_length* 5.5, Direction.UP)
-        self.add_sensor(20, Map.cell_length* 8, -30, -Map.cell_length* 5.5, Direction.UP)
+        self.add_sensor(20, Map.cell_length* 8, 0, -Map.cell_length* 5.5, Direction.UP.value)
+        self.add_sensor(20, Map.cell_length* 8, 30, -Map.cell_length* 5.5, Direction.UP.value)
+        self.add_sensor(20, Map.cell_length* 8, -30, -Map.cell_length* 5.5, Direction.UP.value)
         # left sensors
-        self.add_sensor(Map.cell_length * 8, 20, -Map.cell_length * 5.5, - Map.cell_length * 1, Direction.LEFT)
-        self.add_sensor(Map.cell_length * 15, 20, -Map.cell_length * 9, 0, Direction.LEFT) # long-range sensor
+        self.add_sensor(Map.cell_length * 8, 20, -Map.cell_length * 5.5, - Map.cell_length * 1, Direction.LEFT.value)
+        self.add_sensor(Map.cell_length * 15, 20, -Map.cell_length * 9, 0, Direction.LEFT.value) # long-range sensor
         # right sensors
-        self.add_sensor(Map.cell_length * 8, 20, Map.cell_length * 5.5, - Map.cell_length * 1, Direction.RIGHT)
+        self.add_sensor(Map.cell_length * 8, 20, Map.cell_length * 5.5, - Map.cell_length * 1, Direction.RIGHT.value)
 
     def is_in_arena(self, rect):
         if rect.x>= Map.arena_border_left and rect.x <= Map.arena_border_right and rect.y >= Map.arena_border_up and rect.y <= Map.arena_border_down:
@@ -57,6 +59,7 @@ class Robot(pg.sprite.Sprite):
         _rect.y += self.direction[1] * self.velocity
 
         if self.is_in_arena(_rect):
+            self.location += swap_coordinates(self.direction)
             self.rect.x += self.direction[0] * self.velocity
             self.rect.y += self.direction[1] * self.velocity
             # update center
