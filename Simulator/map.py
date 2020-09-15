@@ -1,4 +1,5 @@
-from settings import *
+from configurations import *
+from cell import Cell
 import pygame as pg
 
 class Map:
@@ -7,6 +8,8 @@ class Map:
     width = 15
     config = 0
 
+    map_offset_x = 5
+    map_offset_y = 5
     non_obstacle_cell_width = 30 # with of the cell
     cell_length = 35  # cell_length - cell_width = the gap between cell gaps, alter here to adjust length
     cell_gap = cell_length - non_obstacle_cell_width
@@ -24,19 +27,19 @@ class Map:
     def generate_map(self, map_config):
 
         with open(map_config_path + map_config, 'r') as map_config:
-            cell_x = 5
-            cell_y = 5
+            cell_x = self.map_offset_x
+            cell_y = self.map_offset_y
             for row in range(1, 21):
                 line = map_config.readline()
                 cell_row = []
                 for col in range (0, 15):
                     if line[col] == '0':
-                        cell = cell(cell_x, cell_y)
+                        cell = Cell(cell_x, cell_y)
                     elif line[col] == '1':
-                        cell = cell(cell_x, cell_y)
+                        cell = Cell(cell_x, cell_y)
                         cell.is_obstacle = True
                     elif line[col] =='2':
-                        cell = cell(cell_x, cell_y)
+                        cell = Cell(cell_x, cell_y)
                         cell.update_color((255, 255, 0))
                         cell.is_start_goal_zone = True
                     cell.row = row-1
@@ -44,8 +47,8 @@ class Map:
                     cell_row.append(cell)
                     cell_x += cell.length + cell.gap
                 self.map_cells.append(cell_row)
-                cell_x = 5
-                cell_y = 5 + (cell.length + cell.gap) *  row
+                cell_x = self.map_offset_x
+                cell_y = self.map_offset_y + (cell.length + cell.gap) *  row
 
         for cell in self.map_cells:
             self.cells_group.add(cell)

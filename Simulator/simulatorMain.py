@@ -1,7 +1,7 @@
 import pygame as pg
 
 import configurations
-import fastestPath
+import fastest_path
 import map
 import robot
 
@@ -21,10 +21,10 @@ while running:
     # generate the map
     arena_map.cells_group.draw(screen)
     robot_group.draw(screen)
-    player_robot.censors.draw(screen)
-    #censors update
-    for censor in player_robot.censors:
-        censor.collision_update(arena_map)
+    player_robot.sensors.draw(screen)
+    #sensors update
+    '''for sensor in player_robot.sensors:
+        sensor.collision_update(arena_map)'''
     # map update
     arena_map.map_update()
 

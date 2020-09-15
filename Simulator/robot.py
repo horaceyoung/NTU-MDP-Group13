@@ -1,19 +1,8 @@
 import numpy
-import configurations
-import map
 import pygame as pg
+from map import Map
+from sensor import Sensor
 from configurations import *
-
-"""
-Robot Sensor placement
-           ^   ^   ^
-          SR  SR  SR
-        << SR
-         [X] [X] [X]
-    < LR [X] [X] [X] SR >
-         [X] [X] [X]
-
-"""
 
 class Robot(pg.sprite.Sprite):
     def __init__(self):
@@ -23,24 +12,39 @@ class Robot(pg.sprite.Sprite):
         self.direction = pg.math.Vector2(0, -1)
         self.velocity = 35
 
-        self.spawn_point = 17 * map.Map.cell_length
+        self.spawn_point = 17 * Map.cell_length
 
         self.rect = self.image.get_rect()
-        self.rect.x = map.Map.cell_gap
-        self.rect.y = self.spawn_point + map.Map.cell_gap #position of the robot
-        self.center = pg.math.Vector2(self.rect.x+50, self.rect.y+50)
+        self.rect.x = Map.cell_gap
+        self.rect.y = self.spawn_point + Map.cell_gap #position of the robot
 
         self.sensors = pg.sprite.Group()
         self.initialize_sensors()
-        self.add_sensor(20, 40, 0, -50)
-        self.add_sensor(20, 40, 40, -50)
-        self.add_sensor(20, 40, -40, -50)
 
-    def add_sensor(self, width, height, center_x_offset, center_y_offset):
-        self.sensors.add(sensor(width, height, center_x_offset, center_y_offset, self))
 
+    def add_sensor(self, width, height, center_x_offset, center_y_offset, direction):
+        self.sensors.add(Sensor(width, height, center_x_offset, center_y_offset, direction, self))
+
+    def initialize_sensors(self):
+        """
+        Robot Sensor placement
+                         ^   ^   ^
+                      SR  SR  SR
+         << SR [X] [X] [X]
+            < LR [X] [X] [X] SR >
+                       [X] [X] [X]
+        """
+        # up sensors
+        self.add_sensor(20, Map.cell_length* 8, 0, -Map.cell_length* 5.5, Direction.UP)
+        self.add_sensor(20, Map.cell_length* 8, 30, -Map.cell_length* 5.5, Direction.UP)
+        self.add_sensor(20, Map.cell_length* 8, -30, -Map.cell_length* 5.5, Direction.UP)
+        # left sensors
+        self.add_sensor(Map.cell_length * 8, 20, -Map.cell_length * 5.5, - Map.cell_length * 1, Direction.LEFT)
+        self.add_sensor(Map.cell_length * 15, 20, -Map.cell_length * 9, 0, Direction.LEFT) # long-range sensor
+        # right sensors
+        self.add_sensor(Map.cell_length * 8, 20, Map.cell_length * 5.5, - Map.cell_length * 1, Direction.RIGHT)
     def is_in_arena(self, rect):
-        if rect.x>= map.Map.arena_border_left and rect.x <= map.Map.arena_border_right and rect.y >= map.Map.arena_border_up and rect.y <= map.Map.arena_border_down:
+        if rect.x>= Map.arena_border_left and rect.x <= Map.arena_border_right and rect.y >= Map.arena_border_up and rect.y <= Map.arena_border_down:
             return True
         else:
             return False
