@@ -15,10 +15,17 @@ class Cell(pg.sprite.Sprite):
         self.rect.y = y
         self.row = 0
         self.col = 0
+        self.position = None
 
         self.is_start_goal_zone = False
         self.is_obstacle = False
         self.discovered = False
+
+        # for fastest_path
+        self.parent = None
+        self.g =0
+        self.h = 0
+        self.f = 0
 
     def update_color(self, color):
         self.color = color

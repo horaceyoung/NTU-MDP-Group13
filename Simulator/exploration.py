@@ -1,42 +1,31 @@
 from configurations import *
 from vec2D import swap_coordinates
 import time
+
 class Exploration:
-    def __init__(self, coverageLimit,timeLimit, robot, map):
+    def __init__(self, coverage_limit,time_limit, robot, arena_map):
         self.robot = robot
-        self.map = map
-        self.coverageLimit = coverageLimit
-        self.timeLimit = timeLimit
-        self.startTime = 0
-        self.endTime = 0
-        self.areaExplored = 0
+        self.map = arena_map
+        self.coverage_limit = coverage_limit
+        self.time_limit = time_limit
+        self.start_time = 0
+        self.end_time = 0
+        self.area_explored = 0
 
-
-    def runExploration(self):
+    def initialize_exploration(self):
         print("Starting Exploration...")
-        self.startTime = time.time()
-        self.endTime = self.startTime + self.timeLimit
-        # self.areaExplored = self.calculateAreaExplored()  #Number of cells explored in grid
-        print("Exploration Area: " + str(self.areaExplored))
-        self.explorationLoop(self.bot.posRow,self.bot.posCol)
+        self.start_time = time.time()
+        self.end_time = self.start_time + self.time_limit
+        self.exploration_loop()
 
-
-    def explorationLoop(self):
-        while(True):
-            self.next_move()
-            # self.areaExplored = self.calculateAreaExplored()
-            # print("Area Explored: " + str(self.areaExplored))
-            # if(self.bot.posRow == r and self.bot.posCol == c):
-            #     if(self.areaExplored >= 300):
-            #         break
-            # if(self.areaExplored >= self.coverageLimit or time.time() >= self.endTime):
-            #     print("areaExplored, coverageLimit, curTime, endTime: ", self.areaExplored,self.coverageLimit,time.time(),self.endTime)
-            #     break
+    def exploration_loop(self):
+        self.next_move(self.robot, self.map)
+        self.area_explored = self.calculate_area_explored()
+        print("Area Explored: " + str(self.area_explored))
 
     #Check if the direction relative to the robot has free space -
     @classmethod
     def look(cls, direction, robot, arena_map):
-        print(robot.location)
         target_direction = robot.direction
         if direction == Direction.UP:
             pass
@@ -49,7 +38,7 @@ class Exploration:
         target_direction = swap_coordinates(target_direction)
         direction_offset = swap_coordinates(direction_offset)
 
-        cell_coordinates = []  # cells to be looked
+        cell_coordinates = list()  # cells to be looked
         cell_coordinates.append(pg.Vector2(robot.location + 2 * target_direction))
         cell_coordinates.append(pg.Vector2(robot.location + 2 * target_direction) + direction_offset)
         cell_coordinates.append(pg.Vector2(robot.location + 2 * target_direction) - direction_offset)
@@ -84,3 +73,11 @@ class Exploration:
             robot.rotate(90)
             robot.rotate(90)
 
+
+    def calculate_area_explored(self):
+        explored_arena_count = 0
+        for cell_row in self.map.map_cells:
+            for cell in cell_row:
+                if cell.discovered:
+                    explored_arena_count += 1
+        return explored_arena_count

@@ -45,6 +45,7 @@ class Map:
                         cell.is_start_goal_zone = True
                     cell.row = row-1
                     cell.col = col
+                    cell.position = pg.Vector2(cell.row, cell.col)
                     cell_row.append(cell)
                     cell_x += cell.length + cell.gap
                 self.map_cells.append(cell_row)
