@@ -1,6 +1,6 @@
 import sys
 import time
-import Queue
+# import Queue
 import threading
 import json
 from colors import *
@@ -201,8 +201,8 @@ class Main(threading.Thread):
 
 			# print("Scanning for image with front at: X=" + str(newCmd[0]) + ", Y=" + str(newCmd[1]))
 
-        else:
-			print("Incorrect header from PC (expecting 'B' for Android, 'A' for Arduino, 'R' for Algorithm, or 'P' for Image Recog.): [%s]" % readPCMessage[0])
+        else:	
+            print("Incorrect header from PC (expecting 'B' for Android, 'A' for Arduino, 'R' for Algorithm, or 'P' for Image Recog.): [%s]" % readPCMessage[0])
 
     def readPC(self):
         try:
