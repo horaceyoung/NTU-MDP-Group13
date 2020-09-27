@@ -3,7 +3,7 @@ from vec2D import swap_coordinates
 import time
 
 class Exploration:
-    def __init__(self, coverage_limit,time_limit, robot, arena_map):
+    def __init__(self, coverage_limit,time_limit, robot, arena_map, realRun, comm = None):
         self.robot = robot
         self.map = arena_map
         self.coverage_limit = coverage_limit
@@ -11,6 +11,8 @@ class Exploration:
         self.start_time = 0
         self.end_time = 0
         self.area_explored = 0
+        self.realRun = realRun
+        self.comm = comm
 
     def initialize_exploration(self):
         print("Starting Exploration...")
@@ -19,7 +21,12 @@ class Exploration:
         self.exploration_loop()
 
     def exploration_loop(self):
-        self.next_move(self.robot, self.map)
+        if(not self.realRun):
+            self.next_move(self.robot, self.map)
+        #(Added) Real Run ############################################
+        else:
+            self.nextRealMove(self.robot, self.map, self.comm)
+
         self.area_explored = self.calculate_area_explored()
         print("Area Explored: " + str(self.area_explored))
 
@@ -73,6 +80,35 @@ class Exploration:
             robot.rotate(90)
             robot.rotate(90)
 
+    @classmethod
+    def nextRealMove(cls, robot, arena_map, comm):
+        if cls.look(Direction.RIGHT, robot, arena_map):
+            robot.rotate(90)
+            comm.send_movement(Movement.RIGHT.value,False)
+            if cls.look(Direction.UP, robot, arena_map):
+                robot.move_forward()
+                comm.send_movement(Movement.FORWARD.value,False)
+                #robot.sendMovement(Movement.FORWARD.value)
+        elif cls.look(Direction.UP, robot, arena_map):
+            robot.move_forward()
+            comm.send_movement(Movement.FORWARD.value,False)
+            #robot.sendMovement(Movement.FORWARD.value)
+        elif cls.look(Direction.LEFT, robot, arena_map):
+            robot.rotate(-90)
+            comm.send_movement(Movement.LEFT.value,False)
+            #robot.sendMovement(Movement.LEFT.value)
+            if cls.look(Direction.UP, robot, arena_map):
+                robot.move_forward()
+                comm.send_movement(Movement.FORWARD.value,False)
+                #robot.sendMovement(Movement.FORWARD.value)
+        else:
+            robot.rotate(90)
+            robot.rotate(90)
+            comm.send_movement(Movement.RIGHT.value,False)
+            comm.send_movement(Movement.RIGHT.value,False)
+            #robot.sendMovement(Movement.RIGHT.value)
+            #robot.sendMovement(Movement.RIGHT.value)
+
 
     def calculate_area_explored(self):
         explored_arena_count = 0
@@ -81,3 +117,71 @@ class Exploration:
                 if cell.discovered:
                     explored_arena_count += 1
         return explored_arena_count
+
+    '''
+    def canCalibrateOnTheSpot(botDir):
+        #row get robot current row position
+        #col get robot current col position
+        row = bot.getRobotPosRow()
+        col = bot.getRobotPosCol()
+
+        #Check whether can calibrate using front sensor
+        if(botDir == Direction.UP):
+            return exploredMap.getIsObstacleOrWall(row + 2, col - 1) && exploredMap.getIsObstacleOrWall(row + 2, col) && exploredMap.getIsObstacleOrWall(row + 2, col + 1)
+        elif(botDir == Direction.RIGHT):
+            return exploredMap.getIsObstacleOrWall(row + 1, col + 2) && exploredMap.getIsObstacleOrWall(row, col + 2) && exploredMap.getIsObstacleOrWall(row - 1, col + 2)
+        elif(botDir == Direction.DOWN):
+            return exploredMap.getIsObstacleOrWall(row - 2, col - 1) && exploredMap.getIsObstacleOrWall(row - 2, col) && exploredMap.getIsObstacleOrWall(row - 2, col + 1)
+        elif(botDir == Direction.LEFT):
+            return exploredMap.getIsObstacleOrWall(row + 1, col - 2) && exploredMap.getIsObstacleOrWall(row, col - 2) && exploredMap.getIsObstacleOrWall(row - 1, col - 2)
+
+        #Check whether can calibrate using right sensor
+        if(botDir == Direction.UP):
+            return exploredMap.getIsObstacleOrWall(row + 1, col + 2)
+        elif(botDir == Direction.RIGHT):
+            return exploredMap.getIsObstacleOrWall(row - 2, col + 1)
+        elif(botDir == Direction.DOWN):
+            return exploredMap.getIsObstacleOrWall(row - 1, col - 2)
+        elif(botDir == Direction.LEFT):
+            return exploredMap.getIsObstacleOrWall(row + 2, col - 1)
+
+        return False
+
+
+
+    def getCalibrationDirection(self,origDir):
+
+
+        dirToCheck = DIRECTION.getNext(origDir)                  #right
+        if (canCalibrateOnTheSpot(dirToCheck)):
+            return dirToCheck
+
+        dirToCheck = DIRECTION.getPrevious(origDir)               #left turn
+        if (canCalibrateOnTheSpot(dirToCheck)):
+            return dirToCheck
+
+        dirToCheck = DIRECTION.getPrevious(dirToCheck)           #u turn
+        if (canCalibrateOnTheSpot(dirToCheck)):
+            return dirToCheck
+
+        return None
+
+
+
+
+    def calibrateBot(self):
+        origDir = bot.getRobotCurDir()
+        if(self.canCalibrateOnTheSpot(origDir)):
+            comm.send_movement(Movement.CALIBRATE)
+        else:
+            self.getCalibrationDirection(origDir)
+
+        if(origDir == Direction.UP):
+
+        elif(origDir == Direction.RIGHT):
+        elif(origDir == Direction.DOWN):
+        elif(origDIr == Direction.LEfT):
+        turnBotDirection(targetDir)
+        moveBot(MOVEMENT.CALIBRATE)
+        turnBotDirection(origDir)
+    '''

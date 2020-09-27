@@ -2,7 +2,7 @@ import pygame as pg
 import numpy
 
 class Sensor(pg.sprite.Sprite):
-    def __init__(self, width, height, center_x_offset, center_y_offset, direction, robot):
+    def __init__(self, width, height, center_x_offset, center_y_offset, direction, robot, location_offset):
         pg.sprite.Sprite.__init__(self)
         self.width = width
         self.height = height
@@ -12,6 +12,8 @@ class Sensor(pg.sprite.Sprite):
         self.color = (255, 0, 0)
         self.border_width = 10
         self.direction = direction
+        self.location_offset = location_offset
+        self.location = None
 
         pg.draw.rect(self.image, self.color, pg.Rect(0, 0, self.width, self.height), self.border_width)
 
@@ -25,9 +27,11 @@ class Sensor(pg.sprite.Sprite):
 
 
     def position_update(self, robot):
+        self.location = robot.location + self.location_offset
         self.rect.center += robot.velocity * robot.direction
 
     def sense(self, map, robot):
+
         collided_cells = pg.sprite.spritecollide(self, map.cells_group, False)
         collided_cells_with_distance = []
         for collided_cell in collided_cells:
@@ -41,8 +45,9 @@ class Sensor(pg.sprite.Sprite):
             if collided_cell_tuple[0].is_obstacle:
                 collided_cell_tuple[0].update_color((0, 0, 255))
                 break
-            elif not collided_cell_tuple[0].is_start_goal_zone:
+            elif not collided_cell_tuple[0].is_start_goal_zone and collided_cell_tuple[0].color != (255, 0, 0):
                 map.cells_group.remove(collided_cell_tuple[0])
+
 
         # detect discover rate
         #     result = ""

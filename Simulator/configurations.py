@@ -26,7 +26,32 @@ class Direction(enum.Enum):
     UP = pg.Vector2(0, -1)
     RIGHT = pg.Vector2(1, 0)
     DOWN = pg.Vector2(0, 1)
+'''
+def getDirectionValue(dir):
+    if(dir == Direction.UP):
+        return 1
+    elif(dir == Direction.RIGHT):
+        return 2
+    elif(dir == Direction.DOWN):
+        return 3
+    elif(dir == Direction.LEFT):
+        return 4
 
+def getTurnCounter(curDir,targetDir):
+    curDirVal = getDirectionValue(curDir)
+    targetDirVal = getDirectionValue(targetDir)
+    if((targetDirVal - curDirVal) > 2):
+        turncounter = -1
+    if((targetDirVal - curDirVal) < 0)
+        turncounter = -1
+
+def getNextDir(curDir):
+    return Direction(((curDir.value+1)%4))
+
+def getPrevDir(curDir):
+    return Direction(((curDir.value+4-1)%4))
+
+'''    
 GOAL_ROW = 18                          # row no. of goal cell
 GOAL_COL = 13                          # col no. of goal cell
 START_ROW = 1                          # row no. of start cell

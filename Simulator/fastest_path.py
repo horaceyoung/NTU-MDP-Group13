@@ -4,7 +4,7 @@ import pygame as pg
 def astar(arena_map, start, end):
 
     # Create start and end node
-    start_node = arena_map.map_cells[start[0]][start[1]]
+    start_node = arena_map.map_cells[int(start[0])][int(start[1])]
     start_node.g = start_node.h = start_node.f = 0
     end_node = arena_map.map_cells[end[0]][end[1]]
     end_node.g = end_node.h = end_node.f - 0
@@ -89,7 +89,7 @@ def astar(arena_map, start, end):
         # for child in children:
         #     print("child", child.position, child.parent.position)
 
-        
+
         # Loop through children
         for child in children:
             # Initialize the f, g, and h values

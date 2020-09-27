@@ -3,6 +3,8 @@ import fastest_path
 import exploration
 import map
 import robot
+import testComm
+
 from configurations import *
 
 pg.init()
@@ -14,15 +16,18 @@ clock = pg.time.Clock()
 player_robot = robot.Robot()
 robot_group = pg.sprite.Group(player_robot)
 arena_map = map.Map()
-arena_map.generate_map('map_config_1.txt')
-
-exploration_instance = exploration.Exploration(298, 100, player_robot, arena_map)
-exploration_instance.initialize_exploration()
+arena_map.generate_map('map_config_2.txt')
+realRun = False
+exploration_instance = exploration.Exploration(300, 100, player_robot, arena_map, False)
+#exploration_instance.initialize_exploration()
 # an unresolved issue
 arena_map.map_cells[18][3].discovered=True
 arena_map.map_cells[19][3].discovered=True
 
 running = True
+#comm = testComm.TcpClient("127.0.0.1", 22, buffer_size=1024) #For debugging purpose
+#testcom = testComm.TcpClient("192.168.13.13", 22, buffer_size=1024)
+#comm.run()
 
 while running:
     # controls
@@ -33,16 +38,31 @@ while running:
             if event.key == pg.K_w:
                 fastest_path.astar(arena_map, (18, 1), (1, 13))
                 #exploration.Exploration.next_move(player_robot, arena_map)
-            if event.key == pg.K_a:
-                player_robot.rotate(-90)
-            if event.key == pg.K_d:
+            if event.key == pg.K_e:
+                #exploration_instance = exploration.Exploration(298, 100, player_robot, arena_map, False)
+                exploration_instance.initialize_exploration()
+                #player_robot.rotate(-90)
+            if event.key == pg.K_h:
+                fastest_path.astar(arena_map,player_robot.location,(18,1))
                 player_robot.rotate(90)
+            #(Added) Test Real Run ####################################################################
+            if event.key == pg.K_r:
+                realRun = True
+                comm = testComm.TcpClient("127.0.0.1", 22, buffer_size=1024) #For debugging purpose
+                #comm = testComm.TcpClient("192.168.13.13", 22, buffer_size=1024)
+                comm.run()
+                exploration_instance = exploration.Exploration(298, 100, player_robot, arena_map, True, comm)
+                exploration_instance.initialize_exploration()
+
+
 
     for sensor in player_robot.sensors:
         sensor.sense(arena_map, player_robot)
 
-    if exploration_instance.area_explored <= exploration_instance.coverage_limit and time.time() <= exploration_instance.end_time:
+
+    if exploration_instance.area_explored < exploration_instance.coverage_limit and time.time() <= exploration_instance.end_time:
         exploration_instance.exploration_loop()
+    #fastest_path.astar(arena_map,player_robot.location,(18,1))
 
     clock.tick(100)
 
