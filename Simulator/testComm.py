@@ -1,4 +1,3 @@
-
 import socket
 import multiprocessing
 import json
@@ -114,6 +113,7 @@ class TcpClient():
 
     def get_sensor_value(self):
         #while(True):
+        sensorVal = ""
         try:
             self.recv()
             data = self.get_string()

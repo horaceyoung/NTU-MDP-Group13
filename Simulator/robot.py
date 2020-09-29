@@ -7,7 +7,7 @@ from vec2D import swap_coordinates
 # import commMgr
 
 class Robot(pg.sprite.Sprite):
-    def __init__(self):
+    def __init__(self,comm=None):
         pg.sprite.Sprite.__init__(self)
 
         self.image = robot_image
@@ -86,3 +86,7 @@ class Robot(pg.sprite.Sprite):
         self.comm.sendMsg(m)
 
     #(INCOMING) get Sensor value from Arduino##############################
+    def get_sensor_readings(self):
+        sensor_value = self.comm.get_sensor_value()
+        for sensor in self.sensors:
+            sensor.update_map(map, sensor_value)

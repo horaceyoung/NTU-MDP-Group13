@@ -59,6 +59,7 @@ while running:
 
     for sensor in player_robot.sensors:
         sensor.sense(arena_map, player_robot)
+        player_robot.get_sensor_readings()
 
 
     if exploration_instance.area_explored < exploration_instance.coverage_limit and time.time() <= exploration_instance.end_time:
