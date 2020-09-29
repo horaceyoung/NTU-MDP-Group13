@@ -1,8 +1,9 @@
 import pygame as pg
 import numpy
+import commMgr
 
 class Sensor(pg.sprite.Sprite):
-    def __init__(self, width, height, center_x_offset, center_y_offset, direction, robot, location_offset):
+    def __init__(self, width, height, center_x_offset, center_y_offset, direction, robot, location_offset, comm=None):
         pg.sprite.Sprite.__init__(self)
         self.width = width
         self.height = height
@@ -15,7 +16,8 @@ class Sensor(pg.sprite.Sprite):
         self.direction = direction
         self.location_offset = location_offset
         self.location = None
-        self.range = 2
+        self.comm = comm
+
         pg.draw.rect(self.image, self.color, pg.Rect(0, 0, self.width, self.height), self.border_width)
 
     def rotation_update(self, robot, degree):
@@ -79,7 +81,33 @@ class Sensor(pg.sprite.Sprite):
 
 
 
+    '''
+    # Need to find out in above sense function got update map anot, how to get sensor coordinate, how to get map cells
+    # Need check with arduino again for their sensor and also movement, vague
+    def realSense(self, map, robot):
+        sensorVal = self.comm.get_sensor_value() #1:SRFL,2:SRFC,3:SRFR,4:SRL,5:SRR,6:SRL
+        for i in range(1,4,1):
+            row = frontleft.rowPos+sensorVal[i]
+            col = frontleft.colPos
+            if(not checkWall([row,col])):
+                map[row][col].isObstacle = True
+        row = frontleft.rowPos
+        if(not checkWall([row,frontleft.colPos-sensorVal[4]])):
+            map[frontleft.rowPos][frontleft.colPos-sensorVal[4]].isObstacle = True    #Left sensor
+        if(not checkWall([row,frontleft.colPos-sensorVal[5]])):
+            map[frontleft.rowPos][frontleft.colPos+sensorVal[5]].isObstacle = True    #Right sensor
+        if(not checkWall([row,frontleft.colPos-sensorVal[6]])):
+            map[frontleft.rowPos][frontleft.colPos+sensorVal[6]].isObstacle = True    #Right sensor
 
+    #This function is used to check whether sensor value is for obstacle or wall
+    def checkWall(self,pos):
+        #20 rows 15 cols
+        if(pos[0]>=20):
+            return True
+        if(pos[1]>=15):
+            return True
+        return False
+    '''
         # detect discover rate
         #     result = ""
         #     for cell_row in map.map_cells:

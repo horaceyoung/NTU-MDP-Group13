@@ -3,7 +3,6 @@ import socket
 import multiprocessing
 import json
 import threading
-import convertString
 
 
 class TcpClient():
@@ -34,10 +33,12 @@ class TcpClient():
             try:
                 data = self.client_socket.recv(self.buffer_size)
             except:
-                self.close_conn()
+                print("Error Receiving")
+                #self.close_conn()
                 break
             if not data:
-                self.close_conn()
+                print("Error: Not data")
+                #self.close_conn()
                 break
             data_s = data.decode('utf-8')
             data_arr = data_s.splitlines()
@@ -57,7 +58,7 @@ class TcpClient():
                 print("TcpClient - Sent data: {}".format(data))
             except:
                 print("TcpClient - Error sending data: {}".format(data))
-                self.close_conn()
+                #self.close_conn()
                 #break
 
     def get_json(self):
@@ -117,7 +118,7 @@ class TcpClient():
         try:
             self.recv()
             data = self.get_string()
-            sensorVal = data.split(":") #1:SRFL,2:SRFC,3:SRFR,4:SRL,5:SRR,6:SRL
+            sensorVal = data.split(":") #1:SRFL,2:SRFC,3:SRFR,4:SRTR,5:SRBR,6:SRL
             '''
                 if(sensorVal[0] == "SDATA"):
                 break
