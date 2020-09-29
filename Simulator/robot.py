@@ -4,10 +4,10 @@ from map import Map
 from sensor import Sensor
 from configurations import *
 from vec2D import swap_coordinates
-
+# import commMgr
 
 class Robot(pg.sprite.Sprite):
-    def __init__(self,comm=None):
+    def __init__(self):
         pg.sprite.Sprite.__init__(self)
 
         self.image = robot_image
@@ -60,7 +60,6 @@ class Robot(pg.sprite.Sprite):
 
     def move_forward(self):
         # if the robot is within the arena
-        #comm.send_movement(Movement.FORWARD.value,False)
         _rect = pg.Rect(self.rect)
         _rect.x += self.direction[0] * self.velocity
         _rect.y += self.direction[1] * self.velocity
@@ -75,15 +74,15 @@ class Robot(pg.sprite.Sprite):
                 sensor.position_update(self)
 
     def rotate(self, degree):
-        '''
-        if(degree<0):
-            self.comm.send_movement(Movement.LEFT.value,False)
-        elif(degree>0):
-            self.comm.send_movement(Movement.RIGHT.value,False)
-        '''
         self.image  = pg.transform.rotate(self.image, -degree)
         self.direction = self.direction.rotate(degree).normalize()
 
         #update sensors
         for sensor in self.sensors:
             sensor.rotation_update(self, degree)
+
+    #(ADDED) send Movement to RPI#######################################
+    def sendMovement(self, m):
+        self.comm.sendMsg(m)
+
+    #(INCOMING) get Sensor value from Arduino##############################

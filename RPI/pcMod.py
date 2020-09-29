@@ -7,8 +7,8 @@ from config import WIFI_IP, WIFI_PORT, PC_SOCKET_BUFFER_SIZE, LOCALE
 
 class pcComm(object):
 
-    def __init__(self, port=WIFI_PORT, wifi_ip="127.0.0.1"):
-        self.port = 22
+    def __init__(self, port=WIFI_PORT, wifi_ip=WIFI_IP):
+        self.port = port
         self.wifi_ip = wifi_ip
         self.pc_is_connected = False
 
@@ -16,11 +16,11 @@ class pcComm(object):
         if self.client:
             self.client.close()
             print ('Terminating client socket..')
-
+            
         if self.conn:
             self.conn.close()
             print ('Terminating server socket..')
-
+        
         self.pc_is_connected = False
         if (not self.pc_is_connected):
             print ('Successfully Disconected PC!')
@@ -47,14 +47,7 @@ class pcComm(object):
                 break
             print ('Retrying PC connection..')
             time.sleep(1)
-        ###################### Testing####################################
-        print("Testing sending data from PC:")
-        string = "SDATA:2:3:1:4:5:2"
-        self.write_PC(string)
-        while True:
-            print("Testing reading data from PC:")
-            self.read_PC()
-        #####################################################################
+
     def pc_connected(self):
         return self.pc_is_connected
 

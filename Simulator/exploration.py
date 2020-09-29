@@ -1,7 +1,6 @@
 from configurations import *
 from vec2D import swap_coordinates
 import time
-import commMgr
 
 class Exploration:
     def __init__(self, coverage_limit,time_limit, robot, arena_map, realRun, comm = None):
@@ -14,9 +13,6 @@ class Exploration:
         self.area_explored = 0
         self.realRun = realRun
         self.comm = comm
-        self.counter = 0 #counter for calibration. when robot move 5 times, need to calibrate again
-        #######Need to ask whether is move 5 times then calibrate or move 5 times forward then calibrate###########
-
 
     def initialize_exploration(self):
         print("Starting Exploration...")
@@ -27,7 +23,6 @@ class Exploration:
     def exploration_loop(self):
         if(not self.realRun):
             self.next_move(self.robot, self.map)
-            print("Robot current position x,y: ",self.robot.location[0],self.robot.location[1])
         #(Added) Real Run ############################################
         else:
             self.nextRealMove(self.robot, self.map, self.comm)
@@ -157,15 +152,15 @@ class Exploration:
     def getCalibrationDirection(self,origDir):
 
 
-        dirToCheck = getNextDir(origDir)                  #right
+        dirToCheck = DIRECTION.getNext(origDir)                  #right
         if (canCalibrateOnTheSpot(dirToCheck)):
             return dirToCheck
 
-        dirToCheck = getPrevDir(origDir)               #left turn
+        dirToCheck = DIRECTION.getPrevious(origDir)               #left turn
         if (canCalibrateOnTheSpot(dirToCheck)):
             return dirToCheck
 
-        dirToCheck = getPrevDir(dirToCheck)           #u turn
+        dirToCheck = DIRECTION.getPrevious(dirToCheck)           #u turn
         if (canCalibrateOnTheSpot(dirToCheck)):
             return dirToCheck
 
@@ -179,23 +174,14 @@ class Exploration:
         if(self.canCalibrateOnTheSpot(origDir)):
             comm.send_movement(Movement.CALIBRATE)
         else:
-            targetDir = self.getCalibrationDirection(origDir)
-            turnCounter = getTurn(origDir,targetDir)
-            if(turnCounter == 1):
-                self.robot.rotate(90)
-                self.comm.send_movement(Movement.RIGHT.value,False)
-            elif(turnCounter == -1)
-                self.robot.rotate(-90)
-                self.comm.send_movement(Movement.LEFT.value,False)
-            else:
-                self.robot.rotate(90)
-                self.robot.rotate(90)
-                self.comm.send_movement(Movement.RIGHT.value,False)
-                self.comm.send_movement(Movement.RIGHT.value,False)
-            comm.send_movement(Movement.CALIBRATE)
+            self.getCalibrationDirection(origDir)
+
+        if(origDir == Direction.UP):
+
+        elif(origDir == Direction.RIGHT):
+        elif(origDir == Direction.DOWN):
+        elif(origDIr == Direction.LEfT):
+        turnBotDirection(targetDir)
+        moveBot(MOVEMENT.CALIBRATE)
+        turnBotDirection(origDir)
     '''
-
-
-
-if __name__ == '__main__':
-    print(DIRECTION_VALUE[Direction.UP])

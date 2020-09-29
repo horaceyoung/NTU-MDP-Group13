@@ -1,6 +1,5 @@
 import pygame as pg
 import numpy
-import commMgr
 
 class Sensor(pg.sprite.Sprite):
     def __init__(self, width, height, center_x_offset, center_y_offset, direction, robot, location_offset, comm=None, range = 2):
@@ -103,15 +102,6 @@ class Sensor(pg.sprite.Sprite):
         if(not checkWall([row,frontleft.colPos-sensorVal[6]])):
             map[frontleft.rowPos][frontleft.colPos+sensorVal[6]].isObstacle = True    #Right sensor
 
-    #This function is used to check whether sensor value is for obstacle or wall
-    def checkWall(self,pos):
-        #20 rows 15 cols
-        if(pos[0]>=20):
-            return True
-        if(pos[1]>=15):
-            return True
-        return False
-    '''
         # detect discover rate
         #     result = ""
         #     for cell_row in map.map_cells:
