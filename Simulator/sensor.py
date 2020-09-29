@@ -3,7 +3,7 @@ import numpy
 import commMgr
 
 class Sensor(pg.sprite.Sprite):
-    def __init__(self, width, height, center_x_offset, center_y_offset, direction, robot, location_offset, comm=None):
+    def __init__(self, width, height, center_x_offset, center_y_offset, direction, robot, location_offset, comm=None, range = 2):
         pg.sprite.Sprite.__init__(self)
         self.width = width
         self.height = height
@@ -17,6 +17,7 @@ class Sensor(pg.sprite.Sprite):
         self.location_offset = location_offset
         self.location = None
         self.comm = comm
+        self.range = range
 
         pg.draw.rect(self.image, self.color, pg.Rect(0, 0, self.width, self.height), self.border_width)
 
@@ -34,28 +35,31 @@ class Sensor(pg.sprite.Sprite):
         self.rect.center += robot.velocity * robot.direction
 
     def sense(self, map, robot):
+        # sensor_val = self.comm.get_sensor_value()
         for sensor in robot.sensors:
             pass
 
 
 
 
-        # collided_cells = pg.sprite.spritecollide(self, map.cells_group, False)
-        # collided_cells_with_distance = []
-        # for collided_cell in collided_cells:
-        #     collided_cells_with_distance.append((collided_cell, pg.math.Vector2(robot.rect.x, robot.rect.y).distance_to(
-        #         pg.math.Vector2(collided_cell.rect.x, collided_cell.rect.y))))
-        #
-        # #sort the cells by the distance between its center and the center of the sensor
-        # collided_cells_with_distance.sort(key=lambda x:x[1])
-        # for collided_cell_tuple in collided_cells_with_distance:
-        #     map.map_cells[collided_cell_tuple[0].row][collided_cell_tuple[0].col].discovered = True
-        #     if collided_cell_tuple[0].is_obstacle:
-        #         collided_cell_tuple[0].update_color((0, 0, 255))
-        #         break
-        #     elif not collided_cell_tuple[0].is_start_goal_zone and collided_cell_tuple[0].color != (255, 0, 0):
-        #         map.cells_group.remove(collided_cell_tuple[0])
-        #
+
+
+        collided_cells = pg.sprite.spritecollide(self, map.cells_group, False)
+        collided_cells_with_distance = []
+        for collided_cell in collided_cells:
+            collided_cells_with_distance.append((collided_cell, pg.math.Vector2(robot.rect.x, robot.rect.y).distance_to(
+                pg.math.Vector2(collided_cell.rect.x, collided_cell.rect.y))))
+
+        #sort the cells by the distance between its center and the center of the sensor
+        collided_cells_with_distance.sort(key=lambda x:x[1])
+        for collided_cell_tuple in collided_cells_with_distance:
+            map.map_cells[collided_cell_tuple[0].row][collided_cell_tuple[0].col].discovered = True
+            if collided_cell_tuple[0].is_obstacle:
+                collided_cell_tuple[0].update_color((0, 0, 255))
+                break
+            elif not collided_cell_tuple[0].is_start_goal_zone and collided_cell_tuple[0].color != (255, 0, 0):
+                map.cells_group.remove(collided_cell_tuple[0])
+
 
 
 

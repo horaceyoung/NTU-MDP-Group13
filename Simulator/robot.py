@@ -21,17 +21,17 @@ class Robot(pg.sprite.Sprite):
         self.rect.y = self.spawn_point + Map.cell_gap #position of the robot
 
         self.sensors = pg.sprite.Group()
-        self.initialize_sensors()
         self.location =  pg.math.Vector2(18, 1)
-        self.comm = comm
 
+        self.comm = comm if not comm else 0
+        self.initialize_sensors()
         #(ADDED)Set Up Communication Socket With RPI ###############################
         #self.comm = commMgr.CommMgr()
 
 
 
     def add_sensor(self, width, height, center_x_offset, center_y_offset, direction, location_offset, range = 2):
-        self.sensors.add(Sensor(width, height, center_x_offset, center_y_offset, direction, self, location_offset, range))
+        self.sensors.add(Sensor(width, height, center_x_offset, center_y_offset, direction, self, location_offset, self.comm, range))
 
     def initialize_sensors(self):
         """
@@ -47,7 +47,7 @@ class Robot(pg.sprite.Sprite):
         self.add_sensor(20, Map.cell_length* 8, 30, -Map.cell_length* 5.5, Direction.UP.value, pg.Vector2(-1,1))
         self.add_sensor(20, Map.cell_length* 8, -30, -Map.cell_length* 5.5, Direction.UP.value, pg.Vector2(-1,-1))
         # left sensors
-        self.add_sensor(Map.cell_length * 8, 20, -Map.cell_length * 5.5, - Map.cell_length * 1, Direction.RIGHT.value, pg.Vector2(1,0), range)
+        self.add_sensor(Map.cell_length * 8, 20, -Map.cell_length * 5.5, - Map.cell_length * 1, Direction.RIGHT.value, pg.Vector2(1,0), 7)
         self.add_sensor(Map.cell_length * 15, 20, -Map.cell_length * 9, 0, Direction.LEFT.value, pg.Vector2(-1,-1)) # long-range sensor
         # right sensors
         self.add_sensor(Map.cell_length * 8, 20, Map.cell_length * 5.5, - Map.cell_length * 1, Direction.RIGHT.value, pg.Vector2(1,-1))
