@@ -4,7 +4,7 @@ from map import Map
 from sensor import Sensor
 from configurations import *
 from vec2D import swap_coordinates
-import commMgr
+# import commMgr
 
 class Robot(pg.sprite.Sprite):
     def __init__(self):
@@ -46,8 +46,8 @@ class Robot(pg.sprite.Sprite):
         self.add_sensor(20, Map.cell_length* 8, 30, -Map.cell_length* 5.5, Direction.UP.value, pg.Vector2(-1,1))
         self.add_sensor(20, Map.cell_length* 8, -30, -Map.cell_length* 5.5, Direction.UP.value, pg.Vector2(-1,-1))
         # left sensors
-        self.add_sensor(Map.cell_length * 8, 20, Map.cell_length * 9, - Map.cell_length * 1, Direction.RIGHT.value, pg.Vector2(1,0))
-        self.add_sensor(Map.cell_length * 15, 20, -Map.cell_length * 5.5, 0, Direction.LEFT.value, pg.Vector2(-1,-1)) # long-range sensor
+        self.add_sensor(Map.cell_length * 8, 20, -Map.cell_length * 5.5, - Map.cell_length * 1, Direction.RIGHT.value, pg.Vector2(1,0))
+        self.add_sensor(Map.cell_length * 15, 20, -Map.cell_length * 9, 0, Direction.LEFT.value, pg.Vector2(-1,-1)) # long-range sensor
         # right sensors
         self.add_sensor(Map.cell_length * 8, 20, Map.cell_length * 5.5, - Map.cell_length * 1, Direction.RIGHT.value, pg.Vector2(1,-1))
 

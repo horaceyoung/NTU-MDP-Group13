@@ -18,7 +18,7 @@ robot_group = pg.sprite.Group(player_robot)
 arena_map = map.Map()
 arena_map.generate_map('map_config_2.txt')
 realRun = False
-exploration_instance = exploration.Exploration(300, 100, player_robot, arena_map, False)
+exploration_instance = exploration.Exploration(250, 100, player_robot, arena_map, False)
 #exploration_instance.initialize_exploration()
 # an unresolved issue
 arena_map.map_cells[18][3].discovered=True
@@ -53,7 +53,8 @@ while running:
                 comm.run()
                 exploration_instance = exploration.Exploration(298, 100, player_robot, arena_map, True, comm)
                 exploration_instance.initialize_exploration()
-
+            if event.key == pg.K_m:
+                arena_map.generate_descriptor_strings()
 
 
     for sensor in player_robot.sensors:
@@ -64,7 +65,7 @@ while running:
         exploration_instance.exploration_loop()
     #fastest_path.astar(arena_map,player_robot.location,(18,1))
 
-    clock.tick(100)
+    clock.tick(20)
 
     screen.fill((0, 0, 0))
     # generate the map
