@@ -29,8 +29,8 @@ class Robot(pg.sprite.Sprite):
 
 
 
-    def add_sensor(self, width, height, center_x_offset, center_y_offset, direction, location_offset):
-        self.sensors.add(Sensor(width, height, center_x_offset, center_y_offset, direction, self, location_offset))
+    def add_sensor(self, width, height, center_x_offset, center_y_offset, direction, location_offset, range = 2):
+        self.sensors.add(Sensor(width, height, center_x_offset, center_y_offset, direction, self, location_offset, range))
 
     def initialize_sensors(self):
         """
@@ -46,7 +46,7 @@ class Robot(pg.sprite.Sprite):
         self.add_sensor(20, Map.cell_length* 8, 30, -Map.cell_length* 5.5, Direction.UP.value, pg.Vector2(-1,1))
         self.add_sensor(20, Map.cell_length* 8, -30, -Map.cell_length* 5.5, Direction.UP.value, pg.Vector2(-1,-1))
         # left sensors
-        self.add_sensor(Map.cell_length * 8, 20, -Map.cell_length * 5.5, - Map.cell_length * 1, Direction.RIGHT.value, pg.Vector2(1,0))
+        self.add_sensor(Map.cell_length * 8, 20, -Map.cell_length * 5.5, - Map.cell_length * 1, Direction.RIGHT.value, pg.Vector2(1,0), range)
         self.add_sensor(Map.cell_length * 15, 20, -Map.cell_length * 9, 0, Direction.LEFT.value, pg.Vector2(-1,-1)) # long-range sensor
         # right sensors
         self.add_sensor(Map.cell_length * 8, 20, Map.cell_length * 5.5, - Map.cell_length * 1, Direction.RIGHT.value, pg.Vector2(1,-1))
