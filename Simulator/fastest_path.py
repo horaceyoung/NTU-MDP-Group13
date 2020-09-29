@@ -1,6 +1,7 @@
 from operator import attrgetter
 import pygame as pg
-#A* path finding algorithm
+
+# A* path finding algorithm
 def astar(arena_map, start, end):
 
     # Create start and end node
@@ -13,14 +14,14 @@ def astar(arena_map, start, end):
     open_list = []
     closed_list = []
 
-    #Add the start node
+    # Add the start node
     open_list.append(start_node)
 
     # Loop until end is reached
     while open_list:
-    # for i in range(0,1000):
+        # for i in range(0,1000):
         # Get the node with the smallest f
-        current_node = min(open_list,key=attrgetter('f'))
+        current_node = min(open_list, key=attrgetter("f"))
         # print("poped node:", current_node.position)
         # Pop current node off open list, add to closed list
         open_list.remove(current_node)
@@ -38,41 +39,55 @@ def astar(arena_map, start, end):
                 for cell_row in arena_map.map_cells:
                     for cell in cell_row:
                         if node.position == cell.position:
-                            #Need to ask how to update get robot current position
-                            cell.update_color((255,0,0))
+                            # Need to ask how to update get robot current position
+                            cell.update_color((255, 0, 0))
                             cell.discovered = False
                             arena_map.cells_group.add(cell)
 
-
-        #Generate children
+        # Generate children
         children = []
 
-        for new_position in [(0,-1),(0,1),(-1,0),(1,0)]:
-            #Get children node position
-            node_position = current_node.position+ pg.Vector2(new_position[0], new_position[1])
-            #Ensure the position is within the maze
+        for new_position in [(0, -1), (0, 1), (-1, 0), (1, 0)]:
+            # Get children node position
+            node_position = current_node.position + pg.Vector2(
+                new_position[0], new_position[1]
+            )
+            # Ensure the position is within the maze
             try:
-                new_node = arena_map.map_cells[int(node_position[0])][int(node_position[1])]
+                new_node = arena_map.map_cells[int(node_position[0])][
+                    int(node_position[1])
+                ]
             except IndexError:
                 continue
 
-            #Ensure the new position is not an obstacle
+            # Ensure the new position is not an obstacle
             if new_node.is_obstacle:
                 continue
 
-            #Ensure the new position's surrounding 8 blocks is free
+            # Ensure the new position's surrounding 8 blocks is free
             surrounding_node_free = True
-            position_offsets = \
-            [(-1, -1), (-1, 0), (-1, 1), # Top 3 cells
-            (0, -1), (0, 1), # Left and right cells
-            (1, -1), (1, 0), (1, 1)] # Lower 3 cells
+            position_offsets = [
+                (-1, -1),
+                (-1, 0),
+                (-1, 1),  # Top 3 cells
+                (0, -1),
+                (0, 1),  # Left and right cells
+                (1, -1),
+                (1, 0),
+                (1, 1),
+            ]  # Lower 3 cells
             for position_offset in position_offsets:
                 try:
                     surrounding_node_position = node_position + position_offset
                     # print("surrounding node position", surrounding_node_position)
-                    if surrounding_node_position[0]<0 or surrounding_node_position[1]<0:
+                    if (
+                        surrounding_node_position[0] < 0
+                        or surrounding_node_position[1] < 0
+                    ):
                         surrounding_node_free = False
-                    surrounding_node = arena_map.map_cells[int(surrounding_node_position[0])][int(surrounding_node_position[1])]
+                    surrounding_node = arena_map.map_cells[
+                        int(surrounding_node_position[0])
+                    ][int(surrounding_node_position[1])]
                     if surrounding_node.is_obstacle:
                         surrounding_node_free = False
                 except IndexError:
@@ -82,14 +97,13 @@ def astar(arena_map, start, end):
             if not surrounding_node_free:
                 continue
 
-            #Append to children list
+            # Append to children list
             if new_node not in closed_list:
                 new_node.parent = current_node
                 children.append(new_node)
 
         # for child in children:
         #     print("child", child.position, child.parent.position)
-
 
         # Loop through children
         for child in children:

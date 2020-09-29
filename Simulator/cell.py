@@ -1,5 +1,6 @@
 import pygame as pg
 
+
 class Cell(pg.sprite.Sprite):
     def __init__(self, x, y):
         pg.sprite.Sprite.__init__(self)
@@ -23,10 +24,10 @@ class Cell(pg.sprite.Sprite):
 
         # for fastest_path
         self.parent = None
-        self.g =0
+        self.g = 0
         self.h = 0
         self.f = 0
 
     def update_color(self, color):
         self.color = color
-        pg.draw.rect(self.image, self.color, pg.Rect(0,0, 35, 35))
+        pg.draw.rect(self.image, self.color, pg.Rect(0, 0, 35, 35))

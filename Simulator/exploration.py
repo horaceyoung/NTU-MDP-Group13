@@ -3,8 +3,11 @@ from vec2D import swap_coordinates
 import time
 import commMgr
 
+
 class Exploration:
-    def __init__(self, coverage_limit,time_limit, robot, arena_map, realRun, comm = None):
+    def __init__(
+        self, coverage_limit, time_limit, robot, arena_map, realRun, comm=None
+    ):
         self.robot = robot
         self.map = arena_map
         self.coverage_limit = coverage_limit
@@ -14,9 +17,8 @@ class Exploration:
         self.area_explored = 0
         self.realRun = realRun
         self.comm = comm
-        self.counter = 0 #counter for calibration. when robot move 5 times, need to calibrate again
+        self.counter = 0  # counter for calibration. when robot move 5 times, need to calibrate again
         #######Need to ask whether is move 5 times then calibrate or move 5 times forward then calibrate###########
-
 
     def initialize_exploration(self):
         print("Starting Exploration...")
@@ -25,17 +27,21 @@ class Exploration:
         self.exploration_loop()
 
     def exploration_loop(self):
-        if(not self.realRun):
+        if not self.realRun:
             self.next_move(self.robot, self.map)
-            print("Robot current position x,y: ",self.robot.location[0],self.robot.location[1])
-        #(Added) Real Run ############################################
+            print(
+                "Robot current position x,y: ",
+                self.robot.location[0],
+                self.robot.location[1],
+            )
+        # (Added) Real Run ############################################
         else:
             self.nextRealMove(self.robot, self.map, self.comm)
 
         self.area_explored = self.calculate_area_explored()
         print("Area Explored: " + str(self.area_explored))
 
-    #Check if the direction relative to the robot has free space -
+    # Check if the direction relative to the robot has free space -
     @classmethod
     def look(cls, direction, robot, arena_map):
         target_direction = robot.direction
@@ -52,15 +58,23 @@ class Exploration:
 
         cell_coordinates = list()  # cells to be looked
         cell_coordinates.append(pg.Vector2(robot.location + 2 * target_direction))
-        cell_coordinates.append(pg.Vector2(robot.location + 2 * target_direction) + direction_offset)
-        cell_coordinates.append(pg.Vector2(robot.location + 2 * target_direction) - direction_offset)
+        cell_coordinates.append(
+            pg.Vector2(robot.location + 2 * target_direction) + direction_offset
+        )
+        cell_coordinates.append(
+            pg.Vector2(robot.location + 2 * target_direction) - direction_offset
+        )
 
         try:
             cells = []
             for coordinate in cell_coordinates:
-                if coordinate[0]<0 or coordinate[1]<0: # cater for -1 case, which is acceptable by python
+                if (
+                    coordinate[0] < 0 or coordinate[1] < 0
+                ):  # cater for -1 case, which is acceptable by python
                     return False
-                cells.append(arena_map.map_cells[int(coordinate[0])][int(coordinate[1])])
+                cells.append(
+                    arena_map.map_cells[int(coordinate[0])][int(coordinate[1])]
+                )
             for cell in cells:
                 if cell.is_obstacle or not cell.discovered:
                     return False
@@ -89,31 +103,30 @@ class Exploration:
     def nextRealMove(cls, robot, arena_map, comm):
         if cls.look(Direction.RIGHT, robot, arena_map):
             robot.rotate(90)
-            comm.send_movement(Movement.RIGHT.value,False)
+            comm.send_movement(Movement.RIGHT.value, False)
             if cls.look(Direction.UP, robot, arena_map):
                 robot.move_forward()
-                comm.send_movement(Movement.FORWARD.value,False)
-                #robot.sendMovement(Movement.FORWARD.value)
+                comm.send_movement(Movement.FORWARD.value, False)
+                # robot.sendMovement(Movement.FORWARD.value)
         elif cls.look(Direction.UP, robot, arena_map):
             robot.move_forward()
-            comm.send_movement(Movement.FORWARD.value,False)
-            #robot.sendMovement(Movement.FORWARD.value)
+            comm.send_movement(Movement.FORWARD.value, False)
+            # robot.sendMovement(Movement.FORWARD.value)
         elif cls.look(Direction.LEFT, robot, arena_map):
             robot.rotate(-90)
-            comm.send_movement(Movement.LEFT.value,False)
-            #robot.sendMovement(Movement.LEFT.value)
+            comm.send_movement(Movement.LEFT.value, False)
+            # robot.sendMovement(Movement.LEFT.value)
             if cls.look(Direction.UP, robot, arena_map):
                 robot.move_forward()
-                comm.send_movement(Movement.FORWARD.value,False)
-                #robot.sendMovement(Movement.FORWARD.value)
+                comm.send_movement(Movement.FORWARD.value, False)
+                # robot.sendMovement(Movement.FORWARD.value)
         else:
             robot.rotate(90)
             robot.rotate(90)
-            comm.send_movement(Movement.RIGHT.value,False)
-            comm.send_movement(Movement.RIGHT.value,False)
-            #robot.sendMovement(Movement.RIGHT.value)
-            #robot.sendMovement(Movement.RIGHT.value)
-
+            comm.send_movement(Movement.RIGHT.value, False)
+            comm.send_movement(Movement.RIGHT.value, False)
+            # robot.sendMovement(Movement.RIGHT.value)
+            # robot.sendMovement(Movement.RIGHT.value)
 
     def calculate_area_explored(self):
         explored_arena_count = 0
@@ -123,7 +136,7 @@ class Exploration:
                     explored_arena_count += 1
         return explored_arena_count
 
-    '''
+    """
     def canCalibrateOnTheSpot(botDir):
         #row get robot current row position
         #col get robot current col position
@@ -193,9 +206,8 @@ class Exploration:
                 self.comm.send_movement(Movement.RIGHT.value,False)
                 self.comm.send_movement(Movement.RIGHT.value,False)
             comm.send_movement(Movement.CALIBRATE)
-    '''
+    """
 
 
-
-if __name__ == '__main__':
+if __name__ == "__main__":
     print(DIRECTION_VALUE[Direction.UP])

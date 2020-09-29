@@ -5,7 +5,7 @@ import threading
 import convertString
 
 
-class TcpClient():
+class TcpClient:
     def __init__(self, ip, port, buffer_size=1024):
         self.ip = ip
         self.port = port
@@ -23,7 +23,7 @@ class TcpClient():
         recv_thread.start()
 
     def connect(self):
-        print('connect called')
+        print("connect called")
         self.client_socket.connect((self.ip, self.port))
         self.connected = True
         print("TcpClient - Connected on {}:{}".format(self.ip, self.port))
@@ -38,7 +38,7 @@ class TcpClient():
             if not data:
                 self.close_conn()
                 break
-            data_s = data.decode('utf-8')
+            data_s = data.decode("utf-8")
             data_arr = data_s.splitlines()
             for data_str in data_arr:
                 print("TcpClient - Received data: {}".format(data_str))
@@ -48,16 +48,16 @@ class TcpClient():
                     self.recv_string_queue.put(data_str)
 
     def send(self):
-        #while self.connected:
+        # while self.connected:
         if not self.send_queue.empty():
             try:
                 data = self.send_queue.get()
-                self.client_socket.send((data+"\n").encode('utf-8'))
+                self.client_socket.send((data + "\n").encode("utf-8"))
                 print("TcpClient - Sent data: {}".format(data))
             except:
                 print("TcpClient - Error sending data: {}".format(data))
                 self.close_conn()
-                #break
+                # break
 
     def get_json(self):
         while self.recv_json_queue.empty() and self.connected:
@@ -70,7 +70,7 @@ class TcpClient():
         return self.recv_string_queue.get()
 
     def send_command(self, command):
-        #self.send_queue.put(convertString.stringToList(command))
+        # self.send_queue.put(convertString.stringToList(command))
         self.send_queue.put(command)
 
     def send_status(self, status):
@@ -83,8 +83,9 @@ class TcpClient():
         self.send_queue.put(json.dumps({"robotPos": pos}))
 
     def send_arena(self, arena):
-        self.send_queue.put(json.dumps(
-            {"gridP1": arena.to_mdf_part1(), "gridP2": arena.to_mdf_part2()}))
+        self.send_queue.put(
+            json.dumps({"gridP1": arena.to_mdf_part1(), "gridP2": arena.to_mdf_part2()})
+        )
 
     def close_conn(self):
         try:
@@ -94,9 +95,9 @@ class TcpClient():
         except:
             pass
 
-    def send_movement(self,movement,multiplemovement):
+    def send_movement(self, movement, multiplemovement):
         try:
-            if(not multiplemovement):
+            if not multiplemovement:
                 string = "MDATA:" + movement
                 self.send_command(string)
                 self.send()
@@ -112,16 +113,16 @@ class TcpClient():
             print("Something gone wrong")
 
     def get_sensor_value(self):
-        #while(True):
+        # while(True):
         sensorVal = ""
         try:
             self.recv()
             data = self.get_string()
-            sensorVal = data.split(":") #1:SRFL,2:SRFC,3:SRFR,4:SRL,5:SRR,6:SRL
-            '''
+            sensorVal = data.split(":")  # 1:SRFL,2:SRFC,3:SRFR,4:SRL,5:SRR,6:SRL
+            """
                 if(sensorVal[0] == "SDATA"):
                 break
-            '''
+            """
         except:
             print("No more sensor value")
         return sensorVal
