@@ -113,6 +113,17 @@ class TcpClient:
         except:
             print("Something gone wrong")
 
+    def send_movement_forward(self):
+        self.send_command("AA1")
+        self.send()
+
+    def send_movement_rotate_left(self):
+        self.send_command("AL")
+        self.send()
+
+    def send_movement_rotate_right(self):
+        self.send_command("AR")
+        self.send()
     def get_sensor_value(self):
         # while(True):
         try:

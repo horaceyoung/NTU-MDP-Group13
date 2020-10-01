@@ -55,6 +55,7 @@ while running:
                     300, 100, player_robot, arena_map, True, comm
                 )
                 exploration_instance.initialize_exploration()
+            
 
     for sensor in player_robot.sensors:
         sensor.sense(arena_map, player_robot)
