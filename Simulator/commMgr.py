@@ -59,6 +59,10 @@ class TcpClient:
                 print("TcpClient - Error sending data: {}".format(data))
                 # self.close_conn()
                 # break
+    def disconnect(self):
+        self.client_socket.shutdown(socket.SHUT_RDWR)
+        self.client_socket.close()
+        print("Client socket disconnected")
 
     def get_json(self):
         while self.recv_json_queue.empty() and self.connected:

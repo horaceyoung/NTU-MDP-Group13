@@ -26,13 +26,14 @@ arena_map.map_cells[19][3].discovered = True
 
 running = True
 # comm = commMgr.TcpClient("127.0.0.1", 22, buffer_size=1024) #For debugging purpose
-# testcom = commMgr.TcpClient("192.168.13.13", 22, buffer_size=1024)
-# comm.run()
+comm = commMgr.TcpClient("192.168.13.13", 22, buffer_size=1024)
+comm.run()
 
 while running:
     # controls
     for event in pg.event.get():
         if event.type == pg.QUIT:
+            comm.disconnect()
             running = False
         if event.type == pg.KEYDOWN:
             if event.key == pg.K_w:
@@ -55,7 +56,7 @@ while running:
                     300, 100, player_robot, arena_map, True, comm
                 )
                 exploration_instance.initialize_exploration()
-            
+
 
     for sensor in player_robot.sensors:
         sensor.sense(arena_map, player_robot)
