@@ -1,7 +1,7 @@
 from operator import attrgetter
 import pygame as pg
 #A* path finding algorithm
-def astar(arena_map, robot, start, end):
+def astar(arena_map, robot, start, end, comm):
 
     # Create start and end node
     start_node = arena_map.map_cells[int(start[0])][int(start[1])]
@@ -85,14 +85,27 @@ def astar(arena_map, robot, start, end):
             waze.append(["STRAIGHT", straightPath])
 
             print(waze)
-            for route in waze:
-                if route[0] == "STRAIGHT":
-                    for i in range(route[1]):
-                        robot.move_forward()
-                elif route[0] == "LEFT":
-                    robot.rotate(-90)
-                elif route[0] == "RIGHT":
-                    robot.rotate(90)
+            if comm == None:
+                for route in waze:
+                    if route[0] == "STRAIGHT":
+                        comm.send_movement(Movement.FORWARD, Movement.FORWARD.value, route[1])
+                    elif route[0] == "LEFT":
+                        comm.send_movement(Movement.LEFT, Movement.LEFT.value, 0)
+                    elif route[0] == "RIGHT":
+                        comm.send_movement(Movement.RIGHT, Movement.RIGHT.value, 0)
+
+            else:
+                for route in waze:
+                    if route[0] == "STRAIGHT":
+                        comm.send_movement(Movement.FORWARD, Movement.FORWARD.value, route[1])
+                    elif route[0] == "LEFT":
+                        comm.send_movement(Movement.LEFT, Movement.LEFT.value, 0)
+                        if robot.canCalibrateOnTheSpot():
+                            comm.send_movement(Movement.CALIBRATE, Movement.CALIBRATE.value,False)
+                    elif route[0] == "RIGHT":
+                        comm.send_movement(Movement.RIGHT, Movement.RIGHT.value, 0)
+                        if robot.canCalibrateOnTheSpot():
+                            comm.send_movement(Movement.CALIBRATE, Movement.CALIBRATE.value,False)
 
             break
 
