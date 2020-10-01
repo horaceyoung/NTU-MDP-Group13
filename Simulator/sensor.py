@@ -1,9 +1,10 @@
 import pygame as pg
 import numpy
-import commMgr
+from vec2D import swap_coordinates
 
 
 class Sensor(pg.sprite.Sprite):
+<<<<<<< HEAD
     def __init__(
         self,
         width,
@@ -15,6 +16,9 @@ class Sensor(pg.sprite.Sprite):
         location_offset,
         comm=None,
     ):
+=======
+    def __init__(self, width, height, center_x_offset, center_y_offset, direction, robot, location_offset, comm=None, range = 2):
+>>>>>>> parent of 2a46d71... Update
         pg.sprite.Sprite.__init__(self)
         self.width = width
         self.height = height
@@ -25,10 +29,12 @@ class Sensor(pg.sprite.Sprite):
         )
         self.color = (255, 0, 0)
         self.border_width = 10
+
         self.direction = direction
         self.location_offset = location_offset
         self.location = None
         self.comm = comm
+        self.range = range
 
         pg.draw.rect(
             self.image,
@@ -54,7 +60,75 @@ class Sensor(pg.sprite.Sprite):
         self.rect.center += robot.velocity * robot.direction
 
     def sense(self, map, robot):
+        # sensor_val = self.comm.get_sensor_value()
+        for sensor in robot.sensors:
+            pass
+        # collided_cells = pg.sprite.spritecollide(self, map.cells_group, False)
+        # collided_cells_with_distance = []
+        # for collided_cell in collided_cells:
+        #     collided_cells_with_distance.append((collided_cell, pg.math.Vector2(robot.rect.x, robot.rect.y).distance_to(
+        #         pg.math.Vector2(collided_cell.rect.x, collided_cell.rect.y))))
+        #
+        # #sort the cells by the distance between its center and the center of the sensor
+        # collided_cells_with_distance.sort(key=lambda x:x[1])
+        # for collided_cell_tuple in collided_cells_with_distance:
+        #     map.map_cells[collided_cell_tuple[0].row][collided_cell_tuple[0].col].discovered = True
+        #     if collided_cell_tuple[0].is_obstacle:
+        #         collided_cell_tuple[0].update_color((0, 0, 255))
+        #         break
+        #     elif not collided_cell_tuple[0].is_start_goal_zone and collided_cell_tuple[0].color != (255, 0, 0):
+        #         map.cells_group.remove(collided_cell_tuple[0])
 
+
+    def update_map(self, map, val):
+        swapped_direction = swap_coordinates(self.direction)
+        if val == -1:
+            for i in range(1, self.range+1):
+                sensed_cell_position = self.location + swapped_direction * i
+                try:
+                    if sensed_cell_position[0]>0 and sensed_cell_position[1] >0:
+                        map.map_cells[sensed_cell_position[0]][sensed_cell_position[1]].discovered = True
+                except IndexError:
+                    pass
+        else:
+            for i in range(1, self.range+2):
+                sensed_cell_position = self.location + swapped_direction * i
+                try:
+                    if sensed_cell_position[0]>0 and sensed_cell_position[1] >0:
+                        map.map_cells[sensed_cell_position[0]][sensed_cell_position[1]].discovered = True
+                        if i == val:
+                            map.map_cells[sensed_cell_position[0]][sensed_cell_position[1]].is_obstacle = True
+                except IndexError:
+                    pass
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<<<<<<< HEAD
         collided_cells = pg.sprite.spritecollide(self, map.cells_group, False)
         collided_cells_with_distance = []
         for collided_cell in collided_cells:
@@ -80,6 +154,8 @@ class Sensor(pg.sprite.Sprite):
                 0
             ].color != (255, 0, 0):
                 map.cells_group.remove(collided_cell_tuple[0])
+=======
+>>>>>>> parent of 2a46d71... Update
 
     """
     # Need to find out in above sense function got update map anot, how to get sensor coordinate, how to get map cells
@@ -99,6 +175,7 @@ class Sensor(pg.sprite.Sprite):
         if(not checkWall([row,frontleft.colPos-sensorVal[6]])):
             map[frontleft.rowPos][frontleft.colPos+sensorVal[6]].isObstacle = True    #Right sensor
 
+<<<<<<< HEAD
     #This function is used to check whether sensor value is for obstacle or wall
     def checkWall(self,pos):
         #20 rows 15 cols
@@ -118,3 +195,15 @@ class Sensor(pg.sprite.Sprite):
     #                 result+= "0 "
     #         result+="\n"
     #     print(result)
+=======
+        # detect discover rate
+        #     result = ""
+        #     for cell_row in map.map_cells:
+        #         for cell in cell_row:
+        #             if cell.is_obstacle:
+        #                 result+= "1 "
+        #             else:
+        #                 result+= "0 "
+        #         result+="\n"
+        #     print(result) '''
+>>>>>>> parent of 2a46d71... Update

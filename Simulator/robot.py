@@ -158,7 +158,7 @@ from map import Map
 from sensor import Sensor
 from configurations import *
 from vec2D import swap_coordinates
-
+# import commMgr
 
 class Robot(pg.sprite.Sprite):
     def __init__(self,comm=None):
@@ -175,17 +175,17 @@ class Robot(pg.sprite.Sprite):
         self.rect.y = self.spawn_point + Map.cell_gap #position of the robot
 
         self.sensors = pg.sprite.Group()
-        self.initialize_sensors()
         self.location =  pg.math.Vector2(18, 1)
-        self.comm = comm
 
+        self.comm = comm if not comm else 0
+        self.initialize_sensors()
         #(ADDED)Set Up Communication Socket With RPI ###############################
         #self.comm = commMgr.CommMgr()
 
 
 
-    def add_sensor(self, width, height, center_x_offset, center_y_offset, direction, location_offset):
-        self.sensors.add(Sensor(width, height, center_x_offset, center_y_offset, direction, self, location_offset))
+    def add_sensor(self, width, height, center_x_offset, center_y_offset, direction, location_offset, range = 2):
+        self.sensors.add(Sensor(width, height, center_x_offset, center_y_offset, direction, self, location_offset, self.comm, range))
 
     def initialize_sensors(self):
         """
@@ -201,7 +201,7 @@ class Robot(pg.sprite.Sprite):
         self.add_sensor(20, Map.cell_length* 8, 30, -Map.cell_length* 5.5, Direction.UP.value, pg.Vector2(-1,1))
         self.add_sensor(20, Map.cell_length* 8, -30, -Map.cell_length* 5.5, Direction.UP.value, pg.Vector2(-1,-1))
         # left sensors
-        self.add_sensor(Map.cell_length * 8, 20, -Map.cell_length * 5.5, - Map.cell_length * 1, Direction.RIGHT.value, pg.Vector2(1,0))
+        self.add_sensor(Map.cell_length * 8, 20, -Map.cell_length * 5.5, - Map.cell_length * 1, Direction.RIGHT.value, pg.Vector2(1,0), 7)
         self.add_sensor(Map.cell_length * 15, 20, -Map.cell_length * 9, 0, Direction.LEFT.value, pg.Vector2(-1,-1)) # long-range sensor
         # right sensors
         self.add_sensor(Map.cell_length * 8, 20, Map.cell_length * 5.5, - Map.cell_length * 1, Direction.RIGHT.value, pg.Vector2(1,-1))
@@ -214,7 +214,6 @@ class Robot(pg.sprite.Sprite):
 
     def move_forward(self):
         # if the robot is within the arena
-        #comm.send_movement(Movement.FORWARD.value,False)
         _rect = pg.Rect(self.rect)
         _rect.x += self.direction[0] * self.velocity
         _rect.y += self.direction[1] * self.velocity
@@ -229,12 +228,6 @@ class Robot(pg.sprite.Sprite):
                 sensor.position_update(self)
 
     def rotate(self, degree):
-        '''
-        if(degree<0):
-            self.comm.send_movement(Movement.LEFT.value,False)
-        elif(degree>0):
-            self.comm.send_movement(Movement.RIGHT.value,False)
-        '''
         self.image  = pg.transform.rotate(self.image, -degree)
         self.direction = self.direction.rotate(degree).normalize()
 
@@ -242,6 +235,7 @@ class Robot(pg.sprite.Sprite):
         for sensor in self.sensors:
             sensor.rotation_update(self, degree)
 
+<<<<<<< HEAD
     def canCalibrateOnTheSpot(self):
         sensorVal = self.comm.get_sensor_value()
         counter = 0
@@ -273,3 +267,14 @@ class Robot(pg.sprite.Sprite):
             self.rotate(90)
             #self.comm.send_movement(Movement.RIGHT,Movement.RIGHT.value,0)
             #self.comm.send_movement(Movement.RIGHT,Movement.RIGHT.value,0)
+=======
+    #(ADDED) send Movement to RPI#######################################
+    def sendMovement(self, m):
+        self.comm.sendMsg(m)
+
+    #(INCOMING) get Sensor value from Arduino##############################
+    def get_sensor_readings(self):
+        sensor_value = self.comm.get_sensor_value()
+        for sensor in self.sensors:
+            sensor.update_map(map, sensor_value)
+>>>>>>> parent of 2a46d71... Update

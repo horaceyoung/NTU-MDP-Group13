@@ -137,6 +137,7 @@ class Direction(enum.Enum):
     UP = pg.Vector2(0, -1)
     RIGHT = pg.Vector2(1, 0)
     DOWN = pg.Vector2(0, 1)
+<<<<<<< HEAD
 
 
 DIRECTION_VALUE = {Direction.UP: 0, Direction.RIGHT: 1, Direction.DOWN: 2, Direction.LEFT:3}
@@ -159,31 +160,34 @@ def getPrevDir(curDir):
 
 def getTurn(curDir,targetDir):
     if(getNextDir(curDir)==targetDir):
+=======
+'''
+def getDirectionValue(dir):
+    if(dir == Direction.UP):
+>>>>>>> parent of 2a46d71... Update
         return 1
-    elif(getPrevDir(curDir)==targetDir):
-        return -1
-    else:
+    elif(dir == Direction.RIGHT):
         return 2
+    elif(dir == Direction.DOWN):
+        return 3
+    elif(dir == Direction.LEFT):
+        return 4
 
-def nextCellDir(cur,next):
-    x1,y1 = cur[0], cur[1]
-    x2,y2 = next[0], next[1]
-    if(x1<x2):
-        return Direction.RIGHT
-    elif(x1>x2):
-        return Direction.LEFT
-    if(y1<y2):
-        return Direction.UP
-    elif(y1>y2):
-        return Direction.DOWN
+def getTurnCounter(curDir,targetDir):
+    curDirVal = getDirectionValue(curDir)
+    targetDirVal = getDirectionValue(targetDir)
+    if((targetDirVal - curDirVal) > 2):
+        turncounter = -1
+    if((targetDirVal - curDirVal) < 0)
+        turncounter = -1
 
+def getNextDir(curDir):
+    return Direction(((curDir.value+1)%4))
 
-def sameDir(curDir,targetDir):
-    if(curDir==targetDir):
-        return True
-    else:
-        return False
+def getPrevDir(curDir):
+    return Direction(((curDir.value+4-1)%4))
 
+<<<<<<< HEAD
 def rotateBackDefault(curDir):
     curIndex = DIRECTION_ARRAY.index(curDir)
     return 4 - curIndex 
@@ -191,6 +195,9 @@ def rotateBackDefault(curDir):
 
 DIRECTION_ARRAY = [[0,-1],[1,0],[0,1],[-1,0]]
 DEFAULT_DIR = (0,-1)             # Default direction
+=======
+'''    
+>>>>>>> parent of 2a46d71... Update
 GOAL_ROW = 18                          # row no. of goal cell
 GOAL_COL = 13                          # col no. of goal cell
 START_ROW = 1                          # row no. of start cell
@@ -212,7 +219,10 @@ MAP_ROWS = 20     # total num of rows
 MAP_COLS = 15     # total num of cols
 GOAL_ROW = 18     # row no. of goal cell
 GOAL_COL = 13
+<<<<<<< HEAD
 
 if __name__ == '__main__':
     print(getPrevDir(Direction.UP))
     print(getNextDir(Direction.UP))
+=======
+>>>>>>> parent of 2a46d71... Update

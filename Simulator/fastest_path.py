@@ -39,7 +39,6 @@ def astar(arena_map, robot, start, end, comm):
                 for cell_row in arena_map.map_cells:
                     for cell in cell_row:
                         if node.position == cell.position:
-                            #Need to ask how to update get robot current position
                             cell.update_color((255,0,0))
                             cell.discovered = False
                             arena_map.cells_group.add(cell)

@@ -1,3 +1,7 @@
 Simulator/.idea
+<<<<<<< HEAD
 Simulator/__pycache__
 RPI/__pycache__
+=======
+Simulator/__pycache__
+>>>>>>> parent of 2a46d71... Update

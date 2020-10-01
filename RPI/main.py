@@ -1,33 +1,43 @@
 import sys
 import time
+<<<<<<< HEAD
 
 # import Queue
 import threading
 import json
 from colors import *
+=======
+>>>>>>> parent of 2a46d71... Update
 
 from arduinoMod import *
 from pcMod import *
 from tabletMod import *
 
+<<<<<<< HEAD
 """
+=======
+>>>>>>> parent of 2a46d71... Update
 from colors import *
 import cv2 #conda install 'pip install opencv-python'
-import imagRecogMod
-from Queue import Queue
 
 from picamera.array import PiRGBArray #conda install 'pip install "picamera[array]"'
 from picamera import PiCamera #conda install 'pip install picamera'
 import numpy as np
+<<<<<<< HEAD
 """
 counter = 0
 
 
+=======
+
+counter=0
+>>>>>>> parent of 2a46d71... Update
 class Main(threading.Thread):
     def __init__(self):
         threading.Thread.__init__(self)
 
         self.debug = False
+<<<<<<< HEAD
 
         # #Queue to receive obstacles info before scanning for images
         # self.imag_Queue = Queue()
@@ -62,11 +72,29 @@ class Main(threading.Thread):
         tabletInitThread.daemon = True
 
         # start all threading
+=======
+        
+        #initialize all the thread with each component class file
+        self.arduino_thread = arduinoComm() #communication with arduino using threading
+        self.pc_thread = pcComm() #communication with pc using threading
+        self.tablet_thread = tabletComm() #communication with tablet using threading
+        
+        arduinoInitThread = threading.Thread(target = self.arduino_thread.connect_arduino, name = "arduino_init_thread")
+        pcInitThread = threading.Thread(target = self.pc_thread.connect_pc, name = "pc_init_thread")
+        tabletInitThread = threading.Thread(target = self.tablet_thread.connect_tablet, name = "tablet_init_thread")
+        
+        arduinoInitThread.daemon = True
+        pcInitThread.daemon = True
+        tabletInitThread.daemon = True
+        
+        #start all threading
+>>>>>>> parent of 2a46d71... Update
         arduinoInitThread.start()
         pcInitThread.start()
         tabletInitThread.start()
 
         time.sleep(1)
+<<<<<<< HEAD
 
         while not (
             self.arduino_thread.arduino_connected()
@@ -143,6 +171,14 @@ class Main(threading.Thread):
     # 	return src
 
     # write functions for arduino board communication
+=======
+        
+        while not (self.arduino_thread.arduino_connected() and self.pc_thread.pc_connected() and self.tablet_thread.tablet_connected()):
+            time.sleep(0.1)
+
+            
+    #write functions for arduino board communication
+>>>>>>> parent of 2a46d71... Update
     def readArduino(self):
         try:
             while True:
@@ -163,25 +199,37 @@ class Main(threading.Thread):
                     )
                     self.writePC(readArduinoMessage[1:] + "\r\n")
 
+<<<<<<< HEAD
                 # read data from arduino to tablet
                 elif str(readArduinoMessage[0]).upper() == "B":
                     print(
                         "Successfully read data from Arduino to Tablet: %s"
                         % readArduinoMessage[1:].rstrip()
                     )
+=======
+                #read data from arduino to tablet
+                elif (str(readArduinoMessage[0]).upper() == 'B'): 
+                    print("Successfully read data from Arduino to Tablet: %s" % readArduinoMessage[1:].rstrip())
+>>>>>>> parent of 2a46d71... Update
                     self.writeTablet(readArduinoMessage[1:])
 
         except socket.error as error:
-            print("Arduino disconnected! Arduino Read Failed!")
+            print("Arduino disconnected! Arduino Read Failed!") 
 
     def writeArduino(self, messageToArduino):
         # write data to arduino
         self.arduino_thread.write_arduino(messageToArduino)
+<<<<<<< HEAD
         print(
             "Successfully written data to Arduino: %s \r\n" % messageToArduino.rstrip()
         )
 
     # write functions for PC communication via wifi
+=======
+        print("Successfully written data to Arduino: %s \r\n" % messageToArduino.rstrip())
+            
+    #write functions for PC communication via wifi      
+>>>>>>> parent of 2a46d71... Update
     def processMessage(self, readPCMessage):
         if readPCMessage is None:
             print("No data read from PC!")
@@ -211,6 +259,7 @@ class Main(threading.Thread):
                 % readPCMessage[1:].rstrip()
             )
             self.writeArduino(readPCMessage[1:] + "\r\n")
+<<<<<<< HEAD
         # elif(readPCMessage[0].upper()=='P'):
         #     imag = self.takePicture()
         # 	cv2.imwrite('images/'+str(self.imagTaken)+'.png', imag)
@@ -237,6 +286,28 @@ class Main(threading.Thread):
                 "Incorrect header from PC (expecting 'B' for Android, 'A' for Arduino, 'R' for Algorithm, or 'P' for Image Recog.): [%s]"
                 % readPCMessage[0]
             )
+=======
+        elif(readPCMessage[1].upper()=='P'):
+            self.writePC("u")
+            print("Taking image..")
+            start_time=time.time()
+            camera=PiCamera()
+            time.sleep(0.001)
+            i=readPCMessage[2:]
+            global counter
+            if counter%2==0:
+                st="/home/pi/Desktop/Images/"+i+".jpg"
+                camera.capture(st)
+                print("Image captured successfully!")
+            else:
+                st="/home/pi/Desktop/Images1/"+i+".jpg"
+                camera.capture(st)
+                print("Image captured sucessfully!")
+            counter= counter+1
+            camera.close()
+            end_time=time.time()
+            print(end_time-start_time)
+>>>>>>> parent of 2a46d71... Update
 
     def readPC(self):
         try:
@@ -275,6 +346,7 @@ class Main(threading.Thread):
                     if len(readTabletMessage) == 0:
                         print("No data read from Tablet!")
                         continue
+<<<<<<< HEAD
                     print("Tablet Message: %s" % readTabletMessage)
                     if str(readTabletMessage[0]).upper() == "X":
                         print(
@@ -288,6 +360,15 @@ class Main(threading.Thread):
                             % readTabletMessage[1:].rstrip()
                         )
                         self.writeArduino(readTabletMessage[1:] + "\r\n")
+=======
+                    print("Tablet Message: %s" %readTabletMessage)
+                    if (str(readTabletMessage[0]).upper() == 'X'):
+                        print("Successfully read data from Tablet to PC: %s" % readTabletMessage[1:].rstrip())
+                        self.writePC(readTabletMessage[1:]+ "\r\n")
+                    elif (str(readTabletMessage[0]).upper() == 'A'):
+                        print("Successfully read data from Tablet to Arduino: %s" % readTabletMessage[1:].rstrip())                            
+                        self.writeArduino(readTabletMessage[1:]+"\r\n")
+>>>>>>> parent of 2a46d71... Update
                     else:
                         print(
                             "Incorrect header from Tablet (expecting 'X' for PC, 'A' for Arduino): [%s]"
@@ -303,6 +384,7 @@ class Main(threading.Thread):
             self.tablet_thread.connect_tablet()
 
     def initialize_threads(self):
+<<<<<<< HEAD
         # self.imagRecogThread = threading.Thread(target = self.imageRecognition, name = "imag_recog_thread")
         self.readPCThread = threading.Thread(target=self.readPC, name="pc_read_thread")
         self.readArduinoThread = threading.Thread(
@@ -313,12 +395,17 @@ class Main(threading.Thread):
         )
 
         # self.imagRecogThread.daemon = True
+=======
+        self.readPCThread = threading.Thread(target = self.readPC, name = "pc_read_thread")
+        self.readArduinoThread = threading.Thread(target = self.readArduino, name = "ar_read_thread")
+        self.readTabletThread = threading.Thread(target = self.readTablet, name = "tb_read_thread")
+        
+>>>>>>> parent of 2a46d71... Update
         self.readPCThread.daemon = True
         self.readArduinoThread.daemon = True
         self.readTabletThread.daemon = True
         print("All daemon threads initialized successfully!")
 
-        # self.imagRecogThread.start()
         self.readPCThread.start()
         self.readArduinoThread.start()
         self.readTabletThread.start()
@@ -337,6 +424,7 @@ class Main(threading.Thread):
             if not (self.readArduinoThread.is_alive()):
                 cprint(BOLD + RED, "Fatal: Arduino thread is not running!")
             if not (self.readTabletThread.is_alive()):
+<<<<<<< HEAD
                 cprint(BOLD + RED, "Fatal: Tablet thread is not running!")
 
             # if not (self.imagRecogThread.is_alive()):
@@ -346,12 +434,18 @@ class Main(threading.Thread):
             # 	self.imagRecogThread.start()
             # 	cprint(BOLD + BLUE, 'Resolution: Image Recognition thread has been restarted.')
 
+=======
+                cprint(BOLD + RED, 'Fatal: Tablet thread is not running!')
+>>>>>>> parent of 2a46d71... Update
             time.sleep(1)
 
 
 if __name__ == "__main__":
     mainThread = Main()
     mainThread.initialize_threads()
+<<<<<<< HEAD
     # mainThread.readPC()
+=======
+>>>>>>> parent of 2a46d71... Update
     mainThread.keep_main_alive()
     mainThread.close_all_sockets()

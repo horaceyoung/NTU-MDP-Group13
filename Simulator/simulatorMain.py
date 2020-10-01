@@ -3,7 +3,7 @@ import fastest_path
 import exploration
 import map
 import robot
-import commMgr
+import testComm
 
 from configurations import *
 
@@ -18,18 +18,29 @@ robot_group = pg.sprite.Group(player_robot)
 arena_map = map.Map()
 arena_map.generate_map("map_config_2.txt")
 realRun = False
+<<<<<<< HEAD
 exploration_instance = exploration.Exploration(300, 20, player_robot, arena_map, False)
 # exploration_instance.initialize_exploration()
+=======
+exploration_instance = exploration.Exploration(250, 100, player_robot, arena_map, False)
+#exploration_instance.initialize_exploration()
+>>>>>>> parent of 2a46d71... Update
 # an unresolved issue
 arena_map.map_cells[18][3].discovered = True
 arena_map.map_cells[19][3].discovered = True
 
 running = True
+<<<<<<< HEAD
 # comm = commMgr.TcpClient("127.0.0.1", 22, buffer_size=1024) #For debugging purpose
 # testcom = commMgr.TcpClient("192.168.13.13", 22, buffer_size=1024)
 # comm.run()
 comm = commMgr.TcpClient("192.168.13.13", 4413, buffer_size=2048)
 comm.run()
+=======
+#comm = testComm.TcpClient("127.0.0.1", 22, buffer_size=1024) #For debugging purpose
+#testcom = testComm.TcpClient("192.168.13.13", 22, buffer_size=1024)
+#comm.run()
+>>>>>>> parent of 2a46d71... Update
 
 while running:
     # controls
@@ -53,6 +64,7 @@ while running:
             # (Added) Test Real Run ####################################################################
             if event.key == pg.K_r:
                 realRun = True
+<<<<<<< HEAD
                 # comm = commMgr.TcpClient("127.0.0.1", 22, buffer_size=1024) #For debugging purpose
 
                 start_exploration = comm.get_android_command()
@@ -77,9 +89,20 @@ while running:
                 comm.send_movement_rotate_left()
             if event.key == pg.K_RIGHT:
                 comm.send_movement_rotate_right()
+=======
+                comm = testComm.TcpClient("127.0.0.1", 22, buffer_size=1024) #For debugging purpose
+                #comm = testComm.TcpClient("192.168.13.13", 22, buffer_size=1024)
+                comm.run()
+                exploration_instance = exploration.Exploration(298, 100, player_robot, arena_map, True, comm)
+                exploration_instance.initialize_exploration()
+            if event.key == pg.K_m:
+                arena_map.generate_descriptor_strings()
+
+>>>>>>> parent of 2a46d71... Update
 
     for sensor in player_robot.sensors:
         sensor.sense(arena_map, player_robot)
+        player_robot.get_sensor_readings()
 
     if (
         exploration_instance.area_explored < exploration_instance.coverage_limit
@@ -88,7 +111,11 @@ while running:
         exploration_instance.exploration_loop()
     # fastest_path.astar(arena_map,player_robot.location,(18,1))
 
+<<<<<<< HEAD
     clock.tick(10)
+=======
+    clock.tick(20)
+>>>>>>> parent of 2a46d71... Update
 
     screen.fill((0, 0, 0))
     # generate the map

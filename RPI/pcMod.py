@@ -6,20 +6,35 @@ from config import WIFI_IP, WIFI_PORT, PC_SOCKET_BUFFER_SIZE, LOCALE
 
 
 class pcComm(object):
+<<<<<<< HEAD
     def __init__(self, port=WIFI_PORT, wifi_ip="127.0.0.1"):
         self.port = 22
+=======
+
+    def __init__(self, port=WIFI_PORT, wifi_ip=WIFI_IP):
+        self.port = port
+>>>>>>> parent of 2a46d71... Update
         self.wifi_ip = wifi_ip
         self.pc_is_connected = False
 
     def close_pc_socket(self):
         if self.client:
             self.client.close()
+<<<<<<< HEAD
             print("Terminating client socket..")
 
         if self.conn:
             self.conn.close()
             print("Terminating server socket..")
 
+=======
+            print ('Terminating client socket..')
+            
+        if self.conn:
+            self.conn.close()
+            print ('Terminating server socket..')
+        
+>>>>>>> parent of 2a46d71... Update
         self.pc_is_connected = False
         if not self.pc_is_connected:
             print("Successfully Disconected PC!")
@@ -53,6 +68,7 @@ class pcComm(object):
                 break
             print("Retrying PC connection..")
             time.sleep(1)
+<<<<<<< HEAD
         ###################### Testing####################################
         print("Testing sending data from PC:")
         string = "SDATA:2:3:1:4:5:2"
@@ -61,6 +77,8 @@ class pcComm(object):
             print("Testing reading data from PC:")
             self.read_PC()
         #####################################################################
+=======
+>>>>>>> parent of 2a46d71... Update
 
     def pc_connected(self):
         return self.pc_is_connected
