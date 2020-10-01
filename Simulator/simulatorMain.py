@@ -25,8 +25,7 @@ arena_map.map_cells[18][3].discovered = True
 arena_map.map_cells[19][3].discovered = True
 
 running = True
-# comm = commMgr.TcpClient("127.0.0.1", 22, buffer_size=1024) #For debugging purpose
-comm = commMgr.TcpClient("192.168.13.13", 22, buffer_size=1024)
+comm = commMgr.TcpClient("192.168.13.13", 22)
 comm.run()
 
 while running:
@@ -49,14 +48,16 @@ while running:
             # (Added) Test Real Run ####################################################################
             if event.key == pg.K_r:
                 realRun = True
-                # comm = commMgr.TcpClient("127.0.0.1", 22, buffer_size=1024) #For debugging purpose
-                comm = commMgr.TcpClient("192.168.13.13", 22, buffer_size=2048)
-                comm.run()
                 exploration_instance = exploration.Exploration(
                     300, 100, player_robot, arena_map, True, comm
                 )
                 exploration_instance.initialize_exploration()
-
+            if event.key == pg.K_UP:
+                comm.send_movement_forward()
+            if event.key == pg.K_LEFT:
+                comm.send_movement_rotate_left()
+            if event.key == pg.K_RIGHT:
+                comm.send_movement_rotate_right()
 
     for sensor in player_robot.sensors:
         sensor.sense(arena_map, player_robot)

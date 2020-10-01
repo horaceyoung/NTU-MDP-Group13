@@ -50,6 +50,7 @@ class TcpClient:
 
     def send(self):
         # while self.connected:
+        data = 'null'
         if not self.send_queue.empty():
             try:
                 data = self.send_queue.get()
@@ -59,6 +60,7 @@ class TcpClient:
                 print("TcpClient - Error sending data: {}".format(data))
                 # self.close_conn()
                 # break
+
     def disconnect(self):
         self.client_socket.shutdown(socket.SHUT_RDWR)
         self.client_socket.close()
@@ -100,25 +102,9 @@ class TcpClient:
         except:
             pass
 
-    def send_movement(self, movement, multiplemovement):
-        try:
-            if not multiplemovement:
-                string = "MDATA:" + movement
-                self.send_command(string)
-                self.send()
-                print("-")
-            else:
-                string = "MDATA"
-                for index in range(len(movement)):
-                    string = string + ":" + movement[index]
-                self.send_command(string)
-                self.send()
-                print("+")
-        except:
-            print("Something gone wrong")
-
     def send_movement_forward(self):
         self.send_command("AA1")
+        # self.send_command("AC")
         self.send()
 
     def send_movement_rotate_left(self):
@@ -128,6 +114,7 @@ class TcpClient:
     def send_movement_rotate_right(self):
         self.send_command("AR")
         self.send()
+
     def get_sensor_value(self):
         # while(True):
         try:

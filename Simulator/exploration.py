@@ -103,30 +103,28 @@ class Exploration:
     def nextRealMove(cls, robot, arena_map, comm):
         if cls.look(Direction.RIGHT, robot, arena_map):
             robot.rotate(90)
-            comm.send_movement(Movement.RIGHT.value, False)
+            comm.send_movement_rotate_right()
             if cls.look(Direction.UP, robot, arena_map):
                 robot.move_forward()
-                comm.send_movement(Movement.FORWARD.value, False)
+                comm.send_movement_forward()
                 # robot.sendMovement(Movement.FORWARD.value)
         elif cls.look(Direction.UP, robot, arena_map):
             robot.move_forward()
-            comm.send_movement(Movement.FORWARD.value, False)
+            comm.send_movement_forward()
             # robot.sendMovement(Movement.FORWARD.value)
         elif cls.look(Direction.LEFT, robot, arena_map):
             robot.rotate(-90)
-            comm.send_movement(Movement.LEFT.value, False)
+            comm.send_movement_rotate_left()
             # robot.sendMovement(Movement.LEFT.value)
             if cls.look(Direction.UP, robot, arena_map):
                 robot.move_forward()
-                comm.send_movement(Movement.FORWARD.value, False)
+                comm.send_movement_forward()
                 # robot.sendMovement(Movement.FORWARD.value)
         else:
             robot.rotate(90)
             robot.rotate(90)
-            comm.send_movement(Movement.RIGHT.value, False)
-            comm.send_movement(Movement.RIGHT.value, False)
-            # robot.sendMovement(Movement.RIGHT.value)
-            # robot.sendMovement(Movement.RIGHT.value)
+            comm.send_movement_rotate_right()
+            comm.send_movement_rotate_right()
 
     def calculate_area_explored(self):
         explored_arena_count = 0
