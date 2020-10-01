@@ -115,6 +115,7 @@ class TcpClient:
 
     def get_sensor_value(self):
         # while(True):
+        sensorVal = 'null'
         try:
             self.recv()
             data = self.get_string()
@@ -126,3 +127,16 @@ class TcpClient:
         except:
             print("No more sensor value")
         return sensorVal
+
+    def send_movement_forward(self):
+        self.send_command("AA1")
+        self.send()
+
+    def send_movement_rotate_left(self):
+        self.send_command("AL")
+        self.send()
+
+    def send_movement_rotate_right(self):
+        self.send_command("AR")
+        self.send_command("C")
+        self.send()
