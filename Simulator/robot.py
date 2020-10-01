@@ -150,3 +150,35 @@ class Robot(pg.sprite.Sprite):
         # update sensors
         for sensor in self.sensors:
             sensor.rotation_update(self, degree)
+
+    def canCalibrateOnTheSpot(self):
+        sensorVal = self.comm.get_sensor_value()
+        counter = 0
+
+        # Check can calibrate using front 3 sensors
+        for front in range(1,4,1):
+            if(sensorVal[front]=="1"):
+                counter += 1
+        if(counter == 3):
+            return True
+
+        # Check can calibrate using right 2 sensors
+        counter = 0
+        for right in range(4,6,1):
+            if(sensorVal[right]=="1"):
+                counter += 1
+        if(counter == 2):
+            return True
+        return False
+
+    def rotateBackDefault(self):
+        counter = rotateBackDefault(self.direction)
+
+        if(counter == 1):
+            self.rotate(90)
+            #self.comm.send_movement(Movement.RIGHT,Movement.RIGHT.value,0)
+        else:
+            self.rotate(90)
+            self.rotate(90)
+            #self.comm.send_movement(Movement.RIGHT,Movement.RIGHT.value,0)
+            #self.comm.send_movement(Movement.RIGHT,Movement.RIGHT.value,0)

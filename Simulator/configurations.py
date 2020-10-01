@@ -14,12 +14,12 @@ map_config_path = cwd + "\\assets\\map\\"
 
 
 class Movement(enum.Enum):
-    LEFT = "L"
-    RIGHT = "R"
-    FORWARD = "F"
-    BACKWARD = "B"
-    CALIBRATE = "C"
-    ERROR = "E"
+    LEFT = 'L'
+    RIGHT = 'R'
+    FORWARD = 'F'
+    BACKWARD = 'B'
+    CALIBRATE = 'C'
+    READ_SENSOR = 'O'
 
 
 class Direction(enum.Enum):
@@ -81,7 +81,12 @@ def sameDir(curDir, targetDir):
     else:
         return False
 
+def rotateBackDefault(curDir):
+    curIndex = DIRECTION_ARRAY.index(curDir)
+    return 4 - curIndex
 
+DIRECTION_ARRAY = [[0,-1],[1,0],[0,1],[-1,0]]
+DEFAULT_DIR = (0,-1)  #Default direction
 GOAL_ROW = 18  # row no. of goal cell
 GOAL_COL = 13  # col no. of goal cell
 START_ROW = 1  # row no. of start cell
