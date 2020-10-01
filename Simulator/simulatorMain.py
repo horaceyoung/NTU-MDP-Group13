@@ -25,7 +25,7 @@ arena_map.map_cells[18][3].discovered = True
 arena_map.map_cells[19][3].discovered = True
 
 running = True
-comm = commMgr.TcpClient("192.168.13.13", 22)
+comm = commMgr.TcpClient("192.168.13.13", 4413)
 comm.run()
 
 while running:
@@ -37,11 +37,9 @@ while running:
         if event.type == pg.KEYDOWN:
             if event.key == pg.K_w:
                 fastest_path.astar(arena_map, (18, 1), (1, 13))
-                # exploration.Exploration.next_move(player_robot, arena_map)
             if event.key == pg.K_e:
                 # exploration_instance = exploration.Exploration(298, 100, player_robot, arena_map, False)
                 exploration_instance.initialize_exploration()
-                # player_robot.rotate(-90)
             if event.key == pg.K_h:
                 fastest_path.astar(arena_map, player_robot.location, (18, 1))
                 player_robot.rotate(90)
@@ -52,12 +50,15 @@ while running:
                     300, 100, player_robot, arena_map, True, comm
                 )
                 exploration_instance.initialize_exploration()
+
             if event.key == pg.K_UP:
                 comm.send_movement_forward()
             if event.key == pg.K_LEFT:
                 comm.send_movement_rotate_left()
             if event.key == pg.K_RIGHT:
                 comm.send_movement_rotate_right()
+            if event.key == pg.K_DOWN:
+                print(comm.get_sensor_value())
 
     for sensor in player_robot.sensors:
         sensor.sense(arena_map, player_robot)

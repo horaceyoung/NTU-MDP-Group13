@@ -28,17 +28,16 @@ class TcpClient:
         print("TcpClient - Connected on {}:{}".format(self.ip, self.port))
 
     def recv(self):
-        while self.connected:
+        data = None
+        if self.connected:
             try:
                 data = self.client_socket.recv(self.buffer_size)
+                print("Data Received: " + data)
             except:
                 print("Error Receiving")
                 # self.close_conn()
-                break
             if not data:
                 print("Error: Not data")
-                # self.close_conn()
-                break
             data_s = data.decode("utf-8")
             data_arr = data_s.splitlines()
             for data_str in data_arr:
@@ -51,15 +50,13 @@ class TcpClient:
     def send(self):
         # while self.connected:
         data = 'null'
-        if not self.send_queue.empty():
+        while not self.send_queue.empty():
             try:
                 data = self.send_queue.get()
                 self.client_socket.send((data + "\n").encode("utf-8"))
                 print("TcpClient - Sent data: {}".format(data))
             except:
                 print("TcpClient - Error sending data: {}".format(data))
-                # self.close_conn()
-                # break
 
     def disconnect(self):
         self.client_socket.shutdown(socket.SHUT_RDWR)
@@ -104,7 +101,8 @@ class TcpClient:
 
     def send_movement_forward(self):
         self.send_command("AA1")
-        # self.send_command("AC")
+        self.send()
+        self.send_command("AC")
         self.send()
 
     def send_movement_rotate_left(self):
@@ -117,14 +115,12 @@ class TcpClient:
 
     def get_sensor_value(self):
         # while(True):
+        sensorVal = 'null'
         try:
             self.recv()
+            "Reading receive finished"
             data = self.get_string()
             sensorVal = data.split(":")  # 1:SRFL,2:SRFC,3:SRFR,4:SRTR,5:SRBR,6:SRL
-            """
-                if(sensorVal[0] == "SDATA"):
-                break
-            """
         except:
             print("No more sensor value")
         return sensorVal
