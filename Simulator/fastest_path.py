@@ -1,12 +1,12 @@
 from operator import attrgetter
 import pygame as pg
-
-# A* path finding algorithm
-def astar(arena_map, start, end):
+#A* path finding algorithm
+def astar(arena_map, robot, start, end):
 
     # Create start and end node
     start_node = arena_map.map_cells[int(start[0])][int(start[1])]
     start_node.g = start_node.h = start_node.f = 0
+    start_node.parent = None
     end_node = arena_map.map_cells[end[0]][end[1]]
     end_node.g = end_node.h = end_node.f - 0
 
@@ -14,14 +14,14 @@ def astar(arena_map, start, end):
     open_list = []
     closed_list = []
 
-    # Add the start node
+    #Add the start node
     open_list.append(start_node)
 
     # Loop until end is reached
     while open_list:
-        # for i in range(0,1000):
+    # for i in range(0,1000):
         # Get the node with the smallest f
-        current_node = min(open_list, key=attrgetter("f"))
+        current_node = min(open_list,key=attrgetter('f'))
         # print("poped node:", current_node.position)
         # Pop current node off open list, add to closed list
         open_list.remove(current_node)
@@ -39,55 +39,92 @@ def astar(arena_map, start, end):
                 for cell_row in arena_map.map_cells:
                     for cell in cell_row:
                         if node.position == cell.position:
-                            # Need to ask how to update get robot current position
-                            cell.update_color((255, 0, 0))
+                            #Need to ask how to update get robot current position
+                            cell.update_color((255,0,0))
                             cell.discovered = False
                             arena_map.cells_group.add(cell)
 
-        # Generate children
+            straightPath = 0
+            LEFT, RIGHT, NONE = -1, 1, 0
+            turning = NONE
+            waze = []
+            directions = [[0,-1], [1,0], [0,1], [-1,0]]
+            current_direction = directions.index(robot.direction)
+            path = path[::-1]
+            for i in range(1,len(path)):
+                direction = [path[i].position[1] - path[i-1].position[1], path[i].position[0] - path[i-1].position[0]]
+                diff = [int(direction[0] - directions[current_direction][0]), int(direction[1] - directions[current_direction][1])]
+
+                if directions[current_direction][1] == 0:
+                    if diff == [-1,-1] or diff == [1,1]:
+                        turning = LEFT
+                    if diff == [1,-1] or diff == [-1,1]:
+                        turning = RIGHT
+                elif directions[current_direction][0] == 0:
+                    if diff == [-1,-1] or diff == [1,1]:
+                        turning = RIGHT
+                    if diff == [1,-1] or diff == [-1,1]:
+                        turning = LEFT
+
+                if turning and straightPath:
+                    waze.append(["STRAIGHT", straightPath])
+                    if turning == RIGHT:
+                        current_direction += 1
+                        current_direction %= 4
+                        waze.append(["RIGHT", -1])
+                    elif turning == LEFT:
+                        current_direction -= 1
+                        current_direction %= 4
+                        waze.append(["LEFT", -1])
+                    straightPath = 0
+                    turning = NONE
+
+                straightPath += 1
+                # comm.send_movement(Movement.FORWARD.value,False)
+
+            waze.append(["STRAIGHT", straightPath])
+
+            print(waze)
+            for route in waze:
+                if route[0] == "STRAIGHT":
+                    for i in range(route[1]):
+                        robot.move_forward()
+                elif route[0] == "LEFT":
+                    robot.rotate(-90)
+                elif route[0] == "RIGHT":
+                    robot.rotate(90)
+
+            break
+
+        #Generate children
         children = []
 
-        for new_position in [(0, -1), (0, 1), (-1, 0), (1, 0)]:
-            # Get children node position
-            node_position = current_node.position + pg.Vector2(
-                new_position[0], new_position[1]
-            )
-            # Ensure the position is within the maze
+        for new_position in [(0,-1),(0,1),(-1,0),(1,0)]:
+            #Get children node position
+            node_position = current_node.position+ pg.Vector2(new_position[0], new_position[1])
+            #Ensure the position is within the maze
             try:
-                new_node = arena_map.map_cells[int(node_position[0])][
-                    int(node_position[1])
-                ]
+                new_node = arena_map.map_cells[int(node_position[0])][int(node_position[1])]
             except IndexError:
                 continue
 
-            # Ensure the new position is not an obstacle
+            #Ensure the new position is not an obstacle
             if new_node.is_obstacle:
                 continue
 
-            # Ensure the new position's surrounding 8 blocks is free
+            #Ensure the new position's surrounding 8 blocks is free
             surrounding_node_free = True
-            position_offsets = [
-                (-1, -1),
-                (-1, 0),
-                (-1, 1),  # Top 3 cells
-                (0, -1),
-                (0, 1),  # Left and right cells
-                (1, -1),
-                (1, 0),
-                (1, 1),
-            ]  # Lower 3 cells
+            position_offsets = \
+            [(-1, -1), (-1, 0), (-1, 1), # Top 3 cells
+            (0, -1), (0, 1), # Left and right cells
+            (1, -1), (1, 0), (1, 1)] # Lower 3 cells
             for position_offset in position_offsets:
                 try:
                     surrounding_node_position = node_position + position_offset
                     # print("surrounding node position", surrounding_node_position)
-                    if (
-                        surrounding_node_position[0] < 0
-                        or surrounding_node_position[1] < 0
-                    ):
+                    if surrounding_node_position[0]<0 or surrounding_node_position[1]<0:
                         surrounding_node_free = False
-                    surrounding_node = arena_map.map_cells[
-                        int(surrounding_node_position[0])
-                    ][int(surrounding_node_position[1])]
+                    surrounding_node = arena_map.map_cells[int(surrounding_node_position[0])][int(surrounding_node_position[1])]
                     if surrounding_node.is_obstacle:
                         surrounding_node_free = False
                 except IndexError:
@@ -97,7 +134,7 @@ def astar(arena_map, start, end):
             if not surrounding_node_free:
                 continue
 
-            # Append to children list
+            #Append to children list
             if new_node not in closed_list:
                 new_node.parent = current_node
                 children.append(new_node)
@@ -105,25 +142,31 @@ def astar(arena_map, start, end):
         # for child in children:
         #     print("child", child.position, child.parent.position)
 
+
         # Loop through children
         for child in children:
             # Initialize the f, g, and h values
             child.g = current_node.g + 1
             # Add penalty if requires turning
-            # if current_node != start_node:
-            #     if not ((child.position[0] == current_node.position[0] and child.position[0] ==
-            #         current_node.parent.position[0]) or (
-            #             child.position[1] == current_node.position[1] and child.position[1] ==
-            #         current_node.parent.position[1])):
-            #         child.g += 3
+            if current_node != start_node:
+                if not ((child.position[0] == current_node.position[0] and child.position[0] ==
+                    current_node.parent.position[0]) or (
+                        child.position[1] == current_node.position[1] and child.position[1] ==
+                    current_node.parent.position[1])):
+                    child.g += 10
             # Robot can only turn 90 degrees
             # Manhattan distance as heuristic
             manhattan_distance_vec = child.position - end_node.position
             child.h = abs(manhattan_distance_vec[0]) + abs(manhattan_distance_vec[1])
             child.f = child.g + child.h
 
-            if child.h + child.f < child.g:
-                child.g = child.h + child.f
+            existed = False
+            #Child is already in open_list and child is further from source than it is initially, do not append it to open list
+            for open_node in open_list:
+                if child == open_node and child.g > open_node.g:
+                    existed = True
+                    break
 
-            if child not in open_list:
+            #Add the child to the open list
+            if not existed:
                 open_list.append(child)
