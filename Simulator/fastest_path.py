@@ -100,9 +100,12 @@ def astar(arena_map, robot, start, end, comm):
                         comm.send_movement(Movement.FORWARD, Movement.FORWARD.value, route[1])
                     elif route[0] == "LEFT":
                         comm.send_movement(Movement.LEFT, Movement.LEFT.value, 0)
-                        if
+                        if robot.canCalibrateOnTheSpot():
+                            comm.send_movement(Movement.CALIBRATE, Movement.CALIBRATE.value,False)
                     elif route[0] == "RIGHT":
                         comm.send_movement(Movement.RIGHT, Movement.RIGHT.value, 0)
+                        if robot.canCalibrateOnTheSpot():
+                            comm.send_movement(Movement.CALIBRATE, Movement.CALIBRATE.value,False)
 
             break
 
