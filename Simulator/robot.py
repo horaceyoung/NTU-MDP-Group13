@@ -186,26 +186,49 @@ class Robot(pg.sprite.Sprite):
         try:
             sensor_val = comm.get_sensor_value()
             print(sensor_val)
-            for i in range(3):
-                sensor = self.sensors.sprites()[i]
-                print(sensor)
-                sensorpos = sensor.location_offset
 
-                obstacle_loc = (sensor_loc[0], sensor_loc[1]+sensor_val[i]+1)
-                #if(sensor_val[i]>-1):
-                arena_map.map_cells[obstacle_loc[0]][obstacle_loc[1]].is_obstacle=True
-                    #comm.take_picture()
-            for i in range(3,5,1):
-                sensor = self.sensors.sprites()[i]
-                sensor_loc = sensor.location
-                obstacle_loc = (sensor_loc[0]+sensor_val[i]+1, sensor_loc[1])
-                #if(sensor_val[i]>-1):
-                arena_map.map_cells[obstacle_loc[0]][obstacle_loc[1]].is_obstacle=True
-            sensor = self.sensors.sprites()[5]
-            sensor_loc = sensor.location
-            obstacle_loc = (sensor_loc[0]+sensor_val[5]+1, sensor_loc[1])
-            #if(sensor_val[i]>-1):
+            FRONT_LEFT = 0
+            FRONT = 1
+            FRONT_RIGHT = 2
+            RIGHT_UP = 3
+            RIGHT = 4
+            LEFT = 5
+            dct = {(0,-1):[(-1,-1),(0,-1),(1,-1),(1,-1),(1,0),(-1,-1)],(1,0):[(1,-1),(1,0),(1,1),(1,1),(0,1),(1,-1)],(0,1):[(1,1),(0,1),(-1,1),(-1,1),(-1,0),(1,1)],(-1,0):[(-1,1),(-1,0),(-1,-1),(-1,-1),(0,-1),(-1,1)]}
+            lst = dct[self.direction]
+
+            for i in range(6):
+                if sensor_val[i] == -1:
+                    continue
+
+                if i == FRONT_LEFT or i == FRONT or i == FRONT_RIGHT:
+                    obstacle_loc = (self.location[0]+lst[i][1]-(sensor_val[i]+1), self.location[1]+lst[i][0])
+                elif i == RIGHT_UP or i == RIGHT:
+                    obstacle_loc = (self.location[0]+lst[i][1], self.location[1]+lst[i][0]+sensor_val[i]+1)
+                elif i == LEFT:
+                    obstacle_loc = (self.location[0]+lst[i][1], self.location[1]+lst[i][0]-(sensor_val[i]+1))
+
             arena_map.map_cells[obstacle_loc[0]][obstacle_loc[1]].is_obstacle=True
+
+
+            # for i in range(3):
+            #     sensor = self.sensors.sprites()[i]
+            #     print(sensor)
+            #     sensorpos = sensor.location_offset
+            #     robotpos =
+            #     obstacle_loc = (sensor_loc[0], sensor_loc[1]+sensor_val[i]+1)
+            #     #if(sensor_val[i]>-1):
+            #     arena_map.map_cells[obstacle_loc[0]][obstacle_loc[1]].is_obstacle=True
+            #         #comm.take_picture()
+            # for i in range(3,5,1):
+            #     sensor = self.sensors.sprites()[i]
+            #     sensor_loc = sensor.location
+            #     obstacle_loc = (sensor_loc[0]+sensor_val[i]+1, sensor_loc[1])
+            #     #if(sensor_val[i]>-1):
+            #     arena_map.map_cells[obstacle_loc[0]][obstacle_loc[1]].is_obstacle=True
+            # sensor = self.sensors.sprites()[5]
+            # sensor_loc = sensor.location
+            # obstacle_loc = (sensor_loc[0]+sensor_val[5]+1, sensor_loc[1])
+            # #if(sensor_val[i]>-1):
 
         except Exception as inst:
             print("error in real sense", inst)
