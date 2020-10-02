@@ -182,3 +182,44 @@ class Robot(pg.sprite.Sprite):
             self.rotate(90)
             #self.comm.send_movement(Movement.RIGHT,Movement.RIGHT.value,0)
             #self.comm.send_movement(Movement.RIGHT,Movement.RIGHT.value,0)
+    def real_sense(self,arena_map,comm):
+        try:
+            sensor_val = comm.get_sensor_value()
+            print(sensor_val)
+            for i in range(3):
+                sensor = self.sensors.sprites()[i]
+                print(sensor)
+                sensorpos = sensor.location_offset
+                robotpos =
+                obstacle_loc = (sensor_loc[0], sensor_loc[1]+sensor_val[i]+1)
+                #if(sensor_val[i]>-1):
+                arena_map.map_cells[obstacle_loc[0]][obstacle_loc[1]].is_obstacle=True
+                    #comm.take_picture()
+            for i in range(3,5,1):
+                sensor = self.sensors.sprites()[i]
+                sensor_loc = sensor.location
+                obstacle_loc = (sensor_loc[0]+sensor_val[i]+1, sensor_loc[1])
+                #if(sensor_val[i]>-1):
+                arena_map.map_cells[obstacle_loc[0]][obstacle_loc[1]].is_obstacle=True
+            sensor = self.sensors.sprites()[5]
+            sensor_loc = sensor.location
+            obstacle_loc = (sensor_loc[0]+sensor_val[5]+1, sensor_loc[1])
+            #if(sensor_val[i]>-1):
+            arena_map.map_cells[obstacle_loc[0]][obstacle_loc[1]].is_obstacle=True
+
+        except Exception as inst:
+            print("error in real sense", inst)
+
+        finally:
+            #arena = ""
+            string = ""
+            for row in range(20):
+                for col in range(15):
+                    if(arena_map.map_cells[row][col].is_obstacle):
+                        string += "1"
+                    else:
+                        string += "0"
+                print(string)
+                #arena += string
+                string = ""
+            #print(arena)

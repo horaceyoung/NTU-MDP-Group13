@@ -32,20 +32,27 @@ class TcpClient:
         if self.connected:
             try:
                 data = self.client_socket.recv(self.buffer_size)
-                print("Data Received: " + data)
-            except:
-                print("Error Receiving")
+                #print("Data Received: " + data)
+            except Exception as inst:
+                print("Error Receiving:",inst)
                 # self.close_conn()
             if not data:
                 print("Error: Not data")
             data_s = data.decode("utf-8")
             data_arr = data_s.splitlines()
-            for data_str in data_arr:
-                print("TcpClient - Received data: {}".format(data_str))
+            try:
+                for data_str in data_arr:
+                    print("TcpClient - Received data: {}".format(data_str))
+                    self.recv_string_queue.put(data_str)
+            except Exception as inst:
+                print("Something went wrong in receiving:",inst)
+                '''
                 if data_str[0] == "{":
                     self.recv_json_queue.put(data_str)
                 else:
                     self.recv_string_queue.put(data_str)
+                '''
+
 
     def send(self):
         # while self.connected:
@@ -121,6 +128,57 @@ class TcpClient:
             "Reading receive finished"
             data = self.get_string()
             sensorVal = data.split(":")  # 1:SRFL,2:SRFC,3:SRFR,4:SRTR,5:SRBR,6:SRL
-        except:
-            print("No more sensor value")
+            last = sensorVal[-1]
+            idx = last.find("\\")
+            last = last[:idx]
+            sensorVal = sensorVal[1:-1] + [last]
+            self.empty_queue()
+        except Exception as inst:
+            print("Sensor Error:",inst)
         return sensorVal
+
+    def take_picture(self,coordinate=None):
+        print("Taking Picture.....")
+        try:
+            string = "P"
+            self.send_command(string)
+            self.send()
+            print("Successfully send")
+            #self.send_command("BP:" + str(coordinate))
+        except Exception as inst:
+            print("Error sending take picture commands to RPI:", inst)
+
+    def get_android_command(self):
+        print("Listening for Android command...")
+        try:
+            self.recv()
+            data = self.get_string()
+            command = data.strip()
+            print("Receive Android command:"+command)
+        except Exception as inst:
+            print("Error receiving Android command:", inst)
+        return command
+
+
+    def empty_queue(self):
+        while(not self.recv_string_queue.empty()):
+            self.recv_string_queue.get()
+
+    def send_mapdescriptor(self, map, obstacle):
+        message_header = "{\\\"map\\\":[{"
+        message_tail = "}]}"
+        explored_field = "\\\"explored\\\":\\\""+str(map)+"\\\""
+        length_field = "\\\"length\\\":"+str(300)
+        obstacle_field = "\\\"obstacle\\\":\\\""+str(obstacle)+"\\\""
+        message = message_header + explored_field +","+length_field+","+obstacle_field+message_tail
+        print("Map Descriptor for Android:" + message)
+
+    def real_sense(self):
+        try:
+            sensor_val = self.get_sensor_value()
+            print(sensor_val)
+            for i in range(1,7,1):
+                if(int(sensor_val[i])>-1):
+                    self.take_picture()
+        except Exception as inst:
+            print("error in real sense", inst)

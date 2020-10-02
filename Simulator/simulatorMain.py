@@ -25,7 +25,8 @@ arena_map.map_cells[18][3].discovered = True
 arena_map.map_cells[19][3].discovered = True
 
 running = True
-comm = commMgr.TcpClient("192.168.13.13", 4413)
+#comm = commMgr.TcpClient("192.168.13.13", 4413)
+comm = commMgr.TcpClient("127.0.0.1", 22)
 comm.run()
 
 while running:
@@ -42,7 +43,7 @@ while running:
                 exploration_instance.initialize_exploration()
             if event.key == pg.K_h:
                 fastest_path.astar(arena_map, player_robot.location, (18, 1))
-                player_robot.rotate(90)
+                player_robot.rotateBackDefault()
             # (Added) Test Real Run ####################################################################
             if event.key == pg.K_r:
                 realRun = True
@@ -59,6 +60,10 @@ while running:
                 comm.send_movement_rotate_right()
             if event.key == pg.K_DOWN:
                 print(comm.get_sensor_value())
+            if event.key == pg.K_p:
+                comm.take_picture()
+            if event.key == pg.K_c:
+                player_robot.real_sense(arena_map,comm)
 
     for sensor in player_robot.sensors:
         sensor.sense(arena_map, player_robot)
