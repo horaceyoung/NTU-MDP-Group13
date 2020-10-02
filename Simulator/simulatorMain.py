@@ -25,8 +25,8 @@ arena_map.map_cells[18][3].discovered = True
 arena_map.map_cells[19][3].discovered = True
 
 running = True
-#comm = commMgr.TcpClient("192.168.13.13", 4413)
-comm = commMgr.TcpClient("127.0.0.1", 22)
+comm = commMgr.TcpClient("192.168.13.13", 4413)
+#comm = commMgr.TcpClient("127.0.0.1", 22)
 comm.run()
 
 while running:
@@ -64,6 +64,14 @@ while running:
                 comm.take_picture()
             if event.key == pg.K_c:
                 player_robot.real_sense(arena_map,comm)
+            if event.key == pg.K_l:
+                try:
+                    comm.recv()
+                    #print("Reading receive finished")
+                    data = comm.get_string()
+                    print(data)
+                except Exception as inst:
+                    print("6")
 
     for sensor in player_robot.sensors:
         sensor.sense(arena_map, player_robot)

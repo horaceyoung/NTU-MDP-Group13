@@ -190,7 +190,7 @@ class Robot(pg.sprite.Sprite):
                 sensor = self.sensors.sprites()[i]
                 print(sensor)
                 sensorpos = sensor.location_offset
-                robotpos =
+
                 obstacle_loc = (sensor_loc[0], sensor_loc[1]+sensor_val[i]+1)
                 #if(sensor_val[i]>-1):
                 arena_map.map_cells[obstacle_loc[0]][obstacle_loc[1]].is_obstacle=True

@@ -125,7 +125,7 @@ class TcpClient:
         sensorVal = 'null'
         try:
             self.recv()
-            "Reading receive finished"
+            print("Reading receive finished")
             data = self.get_string()
             sensorVal = data.split(":")  # 1:SRFL,2:SRFC,3:SRFR,4:SRTR,5:SRBR,6:SRL
             last = sensorVal[-1]
