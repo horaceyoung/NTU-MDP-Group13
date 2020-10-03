@@ -41,37 +41,38 @@ class Main(threading.Thread):
         # #self.make_imag_brighter = True
 
         # initialize all the thread with each component class file
-        self.arduino_thread = (
-            arduinoComm()
-        )  # communication with arduino using threading
+        #self.arduino_thread = (
+        #    arduinoComm()
+        #)  # communication with arduino using threading
         self.pc_thread = pcComm()  # communication with pc using threading
-        self.tablet_thread = tabletComm()  # communication with tablet using threading
+        #self.tablet_thread = tabletComm()  # communication with tablet using threading
 
-        arduinoInitThread = threading.Thread(
-            target=self.arduino_thread.connect_arduino, name="arduino_init_thread"
-        )
+        #arduinoInitThread = threading.Thread(
+        #    target=self.arduino_thread.connect_arduino, name="arduino_init_thread"
+        #)
         pcInitThread = threading.Thread(
             target=self.pc_thread.connect_pc, name="pc_init_thread"
         )
-        tabletInitThread = threading.Thread(
-            target=self.tablet_thread.connect_tablet, name="tablet_init_thread"
-        )
+        #tabletInitThread = threading.Thread(
+        #    target=self.tablet_thread.connect_tablet, name="tablet_init_thread"
+        #)
 
-        arduinoInitThread.daemon = True
+        #arduinoInitThread.daemon = True
         pcInitThread.daemon = True
-        tabletInitThread.daemon = True
+        #tabletInitThread.daemon = True
 
         # start all threading
-        arduinoInitThread.start()
+        #arduinoInitThread.start()
         pcInitThread.start()
-        tabletInitThread.start()
+        #tabletInitThread.start()
 
         time.sleep(1)
 
         while not (
-            self.arduino_thread.arduino_connected()
-            and self.pc_thread.pc_connected()
-            and self.tablet_thread.tablet_connected()
+            self.pc_thread.pc_connected()
+            #self.arduino_thread.arduino_connected()
+            #and self.pc_thread.pc_connected()
+            #and self.tablet_thread.tablet_connected()
         ):
             time.sleep(0.1)
 
@@ -198,19 +199,19 @@ class Main(threading.Thread):
                 "Successfully read data from PC to Arduino: %s"
                 % readPCMessage[1:].rstrip()
             )
-            self.writeArduino(readPCMessage[1:] + "\r\n")
+            #self.writeArduino(readPCMessage[1:] + "\r\n")
         elif readPCMessage[0].upper() == "B":
             print(
                 "Successfully read data from PC to Tablet: %s"
                 % readPCMessage[1:].rstrip()
             )
-            self.writeTablet(readPCMessage[1:])
+            #self.writeTablet(readPCMessage[1:])
         elif readPCMessage[0].upper() == "R":
             print(
                 "Successfully read data from PC to Algorithm: %s"
                 % readPCMessage[1:].rstrip()
             )
-            self.writeArduino(readPCMessage[1:] + "\r\n")
+            #self.writeArduino(readPCMessage[1:] + "\r\n")
         # elif(readPCMessage[0].upper()=='P'):
         #     imag = self.takePicture()
         # 	cv2.imwrite('images/'+str(self.imagTaken)+'.png', imag)
@@ -305,23 +306,24 @@ class Main(threading.Thread):
     def initialize_threads(self):
         # self.imagRecogThread = threading.Thread(target = self.imageRecognition, name = "imag_recog_thread")
         self.readPCThread = threading.Thread(target=self.readPC, name="pc_read_thread")
+        '''
         self.readArduinoThread = threading.Thread(
             target=self.readArduino, name="ar_read_thread"
         )
         self.readTabletThread = threading.Thread(
             target=self.readTablet, name="tb_read_thread"
         )
-
+        '''
         # self.imagRecogThread.daemon = True
         self.readPCThread.daemon = True
-        self.readArduinoThread.daemon = True
-        self.readTabletThread.daemon = True
+        #self.readArduinoThread.daemon = True
+        #self.readTabletThread.daemon = True
         print("All daemon threads initialized successfully!")
 
         # self.imagRecogThread.start()
         self.readPCThread.start()
-        self.readArduinoThread.start()
-        self.readTabletThread.start()
+        #self.readArduinoThread.start()
+        #self.readTabletThread.start()
         print("All daemon threads started successfully!")
 
     def close_all_sockets(self):
@@ -334,11 +336,12 @@ class Main(threading.Thread):
         while 1:
             if not (self.readPCThread.is_alive()):
                 cprint(BOLD + RED, "Fatal: PC thread is not running!")
+            '''
             if not (self.readArduinoThread.is_alive()):
                 cprint(BOLD + RED, "Fatal: Arduino thread is not running!")
             if not (self.readTabletThread.is_alive()):
                 cprint(BOLD + RED, "Fatal: Tablet thread is not running!")
-
+            '''
             # if not (self.imagRecogThread.is_alive()):
             # 	cprint(BOLD + RED, 'Fatal: Image Recognition thread is not running!')
             # 	self.imagRecogThread = threading.Thread(target = self.imageRecognition, name = "imag_recog_thread")

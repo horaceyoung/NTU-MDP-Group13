@@ -44,8 +44,8 @@ class TcpClient:
                 for data_str in data_arr:
                     print("TcpClient - Received data: {}".format(data_str))
                     self.recv_string_queue.put(data_str)
-            except Exception as inst:
-                print("Something went wrong in receiving:",inst)
+            except Exception as err:
+                print("Something went wrong in receiving:",err)
                 '''
                 if data_str[0] == "{":
                     self.recv_json_queue.put(data_str)
@@ -122,20 +122,26 @@ class TcpClient:
 
     def get_sensor_value(self):
         # while(True):
-        sensorVal = 'null'
         try:
             self.recv()
             print("Reading receive finished")
             data = self.get_string()
+        except Exception as inst:
+            print("Sensor Error:",inst)
+        return self.parse_sensor_value(data)
+
+    def parse_sensor_value(self,data):
+        try:
             sensorVal = data.split(":")  # 1:SRFL,2:SRFC,3:SRFR,4:SRTR,5:SRBR,6:SRL
             last = sensorVal[-1]
             idx = last.find("\\")
             last = last[:idx]
             sensorVal = sensorVal[1:-1] + [last]
-            self.empty_queue()
-        except Exception as inst:
-            print("Sensor Error:",inst)
+        except Exception as err:
+            print("Error parsing:", err)
         return sensorVal
+
+
 
     def take_picture(self,coordinate=None):
         print("Taking Picture.....")

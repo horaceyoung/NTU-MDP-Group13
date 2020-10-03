@@ -194,21 +194,30 @@ class Robot(pg.sprite.Sprite):
             RIGHT = 4
             LEFT = 5
             dct = {(0,-1):[(-1,-1),(0,-1),(1,-1),(1,-1),(1,0),(-1,-1)],(1,0):[(1,-1),(1,0),(1,1),(1,1),(0,1),(1,-1)],(0,1):[(1,1),(0,1),(-1,1),(-1,1),(-1,0),(1,1)],(-1,0):[(-1,1),(-1,0),(-1,-1),(-1,-1),(0,-1),(-1,1)]}
+        except Exception as j:
+            print("Assignment error in real sense:",j )
+        try:
+            print(self.direction)
             lst = dct[self.direction]
-
+        except Exception as i:
+            print("Error getting offset in real sense:",i)
+        try:
             for i in range(6):
                 if sensor_val[i] == -1:
-                    continue
-
+                    continues
                 if i == FRONT_LEFT or i == FRONT or i == FRONT_RIGHT:
-                    obstacle_loc = (self.location[0]+lst[i][1]-(sensor_val[i]+1), self.location[1]+lst[i][0])
+                    obstacle_loc = (self.location.x + lst[i][1]-(sensor_val[i]+1), self.location.y + lst[i][0])
                 elif i == RIGHT_UP or i == RIGHT:
-                    obstacle_loc = (self.location[0]+lst[i][1], self.location[1]+lst[i][0]+sensor_val[i]+1)
+                    obstacle_loc = (self.location.x + lst[i][1], self.location.y + lst[i][0]+sensor_val[i]+1)
                 elif i == LEFT:
-                    obstacle_loc = (self.location[0]+lst[i][1], self.location[1]+lst[i][0]-(sensor_val[i]+1))
+                    obstacle_loc = (self.location.x + lst[i][1], self.location.y + lst[i][0]-(sensor_val[i]+1))
+        except Exception as e:
+            print("Error computing obstacle location in real sense:",e)
 
+        try:
             arena_map.map_cells[obstacle_loc[0]][obstacle_loc[1]].is_obstacle=True
-
+        except Exception as inst:
+            print("Error updating obstacle location to map in real sense", inst)
 
             # for i in range(3):
             #     sensor = self.sensors.sprites()[i]
@@ -230,8 +239,6 @@ class Robot(pg.sprite.Sprite):
             # obstacle_loc = (sensor_loc[0]+sensor_val[5]+1, sensor_loc[1])
             # #if(sensor_val[i]>-1):
 
-        except Exception as inst:
-            print("error in real sense", inst)
 
         finally:
             #arena = ""

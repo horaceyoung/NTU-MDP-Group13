@@ -16,7 +16,7 @@ clock = pg.time.Clock()
 player_robot = robot.Robot()
 robot_group = pg.sprite.Group(player_robot)
 arena_map = map.Map()
-arena_map.generate_map("map_config_2.txt")
+arena_map.generate_map("map_config_0.txt")
 realRun = False
 exploration_instance = exploration.Exploration(300, 20, player_robot, arena_map, False)
 # exploration_instance.initialize_exploration()
@@ -25,8 +25,8 @@ arena_map.map_cells[18][3].discovered = True
 arena_map.map_cells[19][3].discovered = True
 
 running = True
-comm = commMgr.TcpClient("192.168.13.13", 4413)
-#comm = commMgr.TcpClient("127.0.0.1", 22)
+#comm = commMgr.TcpClient("192.168.13.13", 4413)
+comm = commMgr.TcpClient("127.0.0.1", 22)
 comm.run()
 
 while running:
@@ -59,7 +59,10 @@ while running:
             if event.key == pg.K_RIGHT:
                 comm.send_movement_rotate_right()
             if event.key == pg.K_DOWN:
-                print(comm.get_sensor_value())
+                try:
+                    print(comm.get_sensor_value())
+                except Exception as sense:
+                    print("error:",sense)
             if event.key == pg.K_p:
                 comm.take_picture()
             if event.key == pg.K_c:

@@ -57,9 +57,15 @@ class pcComm(object):
         print("Testing sending data from PC:")
         string = "SDATA:2:3:1:4:5:2"
         self.write_PC(string)
+        counter = 0
         while True:
+            string = "b'SDATA:-1:2:-1:0:0:2\\r\\n\'"
+            self.write_PC(string)
             print("Testing reading data from PC:")
             self.read_PC()
+            counter += 1
+            if(counter == 11):
+                counter = 0
         #####################################################################
 
     def pc_connected(self):
