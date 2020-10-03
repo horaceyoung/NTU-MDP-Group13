@@ -6,9 +6,9 @@ import threading
 import json
 from colors import *
 
-from arduinoMod import *
+#from arduinoMod import *
 from pcMod import *
-from tabletMod import *
+#from tabletMod import *
 
 """
 from colors import *
@@ -144,6 +144,7 @@ class Main(threading.Thread):
     # 	return src
 
     # write functions for arduino board communication
+    '''
     def readArduino(self):
         try:
             while True:
@@ -181,7 +182,7 @@ class Main(threading.Thread):
         print(
             "Successfully written data to Arduino: %s \r\n" % messageToArduino.rstrip()
         )
-
+    '''
     # write functions for PC communication via wifi
     def processMessage(self, readPCMessage):
         if readPCMessage is None:
@@ -211,6 +212,7 @@ class Main(threading.Thread):
                 "Successfully read data from PC to Algorithm: %s"
                 % readPCMessage[1:].rstrip()
             )
+
             #self.writeArduino(readPCMessage[1:] + "\r\n")
         # elif(readPCMessage[0].upper()=='P'):
         #     imag = self.takePicture()
@@ -256,7 +258,7 @@ class Main(threading.Thread):
         # write data to pc
         self.pc_thread.write_PC(messageToPC)
         print("Successfully written data to PC: %s \r\n" % messageToPC.rstrip())
-
+    '''
     # write function for tablet communication via bluetooth
     def writeTablet(self, messageToTablet):
         self.tablet_thread.write_tablet(messageToTablet)
@@ -302,7 +304,7 @@ class Main(threading.Thread):
             self.tablet_thread.disconnect_tablet()
             print("Re-establishing tablet bluetooth connection..")
             self.tablet_thread.connect_tablet()
-
+    '''
     def initialize_threads(self):
         # self.imagRecogThread = threading.Thread(target = self.imageRecognition, name = "imag_recog_thread")
         self.readPCThread = threading.Thread(target=self.readPC, name="pc_read_thread")
