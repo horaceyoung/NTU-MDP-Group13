@@ -65,3 +65,26 @@ class Map:
                     and cell.is_start_goal_zone == False
                 ):
                     self.cells_group.remove(cell)
+
+    def generate_descriptor_strings(self):
+        # part1
+        part1_result = "11\n"
+        part2_result = ""
+        for row in self.map_cells:
+            for col in row:
+                if col.discovered:
+                    part1_result+="1"
+                    if col.is_obstacle:
+                        part2_result+='1'
+                    else:
+                        part2_result+="0"
+                elif not col.discovered:
+                    part1_result+='0'
+            part1_result+="\n"
+            part2_result+='\n'
+        part1_result += "11\n"
+        return (str(hex(int(part1_result.replace("\n", ""),2))),str(hex(int(part2_result.replace("\n", ""), 2))))
+        #print("Part1 Map Representation: \n" + part1_result)
+        #print("Part1 Map Representation in hex: " + str(hex(int(part1_result.replace("\n", ""),2))))
+        #print("Part2 Map Representation: \n" + part2_result)
+        #print("Part2 Map Representation in hex: " + str(hex(int(part2_result.replace("\n", ""), 2))))

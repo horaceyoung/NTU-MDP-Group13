@@ -3,6 +3,7 @@ import sys
 import time
 from colors import *
 from config import WIFI_IP, WIFI_PORT, PC_SOCKET_BUFFER_SIZE, LOCALE
+#import keyboard
 
 
 class pcComm(object):
@@ -54,18 +55,26 @@ class pcComm(object):
             print("Retrying PC connection..")
             time.sleep(1)
         ###################### Testing####################################
-        print("Testing sending data from PC:")
-        string = "SDATA:2:3:1:4:5:2"
-        self.write_PC(string)
-        counter = 0
         while True:
-            string = "b'SDATA:-1:2:-1:0:0:2\\r\\n\'"
-            self.write_PC(string)
-            print("Testing reading data from PC:")
             self.read_PC()
-            counter += 1
-            if(counter == 11):
-                counter = 0
+        '''
+        print("Testing sending data from PC:")
+        #string = "SDATA:2:3:1:4:5:2"
+        #self.write_PC(string)
+        sensor_counter = 0
+        android_counter = 0
+        while True:
+            string = "b'SDATA:-1:2:-1:0:0:"+str(sensor_counter)+"\\r\\n\'"
+            self.write_PC(string)
+            if(android_counter % 2 == 0):
+                self.write_PC("ES")
+            #print("Testing reading data from PC:")
+            self.read_PC()
+            sensor_counter += 1
+            android_counter+=1
+            if(sensor_counter == 3):
+                sensor_counter = 0
+        '''
         #####################################################################
 
     def pc_connected(self):
@@ -103,6 +112,6 @@ class pcComm(object):
             message = message + "\n"
             message = message.encode(LOCALE)
             self.client.sendto(message, self.addr)
-            print("Write to PC: " + message)
+            print("Write to PC: " + str(message))
         except Exception as error:
             print("pcMod/PC Write Failed: %s" % str(error))

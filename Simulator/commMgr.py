@@ -2,6 +2,8 @@ import socket
 import multiprocessing
 import json
 import threading
+import time
+import re
 
 
 class TcpClient:
@@ -13,6 +15,8 @@ class TcpClient:
         self.send_queue = multiprocessing.Queue()
         self.recv_json_queue = multiprocessing.Queue()
         self.recv_string_queue = multiprocessing.Queue()
+        self.sensor_value_queue = multiprocessing.Queue()
+        self.android_command_queue = multiprocessing.Queue()
 
     def run(self):
         self.connect()
@@ -31,28 +35,39 @@ class TcpClient:
         data = None
         if self.connected:
             try:
+                self.client_socket.settimeout(5)
+                print("Receiving from client socket......")
                 data = self.client_socket.recv(self.buffer_size)
+                #print("successfully called client socket receive command")
+                if not data:
+                    print("Error: Not data")
+                data_s = data.decode("utf-8")
+                data_arr = data_s.splitlines()
+
+                for data_str in data_arr:
+                    print("TcpClient - Received data: {}".format(data_str))
+                    self.recv_string_queue.put(data_str)
                 #print("Data Received: " + data)
             except Exception as inst:
                 print("Error Receiving:",inst)
                 # self.close_conn()
-            if not data:
-                print("Error: Not data")
-            data_s = data.decode("utf-8")
-            data_arr = data_s.splitlines()
-            try:
-                for data_str in data_arr:
-                    print("TcpClient - Received data: {}".format(data_str))
-                    self.recv_string_queue.put(data_str)
-            except Exception as err:
-                print("Something went wrong in receiving:",err)
-                '''
-                if data_str[0] == "{":
-                    self.recv_json_queue.put(data_str)
-                else:
-                    self.recv_string_queue.put(data_str)
-                '''
 
+            #For handling of json if ever there is a need for it
+            '''
+            if data_str[0] == "{":
+                self.recv_json_queue.put(data_str)
+            else:
+                self.recv_string_queue.put(data_str)
+
+            '''
+
+    #For debugging purpose
+    '''
+    def print_queue(self):
+        while(not self.recv_string_queue.empty()):
+            temp = self.recv_string_queue.get()
+            print("data currently in queue:" ,temp)
+    '''
 
     def send(self):
         # while self.connected:
@@ -70,15 +85,32 @@ class TcpClient:
         self.client_socket.close()
         print("Client socket disconnected")
 
-    def get_json(self):
-        while self.recv_json_queue.empty() and self.connected:
-            pass
-        return self.recv_json_queue.get()
+    def get_android_command(self):
+        if(self.android_command_queue.empty()):
+            print("Queue is empty")
+            return 0
+        return self.android_command_queue.get()
 
-    def get_string(self):
-        while self.recv_string_queue.empty():
-            pass
-        return self.recv_string_queue.get()
+    def get_sensor_value(self):
+        if(self.sensor_value_queue.empty()):
+            print("Queue is empty")
+            return 0
+        return self.parse_sensor_value(self.sensor_value_queue.get())
+
+    def send_mapdescriptor(self, map, obstacle):
+        message_header = "{\\\"map\\\":[{"
+        message_tail = "}]}"
+        explored_field = "\\\"explored\\\":\\\""+str(map)+"\\\""
+        length_field = "\\\"length\\\":"+str(300)
+        obstacle_field = "\\\"obstacle\\\":\\\""+str(obstacle)+"\\\""
+        message = message_header + explored_field +","+length_field+","+obstacle_field+message_tail
+        #jsonObj = json.loads(message)
+        self.send_command(message)
+        self.send()
+        #print("Map Descriptor for Android:" + message)
+        '''
+        self.send_queue.put(json.dumps({"map": arena.to_mdf_part1(), "gridP2": arena.to_mdf_part2()}))
+        '''
 
     def send_command(self, command):
         # self.send_queue.put(convertString.stringToList(command))
@@ -93,10 +125,7 @@ class TcpClient:
     def send_robot_pos(self, pos):
         self.send_queue.put(json.dumps({"robotPos": pos}))
 
-    def send_arena(self, arena):
-        self.send_queue.put(
-            json.dumps({"gridP1": arena.to_mdf_part1(), "gridP2": arena.to_mdf_part2()})
-        )
+
 
     def close_conn(self):
         try:
@@ -109,8 +138,6 @@ class TcpClient:
     def send_movement_forward(self):
         self.send_command("AA1")
         self.send()
-        self.send_command("AC")
-        self.send()
 
     def send_movement_rotate_left(self):
         self.send_command("AL")
@@ -120,15 +147,32 @@ class TcpClient:
         self.send_command("AR")
         self.send()
 
-    def get_sensor_value(self):
-        # while(True):
+    def send_movement_calibrate(self):
+        self.send_command("AC")
+        self.send()
+
+    #This method is used to get value stored in multiprocessing queue
+    def update_queue(self):
+        #data = 0
+        print("Updating android command queue & sensor value queue....")
+        counter = 0
         try:
-            self.recv()
-            print("Reading receive finished")
-            data = self.get_string()
+            while(self.recv_string_queue.empty()):
+                print("Update Attempt: ",counter)
+                if(counter == 5):
+                    print("Have called socket recv command 5 times but still no data coming from RPI")
+                    return 0
+                #if(self.recv_string_queue.empty()):
+                self.recv()
+                if(not self.recv_string_queue.empty()):
+                    break
+                #print("Finished calling receive command")
+                #data = self.get_string()
+                counter += 1
+            self.organise_data()
         except Exception as inst:
-            print("Sensor Error:",inst)
-        return self.parse_sensor_value(data)
+            print("Update Queue Error:",inst)
+        #return self.determine_type(data)
 
     def parse_sensor_value(self,data):
         try:
@@ -142,7 +186,21 @@ class TcpClient:
         return sensorVal
 
 
+    #Organise receive string queue to android command only queue or sensor value only queue
+    def organise_data(self):
+        try:
+            while(not self.recv_string_queue.empty()):
+                data = self.recv_string_queue.get()
+                clean = data.strip()
+                matchObj = re.match(r'b',clean,re.I)
+                if matchObj:
+                    self.sensor_value_queue.put(data)
+                else:
+                    self.android_command_queue.put(data)
+        except Exception as err:
+            print("Something gone wrong at organising data:", err)
 
+    #Need ask android how they want to send the coordinate
     def take_picture(self,coordinate=None):
         print("Taking Picture.....")
         try:
@@ -154,6 +212,7 @@ class TcpClient:
         except Exception as inst:
             print("Error sending take picture commands to RPI:", inst)
 
+    '''
     def get_android_command(self):
         print("Listening for Android command...")
         try:
@@ -164,21 +223,48 @@ class TcpClient:
         except Exception as inst:
             print("Error receiving Android command:", inst)
         return command
+    '''
 
-
+    #For debug or future use
     def empty_queue(self):
         while(not self.recv_string_queue.empty()):
             self.recv_string_queue.get()
 
-    def send_mapdescriptor(self, map, obstacle):
-        message_header = "{\\\"map\\\":[{"
-        message_tail = "}]}"
-        explored_field = "\\\"explored\\\":\\\""+str(map)+"\\\""
-        length_field = "\\\"length\\\":"+str(300)
-        obstacle_field = "\\\"obstacle\\\":\\\""+str(obstacle)+"\\\""
-        message = message_header + explored_field +","+length_field+","+obstacle_field+message_tail
-        print("Map Descriptor for Android:" + message)
 
+
+    def get_json(self):
+        while self.recv_json_queue.empty() and self.connected:
+            pass
+        return self.recv_json_queue.get()
+
+    def get_string(self):
+        #For debug purpose
+        '''
+        start = time.time()
+        end = time.time() + 3
+        printed = 0
+        counter = 3
+        while self.recv_string_queue.empty() and start < end:
+            self.recv()
+            start = time.time()
+            diff = int(end - start)
+            if(printed != diff):
+                print("Waiting to receive command for 3 sec:", counter)
+                printed = diff
+                counter -= 1
+        '''
+
+        if(self.recv_string_queue.empty()):
+            print("Queue is empty")
+            return 0
+        return self.recv_string_queue.get()
+
+    def send_arena(self, arena):
+        self.send_queue.put(
+            json.dumps({"gridP1": arena.to_mdf_part1(), "gridP2": arena.to_mdf_part2()})
+        )
+
+    '''
     def real_sense(self):
         try:
             sensor_val = self.get_sensor_value()
@@ -188,3 +274,4 @@ class TcpClient:
                     self.take_picture()
         except Exception as inst:
             print("error in real sense", inst)
+    '''

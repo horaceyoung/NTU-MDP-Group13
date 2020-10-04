@@ -21,9 +21,10 @@ class Robot(pg.sprite.Sprite):
         self.rect.y = self.spawn_point + Map.cell_gap  # position of the robot
 
         self.sensors = pg.sprite.Group()
-        self.initialize_sensors()
+        #self.initialize_sensors()
         self.location = pg.math.Vector2(18, 1)
-        self.comm = comm
+        self.comm = comm if not comm else 0
+        self.initialize_sensors()
 
         # (ADDED)Set Up Communication Socket With RPI ###############################
         # self.comm = commMgr.CommMgr()
@@ -36,6 +37,7 @@ class Robot(pg.sprite.Sprite):
         center_y_offset,
         direction,
         location_offset,
+        range=2
     ):
         self.sensors.add(
             Sensor(
@@ -46,6 +48,8 @@ class Robot(pg.sprite.Sprite):
                 direction,
                 self,
                 location_offset,
+                self.comm,
+                range
             )
         )
 
@@ -57,8 +61,9 @@ class Robot(pg.sprite.Sprite):
          << SR [X] [X] [X]
             < LR [X] [X] [X] SR >
                        [X] [X] [X]
-        """
+
         # up sensors
+        """
         self.add_sensor(
             20,
             Map.cell_length * 8,
@@ -99,6 +104,7 @@ class Robot(pg.sprite.Sprite):
             0,
             Direction.LEFT.value,
             pg.Vector2(-1, -1),
+            7
         )  # long-range sensor
         # right sensors
         self.add_sensor(
@@ -109,7 +115,16 @@ class Robot(pg.sprite.Sprite):
             Direction.RIGHT.value,
             pg.Vector2(1, -1),
         )
+        """
+        self.add_sensor(20, Map.cell_length* 8, 30, -Map.cell_length* 5.5, Direction.UP.value, pg.Vector2(-1,1))
+        self.add_sensor(20, Map.cell_length* 8, -30, -Map.cell_length* 5.5, Direction.UP.value, pg.Vector2(-1,-1))
+        # left sensors
+        self.add_sensor(Map.cell_length * 8, 20, -Map.cell_length * 5.5, - Map.cell_length * 1, Direction.RIGHT.value, pg.Vector2(1,0), 7)
+        self.add_sensor(Map.cell_length * 15, 20, -Map.cell_length * 9, 0, Direction.LEFT.value, pg.Vector2(-1,-1)) # long-range sensor
+        # right sensors
+        self.add_sensor(Map.cell_length * 8, 20, Map.cell_length * 5.5, - Map.cell_length * 1, Direction.RIGHT.value, pg.Vector2(1,-1))
 
+        """
     def is_in_arena(self, rect):
         if (
             rect.x >= Map.arena_border_left
@@ -253,3 +268,24 @@ class Robot(pg.sprite.Sprite):
                 #arena += string
                 string = ""
             #print(arena)
+
+    def get_sensor_readings(self,arena_map,comm):
+        try:
+            sensor_value = comm.get_sensor_value()
+            index = 0
+            for sensor in self.sensors:
+                sensor.update_map(map, sensor_value[index])
+                #index = index + 1
+        except Exception as err:
+            print("Error in getting sensor reading:",err)
+        finally:
+            string = ""
+            for row in range(20):
+                for col in range(15):
+                    if(arena_map.map_cells[row][col].is_obstacle):
+                        string += "1"
+                    else:
+                        string += "0"
+                print(string)
+                #arena += string
+                string = ""

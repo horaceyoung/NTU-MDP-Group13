@@ -16,7 +16,7 @@ clock = pg.time.Clock()
 player_robot = robot.Robot()
 robot_group = pg.sprite.Group(player_robot)
 arena_map = map.Map()
-arena_map.generate_map("map_config_0.txt")
+arena_map.generate_map("map_config_1.txt")
 realRun = False
 exploration_instance = exploration.Exploration(300, 20, player_robot, arena_map, False)
 # exploration_instance.initialize_exploration()
@@ -46,11 +46,15 @@ while running:
                 player_robot.rotateBackDefault()
             # (Added) Test Real Run ####################################################################
             if event.key == pg.K_r:
-                realRun = True
-                exploration_instance = exploration.Exploration(
-                    300, 100, player_robot, arena_map, True, comm
-                )
-                exploration_instance.initialize_exploration()
+                while(comm.android_command_queue.empty()):
+                    comm.update_queue()
+                    message = comm.get_android_command()
+                    if(message == "ES"):
+                        print("Starting Exploration.....")
+                        realRun = True
+                        exploration_instance = exploration.Exploration(300, 100, player_robot, arena_map, True, comm)
+                        exploration_instance.initialize_exploration()
+                        break
 
             if event.key == pg.K_UP:
                 comm.send_movement_forward()
@@ -59,22 +63,26 @@ while running:
             if event.key == pg.K_RIGHT:
                 comm.send_movement_rotate_right()
             if event.key == pg.K_DOWN:
-                try:
-                    print(comm.get_sensor_value())
-                except Exception as sense:
-                    print("error:",sense)
+                comm.update_queue()
             if event.key == pg.K_p:
                 comm.take_picture()
             if event.key == pg.K_c:
                 player_robot.real_sense(arena_map,comm)
-            if event.key == pg.K_l:
+            if event.key == pg.K_a: #Test for getting android command
                 try:
-                    comm.recv()
-                    #print("Reading receive finished")
-                    data = comm.get_string()
-                    print(data)
-                except Exception as inst:
-                    print("6")
+                    print("Android Command Read:",comm.get_android_command())
+                except Exception as android:
+                    print("Error Reading Android Command:",android)
+            if event.key == pg.K_s: #Test for getting sensor value
+                try:
+                    print("Sensor Value Read:",comm.get_sensor_value())
+                except Exception as sense:
+                    print("Error Reading Sensor Value:",sense)
+            if event.key == pg.K_m:
+                descriptor = arena_map.generate_descriptor_strings()
+                comm.send_mapdescriptor(descriptor[0],descriptor[1])
+            if event.key == pg.K_d:
+                comm.debug_queue()
 
     for sensor in player_robot.sensors:
         sensor.sense(arena_map, player_robot)
@@ -86,7 +94,7 @@ while running:
         exploration_instance.exploration_loop()
     # fastest_path.astar(arena_map,player_robot.location,(18,1))
 
-    clock.tick(2)
+    clock.tick(10)
 
     screen.fill((0, 0, 0))
     # generate the map

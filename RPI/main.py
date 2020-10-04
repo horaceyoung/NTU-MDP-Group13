@@ -8,6 +8,7 @@ from colors import *
 
 #from arduinoMod import *
 from pcMod import *
+import keyboard
 #from tabletMod import *
 
 """
@@ -28,7 +29,7 @@ class Main(threading.Thread):
         threading.Thread.__init__(self)
 
         self.debug = False
-
+        self.data_ready = threading.Event()
         # #Queue to receive obstacles info before scanning for images
         # self.imag_Queue = Queue()
 
@@ -46,13 +47,14 @@ class Main(threading.Thread):
         #)  # communication with arduino using threading
         self.pc_thread = pcComm()  # communication with pc using threading
         #self.tablet_thread = tabletComm()  # communication with tablet using threading
-
+        #self.keyboardThread = commSimulator()
         #arduinoInitThread = threading.Thread(
         #    target=self.arduino_thread.connect_arduino, name="arduino_init_thread"
         #)
         pcInitThread = threading.Thread(
             target=self.pc_thread.connect_pc, name="pc_init_thread"
         )
+
         #tabletInitThread = threading.Thread(
         #    target=self.tablet_thread.connect_tablet, name="tablet_init_thread"
         #)
@@ -258,6 +260,7 @@ class Main(threading.Thread):
         # write data to pc
         self.pc_thread.write_PC(messageToPC)
         print("Successfully written data to PC: %s \r\n" % messageToPC.rstrip())
+
     '''
     # write function for tablet communication via bluetooth
     def writeTablet(self, messageToTablet):
@@ -305,9 +308,11 @@ class Main(threading.Thread):
             print("Re-establishing tablet bluetooth connection..")
             self.tablet_thread.connect_tablet()
     '''
+
     def initialize_threads(self):
         # self.imagRecogThread = threading.Thread(target = self.imageRecognition, name = "imag_recog_thread")
         self.readPCThread = threading.Thread(target=self.readPC, name="pc_read_thread")
+        #self.keyboardThread = threading.Thread(target=self.readKeyboard, name="keyboard_read_thread")
         '''
         self.readArduinoThread = threading.Thread(
             target=self.readArduino, name="ar_read_thread"
@@ -318,21 +323,23 @@ class Main(threading.Thread):
         '''
         # self.imagRecogThread.daemon = True
         self.readPCThread.daemon = True
+        #self.keyboardThread.daemon = True
         #self.readArduinoThread.daemon = True
         #self.readTabletThread.daemon = True
-        print("All daemon threads initialized successfully!")
+        print("PC thread initialized successfully!")
 
         # self.imagRecogThread.start()
         self.readPCThread.start()
+        #self.keyboardThread.start()
         #self.readArduinoThread.start()
         #self.readTabletThread.start()
-        print("All daemon threads started successfully!")
+        print("PC thread started successfully!")
 
     def close_all_sockets(self):
-        arduino_thread.close_all_sockets()
+        #arduino_thread.close_all_sockets()
         pc_thread.close_all_sockets()
-        tablet_thread.close_all_sockets()
-        print("All threads killed!")
+        #tablet_thread.close_all_sockets()
+        print("PC killed!")
 
     def keep_main_alive(self):
         while 1:
@@ -353,9 +360,64 @@ class Main(threading.Thread):
 
             time.sleep(1)
 
+    def keyboard_simulate(self):
+        global key_pressed
+        loop = True
+        while loop:
+            time.sleep(0.1)
+            ch = input("Press s to send simulated sensor value, e to send start exploration command, f to send start fastest path command.....\n")
+            if(ch):
+                key_pressed = ch
+                self.data_ready.set()
 
+
+    def simulate(self):
+        poller = threading.Thread(target=self.keyboard_simulate)
+        poller.start()
+        loop = True
+        counter = 0
+        while(loop):
+            if(self.data_ready.isSet()):
+                if(key_pressed.lower() == "s"):
+                    if(counter == 0):
+                        string = "b'SDATA:-1:-1:-1:-1:-1:0\\r\\n\'"
+                    elif(counter == 1):
+                        string = "b'SDATA:-1:-1:-1:0:0:-1\\r\\n\'"
+                    else:
+                        string = "b'SDATA:-1:-1:-1:0:0:0\\r\\n\'"
+                    counter += 1
+                    self.writePC(string)
+                elif (key_pressed.lower() == "e"):
+                    self.writePC("ES")
+                elif (key_pressed.lower() == "f"):
+                    self.writePC("FS")
+                elif (key_pressed.lower() == "r"):
+                    self.readPC()
+                self.data_ready.clear()
+'''
+    def readKeyboard(self):
+        from pynput.keyboard import Key, Listener
+
+def on_press(key):
+    print('{0} pressed'.format(
+        key))
+
+def on_release(key):
+    print('{0} release'.format(
+        key))
+    if key == Key.esc:
+        # Stop listener
+        return False
+
+# Collect events until released
+with Listener(
+        on_press=on_press,
+        on_release=on_release) as listener:
+    listener.join()
+'''
 if __name__ == "__main__":
     mainThread = Main()
+    mainThread.simulate()
     mainThread.initialize_threads()
     # mainThread.readPC()
     mainThread.keep_main_alive()

@@ -1,7 +1,7 @@
 import pygame as pg
 import numpy
 import commMgr
-
+from vec2D import swap_coordinates
 
 class Sensor(pg.sprite.Sprite):
     def __init__(
@@ -14,6 +14,7 @@ class Sensor(pg.sprite.Sprite):
         robot,
         location_offset,
         comm=None,
+        range = 2
     ):
         pg.sprite.Sprite.__init__(self)
         self.width = width
@@ -29,6 +30,7 @@ class Sensor(pg.sprite.Sprite):
         self.location_offset = location_offset
         self.location = None
         self.comm = comm
+        self.range = range
 
         pg.draw.rect(
             self.image,
@@ -54,7 +56,7 @@ class Sensor(pg.sprite.Sprite):
         self.rect.center += robot.velocity * robot.direction
 
     def sense(self, map, robot):
-
+        '''
         collided_cells = pg.sprite.spritecollide(self, map.cells_group, False)
         collided_cells_with_distance = []
         for collided_cell in collided_cells:
@@ -80,6 +82,46 @@ class Sensor(pg.sprite.Sprite):
                 0
             ].color != (255, 0, 0):
                 map.cells_group.remove(collided_cell_tuple[0])
+        '''
+        for sensor in robot.sensors:
+            pass
+        collided_cells = pg.sprite.spritecollide(self, map.cells_group, False)
+        collided_cells_with_distance = []
+        for collided_cell in collided_cells:
+            collided_cells_with_distance.append((collided_cell, pg.math.Vector2(robot.rect.x, robot.rect.y).distance_to(
+                pg.math.Vector2(collided_cell.rect.x, collided_cell.rect.y))))
+
+        #sort the cells by the distance between its center and the center of the sensor
+        collided_cells_with_distance.sort(key=lambda x:x[1])
+        for collided_cell_tuple in collided_cells_with_distance:
+            map.map_cells[collided_cell_tuple[0].row][collided_cell_tuple[0].col].discovered = True
+            if collided_cell_tuple[0].is_obstacle:
+                collided_cell_tuple[0].update_color((0, 0, 255))
+                break
+            elif not collided_cell_tuple[0].is_start_goal_zone and collided_cell_tuple[0].color != (255, 0, 0):
+                map.cells_group.remove(collided_cell_tuple[0])
+
+
+    def update_map(self, map, val):
+        swapped_direction = swap_coordinates(self.direction)
+        if val == -1:
+            for i in range(1, self.range+1):
+                sensed_cell_position = self.location + swapped_direction * i
+                try:
+                    if sensed_cell_position[0]>0 and sensed_cell_position[1] >0:
+                        map.map_cells[sensed_cell_position[0]][sensed_cell_position[1]].discovered = True
+                except IndexError:
+                    pass
+        else:
+            for i in range(1, self.range+2):
+                sensed_cell_position = self.location + swapped_direction * i
+                try:
+                    if sensed_cell_position[0]>0 and sensed_cell_position[1] >0:
+                        map.map_cells[sensed_cell_position[0]][sensed_cell_position[1]].discovered = True
+                        if i == val:
+                            map.map_cells[sensed_cell_position[0]][sensed_cell_position[1]].is_obstacle = True
+                except IndexError:
+                    pass
 
     """
     # Need to find out in above sense function got update map anot, how to get sensor coordinate, how to get map cells
