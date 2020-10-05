@@ -201,8 +201,10 @@ class Robot(pg.sprite.Sprite):
 
     def real_sense(self,arena_map,comm):
         try:
+
+            comm.update_queue()
             sensor_val = comm.get_sensor_value()
-            print(sensor_val)
+            print("Sensor_val:",sensor_val)
 
             FRONT_LEFT = 0
             FRONT = 1
@@ -214,27 +216,36 @@ class Robot(pg.sprite.Sprite):
         except Exception as j:
             print("Assignment error in real sense:",j )
         try:
-            print(self.direction)
-            lst = dct[self.direction]
+            #print(self.direction)
+            lst = dct[(self.direction[0],self.direction[1])]
         except Exception as i:
             print("Error getting offset in real sense:",i)
         try:
             obstacles = []
+            discovered = []
             for i in range(6):
-                if sensor_val[i] == -1:
-                    continue
+                if sensor_val[i] == "-1":
+                    if i == 5:
+                        for j in range(1,8):
+                            discovered.append((self.location.x + lst[i][1], self.location.y + lst[i][0] - j ))
+                    else:
+
                 if i == FRONT_LEFT or i == FRONT or i == FRONT_RIGHT:
-                    obstacles.append((self.location.x + lst[i][1]-(sensor_val[i]+1), self.location.y + lst[i][0]))
+                    obstacles.append((self.location.x + lst[i][1]-(int(sensor_val[i])+1), self.location.y + lst[i][0]))
                 elif i == RIGHT_UP or i == RIGHT:
-                    obstacles.append((self.location.x + lst[i][1], self.location.y + lst[i][0]+sensor_val[i]+1))
+                    obstacles.append((self.location.x + lst[i][1], self.location.y + lst[i][0]+int(sensor_val[i])+1))
                 elif i == LEFT:
-                    obstacles.append((self.location.x + lst[i][1], self.location.y + lst[i][0]-(sensor_val[i]+1))
+                    obstacles.append((self.location.x + lst[i][1], self.location.y + lst[i][0]-(int(sensor_val[i])+1)))
         except Exception as e:
             print("Error computing obstacle location in real sense:",e)
 
         try:
             for obstacle_loc in obstacles:
-                arena_map.map_cells[obstacle_loc[0]][obstacle_loc[1]].is_obstacle=True
+                print("Obstacle Loc:",obstacle_loc)
+                x = int(obstacle_loc[0])
+                y = int(obstacle_loc[1])
+                if 0 <= x <= 19 and 0 <= y <= 14:
+                    arena_map.map_cells[x][y].is_obstacle=True
         except Exception as inst:
             print("Error updating obstacle location to map in real sense", inst)
 

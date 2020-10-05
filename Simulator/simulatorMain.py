@@ -21,8 +21,6 @@ realRun = False
 exploration_instance = exploration.Exploration(300, 20, player_robot, arena_map, False)
 # exploration_instance.initialize_exploration()
 # an unresolved issue
-arena_map.map_cells[18][3].discovered = True
-arena_map.map_cells[19][3].discovered = True
 
 running = True
 #comm = commMgr.TcpClient("192.168.13.13", 4413)
@@ -83,9 +81,6 @@ while running:
                 comm.send_mapdescriptor(descriptor[0],descriptor[1])
             if event.key == pg.K_d:
                 comm.debug_queue()
-
-    for sensor in player_robot.sensors:
-        sensor.sense(arena_map, player_robot)
 
     if (
         exploration_instance.area_explored < exploration_instance.coverage_limit
