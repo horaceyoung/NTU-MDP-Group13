@@ -212,30 +212,32 @@ class Robot(pg.sprite.Sprite):
             RIGHT_UP = 3
             RIGHT = 4
             LEFT = 5
-            dct = {(0,-1):[(-1,-1),(0,-1),(1,-1),(1,-1),(1,0),(-1,-1)],(1,0):[(1,-1),(1,0),(1,1),(1,1),(0,1),(1,-1)],(0,1):[(1,1),(0,1),(-1,1),(-1,1),(-1,0),(1,1)],(-1,0):[(-1,1),(-1,0),(-1,-1),(-1,-1),(0,-1),(-1,1)]}
+            dct = {(0,-1):[(-1,-1),(0,-1),(1,-1),(1,-1),(1,0),(-1,-1)],
+                    (1,0):[(1,-1),(1,0),(1,1),(1,1),(0,1),(1,-1)],
+                    (0,1):[(1,1),(0,1),(-1,1),(-1,1),(-1,0),(1,1)],
+                    (-1,0):[(-1,1),(-1,0),(-1,-1),(-1,-1),(0,-1),(-1,1)]}
+            dir = {(0,-1):[(0,-1),(0,-1),(0,-1),(1,0),(1,0),(-1,0)], 
+            (1,0):[(1,0),(1,0),(1,0),(0,1),(0,1),(0,-1)], 
+            (0,1):[(0,1), (0,1),(0,1),(-1,0),(-1,0),(1,0)], 
+            (-1,0):[(-1,0),(-1,0),(-1,0),(0,-1),(0,-1),(0,1)]}
         except Exception as j:
             print("Assignment error in real sense:",j )
         try:
             #print(self.direction)
             lst = dct[(self.direction[0],self.direction[1])]
+            dir_lst = dir[(self.direction[0],self.direction[1])]
         except Exception as i:
             print("Error getting offset in real sense:",i)
         try:
             obstacles = []
             discovered = []
             for i in range(6):
-                if sensor_val[i] == "-1":
-                    if i == 5:
-                        for j in range(1,8):
-                            discovered.append((self.location.x + lst[i][1], self.location.y + lst[i][0] - j ))
-                    else:
-
-                if i == FRONT_LEFT or i == FRONT or i == FRONT_RIGHT:
-                    obstacles.append((self.location.x + lst[i][1]-(int(sensor_val[i])+1), self.location.y + lst[i][0]))
-                elif i == RIGHT_UP or i == RIGHT:
-                    obstacles.append((self.location.x + lst[i][1], self.location.y + lst[i][0]+int(sensor_val[i])+1))
-                elif i == LEFT:
-                    obstacles.append((self.location.x + lst[i][1], self.location.y + lst[i][0]-(int(sensor_val[i])+1)))
+                reach = 3 if i != 5 else 7
+                if sensor_val[i] != "-1":
+                    reach = int(sensor_val[i])
+                    obstacle.append((self.location.x + lst[i][1] + reach * dir_lst[i][1], self.location.y + lst[i][0] + reach * dir_lst[i][0]))
+                for j in range(1,reach+2):
+                    discovered.append((self.location.x + lst[i][1] + j * dir_lst[i][1], self.location.y + lst[i][0] + j * dir_lst[i][0]))
         except Exception as e:
             print("Error computing obstacle location in real sense:",e)
 
