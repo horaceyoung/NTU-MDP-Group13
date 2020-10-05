@@ -18,14 +18,16 @@ robot_group = pg.sprite.Group(player_robot)
 arena_map = map.Map()
 arena_map.generate_map("map_config_0.txt")
 realRun = False
-exploration_instance = exploration.Exploration(300, 20, player_robot, arena_map, True)
+
 # exploration_instance.initialize_exploration()
 # an unresolved issue
 
 running = True
 comm = commMgr.TcpClient("192.168.13.13", 4413)
-# comm = commMgr.TcpClient("127.0.0.1", 22)
+#comm = commMgr.TcpClient("127.0.0.1", 22)
 comm.run()
+counter = 0
+exploration_instance = exploration.Exploration(300, 20, player_robot, arena_map, True, comm)
 
 while running:
     # controls
@@ -42,18 +44,6 @@ while running:
             if event.key == pg.K_h:
                 fastest_path.astar(arena_map, player_robot.location, (18, 1))
                 player_robot.rotateBackDefault()
-            # (Added) Test Real Run ####################################################################
-            if event.key == pg.K_r:
-                while(comm.android_command_queue.empty()):
-                    comm.update_queue()
-                    message = comm.get_android_command()
-                    if(message == "ES"):
-                        print("Starting Exploration.....")
-                        realRun = True
-                        exploration_instance = exploration.Exploration(300, 100, player_robot, arena_map, True, comm)
-                        exploration_instance.initialize_exploration()
-                        break
-
             if event.key == pg.K_UP:
                 comm.send_movement_forward()
             if event.key == pg.K_LEFT:
@@ -80,23 +70,24 @@ while running:
                 descriptor = arena_map.generate_descriptor_strings()
                 comm.send_mapdescriptor(descriptor[0],descriptor[1])
             if event.key == pg.K_d:
-                comm.debug_queue()
+                pass
 
-    if (
-        exploration_instance.area_explored < exploration_instance.coverage_limit
-        and time.time() <= exploration_instance.end_time
-    ):
-        exploration_instance.exploration_loop()
     # fastest_path.astar(arena_map,player_robot.location,(18,1))
-
-    clock.tick(1)
-
     screen.fill((0, 0, 0))
     # generate the map
+    if counter==0:
+        comm.send_ready()
+        print("send ready called")
+        counter += 1
+
+    sensor_val = player_robot.real_sense(arena_map,comm)
+    arena_map.map_update()
+    pg.display.update()
     arena_map.cells_group.draw(screen)
+    if sensor_val != 0:
+        exploration_instance.exploration_loop()
     robot_group.draw(screen)
-    player_robot.sensors.draw(screen)
     # map update
     arena_map.map_update()
-
     pg.display.update()
+    pg.time.delay(3000)

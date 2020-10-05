@@ -137,6 +137,7 @@ class Robot(pg.sprite.Sprite):
             return False
 
     def move_forward(self):
+        print("simulator robot moved forward")
         # if the robot is within the arena
         # comm.send_movement(Movement.FORWARD.value,False)
         _rect = pg.Rect(self.rect)
@@ -153,6 +154,7 @@ class Robot(pg.sprite.Sprite):
                 sensor.position_update(self)
 
     def rotate(self, degree):
+        print("Simulator robot rotated: ", degree)
         """
         if(degree<0):
             self.comm.send_movement(Movement.LEFT.value,False)
@@ -201,7 +203,7 @@ class Robot(pg.sprite.Sprite):
 
     def real_sense(self,arena_map,comm):
         try:
-
+            #if(comm.sensor_value_queue.empty()):
             comm.update_queue()
             sensor_val = comm.get_sensor_value()
             print("Sensor_val:",sensor_val)
@@ -212,18 +214,18 @@ class Robot(pg.sprite.Sprite):
             RIGHT_UP = 3
             RIGHT = 4
             LEFT = 5
-            dct = {(0,-1):[(-1,-1),(0,-1),(1,-1),(1,-1),(1,0),(-1,-1)],
-                    (1,0):[(1,-1),(1,0),(1,1),(1,1),(0,1),(1,-1)],
-                    (0,1):[(1,1),(0,1),(-1,1),(-1,1),(-1,0),(1,1)],
-                    (-1,0):[(-1,1),(-1,0),(-1,-1),(-1,-1),(0,-1),(-1,1)]}
-            dir = {(0,-1):[(0,-1),(0,-1),(0,-1),(1,0),(1,0),(-1,0)], 
-            (1,0):[(1,0),(1,0),(1,0),(0,1),(0,1),(0,-1)], 
-            (0,1):[(0,1), (0,1),(0,1),(-1,0),(-1,0),(1,0)], 
+            dct = {(0,-1):[(-1,-1),(0,-1),(1,-1),(1,-1),(1,1),(-1,-1)],
+                    (1,0):[(1,-1),(1,0),(1,1),(1,1),(-1,1),(1,-1)],
+                    (0,1):[(1,1),(0,1),(-1,1),(-1,1),(-1,-1),(1,1)],
+                    (-1,0):[(-1,1),(-1,0),(-1,-1),(-1,-1),(1,-1),(-1,1)]}
+            dir = {(0,-1):[(0,-1),(0,-1),(0,-1),(1,0),(1,0),(-1,0)],
+            (1,0):[(1,0),(1,0),(1,0),(0,1),(0,1),(0,-1)],
+            (0,1):[(0,1), (0,1),(0,1),(-1,0),(-1,0),(1,0)],
             (-1,0):[(-1,0),(-1,0),(-1,0),(0,-1),(0,-1),(0,1)]}
         except Exception as j:
             print("Assignment error in real sense:",j )
         try:
-            #print(self.direction)
+            print(self.location)
             lst = dct[(self.direction[0],self.direction[1])]
             dir_lst = dir[(self.direction[0],self.direction[1])]
         except Exception as i:
@@ -257,27 +259,6 @@ class Robot(pg.sprite.Sprite):
         except Exception as inst:
             print("Error updating obstacle location to map in real sense", inst)
 
-            # for i in range(3):
-            #     sensor = self.sensors.sprites()[i]
-            #     print(sensor)
-            #     sensorpos = sensor.location_offset
-            #     robotpos =
-            #     obstacle_loc = (sensor_loc[0], sensor_loc[1]+sensor_val[i]+1)
-            #     #if(sensor_val[i]>-1):
-            #     arena_map.map_cells[obstacle_loc[0]][obstacle_loc[1]].is_obstacle=True
-            #         #comm.take_picture()
-            # for i in range(3,5,1):
-            #     sensor = self.sensors.sprites()[i]
-            #     sensor_loc = sensor.location
-            #     obstacle_loc = (sensor_loc[0]+sensor_val[i]+1, sensor_loc[1])
-            #     #if(sensor_val[i]>-1):
-            #     arena_map.map_cells[obstacle_loc[0]][obstacle_loc[1]].is_obstacle=True
-            # sensor = self.sensors.sprites()[5]
-            # sensor_loc = sensor.location
-            # obstacle_loc = (sensor_loc[0]+sensor_val[5]+1, sensor_loc[1])
-            # #if(sensor_val[i]>-1):
-
-
         finally:
             #arena = ""
             string = ""
@@ -290,7 +271,8 @@ class Robot(pg.sprite.Sprite):
                 print(string)
                 #arena += string
                 string = ""
-            #print(arena)
+        return sensor_val
+
 
     def get_sensor_readings(self,arena_map,comm):
         try:

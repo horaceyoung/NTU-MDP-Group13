@@ -22,10 +22,9 @@ class Exploration:
 
     def initialize_exploration(self):
         print("Starting Exploration...")
-        self.robot.real_sense()
+        self.comm.send_ready()
         self.start_time = time.time()
         self.end_time = self.start_time + self.time_limit
-        self.exploration_loop()
 
     def exploration_loop(self):
         if not self.realRun:
@@ -43,8 +42,7 @@ class Exploration:
         print("Area Explored: " + str(self.area_explored))
 
     # Check if the direction relative to the robot has free space -
-    @classmethod
-    def look(cls, direction, robot, arena_map):
+    def look(self, direction, robot, arena_map):
         target_direction = robot.direction
         if direction == Direction.UP:
             pass
@@ -100,28 +98,25 @@ class Exploration:
             robot.rotate(90)
             robot.rotate(90)
 
-    @classmethod
-    def nextRealMove(cls, robot, arena_map, comm):
-        robot.real_sense()
-        if cls.look(Direction.RIGHT, robot, arena_map):
+    def nextRealMove(self, robot, arena_map, comm):
+        if self.look(Direction.RIGHT, robot, arena_map):
             robot.rotate(90)
             comm.send_movement_rotate_right()
-            if cls.look(Direction.UP, robot, arena_map):
+            if self.look(Direction.UP, robot, arena_map):
                 robot.move_forward()
                 comm.send_movement_forward()
                 # robot.sendMovement(Movement.FORWARD.value)
-        elif cls.look(Direction.UP, robot, arena_map):
+        elif self.look(Direction.UP, robot, arena_map):
             robot.move_forward()
             comm.send_movement_forward()
             # robot.sendMovement(Movement.FORWARD.value)
-        elif cls.look(Direction.LEFT, robot, arena_map):
+        elif self.look(Direction.LEFT, robot, arena_map):
             robot.rotate(-90)
             comm.send_movement_rotate_left()
             # robot.sendMovement(Movement.LEFT.value)
-            if cls.look(Direction.UP, robot, arena_map):
+            if self.look(Direction.UP, robot, arena_map):
                 robot.move_forward()
                 comm.send_movement_forward()
-                # robot.sendMovement(Movement.FORWARD.value)
         else:
             robot.rotate(90)
             robot.rotate(90)

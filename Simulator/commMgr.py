@@ -35,7 +35,7 @@ class TcpClient:
         data = None
         if self.connected:
             try:
-                self.client_socket.settimeout(5)
+                self.client_socket.settimeout(1)
                 print("Receiving from client socket......")
                 data = self.client_socket.recv(self.buffer_size)
                 #print("successfully called client socket receive command")
@@ -75,6 +75,7 @@ class TcpClient:
         while not self.send_queue.empty():
             try:
                 data = self.send_queue.get()
+                print("Data to send:",data)
                 self.client_socket.send((data + "\n").encode("utf-8"))
                 print("TcpClient - Sent data: {}".format(data))
             except:
@@ -114,6 +115,7 @@ class TcpClient:
 
     def send_command(self, command):
         # self.send_queue.put(convertString.stringToList(command))
+        print("In send queue function")
         self.send_queue.put(command)
 
     def send_status(self, status):
@@ -137,20 +139,27 @@ class TcpClient:
 
     def send_movement_forward(self):
         self.send_command("AA1")
-        self.send()
+        self.send_movement_calibrate()
+
 
     def send_movement_rotate_left(self):
         self.send_command("AL")
-        self.send()
+        self.send_movement_calibrate()
+
 
     def send_movement_rotate_right(self):
         self.send_command("AR")
-        self.send()
+        self.send_movement_calibrate()
+
 
     def send_movement_calibrate(self):
         self.send_command("AC")
         self.send()
 
+    def send_ready(self):
+        print("In send ready function")
+        self.send_command("AS")
+        self.send()
     #This method is used to get value stored in multiprocessing queue
     def update_queue(self):
         #data = 0
@@ -159,7 +168,7 @@ class TcpClient:
         try:
             while(self.recv_string_queue.empty()):
                 print("Update Attempt: ",counter)
-                if(counter == 5):
+                if(counter == 2):
                     print("Have called socket recv command 5 times but still no data coming from RPI")
                     return 0
                 #if(self.recv_string_queue.empty()):
