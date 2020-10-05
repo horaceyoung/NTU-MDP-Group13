@@ -18,13 +18,13 @@ robot_group = pg.sprite.Group(player_robot)
 arena_map = map.Map()
 arena_map.generate_map("map_config_0.txt")
 realRun = False
-exploration_instance = exploration.Exploration(300, 20, player_robot, arena_map, False)
+exploration_instance = exploration.Exploration(300, 20, player_robot, arena_map, True)
 # exploration_instance.initialize_exploration()
 # an unresolved issue
 
 running = True
-#comm = commMgr.TcpClient("192.168.13.13", 4413)
-comm = commMgr.TcpClient("127.0.0.1", 22)
+comm = commMgr.TcpClient("192.168.13.13", 4413)
+# comm = commMgr.TcpClient("127.0.0.1", 22)
 comm.run()
 
 while running:
@@ -89,7 +89,7 @@ while running:
         exploration_instance.exploration_loop()
     # fastest_path.astar(arena_map,player_robot.location,(18,1))
 
-    clock.tick(10)
+    clock.tick(1)
 
     screen.fill((0, 0, 0))
     # generate the map

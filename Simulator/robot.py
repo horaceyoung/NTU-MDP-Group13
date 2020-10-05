@@ -234,9 +234,9 @@ class Robot(pg.sprite.Sprite):
             for i in range(6):
                 reach = 3 if i != 5 else 7
                 if sensor_val[i] != "-1":
-                    reach = int(sensor_val[i])
-                    obstacle.append((self.location.x + lst[i][1] + reach * dir_lst[i][1], self.location.y + lst[i][0] + reach * dir_lst[i][0]))
-                for j in range(1,reach+2):
+                    reach = int(sensor_val[i]) + 1
+                    obstacles.append((self.location.x + lst[i][1] + reach * dir_lst[i][1], self.location.y + lst[i][0] + reach * dir_lst[i][0]))
+                for j in range(1,reach+1):
                     discovered.append((self.location.x + lst[i][1] + j * dir_lst[i][1], self.location.y + lst[i][0] + j * dir_lst[i][0]))
         except Exception as e:
             print("Error computing obstacle location in real sense:",e)
@@ -248,6 +248,12 @@ class Robot(pg.sprite.Sprite):
                 y = int(obstacle_loc[1])
                 if 0 <= x <= 19 and 0 <= y <= 14:
                     arena_map.map_cells[x][y].is_obstacle=True
+            for discovered_loc in discovered:
+                print("Discovered Loc:",discovered_loc)
+                x = int(discovered_loc[0])
+                y = int(discovered_loc[1])
+                if 0 <= x <= 19 and 0 <= y <= 14:
+                    arena_map.map_cells[x][y].discovered = True
         except Exception as inst:
             print("Error updating obstacle location to map in real sense", inst)
 

@@ -22,6 +22,7 @@ class Exploration:
 
     def initialize_exploration(self):
         print("Starting Exploration...")
+        self.robot.real_sense()
         self.start_time = time.time()
         self.end_time = self.start_time + self.time_limit
         self.exploration_loop()
@@ -101,6 +102,7 @@ class Exploration:
 
     @classmethod
     def nextRealMove(cls, robot, arena_map, comm):
+        robot.real_sense()
         if cls.look(Direction.RIGHT, robot, arena_map):
             robot.rotate(90)
             comm.send_movement_rotate_right()
