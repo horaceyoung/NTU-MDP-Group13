@@ -16,7 +16,7 @@ clock = pg.time.Clock()
 player_robot = robot.Robot()
 robot_group = pg.sprite.Group(player_robot)
 arena_map = map.Map()
-arena_map.generate_map("map_config_1.txt")
+arena_map.generate_map("map_config_0.txt")
 realRun = False
 exploration_instance = exploration.Exploration(300, 20, player_robot, arena_map, False)
 # exploration_instance.initialize_exploration()

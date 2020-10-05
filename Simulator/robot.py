@@ -197,6 +197,8 @@ class Robot(pg.sprite.Sprite):
             self.rotate(90)
             #self.comm.send_movement(Movement.RIGHT,Movement.RIGHT.value,0)
             #self.comm.send_movement(Movement.RIGHT,Movement.RIGHT.value,0)
+
+
     def real_sense(self,arena_map,comm):
         try:
             sensor_val = comm.get_sensor_value()
@@ -217,20 +219,22 @@ class Robot(pg.sprite.Sprite):
         except Exception as i:
             print("Error getting offset in real sense:",i)
         try:
+            obstacles = []
             for i in range(6):
                 if sensor_val[i] == -1:
-                    continues
+                    continue
                 if i == FRONT_LEFT or i == FRONT or i == FRONT_RIGHT:
-                    obstacle_loc = (self.location.x + lst[i][1]-(sensor_val[i]+1), self.location.y + lst[i][0])
+                    obstacles.append((self.location.x + lst[i][1]-(sensor_val[i]+1), self.location.y + lst[i][0]))
                 elif i == RIGHT_UP or i == RIGHT:
-                    obstacle_loc = (self.location.x + lst[i][1], self.location.y + lst[i][0]+sensor_val[i]+1)
+                    obstacles.append((self.location.x + lst[i][1], self.location.y + lst[i][0]+sensor_val[i]+1))
                 elif i == LEFT:
-                    obstacle_loc = (self.location.x + lst[i][1], self.location.y + lst[i][0]-(sensor_val[i]+1))
+                    obstacles.append((self.location.x + lst[i][1], self.location.y + lst[i][0]-(sensor_val[i]+1))
         except Exception as e:
             print("Error computing obstacle location in real sense:",e)
 
         try:
-            arena_map.map_cells[obstacle_loc[0]][obstacle_loc[1]].is_obstacle=True
+            for obstacle_loc in obstacles:
+                arena_map.map_cells[obstacle_loc[0]][obstacle_loc[1]].is_obstacle=True
         except Exception as inst:
             print("Error updating obstacle location to map in real sense", inst)
 

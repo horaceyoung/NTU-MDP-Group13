@@ -84,7 +84,7 @@ class Map:
             part2_result+='\n'
         part1_result += "11\n"
         return (str(hex(int(part1_result.replace("\n", ""),2))),str(hex(int(part2_result.replace("\n", ""), 2))))
-        #print("Part1 Map Representation: \n" + part1_result)
-        #print("Part1 Map Representation in hex: " + str(hex(int(part1_result.replace("\n", ""),2))))
-        #print("Part2 Map Representation: \n" + part2_result)
-        #print("Part2 Map Representation in hex: " + str(hex(int(part2_result.replace("\n", ""), 2))))
+        print("Part1 Map Representation: \n" + part1_result)
+        print("Part1 Map Representation in hex: " + str(hex(int(part1_result.replace("\n", ""),2))))
+        print("Part2 Map Representation: \n" + part2_result)
+        print("Part2 Map Representation in hex: " + str(hex(int(part2_result.replace("\n", ""), 2))))
