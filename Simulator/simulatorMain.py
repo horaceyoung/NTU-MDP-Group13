@@ -27,7 +27,7 @@ comm = commMgr.TcpClient("192.168.13.13", 4413)
 #comm = commMgr.TcpClient("127.0.0.1", 22)
 comm.run()
 counter = 0
-exploration_instance = exploration.Exploration(300, 20, player_robot, arena_map, False, comm)
+exploration_instance = exploration.Exploration(300, 20, player_robot, arena_map, True, robot_group, screen,comm)
 
 while running:
     # controls

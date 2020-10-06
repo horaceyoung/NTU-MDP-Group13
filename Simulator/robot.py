@@ -29,6 +29,7 @@ class Robot(pg.sprite.Sprite):
         # (ADDED)Set Up Communication Socket With RPI ###############################
         # self.comm = commMgr.CommMgr()
 
+
     def add_sensor(
         self,
         width,

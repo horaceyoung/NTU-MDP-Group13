@@ -44,6 +44,9 @@ class TcpClient:
                 data_s = data.decode("utf-8")
                 data_arr = data_s.splitlines()
 
+                data_arr = list(filter(bool,data_arr))
+                # print("TcpClient - Received data: {}".format(data_str))
+                # self.recv_string_queue.put(data_str)
                 for data_str in data_arr:
                     print("TcpClient - Received data: {}".format(data_str))
                     self.recv_string_queue.put(data_str)
@@ -96,6 +99,7 @@ class TcpClient:
         if(self.sensor_value_queue.empty()):
             print("Queue is empty")
             return 0
+        print(self.sensor_value_queue)
         return self.parse_sensor_value(self.sensor_value_queue.get())
 
     def send_mapdescriptor(self,map,obstacle,x,y,direction):
@@ -105,7 +109,7 @@ class TcpClient:
         explored_field = "\\\"explored\\\":\\\""+str(map)+"\\\""
         length_field = "\\\"length\\\":"+str(300)
         obstacle_field = "\\\"obstacle\\\":\\\""+str(obstacle)+"\\\""
-        message = message_header + explored_field +","+length_field+","+obstacle_field+message_tail
+        message = "B"+message_header + explored_field +","+length_field+","+obstacle_field+message_tail
         #jsonObj = json.loads(message)
         self.send_command(message)
         self.send()
@@ -114,12 +118,14 @@ class TcpClient:
         '''
         self.send_queue.put(json.dumps({"map": arena.to_mdf_part1(), "gridP2": arena.to_mdf_part2()}))
         '''
-        message = {"map":[{"length":300, "explored":map, "obstacle":obstacle, "robotPosition":[x,y,direction]}]}
 
+        #message = {"map":[{"explored":map, "length":300, "obstacle":obstacle, "robotPosition":[x,y,direction]}]}
+        message={"map":[{"explored":"ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff","length":300,"obstacle":"1000000040008071002600600e00101820100034000000000","robotPosition":[x,y,direction]}]}
         jsonObj=json.dumps(message)
-        command = "X"+jsonObj
+        command = "B"+jsonObj
         self.send_command(command)
         self.send()
+
 
     def send_command(self, command):
         # self.send_queue.put(convertString.stringToList(command))
@@ -159,6 +165,11 @@ class TcpClient:
         self.send_command("AR")
         self.send_movement_calibrate()
 
+    def only1inqueue(self):
+        length = self.sensor_value_queue.qsize()-1
+        for i in range(length):
+            self.sensor_value_queue.get()
+
 
     def send_movement_calibrate(self):
         self.send_command("AC")
@@ -168,6 +179,7 @@ class TcpClient:
         print("In send ready function")
         self.send_command("AS")
         self.send()
+        
     #This method is used to get value stored in multiprocessing queue
     def update_queue(self):
         #data = 0
@@ -214,6 +226,7 @@ class TcpClient:
                     self.sensor_value_queue.put(data)
                 else:
                     self.android_command_queue.put(data)
+            self.only1inqueue()
         except Exception as err:
             print("Something gone wrong at organising data:", err)
 

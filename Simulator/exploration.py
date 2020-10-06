@@ -2,12 +2,12 @@ from configurations import *
 from vec2D import swap_coordinates
 import time
 import commMgr
+import pygame as pg
+
 
 
 class Exploration:
-    def __init__(
-        self, coverage_limit, time_limit, robot, arena_map, realRun, comm=None
-    ):
+    def __init__(self,coverage_limit, time_limit, robot, arena_map, realRun, robot_group, screen,comm=None):
         self.robot = robot
         self.map = arena_map
         self.coverage_limit = coverage_limit
@@ -19,6 +19,9 @@ class Exploration:
         self.comm = comm
         self.counter = 0  # counter for calibration. when robot move 5 times, need to calibrate again
         #######Need to ask whether is move 5 times then calibrate or move 5 times forward then calibrate###########
+        self.robot_group = robot_group
+        self.screen = screen
+        self.check = 0
 
     def initialize_exploration(self):
         print("Starting Exploration...")
@@ -27,6 +30,7 @@ class Exploration:
         self.end_time = self.start_time + self.time_limit
 
     def exploration_loop(self):
+
         if not self.realRun:
             self.next_move(self.robot, self.map)
             print(
@@ -36,7 +40,7 @@ class Exploration:
             )
         # (Added) Real Run ############################################
         else:
-            self.nextRealMove(self.robot, self.map, self.comm)
+            check = self.nextRealMove(self.robot, self.map, self.comm)
 
         self.area_explored = self.calculate_area_explored()
         print("Area Explored: " + str(self.area_explored))
@@ -75,53 +79,66 @@ class Exploration:
                     arena_map.map_cells[int(coordinate[0])][int(coordinate[1])]
                 )
             for cell in cells:
-                if cell.is_obstacle or not cell.discovered:
+                if cell.is_obstacle:
                     return False
         except IndexError:
             return False
 
         return True
 
-    @classmethod
-    def next_move(cls, robot, arena_map):
-        if cls.look(Direction.RIGHT, robot, arena_map):
+
+    def next_move(self, robot, arena_map):
+
+        if self.look(Direction.RIGHT, robot, arena_map):
             robot.rotate(90)
-            if cls.look(Direction.UP, robot, arena_map):
-                robot.move_forward()
-        elif cls.look(Direction.UP, robot, arena_map):
+            # if self.look(Direction.UP, robot, arena_map):
+            #     robot.move_forward()
+        elif self.look(Direction.UP, robot, arena_map):
             robot.move_forward()
-        elif cls.look(Direction.LEFT, robot, arena_map):
+        elif self.look(Direction.LEFT, robot, arena_map):
             robot.rotate(-90)
-            if cls.look(Direction.UP, robot, arena_map):
-                robot.move_forward()
         else:
             robot.rotate(90)
             robot.rotate(90)
 
     def nextRealMove(self, robot, arena_map, comm):
         if self.look(Direction.RIGHT, robot, arena_map):
-            robot.rotate(90)
-            comm.send_movement_rotate_right()
-            if self.look(Direction.UP, robot, arena_map):
-                robot.move_forward()
-                comm.send_movement_forward()
-                # robot.sendMovement(Movement.FORWARD.value)
+            if(self.check == 1):
+                if self.look(Direction.UP, robot, arena_map):
+                    print("###########nextRealMove:",self.check)
+                    robot.move_forward()
+                    comm.send_movement_forward()
+                    self.check = 0
+            else:
+                print("###################nextRealMove:",self.check)
+                robot.rotate(90)
+                comm.send_movement_rotate_right()
+                self.check = 1
+            # if self.look(Direction.UP, robot, arena_map):
+            #     robot.move_forward()
         elif self.look(Direction.UP, robot, arena_map):
             robot.move_forward()
             comm.send_movement_forward()
-            # robot.sendMovement(Movement.FORWARD.value)
+            self.check = 0
         elif self.look(Direction.LEFT, robot, arena_map):
-            robot.rotate(-90)
-            comm.send_movement_rotate_left()
-            # robot.sendMovement(Movement.LEFT.value)
-            if self.look(Direction.UP, robot, arena_map):
-                robot.move_forward()
-                comm.send_movement_forward()
+            if(self.check == 1):
+                if self.look(Direction.UP, robot, arena_map):
+                    robot.move_forward()
+                    comm.send_movement_forward()
+                    self.check = 0
+                    print("#############nextRealMove:",self.check)
+            else:
+                robot.rotate(-90)
+                comm.send_movement_rotate_left()
+                self.check = 1
+                print("#############nextRealMove:",self.check)
         else:
             robot.rotate(90)
+            comm.send_movement_rotate_right()
             robot.rotate(90)
             comm.send_movement_rotate_right()
-            comm.send_movement_rotate_right()
+            self.check = 0
+
 
     def calculate_area_explored(self):
         explored_arena_count = 0
@@ -130,6 +147,19 @@ class Exploration:
                 if cell.discovered:
                     explored_arena_count += 1
         return explored_arena_count
+
+    # def sense(self):
+    #     sensor_val = self.robot.real_sense(self.map,self.comm)
+    #     self.map.map_update()
+    #     pg.display.update()
+    #     self.map.cells_group.draw(self.screen)
+    #     if sensor_val != 0:
+    #         self.exploration_loop()
+    #     self.robot_group.draw(self.screen)
+    #     # map update
+    #     self.map.map_update()
+    #     pg.display.update()
+    #     pg.time.delay(3000)
 
     """
     def canCalibrateOnTheSpot(botDir):
