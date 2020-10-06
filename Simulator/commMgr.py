@@ -44,9 +44,13 @@ class TcpClient:
                 data_s = data.decode("utf-8")
                 data_arr = data_s.splitlines()
 
-                for data_str in data_arr:
-                    print("TcpClient - Received data: {}".format(data_str))
-                    self.recv_string_queue.put(data_str)
+                data_arr = list(filter(bool, data_arr))
+                data_str = data_arr[-1]
+                print("TcpClient - Received data: {}".format(data_str))
+                self.recv_string_queue.put(data_str)
+                # for data_str in data_arr:
+                #     print("TcpClient - Received data: {}".format(data_str))
+                #     self.recv_string_queue.put(data_str)
                 #print("Data Received: " + data)
             except Exception as inst:
                 print("Error Receiving:",inst)
