@@ -1,0 +1,453 @@
+pygame 1.9.6
+Hello from the pygame community. https://www.pygame.org/contribute.html
+connect called
+TcpClient - Connected on 192.168.13.13:4413
+In send ready function
+In send queue function
+Receiving from client socket......
+Data to send: AS
+TcpClient - Sent data: AS
+send ready called
+Updating android command queue & sensor value queue....
+Update Attempt:  0
+Receiving from client socket......
+TcpClient - Received data: b'SDATA:-1:1:-1:-1:-1:-1\r\n'
+TcpClient - Received data: 
+Sensor_val: ['-1', '1', '-1', '-1', '-1', '-1']
+Robot Direction: (0.0, -1.0)
+[18, 1]
+Obstacle Loc: (15.0, 1.0)
+Discovered Loc: (16.0, 0.0)
+Discovered Loc: (15.0, 0.0)
+Discovered Loc: (14.0, 0.0)
+Discovered Loc: (16.0, 1.0)
+Discovered Loc: (15.0, 1.0)
+Discovered Loc: (16.0, 2.0)
+Discovered Loc: (15.0, 2.0)
+Discovered Loc: (14.0, 2.0)
+Discovered Loc: (17.0, 3.0)
+Discovered Loc: (17.0, 4.0)
+Discovered Loc: (17.0, 5.0)
+Discovered Loc: (19.0, 3.0)
+Discovered Loc: (19.0, 4.0)
+Discovered Loc: (19.0, 5.0)
+Discovered Loc: (17.0, -1.0)
+Discovered Loc: (17.0, -2.0)
+Discovered Loc: (17.0, -3.0)
+Discovered Loc: (17.0, -4.0)
+Discovered Loc: (17.0, -5.0)
+Discovered Loc: (17.0, -6.0)
+Discovered Loc: (17.0, -7.0)
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+010000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+simulator robot moved forward
+In send queue function
+In send queue function
+Data to send: AA1
+TcpClient - Sent data: AA1
+Data to send: AC
+TcpClient - Sent data: AC
+Area Explored: 32
+TcpClient - Received data: b'SDATA:-1:0:-1:-1:-1:2\r\n'
+TcpClient - Received data: 
+Updating android command queue & sensor value queue....
+Sensor_val: ['-1', '0', '-1', '-1', '-1', '2']
+Robot Direction: (0.0, -1.0)
+[17, 1]
+Obstacle Loc: (15.0, 1.0)
+Obstacle Loc: (16.0, -3.0)
+Discovered Loc: (15.0, 0.0)
+Discovered Loc: (14.0, 0.0)
+Discovered Loc: (13.0, 0.0)
+Discovered Loc: (15.0, 1.0)
+Discovered Loc: (15.0, 2.0)
+Discovered Loc: (14.0, 2.0)
+Discovered Loc: (13.0, 2.0)
+Discovered Loc: (16.0, 3.0)
+Discovered Loc: (16.0, 4.0)
+Discovered Loc: (16.0, 5.0)
+Discovered Loc: (18.0, 3.0)
+Discovered Loc: (18.0, 4.0)
+Discovered Loc: (18.0, 5.0)
+Discovered Loc: (16.0, -1.0)
+Discovered Loc: (16.0, -2.0)
+Discovered Loc: (16.0, -3.0)
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+010000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+Simulator robot rotated:  90
+In send queue function
+In send queue function
+Data to send: AR
+TcpClient - Sent data: AR
+Data to send: AC
+TcpClient - Sent data: AC
+simulator robot moved forward
+In send queue function
+In send queue function
+Data to send: AA1
+TcpClient - Sent data: AA1
+Data to send: AC
+TcpClient - Sent data: AC
+Area Explored: 40
+Updating android command queue & sensor value queue....
+Update Attempt:  0
+Receiving from client socket......
+TcpClient - Received data: b'SDATA:-1:-1:-1:1:1:4\r\n'
+TcpClient - Received data: 
+TcpClient - Received data: b'SDATA:-1:-1:-1:1:1:3\r\n'
+TcpClient - Received data: 
+Sensor_val: ['-1', '-1', '-1', '1', '1', '4']
+Robot Direction: (1.0, 0.0)
+[17, 2]
+Obstacle Loc: (20.0, 3.0)
+Obstacle Loc: (20.0, 1.0)
+Obstacle Loc: (11.0, 3.0)
+Discovered Loc: (16.0, 4.0)
+Discovered Loc: (16.0, 5.0)
+Discovered Loc: (16.0, 6.0)
+Discovered Loc: (17.0, 4.0)
+Discovered Loc: (17.0, 5.0)
+Discovered Loc: (17.0, 6.0)
+Discovered Loc: (18.0, 4.0)
+Discovered Loc: (18.0, 5.0)
+Discovered Loc: (18.0, 6.0)
+Discovered Loc: (19.0, 3.0)
+Discovered Loc: (20.0, 3.0)
+Discovered Loc: (19.0, 1.0)
+Discovered Loc: (20.0, 1.0)
+Discovered Loc: (15.0, 3.0)
+Discovered Loc: (14.0, 3.0)
+Discovered Loc: (13.0, 3.0)
+Discovered Loc: (12.0, 3.0)
+Discovered Loc: (11.0, 3.0)
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000100000000000
+000000000000000
+000000000000000
+000000000000000
+010000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+Simulator robot rotated:  90
+In send queue function
+In send queue function
+Data to send: AR
+TcpClient - Sent data: AR
+Data to send: AC
+TcpClient - Sent data: AC
+simulator robot moved forward
+In send queue function
+In send queue function
+Data to send: AA1
+TcpClient - Sent data: AA1
+Data to send: AC
+TcpClient - Sent data: AC
+Area Explored: 48
+Updating android command queue & sensor value queue....
+Update Attempt:  0
+Receiving from client socket......
+TcpClient - Received data: b'SDATA:1:1:1:1:1:-1\r\n'
+TcpClient - Received data: 
+TcpClient - Received data: b'SDATA:0:0:0:1:1:5\r\n'
+TcpClient - Received data: 
+Sensor_val: ['-1', '-1', '-1', '1', '1', '3']
+Robot Direction: (-0.0, 1.0)
+[18, 2]
+Obstacle Loc: (19.0, -1.0)
+Obstacle Loc: (17.0, -1.0)
+Obstacle Loc: (19.0, 7.0)
+Discovered Loc: (20.0, 3.0)
+Discovered Loc: (21.0, 3.0)
+Discovered Loc: (22.0, 3.0)
+Discovered Loc: (20.0, 2.0)
+Discovered Loc: (21.0, 2.0)
+Discovered Loc: (22.0, 2.0)
+Discovered Loc: (20.0, 1.0)
+Discovered Loc: (21.0, 1.0)
+Discovered Loc: (22.0, 1.0)
+Discovered Loc: (19.0, 0.0)
+Discovered Loc: (19.0, -1.0)
+Discovered Loc: (17.0, 0.0)
+Discovered Loc: (17.0, -1.0)
+Discovered Loc: (19.0, 4.0)
+Discovered Loc: (19.0, 5.0)
+Discovered Loc: (19.0, 6.0)
+Discovered Loc: (19.0, 7.0)
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000100000000000
+000000000000000
+000000000000000
+000000000000000
+010000000000000
+000000000000000
+000000000000000
+000000000000000
+000000010000000
+Simulator robot rotated:  90
+In send queue function
+In send queue function
+Data to send: AR
+TcpClient - Sent data: AR
+Data to send: AC
+TcpClient - Sent data: AC
+simulator robot moved forward
+In send queue function
+In send queue function
+Data to send: AA1
+TcpClient - Sent data: AA1
+Data to send: AC
+TcpClient - Sent data: AC
+Area Explored: 50
+Updating android command queue & sensor value queue....
+Update Attempt:  0
+Receiving from client socket......
+TcpClient - Received data: b'SDATA:1:1:1:1:-1:2\r\n'
+TcpClient - Received data: 
+Sensor_val: ['1', '1', '1', '1', '1', '-1']
+Robot Direction: (-1.0, -0.0)
+[18, 1]
+Obstacle Loc: (19.0, -2.0)
+Obstacle Loc: (18.0, -2.0)
+Obstacle Loc: (17.0, -2.0)
+Obstacle Loc: (15.0, 0.0)
+Obstacle Loc: (15.0, 2.0)
+Discovered Loc: (19.0, -1.0)
+Discovered Loc: (19.0, -2.0)
+Discovered Loc: (18.0, -1.0)
+Discovered Loc: (18.0, -2.0)
+Discovered Loc: (17.0, -1.0)
+Discovered Loc: (17.0, -2.0)
+Discovered Loc: (16.0, 0.0)
+Discovered Loc: (15.0, 0.0)
+Discovered Loc: (16.0, 2.0)
+Discovered Loc: (15.0, 2.0)
+Discovered Loc: (20.0, 0.0)
+Discovered Loc: (21.0, 0.0)
+Discovered Loc: (22.0, 0.0)
+Discovered Loc: (23.0, 0.0)
+Discovered Loc: (24.0, 0.0)
+Discovered Loc: (25.0, 0.0)
+Discovered Loc: (26.0, 0.0)
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000100000000000
+000000000000000
+000000000000000
+000000000000000
+111000000000000
+000000000000000
+000000000000000
+000000000000000
+000000010000000
+Simulator robot rotated:  90
+In send queue function
+In send queue function
+Data to send: AR
+TcpClient - Sent data: AR
+Data to send: AC
+TcpClient - Sent data: AC
+simulator robot moved forward
+In send queue function
+In send queue function
+Data to send: AA1
+TcpClient - Sent data: AA1
+Data to send: AC
+TcpClient - Sent data: AC
+Area Explored: 50
+Updating android command queue & sensor value queue....
+Update Attempt:  0
+Receiving from client socket......
+TcpClient - Received data: b'SDATA:0:0:0:-1:-1:2\r\n'
+TcpClient - Received data: 
+TcpClient - Received data: b'SDATA:-1:1:-1:-1:-1:2\r\n'
+TcpClient - Received data: 
+TcpClient - Received data: b'SDATA:-1:0:-1:-1:-1:2\r\n'
+TcpClient - Received data: 
+Sensor_val: ['0', '0', '0', '1', '1', '5']
+Robot Direction: (0.0, -1.0)
+[17, 1]
+Obstacle Loc: (15.0, 0.0)
+Obstacle Loc: (15.0, 1.0)
+Obstacle Loc: (15.0, 2.0)
+Obstacle Loc: (16.0, 4.0)
+Obstacle Loc: (18.0, 4.0)
+Obstacle Loc: (16.0, -6.0)
+Discovered Loc: (15.0, 0.0)
+Discovered Loc: (15.0, 1.0)
+Discovered Loc: (15.0, 2.0)
+Discovered Loc: (16.0, 3.0)
+Discovered Loc: (16.0, 4.0)
+Discovered Loc: (18.0, 3.0)
+Discovered Loc: (18.0, 4.0)
+Discovered Loc: (16.0, -1.0)
+Discovered Loc: (16.0, -2.0)
+Discovered Loc: (16.0, -3.0)
+Discovered Loc: (16.0, -4.0)
+Discovered Loc: (16.0, -5.0)
+Discovered Loc: (16.0, -6.0)
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000100000000000
+000000000000000
+000000000000000
+000000000000000
+111000000000000
+000010000000000
+000000000000000
+000010000000000
+000000010000000
+Simulator robot rotated:  90
+In send queue function
+In send queue function
+Data to send: AR
+TcpClient - Sent data: AR
+Data to send: AC
+TcpClient - Sent data: AC
+simulator robot moved forward
+In send queue function
+In send queue function
+Data to send: AA1
+TcpClient - Sent data: AA1
+Data to send: AC
+TcpClient - Sent data: AC
+Area Explored: 50
+Updating android command queue & sensor value queue....
+Update Attempt:  0
+Receiving from client socket......
+TcpClient - Received data: b'SDATA:-1:-1:-1:1:1:7\r\n'
+TcpClient - Received data: 
+TcpClient - Received data: b'SDATA:-1:-1:-1:1:1:3\r\n'
+TcpClient - Received data: 
+Sensor_val: ['1', '1', '1', '1', '-1', '2']
+Robot Direction: (1.0, 0.0)
+[17, 2]
+Obstacle Loc: (16.0, 5.0)
+Obstacle Loc: (17.0, 5.0)
+Obstacle Loc: (18.0, 5.0)
+Obstacle Loc: (20.0, 3.0)
+Obstacle Loc: (13.0, 3.0)
+Discovered Loc: (16.0, 4.0)
+Discovered Loc: (16.0, 5.0)
+Discovered Loc: (17.0, 4.0)
+Discovered Loc: (17.0, 5.0)
+Discovered Loc: (18.0, 4.0)
+Discovered Loc: (18.0, 5.0)
+Discovered Loc: (19.0, 3.0)
+Discovered Loc: (20.0, 3.0)
+Discovered Loc: (19.0, 1.0)
+Discovered Loc: (20.0, 1.0)
+Discovered Loc: (21.0, 1.0)
+Discovered Loc: (15.0, 3.0)
+Discovered Loc: (14.0, 3.0)
+Discovered Loc: (13.0, 3.0)
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000100000000000
+000000000000000
+000100000000000
+000000000000000
+111000000000000
+000011000000000
+000001000000000
+000011000000000
+000000010000000
+Simulator robot rotated:  90
+In send queue function
+In send queue function
+Data to send: AR
+TcpClient - Sent data: AR
+Data to send: AC
+TcpClient - Sent data: AC
+simulator robot moved forward
+In send queue function
+In send queue function
+Data to send: AA1
+TcpClient - Sent data: AA1
+Data to send: AC
+TcpClient - Sent data: AC
+Area Explored: 50

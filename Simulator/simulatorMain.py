@@ -27,7 +27,7 @@ comm = commMgr.TcpClient("192.168.13.13", 4413)
 #comm = commMgr.TcpClient("127.0.0.1", 22)
 comm.run()
 counter = 0
-exploration_instance = exploration.Exploration(300, 20, player_robot, arena_map, True, comm)
+exploration_instance = exploration.Exploration(300, 20, player_robot, arena_map, False, comm)
 
 while running:
     # controls
@@ -68,10 +68,10 @@ while running:
                     print("Error Reading Sensor Value:",sense)
             if event.key == pg.K_m:
                 descriptor = arena_map.generate_descriptor_strings()
-                comm.send_mapdescriptor(descriptor[0],descriptor[1])
+                comm.send_mapdescriptor(descriptor[0],descriptor[1],player_robot.location[1],convertY(player_robot.location[0]),getDirectionValue(player_robot.direction))
             if event.key == pg.K_d:
                 pass
-
+    #90:right,180:down,270:left,0:up
     # fastest_path.astar(arena_map,player_robot.location,(18,1))
     screen.fill((0, 0, 0))
     # generate the map

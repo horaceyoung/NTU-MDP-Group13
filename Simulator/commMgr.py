@@ -98,7 +98,8 @@ class TcpClient:
             return 0
         return self.parse_sensor_value(self.sensor_value_queue.get())
 
-    def send_mapdescriptor(self, map, obstacle):
+    def send_mapdescriptor(self,map,obstacle,x,y,direction):
+        '''
         message_header = "{\\\"map\\\":[{"
         message_tail = "}]}"
         explored_field = "\\\"explored\\\":\\\""+str(map)+"\\\""
@@ -110,8 +111,15 @@ class TcpClient:
         self.send()
         #print("Map Descriptor for Android:" + message)
         '''
+        '''
         self.send_queue.put(json.dumps({"map": arena.to_mdf_part1(), "gridP2": arena.to_mdf_part2()}))
         '''
+        message = {"map":[{"length":300, "explored":map, "obstacle":obstacle, "robotPosition":[x,y,direction]}]}
+
+        jsonObj=json.dumps(message)
+        command = "X"+jsonObj
+        self.send_command(command)
+        self.send()
 
     def send_command(self, command):
         # self.send_queue.put(convertString.stringToList(command))

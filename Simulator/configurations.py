@@ -36,6 +36,9 @@ DIRECTION_VALUE = {
     Direction.LEFT: 3,
 }
 
+def convertY(y):
+    col = abs((y-19))
+    return col
 
 def getNextDir(curDir):
     dir_val = DIRECTION_VALUE[curDir]
@@ -85,7 +88,14 @@ def rotateBackDefault(curDir):
     curIndex = DIRECTION_ARRAY.index(curDir)
     return 4 - curIndex
 
-DIRECTION_ARRAY = [[0,-1],[1,0],[0,1],[-1,0]]
+def getDirectionValue(curDir):
+    dir = {(0,-1):360,
+            (1,0):90,
+            (0,1):180,
+            (-1,0):270}
+    return dir[(curDir[0],curDir[1])]
+
+DIRECTION_ARRAY = [[0,-1],[1,0],[0,1],[-1,0]] #up,right,down,left
 DEFAULT_DIR = (0,-1)  #Default direction
 GOAL_ROW = 18  # row no. of goal cell
 GOAL_COL = 13  # col no. of goal cell

@@ -207,6 +207,7 @@ class Robot(pg.sprite.Sprite):
             comm.update_queue()
             sensor_val = comm.get_sensor_value()
             print("Sensor_val:",sensor_val)
+            print("Robot Direction:", (self.direction[0],self.direction[1]))
 
             FRONT_LEFT = 0
             FRONT = 1
