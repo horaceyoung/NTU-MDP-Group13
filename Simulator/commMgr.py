@@ -179,7 +179,7 @@ class TcpClient:
         print("In send ready function")
         self.send_command("AS")
         self.send()
-        
+
     #This method is used to get value stored in multiprocessing queue
     def update_queue(self):
         #data = 0
