@@ -100,6 +100,7 @@ while running:
         exploration_instance.exploration_loop()
     '''
     if exploration_instance.area_explored < exploration_instance.coverage_limit or exploration_instance.start_time < exploration_instance.end_time:
+    
         print("exploration loop function in simulatorMain runs")
         exploration_instance.exploration_loop()
     else:
@@ -112,4 +113,4 @@ while running:
     #descriptor = arena_map.generate_descriptor_strings()
     #comm.send_mapdescriptor(descriptor[0],descriptor[1],player_robot.location[1],player_robot.location[0],getDirectionValue(player_robot.direction))
     pg.display.update()
-    pg.time.delay(1300)
+    pg.time.delay(1500)
