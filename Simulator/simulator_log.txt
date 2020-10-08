@@ -1,0 +1,4914 @@
+
+C:\Users\zmkok\Documents\MDP-group13\Simulator>python simulatorMain.py
+pygame 1.9.6
+Hello from the pygame community. https://www.pygame.org/contribute.html
+connect called
+TcpClient - Connected on 192.168.13.13:4413
+In send ready function
+In send queue function
+Receiving from client socket......
+Data to send: AS
+TcpClient - Sent data: AS
+send ready called
+Updating android command queue & sensor value queue....
+Update Attempt:  0
+Receiving from client socket......
+Error Receiving: timed out
+Error Receiving: timed out
+Update Attempt:  1
+Receiving from client socket......
+Error Receiving: timed out
+Update Attempt:  2
+Have called socket recv command 5 times but still no data coming from RPI
+Queue is empty
+Sensor_val: 0
+Robot Direction: (0.0, -1.0)
+[18, 1]
+Error computing obstacle location in real sense: 'int' object is not subscriptable
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+0X0000000000000
+000000000000000
+Updating android command queue & sensor value queue....
+Update Attempt:  0
+Receiving from client socket......
+Error Receiving: timed out
+Update Attempt:  1
+Receiving from client socket......
+Error Receiving: timed out
+Update Attempt:  2
+Have called socket recv command 5 times but still no data coming from RPI
+Queue is empty
+check for nextRealMove before turning right: 0
+Simulator robot rotated:  90
+In send queue function
+In send queue function
+Data to send: AR
+TcpClient - Sent data: AR
+Data to send: AC
+TcpClient - Sent data: AC
+Area Explored: 18
+In send queue function
+Data to send: B{"map": [{"explored": "c0038007000e00000000000000000000000000000000000000000000000000007000e001c003", "length": 300, "obstacle": "0"}], "robotPosition": [0, 17, 90]}
+TcpClient - Sent data: B{"map": [{"explored": "c0038007000e00000000000000000000000000000000000000000000000000007000e001c003", "length": 300, "obstacle": "0"}], "robotPosition": [0, 17, 90]}
+Updating android command queue & sensor value queue....
+Update Attempt:  0
+Receiving from client socket......
+Error Receiving: timed out
+Update Attempt:  1
+Receiving from client socket......
+Error Receiving: timed out
+Update Attempt:  2
+Have called socket recv command 5 times but still no data coming from RPI
+Queue is empty
+Sensor_val: 0
+Robot Direction: (1.0, 0.0)
+[18, 1]
+Error computing obstacle location in real sense: 'int' object is not subscriptable
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+0X0000000000000
+000000000000000
+simulator robot moved forward
+In send queue function
+In send queue function
+Data to send: AA1
+TcpClient - Sent data: AA1
+Data to send: AC
+TcpClient - Sent data: AC
+Area Explored: 18
+In send queue function
+Updating android command queue & sensor value queue....
+Update Attempt:  0
+Receiving from client socket......
+Error Receiving: timed out
+Update Attempt:  1
+Receiving from client socket......
+Error Receiving: timed out
+Update Attempt:  2
+Have called socket recv command 5 times but still no data coming from RPI
+Queue is empty
+Sensor_val: 0
+Robot Direction: (1.0, 0.0)
+[18, 2]
+Error computing obstacle location in real sense: 'int' object is not subscriptable
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+00X000000000000
+000000000000000
+simulator robot moved forward
+In send queue function
+In send queue function
+Data to send: B{"map": [{"explored": "c0038007000e00000000000000000000000000000000000000000000000000007000e001c003", "length": 300, "obstacle": "0"}], "robotPosition": [1, 17, 90]}
+TcpClient - Sent data: B{"map": [{"explored": "c0038007000e00000000000000000000000000000000000000000000000000007000e001c003", "length": 300, "obstacle": "0"}], "robotPosition": [1, 17, 90]}
+Data to send: AA1
+TcpClient - Sent data: AA1
+Data to send: AC
+TcpClient - Sent data: AC
+Area Explored: 18
+In send queue function
+Data to send: B{"map": [{"explored": "c0038007000e00000000000000000000000000000000000000000000000000007000e001c003", "length": 300, "obstacle": "0"}], "robotPosition": [2, 17, 90]}
+TcpClient - Sent data: B{"map": [{"explored": "c0038007000e00000000000000000000000000000000000000000000000000007000e001c003", "length": 300, "obstacle": "0"}], "robotPosition": [2, 17, 90]}
+Traceback (most recent call last):
+  File "simulatorMain.py", line 114, in <module>
+    pg.time.delay(1300)
+KeyboardInterrupt
+^C
+C:\Users\zmkok\Documents\MDP-group13\Simulator>python simulatorMain.py
+pygame 1.9.6
+Hello from the pygame community. https://www.pygame.org/contribute.html
+connect called
+TcpClient - Connected on 192.168.13.13:4413
+In send ready function
+In send queue function
+Receiving from client socket......
+send ready called
+Updating android command queue & sensor value queue....
+Update Attempt:  0
+Receiving from client socket......
+Error Receiving: timed out
+Error Receiving: timed out
+Update Attempt:  1
+Receiving from client socket......
+Error Receiving: timed out
+Update Attempt:  2
+Have called socket recv command 5 times but still no data coming from RPI
+Queue is empty
+Sensor_val: 0
+Robot Direction: (0.0, -1.0)
+[18, 1]
+Error computing obstacle location in real sense: 'int' object is not subscriptable
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+0X0000000000000
+000000000000000
+Updating android command queue & sensor value queue....
+Update Attempt:  0
+Receiving from client socket......
+TcpClient - Received data: b'SDATA:-1:-1:-1:-1:-1:-1\r\n'
+Queue is empty
+check for nextRealMove before turning right: 0
+Simulator robot rotated:  90
+In send queue function
+In send queue function
+Data to send: AS
+TcpClient - Sent data: AS
+Data to send: AR
+TcpClient - Sent data: AR
+Data to send: AC
+TcpClient - Sent data: AC
+Area Explored: 18
+In send queue function
+Updating android command queue & sensor value queue....
+Update Attempt:  0
+Receiving from client socket......
+TcpClient - Received data: b'SDATA:-1:-1:-1:-1:-1:-1\r\n'
+TcpClient - Received data: b'SDATA:-1:-1:-1:0:0:-1\r\n'
+<multiprocessing.queues.Queue object at 0x135C5D60>
+Sensor_val: ['-1', '-1', '-1', '0', '0', '-1']
+Robot Direction: (1.0, 0.0)
+[18, 1]
+Obstacle Loc: (20.0, 2.0)
+Obstacle Loc: (20.0, 0.0)
+Discovered Loc: (17.0, 3.0)
+Discovered Loc: (17.0, 4.0)
+Discovered Loc: (18.0, 3.0)
+Discovered Loc: (18.0, 4.0)
+Discovered Loc: (19.0, 3.0)
+Discovered Loc: (19.0, 4.0)
+Discovered Loc: (20.0, 2.0)
+Discovered Loc: (20.0, 0.0)
+Discovered Loc: (16.0, 2.0)
+Discovered Loc: (15.0, 2.0)
+Discovered Loc: (14.0, 2.0)
+Discovered Loc: (13.0, 2.0)
+Discovered Loc: (12.0, 2.0)
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+0X0000000000000
+000000000000000
+simulator robot moved forward
+In send queue function
+In send queue function
+Data to send: B{"map": [{"explored": "c0038007000e00000000000000000000000000000000000000000000000000007000e001c003", "length": 300, "obstacle": "0"}], "robotPosition": [0, 17, 90]}
+TcpClient - Sent data: B{"map": [{"explored": "c0038007000e00000000000000000000000000000000000000000000000000007000e001c003", "length": 300, "obstacle": "0"}], "robotPosition": [0, 17, 90]}
+Data to send: AA1
+TcpClient - Sent data: AA1
+Data to send: AC
+TcpClient - Sent data: AC
+Area Explored: 29
+In send queue function
+Updating android command queue & sensor value queue....
+Update Attempt:  0
+Receiving from client socket......
+TcpClient - Received data: b'SDATA:-1:-1:-1:0:0:-1\r\n'
+<multiprocessing.queues.Queue object at 0x135C5D60>
+Sensor_val: ['-1', '-1', '-1', '0', '0', '-1']
+Robot Direction: (1.0, 0.0)
+[18, 2]
+Obstacle Loc: (20.0, 3.0)
+Obstacle Loc: (20.0, 1.0)
+Discovered Loc: (17.0, 4.0)
+Discovered Loc: (17.0, 5.0)
+Discovered Loc: (18.0, 4.0)
+Discovered Loc: (18.0, 5.0)
+Discovered Loc: (19.0, 4.0)
+Discovered Loc: (19.0, 5.0)
+Discovered Loc: (20.0, 3.0)
+Discovered Loc: (20.0, 1.0)
+Discovered Loc: (16.0, 3.0)
+Discovered Loc: (15.0, 3.0)
+Discovered Loc: (14.0, 3.0)
+Discovered Loc: (13.0, 3.0)
+Discovered Loc: (12.0, 3.0)
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+00X000000000000
+000000000000000
+simulator robot moved forward
+In send queue function
+In send queue function
+Data to send: B{"map": [{"explored": "c0038007000e00000000000000000000000000000000008001000200040008007c00f801f003", "length": 300, "obstacle": "0"}], "robotPosition": [1, 17, 90]}
+TcpClient - Sent data: B{"map": [{"explored": "c0038007000e00000000000000000000000000000000008001000200040008007c00f801f003", "length": 300, "obstacle": "0"}], "robotPosition": [1, 17, 90]}
+Data to send: AA1
+TcpClient - Sent data: AA1
+Data to send: AC
+TcpClient - Sent data: AC
+Area Explored: 37
+In send queue function
+Updating android command queue & sensor value queue....
+Update Attempt:  0
+Receiving from client socket......
+TcpClient - Received data: b'SDATA:-1:-1:-1:0:0:-1\r\n'
+<multiprocessing.queues.Queue object at 0x135C5D60>
+Sensor_val: ['-1', '-1', '-1', '0', '0', '-1']
+Robot Direction: (1.0, 0.0)
+[18, 3]
+Obstacle Loc: (20.0, 4.0)
+Obstacle Loc: (20.0, 2.0)
+Discovered Loc: (17.0, 5.0)
+Discovered Loc: (17.0, 6.0)
+Discovered Loc: (18.0, 5.0)
+Discovered Loc: (18.0, 6.0)
+Discovered Loc: (19.0, 5.0)
+Discovered Loc: (19.0, 6.0)
+Discovered Loc: (20.0, 4.0)
+Discovered Loc: (20.0, 2.0)
+Discovered Loc: (16.0, 4.0)
+Discovered Loc: (15.0, 4.0)
+Discovered Loc: (14.0, 4.0)
+Discovered Loc: (13.0, 4.0)
+Discovered Loc: (12.0, 4.0)
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000X00000000000
+000000000000000
+simulator robot moved forward
+In send queue function
+In send queue function
+Data to send: B{"map": [{"explored": "c0038007000e0000000000000000000000000000000000c00180030006000c007e00fc01f803", "length": 300, "obstacle": "0"}], "robotPosition": [2, 17, 90]}
+TcpClient - Sent data: B{"map": [{"explored": "c0038007000e0000000000000000000000000000000000c00180030006000c007e00fc01f803", "length": 300, "obstacle": "0"}], "robotPosition": [2, 17, 90]}
+Data to send: AA1
+TcpClient - Sent data: AA1
+Data to send: AC
+TcpClient - Sent data: AC
+Area Explored: 45
+In send queue function
+Data to send: B{"map": [{"explored": "c0038007000e0000000000000000000000000000000000e001c0038007000e007f00fe01fc03", "length": 300, "obstacle": "0"}], "robotPosition": [3, 17, 90]}
+TcpClient - Sent data: B{"map": [{"explored": "c0038007000e0000000000000000000000000000000000e001c0038007000e007f00fe01fc03", "length": 300, "obstacle": "0"}], "robotPosition": [3, 17, 90]}
+Updating android command queue & sensor value queue....
+Update Attempt:  0
+Receiving from client socket......
+TcpClient - Received data: b'SDATA:-1:-1:-1:0:0:-1\r\n'
+<multiprocessing.queues.Queue object at 0x135C5D60>
+Sensor_val: ['-1', '-1', '-1', '0', '0', '-1']
+Robot Direction: (1.0, 0.0)
+[18, 4]
+Obstacle Loc: (20.0, 5.0)
+Obstacle Loc: (20.0, 3.0)
+Discovered Loc: (17.0, 6.0)
+Discovered Loc: (17.0, 7.0)
+Discovered Loc: (18.0, 6.0)
+Discovered Loc: (18.0, 7.0)
+Discovered Loc: (19.0, 6.0)
+Discovered Loc: (19.0, 7.0)
+Discovered Loc: (20.0, 5.0)
+Discovered Loc: (20.0, 3.0)
+Discovered Loc: (16.0, 5.0)
+Discovered Loc: (15.0, 5.0)
+Discovered Loc: (14.0, 5.0)
+Discovered Loc: (13.0, 5.0)
+Discovered Loc: (12.0, 5.0)
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+0000X0000000000
+000000000000000
+simulator robot moved forward
+In send queue function
+In send queue function
+Data to send: AA1
+TcpClient - Sent data: AA1
+Data to send: AC
+TcpClient - Sent data: AC
+Area Explored: 53
+In send queue function
+Updating android command queue & sensor value queue....
+Update Attempt:  0
+Receiving from client socket......
+TcpClient - Received data: b'SDATA:-1:-1:-1:0:0:-1\r\n'
+<multiprocessing.queues.Queue object at 0x135C5D60>
+Sensor_val: ['-1', '-1', '-1', '0', '0', '-1']
+Robot Direction: (1.0, 0.0)
+[18, 5]
+Obstacle Loc: (20.0, 6.0)
+Obstacle Loc: (20.0, 4.0)
+Discovered Loc: (17.0, 7.0)
+Discovered Loc: (17.0, 8.0)
+Discovered Loc: (18.0, 7.0)
+Discovered Loc: (18.0, 8.0)
+Discovered Loc: (19.0, 7.0)
+Discovered Loc: (19.0, 8.0)
+Discovered Loc: (20.0, 6.0)
+Discovered Loc: (20.0, 4.0)
+Discovered Loc: (16.0, 6.0)
+Discovered Loc: (15.0, 6.0)
+Discovered Loc: (14.0, 6.0)
+Discovered Loc: (13.0, 6.0)
+Discovered Loc: (12.0, 6.0)
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+00000X000000000
+000000000000000
+simulator robot moved forward
+In send queue function
+In send queue function
+Data to send: B{"map": [{"explored": "c0038007000e0000000000000000000000000000000000f001e003c007800f007f80ff01fe03", "length": 300, "obstacle": "0"}], "robotPosition": [4, 17, 90]}
+TcpClient - Sent data: B{"map": [{"explored": "c0038007000e0000000000000000000000000000000000f001e003c007800f007f80ff01fe03", "length": 300, "obstacle": "0"}], "robotPosition": [4, 17, 90]}
+Data to send: AA1
+TcpClient - Sent data: AA1
+Data to send: AC
+TcpClient - Sent data: AC
+Area Explored: 61
+In send queue function
+Updating android command queue & sensor value queue....
+Update Attempt:  0
+Receiving from client socket......
+TcpClient - Received data: b'SDATA:2:2:2:0:0:-1\r\n'
+<multiprocessing.queues.Queue object at 0x135C5D60>
+Sensor_val: ['2', '2', '2', '0', '0', '-1']
+Robot Direction: (1.0, 0.0)
+[18, 6]
+Obstacle Loc: (20.0, 7.0)
+Obstacle Loc: (20.0, 5.0)
+Discovered Loc: (17.0, 8.0)
+Discovered Loc: (17.0, 9.0)
+Discovered Loc: (18.0, 8.0)
+Discovered Loc: (18.0, 9.0)
+Discovered Loc: (19.0, 8.0)
+Discovered Loc: (19.0, 9.0)
+Discovered Loc: (20.0, 7.0)
+Discovered Loc: (20.0, 5.0)
+Discovered Loc: (16.0, 7.0)
+Discovered Loc: (15.0, 7.0)
+Discovered Loc: (14.0, 7.0)
+Discovered Loc: (13.0, 7.0)
+Discovered Loc: (12.0, 7.0)
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000X00000000
+000000000000000
+simulator robot moved forward
+In send queue function
+In send queue function
+Data to send: B{"map": [{"explored": "c0038007000e0000000000000000000000000000000000f801f003e007c00f807fc0ff81ff03", "length": 300, "obstacle": "0"}], "robotPosition": [5, 17, 90]}
+TcpClient - Sent data: B{"map": [{"explored": "c0038007000e0000000000000000000000000000000000f801f003e007c00f807fc0ff81ff03", "length": 300, "obstacle": "0"}], "robotPosition": [5, 17, 90]}
+Data to send: AA1
+TcpClient - Sent data: AA1
+Data to send: AC
+TcpClient - Sent data: AC
+Area Explored: 69
+In send queue function
+Data to send: B{"map": [{"explored": "c0038007000e0000000000000000000000000000000000fc01f803f007e00fc07fe0ffc1ff83", "length": 300, "obstacle": "0"}], "robotPosition": [6, 17, 90]}
+TcpClient - Sent data: B{"map": [{"explored": "c0038007000e0000000000000000000000000000000000fc01f803f007e00fc07fe0ffc1ff83", "length": 300, "obstacle": "0"}], "robotPosition": [6, 17, 90]}
+Updating android command queue & sensor value queue....
+Update Attempt:  0
+Receiving from client socket......
+TcpClient - Received data: b'SDATA:1:1:1:0:0:-1\r\n'
+<multiprocessing.queues.Queue object at 0x135C5D60>
+Sensor_val: ['1', '1', '1', '0', '0', '-1']
+Robot Direction: (1.0, 0.0)
+[18, 7]
+Obstacle Loc: (17.0, 10.0)
+Obstacle Loc: (18.0, 10.0)
+Obstacle Loc: (19.0, 10.0)
+Obstacle Loc: (20.0, 8.0)
+Obstacle Loc: (20.0, 6.0)
+Discovered Loc: (17.0, 9.0)
+Discovered Loc: (17.0, 10.0)
+Discovered Loc: (18.0, 9.0)
+Discovered Loc: (18.0, 10.0)
+Discovered Loc: (19.0, 9.0)
+Discovered Loc: (19.0, 10.0)
+Discovered Loc: (20.0, 8.0)
+Discovered Loc: (20.0, 6.0)
+Discovered Loc: (16.0, 8.0)
+Discovered Loc: (15.0, 8.0)
+Discovered Loc: (14.0, 8.0)
+Discovered Loc: (13.0, 8.0)
+Discovered Loc: (12.0, 8.0)
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000010000
+0000000X0010000
+000000000010000
+simulator robot moved forward
+In send queue function
+In send queue function
+Data to send: AA1
+TcpClient - Sent data: AA1
+Data to send: AC
+TcpClient - Sent data: AC
+Area Explored: 77
+In send queue function
+Updating android command queue & sensor value queue....
+Update Attempt:  0
+Receiving from client socket......
+TcpClient - Received data: b'SDATA:0:0:0:0:0:2\r\n'
+<multiprocessing.queues.Queue object at 0x135C5D60>
+Sensor_val: ['0', '0', '0', '0', '0', '2']
+Robot Direction: (1.0, 0.0)
+[18, 8]
+Error computing obstacle location in real sense: list indices must be integers or slices, not float
+Obstacle Loc: (17.0, 10.0)
+Obstacle Loc: (18.0, 10.0)
+Obstacle Loc: (19.0, 10.0)
+Obstacle Loc: (20.0, 9.0)
+Obstacle Loc: (20.0, 7.0)
+Discovered Loc: (17.0, 10.0)
+Discovered Loc: (18.0, 10.0)
+Discovered Loc: (19.0, 10.0)
+Discovered Loc: (20.0, 9.0)
+Discovered Loc: (20.0, 7.0)
+Discovered Loc: (16.0, 9.0)
+Discovered Loc: (15.0, 9.0)
+Discovered Loc: (14.0, 9.0)
+Discovered Loc: (13.0, 9.0)
+Discovered Loc: (12.0, 9.0)
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000010000
+00000000X010000
+000000000010000
+Simulator robot rotated:  -90
+In send queue function
+In send queue function
+Data to send: B{"map": [{"explored": "c0038007000e0000000000000000000000000000000000fe01fc03f807f00fe07ff0ffe1ffc3", "length": 300, "obstacle": "400801"}], "robotPosition": [7, 17, 90]}
+TcpClient - Sent data: B{"map": [{"explored": "c0038007000e0000000000000000000000000000000000fe01fc03f807f00fe07ff0ffe1ffc3", "length": 300, "obstacle": "400801"}], "robotPosition": [7, 17, 90]}
+Data to send: AL
+TcpClient - Sent data: AL
+Data to send: AC
+TcpClient - Sent data: AC
+check for nextRealMove before turning left: 1
+Area Explored: 82
+In send queue function
+Data to send: B{"map": [{"explored": "c0038007000e0000000000000000000000000000000000ff01fe03fc07f80ff07ff0ffe1ffc3", "length": 300, "obstacle": "400801"}], "robotPosition": [7, 17, 0]}
+TcpClient - Sent data: B{"map": [{"explored": "c0038007000e0000000000000000000000000000000000ff01fe03fc07f80ff07ff0ffe1ffc3", "length": 300, "obstacle": "400801"}], "robotPosition": [7, 17, 0]}
+Updating android command queue & sensor value queue....
+Update Attempt:  0
+Receiving from client socket......
+TcpClient - Received data: b'SDATA:0:1:2:0:0:7\r\n'
+<multiprocessing.queues.Queue object at 0x135C5D60>
+Sensor_val: ['0', '1', '2', '0', '0', '7']
+Robot Direction: (0.0, -1.0)
+[18, 8]
+Obstacle Loc: (16.0, 7.0)
+Obstacle Loc: (15.0, 8.0)
+Obstacle Loc: (17.0, 10.0)
+Obstacle Loc: (19.0, 10.0)
+Discovered Loc: (16.0, 7.0)
+Discovered Loc: (16.0, 8.0)
+Discovered Loc: (15.0, 8.0)
+Discovered Loc: (16.0, 9.0)
+Discovered Loc: (15.0, 9.0)
+Discovered Loc: (17.0, 10.0)
+Discovered Loc: (19.0, 10.0)
+Discovered Loc: (17.0, 6.0)
+Discovered Loc: (17.0, 5.0)
+Discovered Loc: (17.0, 4.0)
+Discovered Loc: (17.0, 3.0)
+Discovered Loc: (17.0, 2.0)
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000001000000
+000000010000000
+000000000010000
+00000000X010000
+000000000010000
+Area Explored: 82
+In send queue function
+Data to send: B{"map": [{"explored": "c0038007000e0000000000000000000000000000000000ff01fe03fc07f80ff07ff0ffe1ffc3", "length": 300, "obstacle": "40800400801"}], "robotPosition": [7, 17, 0]}
+TcpClient - Sent data: B{"map": [{"explored": "c0038007000e0000000000000000000000000000000000ff01fe03fc07f80ff07ff0ffe1ffc3", "length": 300, "obstacle": "40800400801"}], "robotPosition": [7, 17, 0]}
+Updating android command queue & sensor value queue....
+Update Attempt:  0
+Receiving from client socket......
+Error Receiving: timed out
+Update Attempt:  1
+Receiving from client socket......
+Error Receiving: timed out
+Update Attempt:  2
+Have called socket recv command 5 times but still no data coming from RPI
+Queue is empty
+Sensor_val: 0
+Robot Direction: (0.0, -1.0)
+[18, 8]
+Error computing obstacle location in real sense: 'int' object is not subscriptable
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000001000000
+000000010000000
+000000000010000
+00000000X010000
+000000000010000
+Area Explored: 82
+In send queue function
+Data to send: B{"map": [{"explored": "c0038007000e0000000000000000000000000000000000ff01fe03fc07f80ff07ff0ffe1ffc3", "length": 300, "obstacle": "40800400801"}], "robotPosition": [7, 17, 0]}
+TcpClient - Sent data: B{"map": [{"explored": "c0038007000e0000000000000000000000000000000000ff01fe03fc07f80ff07ff0ffe1ffc3", "length": 300, "obstacle": "40800400801"}], "robotPosition": [7, 17, 0]}
+Updating android command queue & sensor value queue....
+Update Attempt:  0
+Receiving from client socket......
+Error Receiving: timed out
+Update Attempt:  1
+Receiving from client socket......
+Error Receiving: timed out
+Update Attempt:  2
+Have called socket recv command 5 times but still no data coming from RPI
+Queue is empty
+Sensor_val: 0
+Robot Direction: (0.0, -1.0)
+[18, 8]
+Error computing obstacle location in real sense: 'int' object is not subscriptable
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000001000000
+000000010000000
+000000000010000
+00000000X010000
+000000000010000
+Area Explored: 82
+In send queue function
+Data to send: B{"map": [{"explored": "c0038007000e0000000000000000000000000000000000ff01fe03fc07f80ff07ff0ffe1ffc3", "length": 300, "obstacle": "40800400801"}], "robotPosition": [7, 17, 0]}
+TcpClient - Sent data: B{"map": [{"explored": "c0038007000e0000000000000000000000000000000000ff01fe03fc07f80ff07ff0ffe1ffc3", "length": 300, "obstacle": "40800400801"}], "robotPosition": [7, 17, 0]}
+Updating android command queue & sensor value queue....
+Update Attempt:  0
+Receiving from client socket......
+Error Receiving: timed out
+Update Attempt:  1
+Receiving from client socket......
+Error Receiving: timed out
+Update Attempt:  2
+Have called socket recv command 5 times but still no data coming from RPI
+Queue is empty
+Sensor_val: 0
+Robot Direction: (0.0, -1.0)
+[18, 8]
+Error computing obstacle location in real sense: 'int' object is not subscriptable
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000001000000
+000000010000000
+000000000010000
+00000000X010000
+000000000010000
+Area Explored: 82
+In send queue function
+Updating android command queue & sensor value queue....
+Update Attempt:  0
+Receiving from client socket......
+Error Receiving: timed out
+Update Attempt:  1
+Receiving from client socket......
+Error Receiving: timed out
+Update Attempt:  2
+Have called socket recv command 5 times but still no data coming from RPI
+Queue is empty
+Sensor_val: 0
+Robot Direction: (0.0, -1.0)
+[18, 8]
+Error computing obstacle location in real sense: 'int' object is not subscriptable
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000001000000
+000000010000000
+000000000010000
+00000000X010000
+000000000010000
+Area Explored: 82
+In send queue function
+Data to send: B{"map": [{"explored": "c0038007000e0000000000000000000000000000000000ff01fe03fc07f80ff07ff0ffe1ffc3", "length": 300, "obstacle": "40800400801"}], "robotPosition": [7, 17, 0]}
+TcpClient - Sent data: B{"map": [{"explored": "c0038007000e0000000000000000000000000000000000ff01fe03fc07f80ff07ff0ffe1ffc3", "length": 300, "obstacle": "40800400801"}], "robotPosition": [7, 17, 0]}
+Data to send: B{"map": [{"explored": "c0038007000e0000000000000000000000000000000000ff01fe03fc07f80ff07ff0ffe1ffc3", "length": 300, "obstacle": "40800400801"}], "robotPosition": [7, 17, 0]}
+TcpClient - Sent data: B{"map": [{"explored": "c0038007000e0000000000000000000000000000000000ff01fe03fc07f80ff07ff0ffe1ffc3", "length": 300, "obstacle": "40800400801"}], "robotPosition": [7, 17, 0]}
+Updating android command queue & sensor value queue....
+Update Attempt:  0
+Receiving from client socket......
+Error Receiving: timed out
+Update Attempt:  1
+Receiving from client socket......
+Error Receiving: timed out
+Update Attempt:  2
+Have called socket recv command 5 times but still no data coming from RPI
+Queue is empty
+Sensor_val: 0
+Robot Direction: (0.0, -1.0)
+[18, 8]
+Error computing obstacle location in real sense: 'int' object is not subscriptable
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000001000000
+000000010000000
+000000000010000
+00000000X010000
+000000000010000
+Area Explored: 82
+In send queue function
+Data to send: B{"map": [{"explored": "c0038007000e0000000000000000000000000000000000ff01fe03fc07f80ff07ff0ffe1ffc3", "length": 300, "obstacle": "40800400801"}], "robotPosition": [7, 17, 0]}
+TcpClient - Sent data: B{"map": [{"explored": "c0038007000e0000000000000000000000000000000000ff01fe03fc07f80ff07ff0ffe1ffc3", "length": 300, "obstacle": "40800400801"}], "robotPosition": [7, 17, 0]}
+Updating android command queue & sensor value queue....
+Update Attempt:  0
+Receiving from client socket......
+Error Receiving: timed out
+Update Attempt:  1
+Receiving from client socket......
+Error Receiving: timed out
+Update Attempt:  2
+Have called socket recv command 5 times but still no data coming from RPI
+Queue is empty
+Sensor_val: 0
+Robot Direction: (0.0, -1.0)
+[18, 8]
+Error computing obstacle location in real sense: 'int' object is not subscriptable
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000001000000
+000000010000000
+000000000010000
+00000000X010000
+000000000010000
+Area Explored: 82
+In send queue function
+Data to send: B{"map": [{"explored": "c0038007000e0000000000000000000000000000000000ff01fe03fc07f80ff07ff0ffe1ffc3", "length": 300, "obstacle": "40800400801"}], "robotPosition": [7, 17, 0]}
+TcpClient - Sent data: B{"map": [{"explored": "c0038007000e0000000000000000000000000000000000ff01fe03fc07f80ff07ff0ffe1ffc3", "length": 300, "obstacle": "40800400801"}], "robotPosition": [7, 17, 0]}
+Updating android command queue & sensor value queue....
+Update Attempt:  0
+Receiving from client socket......
+Error Receiving: timed out
+Update Attempt:  1
+Receiving from client socket......
+Error Receiving: timed out
+Update Attempt:  2
+Have called socket recv command 5 times but still no data coming from RPI
+Queue is empty
+Sensor_val: 0
+Robot Direction: (0.0, -1.0)
+[18, 8]
+Error computing obstacle location in real sense: 'int' object is not subscriptable
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000001000000
+000000010000000
+000000000010000
+00000000X010000
+000000000010000
+Area Explored: 82
+In send queue function
+Updating android command queue & sensor value queue....
+Update Attempt:  0
+Receiving from client socket......
+Error Receiving: timed out
+Update Attempt:  1
+Receiving from client socket......
+Error Receiving: timed out
+Update Attempt:  2
+Have called socket recv command 5 times but still no data coming from RPI
+Queue is empty
+Sensor_val: 0
+Robot Direction: (0.0, -1.0)
+[18, 8]
+Error computing obstacle location in real sense: 'int' object is not subscriptable
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000001000000
+000000010000000
+000000000010000
+00000000X010000
+000000000010000
+Area Explored: 82
+In send queue function
+Data to send: B{"map": [{"explored": "c0038007000e0000000000000000000000000000000000ff01fe03fc07f80ff07ff0ffe1ffc3", "length": 300, "obstacle": "40800400801"}], "robotPosition": [7, 17, 0]}
+TcpClient - Sent data: B{"map": [{"explored": "c0038007000e0000000000000000000000000000000000ff01fe03fc07f80ff07ff0ffe1ffc3", "length": 300, "obstacle": "40800400801"}], "robotPosition": [7, 17, 0]}
+Data to send: B{"map": [{"explored": "c0038007000e0000000000000000000000000000000000ff01fe03fc07f80ff07ff0ffe1ffc3", "length": 300, "obstacle": "40800400801"}], "robotPosition": [7, 17, 0]}
+TcpClient - Sent data: B{"map": [{"explored": "c0038007000e0000000000000000000000000000000000ff01fe03fc07f80ff07ff0ffe1ffc3", "length": 300, "obstacle": "40800400801"}], "robotPosition": [7, 17, 0]}
+Updating android command queue & sensor value queue....
+Update Attempt:  0
+Receiving from client socket......
+Error Receiving: timed out
+Update Attempt:  1
+Receiving from client socket......
+Error Receiving: timed out
+Update Attempt:  2
+Have called socket recv command 5 times but still no data coming from RPI
+Queue is empty
+Sensor_val: 0
+Robot Direction: (0.0, -1.0)
+[18, 8]
+Error computing obstacle location in real sense: 'int' object is not subscriptable
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000001000000
+000000010000000
+000000000010000
+00000000X010000
+000000000010000
+Area Explored: 82
+In send queue function
+Updating android command queue & sensor value queue....
+Update Attempt:  0
+Receiving from client socket......
+Error Receiving: timed out
+Update Attempt:  1
+Receiving from client socket......
+Error Receiving: timed out
+Update Attempt:  2
+Have called socket recv command 5 times but still no data coming from RPI
+Queue is empty
+Sensor_val: 0
+Robot Direction: (0.0, -1.0)
+[18, 8]
+Error computing obstacle location in real sense: 'int' object is not subscriptable
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000001000000
+000000010000000
+000000000010000
+00000000X010000
+000000000010000
+Area Explored: 82
+In send queue function
+Data to send: B{"map": [{"explored": "c0038007000e0000000000000000000000000000000000ff01fe03fc07f80ff07ff0ffe1ffc3", "length": 300, "obstacle": "40800400801"}], "robotPosition": [7, 17, 0]}
+TcpClient - Sent data: B{"map": [{"explored": "c0038007000e0000000000000000000000000000000000ff01fe03fc07f80ff07ff0ffe1ffc3", "length": 300, "obstacle": "40800400801"}], "robotPosition": [7, 17, 0]}
+Data to send: B{"map": [{"explored": "c0038007000e0000000000000000000000000000000000ff01fe03fc07f80ff07ff0ffe1ffc3", "length": 300, "obstacle": "40800400801"}], "robotPosition": [7, 17, 0]}
+TcpClient - Sent data: B{"map": [{"explored": "c0038007000e0000000000000000000000000000000000ff01fe03fc07f80ff07ff0ffe1ffc3", "length": 300, "obstacle": "40800400801"}], "robotPosition": [7, 17, 0]}
+Updating android command queue & sensor value queue....
+Update Attempt:  0
+Receiving from client socket......
+Error Receiving: timed out
+Update Attempt:  1
+Receiving from client socket......
+Error Receiving: timed out
+Update Attempt:  2
+Have called socket recv command 5 times but still no data coming from RPI
+Queue is empty
+Sensor_val: 0
+Robot Direction: (0.0, -1.0)
+[18, 8]
+Error computing obstacle location in real sense: 'int' object is not subscriptable
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000001000000
+000000010000000
+000000000010000
+00000000X010000
+000000000010000
+Area Explored: 82
+In send queue function
+Data to send: B{"map": [{"explored": "c0038007000e0000000000000000000000000000000000ff01fe03fc07f80ff07ff0ffe1ffc3", "length": 300, "obstacle": "40800400801"}], "robotPosition": [7, 17, 0]}
+TcpClient - Sent data: B{"map": [{"explored": "c0038007000e0000000000000000000000000000000000ff01fe03fc07f80ff07ff0ffe1ffc3", "length": 300, "obstacle": "40800400801"}], "robotPosition": [7, 17, 0]}
+Updating android command queue & sensor value queue....
+Update Attempt:  0
+Receiving from client socket......
+Error Receiving: timed out
+Update Attempt:  1
+Receiving from client socket......
+Error Receiving: timed out
+Update Attempt:  2
+Have called socket recv command 5 times but still no data coming from RPI
+Queue is empty
+Sensor_val: 0
+Robot Direction: (0.0, -1.0)
+[18, 8]
+Error computing obstacle location in real sense: 'int' object is not subscriptable
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000001000000
+000000010000000
+000000000010000
+00000000X010000
+000000000010000
+Area Explored: 82
+In send queue function
+Data to send: B{"map": [{"explored": "c0038007000e0000000000000000000000000000000000ff01fe03fc07f80ff07ff0ffe1ffc3", "length": 300, "obstacle": "40800400801"}], "robotPosition": [7, 17, 0]}
+TcpClient - Sent data: B{"map": [{"explored": "c0038007000e0000000000000000000000000000000000ff01fe03fc07f80ff07ff0ffe1ffc3", "length": 300, "obstacle": "40800400801"}], "robotPosition": [7, 17, 0]}
+Updating android command queue & sensor value queue....
+Update Attempt:  0
+Receiving from client socket......
+Error Receiving: timed out
+Update Attempt:  1
+Receiving from client socket......
+Error Receiving: timed out
+Update Attempt:  2
+Have called socket recv command 5 times but still no data coming from RPI
+Queue is empty
+Sensor_val: 0
+Robot Direction: (0.0, -1.0)
+[18, 8]
+Error computing obstacle location in real sense: 'int' object is not subscriptable
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000001000000
+000000010000000
+000000000010000
+00000000X010000
+000000000010000
+Area Explored: 82
+In send queue function
+Data to send: B{"map": [{"explored": "c0038007000e0000000000000000000000000000000000ff01fe03fc07f80ff07ff0ffe1ffc3", "length": 300, "obstacle": "40800400801"}], "robotPosition": [7, 17, 0]}
+TcpClient - Sent data: B{"map": [{"explored": "c0038007000e0000000000000000000000000000000000ff01fe03fc07f80ff07ff0ffe1ffc3", "length": 300, "obstacle": "40800400801"}], "robotPosition": [7, 17, 0]}
+Updating android command queue & sensor value queue....
+Update Attempt:  0
+Receiving from client socket......
+Error Receiving: timed out
+Update Attempt:  1
+Receiving from client socket......
+Error Receiving: timed out
+Update Attempt:  2
+Have called socket recv command 5 times but still no data coming from RPI
+Queue is empty
+Sensor_val: 0
+Robot Direction: (0.0, -1.0)
+[18, 8]
+Error computing obstacle location in real sense: 'int' object is not subscriptable
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000001000000
+000000010000000
+000000000010000
+00000000X010000
+000000000010000
+Area Explored: 82
+In send queue function
+Data to send: B{"map": [{"explored": "c0038007000e0000000000000000000000000000000000ff01fe03fc07f80ff07ff0ffe1ffc3", "length": 300, "obstacle": "40800400801"}], "robotPosition": [7, 17, 0]}
+TcpClient - Sent data: B{"map": [{"explored": "c0038007000e0000000000000000000000000000000000ff01fe03fc07f80ff07ff0ffe1ffc3", "length": 300, "obstacle": "40800400801"}], "robotPosition": [7, 17, 0]}
+Updating android command queue & sensor value queue....
+Update Attempt:  0
+Receiving from client socket......
+Error Receiving: timed out
+Update Attempt:  1
+Receiving from client socket......
+Error Receiving: timed out
+Update Attempt:  2
+Have called socket recv command 5 times but still no data coming from RPI
+Queue is empty
+Sensor_val: 0
+Robot Direction: (0.0, -1.0)
+[18, 8]
+Error computing obstacle location in real sense: 'int' object is not subscriptable
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000001000000
+000000010000000
+000000000010000
+00000000X010000
+000000000010000
+Area Explored: 82
+In send queue function
+Data to send: B{"map": [{"explored": "c0038007000e0000000000000000000000000000000000ff01fe03fc07f80ff07ff0ffe1ffc3", "length": 300, "obstacle": "40800400801"}], "robotPosition": [7, 17, 0]}
+TcpClient - Sent data: B{"map": [{"explored": "c0038007000e0000000000000000000000000000000000ff01fe03fc07f80ff07ff0ffe1ffc3", "length": 300, "obstacle": "40800400801"}], "robotPosition": [7, 17, 0]}
+Updating android command queue & sensor value queue....
+Update Attempt:  0
+Receiving from client socket......
+Error Receiving: timed out
+Update Attempt:  1
+Receiving from client socket......
+Error Receiving: timed out
+Update Attempt:  2
+Have called socket recv command 5 times but still no data coming from RPI
+Queue is empty
+Sensor_val: 0
+Robot Direction: (0.0, -1.0)
+[18, 8]
+Error computing obstacle location in real sense: 'int' object is not subscriptable
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000001000000
+000000010000000
+000000000010000
+00000000X010000
+000000000010000
+Area Explored: 82
+In send queue function
+Updating android command queue & sensor value queue....
+Update Attempt:  0
+Receiving from client socket......
+Error Receiving: timed out
+Update Attempt:  1
+Receiving from client socket......
+Error Receiving: timed out
+Update Attempt:  2
+Have called socket recv command 5 times but still no data coming from RPI
+Queue is empty
+Sensor_val: 0
+Robot Direction: (0.0, -1.0)
+[18, 8]
+Error computing obstacle location in real sense: 'int' object is not subscriptable
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000001000000
+000000010000000
+000000000010000
+00000000X010000
+000000000010000
+Area Explored: 82
+In send queue function
+Data to send: B{"map": [{"explored": "c0038007000e0000000000000000000000000000000000ff01fe03fc07f80ff07ff0ffe1ffc3", "length": 300, "obstacle": "40800400801"}], "robotPosition": [7, 17, 0]}
+TcpClient - Sent data: B{"map": [{"explored": "c0038007000e0000000000000000000000000000000000ff01fe03fc07f80ff07ff0ffe1ffc3", "length": 300, "obstacle": "40800400801"}], "robotPosition": [7, 17, 0]}
+Data to send: B{"map": [{"explored": "c0038007000e0000000000000000000000000000000000ff01fe03fc07f80ff07ff0ffe1ffc3", "length": 300, "obstacle": "40800400801"}], "robotPosition": [7, 17, 0]}
+TcpClient - Sent data: B{"map": [{"explored": "c0038007000e0000000000000000000000000000000000ff01fe03fc07f80ff07ff0ffe1ffc3", "length": 300, "obstacle": "40800400801"}], "robotPosition": [7, 17, 0]}
+Updating android command queue & sensor value queue....
+Update Attempt:  0
+Receiving from client socket......
+Traceback (most recent call last):
+  File "C:\Users\zmkok\Documents\MDP-group13\Simulator\commMgr.py", line 41, in recv
+    data = self.client_socket.recv(self.buffer_size)
+socket.timeout: timed out
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "simulatorMain.py", line 86, in <module>
+    sensor_val = player_robot.real_sense(arena_map,comm)
+  File "C:\Users\zmkok\Documents\MDP-group13\Simulator\robot.py", line 212, in real_sense
+    comm.update_queue()
+  File "C:\Users\zmkok\Documents\MDP-group13\Simulator\commMgr.py", line 201, in update_queue
+    self.recv()
+  File "C:\Users\zmkok\Documents\MDP-group13\Simulator\commMgr.py", line 41, in recv
+    data = self.client_socket.recv(self.buffer_size)
+KeyboardInterrupt
+^C
+C:\Users\zmkok\Documents\MDP-group13\Simulator>
+
+C:\Users\zmkok\Documents\MDP-group13\Simulator>python simulatorMain.py
+pygame 1.9.6
+Hello from the pygame community. https://www.pygame.org/contribute.html
+connect called
+TcpClient - Connected on 192.168.13.13:4413
+In send ready function
+In send queue function
+Receiving from client socket......
+send ready called
+Updating android command queue & sensor value queue....
+Update Attempt:  0
+Receiving from client socket......
+TcpClient - Received data: b'SDATA:-1:-1:-1:-1:-1:-1\r\n'
+<multiprocessing.queues.Queue object at 0x13906D60>
+Sensor_val: ['-1', '-1', '-1', '-1', '-1', '-1']
+Robot Direction: (0.0, -1.0)
+[18, 1]
+Discovered Loc: (16.0, 0.0)
+Discovered Loc: (15.0, 0.0)
+Discovered Loc: (16.0, 1.0)
+Discovered Loc: (15.0, 1.0)
+Discovered Loc: (16.0, 2.0)
+Discovered Loc: (15.0, 2.0)
+Discovered Loc: (17.0, 3.0)
+Discovered Loc: (17.0, 4.0)
+Discovered Loc: (19.0, 3.0)
+Discovered Loc: (19.0, 4.0)
+Discovered Loc: (17.0, -1.0)
+Discovered Loc: (17.0, -2.0)
+Discovered Loc: (17.0, -3.0)
+Discovered Loc: (17.0, -4.0)
+Discovered Loc: (17.0, -5.0)
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+0X0000000000000
+000000000000000
+Updating android command queue & sensor value queue....
+Update Attempt:  0
+Receiving from client socket......
+Error Receiving: timed out
+Error Receiving: timed out
+Update Attempt:  1
+Receiving from client socket......
+Error Receiving: timed out
+Update Attempt:  2
+Have called socket recv command 5 times but still no data coming from RPI
+Queue is empty
+check for nextRealMove before turning right: 0
+Simulator robot rotated:  90
+In send queue function
+In send queue function
+Data to send: AS
+TcpClient - Sent data: AS
+Data to send: AR
+TcpClient - Sent data: AR
+Data to send: AC
+TcpClient - Sent data: AC
+Area Explored: 28
+In send queue function
+Data to send: B{"map": [{"explored": "c0038007000e000000000000000000000000000000000000000000001c0038007c00e001f003", "length": 300, "obstacle": "0"}], "robotPosition": [0, 17, 90]}
+TcpClient - Sent data: B{"map": [{"explored": "c0038007000e000000000000000000000000000000000000000000001c0038007c00e001f003", "length": 300, "obstacle": "0"}], "robotPosition": [0, 17, 90]}
+Updating android command queue & sensor value queue....
+Update Attempt:  0
+Receiving from client socket......
+TcpClient - Received data: b'SDATA:-1:-1:-1:-1:-1:-1\r\n'
+TcpClient - Received data: b'SDATA:-1:-1:-1:0:0:-1\r\n'
+<multiprocessing.queues.Queue object at 0x13906D60>
+Sensor_val: ['-1', '-1', '-1', '0', '0', '-1']
+Robot Direction: (1.0, 0.0)
+[18, 1]
+Obstacle Loc: (20.0, 2.0)
+Obstacle Loc: (20.0, 0.0)
+Discovered Loc: (17.0, 3.0)
+Discovered Loc: (17.0, 4.0)
+Discovered Loc: (18.0, 3.0)
+Discovered Loc: (18.0, 4.0)
+Discovered Loc: (19.0, 3.0)
+Discovered Loc: (19.0, 4.0)
+Discovered Loc: (20.0, 2.0)
+Discovered Loc: (20.0, 0.0)
+Discovered Loc: (16.0, 2.0)
+Discovered Loc: (15.0, 2.0)
+Discovered Loc: (14.0, 2.0)
+Discovered Loc: (13.0, 2.0)
+Discovered Loc: (12.0, 2.0)
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+0X0000000000000
+000000000000000
+simulator robot moved forward
+In send queue function
+In send queue function
+Data to send: AA1
+TcpClient - Sent data: AA1
+Data to send: AC
+TcpClient - Sent data: AC
+Area Explored: 33
+In send queue function
+Data to send: B{"map": [{"explored": "c0038007000e000000000000000000000000000000000080010002001c0038007c00f801f003", "length": 300, "obstacle": "0"}], "robotPosition": [1, 17, 90]}
+TcpClient - Sent data: B{"map": [{"explored": "c0038007000e000000000000000000000000000000000080010002001c0038007c00f801f003", "length": 300, "obstacle": "0"}], "robotPosition": [1, 17, 90]}
+Updating android command queue & sensor value queue....
+Update Attempt:  0
+Receiving from client socket......
+TcpClient - Received data: b'SDATA:-1:-1:-1:0:0:-1\r\n'
+<multiprocessing.queues.Queue object at 0x13906D60>
+Sensor_val: ['-1', '-1', '-1', '0', '0', '-1']
+Robot Direction: (1.0, 0.0)
+[18, 2]
+Obstacle Loc: (20.0, 3.0)
+Obstacle Loc: (20.0, 1.0)
+Discovered Loc: (17.0, 4.0)
+Discovered Loc: (17.0, 5.0)
+Discovered Loc: (18.0, 4.0)
+Discovered Loc: (18.0, 5.0)
+Discovered Loc: (19.0, 4.0)
+Discovered Loc: (19.0, 5.0)
+Discovered Loc: (20.0, 3.0)
+Discovered Loc: (20.0, 1.0)
+Discovered Loc: (16.0, 3.0)
+Discovered Loc: (15.0, 3.0)
+Discovered Loc: (14.0, 3.0)
+Discovered Loc: (13.0, 3.0)
+Discovered Loc: (12.0, 3.0)
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+00X000000000000
+000000000000000
+simulator robot moved forward
+In send queue function
+In send queue function
+Data to send: AA1
+TcpClient - Sent data: AA1
+Data to send: AC
+TcpClient - Sent data: AC
+Area Explored: 41
+In send queue function
+Data to send: B{"map": [{"explored": "c0038007000e0000000000000000000000000000000000c0018003001e003c007e00fc01f803", "length": 300, "obstacle": "0"}], "robotPosition": [2, 17, 90]}
+TcpClient - Sent data: B{"map": [{"explored": "c0038007000e0000000000000000000000000000000000c0018003001e003c007e00fc01f803", "length": 300, "obstacle": "0"}], "robotPosition": [2, 17, 90]}
+Updating android command queue & sensor value queue....
+Update Attempt:  0
+Receiving from client socket......
+TcpClient - Received data: b'SDATA:-1:-1:-1:0:0:-1\r\n'
+<multiprocessing.queues.Queue object at 0x13906D60>
+Sensor_val: ['-1', '-1', '-1', '0', '0', '-1']
+Robot Direction: (1.0, 0.0)
+[18, 3]
+Obstacle Loc: (20.0, 4.0)
+Obstacle Loc: (20.0, 2.0)
+Discovered Loc: (17.0, 5.0)
+Discovered Loc: (17.0, 6.0)
+Discovered Loc: (18.0, 5.0)
+Discovered Loc: (18.0, 6.0)
+Discovered Loc: (19.0, 5.0)
+Discovered Loc: (19.0, 6.0)
+Discovered Loc: (20.0, 4.0)
+Discovered Loc: (20.0, 2.0)
+Discovered Loc: (16.0, 4.0)
+Discovered Loc: (15.0, 4.0)
+Discovered Loc: (14.0, 4.0)
+Discovered Loc: (13.0, 4.0)
+Discovered Loc: (12.0, 4.0)
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000X00000000000
+000000000000000
+simulator robot moved forward
+In send queue function
+In send queue function
+Data to send: AA1
+TcpClient - Sent data: AA1
+Data to send: AC
+TcpClient - Sent data: AC
+Area Explored: 49
+In send queue function
+Updating android command queue & sensor value queue....
+Update Attempt:  0
+Receiving from client socket......
+TcpClient - Received data: b'SDATA:-1:-1:-1:0:0:-1\r\n'
+<multiprocessing.queues.Queue object at 0x13906D60>
+Sensor_val: ['-1', '-1', '-1', '0', '0', '-1']
+Robot Direction: (1.0, 0.0)
+[18, 4]
+Obstacle Loc: (20.0, 5.0)
+Obstacle Loc: (20.0, 3.0)
+Discovered Loc: (17.0, 6.0)
+Discovered Loc: (17.0, 7.0)
+Discovered Loc: (18.0, 6.0)
+Discovered Loc: (18.0, 7.0)
+Discovered Loc: (19.0, 6.0)
+Discovered Loc: (19.0, 7.0)
+Discovered Loc: (20.0, 5.0)
+Discovered Loc: (20.0, 3.0)
+Discovered Loc: (16.0, 5.0)
+Discovered Loc: (15.0, 5.0)
+Discovered Loc: (14.0, 5.0)
+Discovered Loc: (13.0, 5.0)
+Discovered Loc: (12.0, 5.0)
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+0000X0000000000
+000000000000000
+simulator robot moved forward
+In send queue function
+In send queue function
+Data to send: B{"map": [{"explored": "c0038007000e0000000000000000000000000000000000e001c003801f003e007f00fe01fc03", "length": 300, "obstacle": "0"}], "robotPosition": [3, 17, 90]}
+TcpClient - Sent data: B{"map": [{"explored": "c0038007000e0000000000000000000000000000000000e001c003801f003e007f00fe01fc03", "length": 300, "obstacle": "0"}], "robotPosition": [3, 17, 90]}
+Data to send: AA1
+TcpClient - Sent data: AA1
+Data to send: AC
+TcpClient - Sent data: AC
+Area Explored: 57
+In send queue function
+Data to send: B{"map": [{"explored": "c0038007000e0000000000000000000000000000000000f001e003c01f803f007f80ff01fe03", "length": 300, "obstacle": "0"}], "robotPosition": [4, 17, 90]}
+TcpClient - Sent data: B{"map": [{"explored": "c0038007000e0000000000000000000000000000000000f001e003c01f803f007f80ff01fe03", "length": 300, "obstacle": "0"}], "robotPosition": [4, 17, 90]}
+Updating android command queue & sensor value queue....
+Update Attempt:  0
+Receiving from client socket......
+TcpClient - Received data: b'SDATA:-1:2:-1:0:0:-1\r\n'
+<multiprocessing.queues.Queue object at 0x13906D60>
+Sensor_val: ['-1', '2', '-1', '0', '0', '-1']
+Robot Direction: (1.0, 0.0)
+[18, 5]
+Obstacle Loc: (20.0, 6.0)
+Obstacle Loc: (20.0, 4.0)
+Discovered Loc: (17.0, 7.0)
+Discovered Loc: (17.0, 8.0)
+Discovered Loc: (18.0, 7.0)
+Discovered Loc: (18.0, 8.0)
+Discovered Loc: (19.0, 7.0)
+Discovered Loc: (19.0, 8.0)
+Discovered Loc: (20.0, 6.0)
+Discovered Loc: (20.0, 4.0)
+Discovered Loc: (16.0, 6.0)
+Discovered Loc: (15.0, 6.0)
+Discovered Loc: (14.0, 6.0)
+Discovered Loc: (13.0, 6.0)
+Discovered Loc: (12.0, 6.0)
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+00000X000000000
+000000000000000
+simulator robot moved forward
+In send queue function
+In send queue function
+Data to send: AA1
+TcpClient - Sent data: AA1
+Data to send: AC
+TcpClient - Sent data: AC
+Area Explored: 65
+In send queue function
+Data to send: B{"map": [{"explored": "c0038007000e0000000000000000000000000000000000f801f003e01fc03f807fc0ff81ff03", "length": 300, "obstacle": "0"}], "robotPosition": [5, 17, 90]}
+TcpClient - Sent data: B{"map": [{"explored": "c0038007000e0000000000000000000000000000000000f801f003e01fc03f807fc0ff81ff03", "length": 300, "obstacle": "0"}], "robotPosition": [5, 17, 90]}
+Updating android command queue & sensor value queue....
+Update Attempt:  0
+Receiving from client socket......
+TcpClient - Received data: b'SDATA:2:2:2:0:0:-1\r\n'
+<multiprocessing.queues.Queue object at 0x13906D60>
+Sensor_val: ['2', '2', '2', '0', '0', '-1']
+Robot Direction: (1.0, 0.0)
+[18, 6]
+Obstacle Loc: (20.0, 7.0)
+Obstacle Loc: (20.0, 5.0)
+Discovered Loc: (17.0, 8.0)
+Discovered Loc: (17.0, 9.0)
+Discovered Loc: (18.0, 8.0)
+Discovered Loc: (18.0, 9.0)
+Discovered Loc: (19.0, 8.0)
+Discovered Loc: (19.0, 9.0)
+Discovered Loc: (20.0, 7.0)
+Discovered Loc: (20.0, 5.0)
+Discovered Loc: (16.0, 7.0)
+Discovered Loc: (15.0, 7.0)
+Discovered Loc: (14.0, 7.0)
+Discovered Loc: (13.0, 7.0)
+Discovered Loc: (12.0, 7.0)
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000X00000000
+000000000000000
+simulator robot moved forward
+In send queue function
+In send queue function
+Data to send: AA1
+TcpClient - Sent data: AA1
+Data to send: AC
+TcpClient - Sent data: AC
+Area Explored: 73
+In send queue function
+Data to send: B{"map": [{"explored": "c0038007000e0000000000000000000000000000000000fc01f803f01fe03fc07fe0ffc1ff83", "length": 300, "obstacle": "0"}], "robotPosition": [6, 17, 90]}
+TcpClient - Sent data: B{"map": [{"explored": "c0038007000e0000000000000000000000000000000000fc01f803f01fe03fc07fe0ffc1ff83", "length": 300, "obstacle": "0"}], "robotPosition": [6, 17, 90]}
+Updating android command queue & sensor value queue....
+Update Attempt:  0
+Receiving from client socket......
+TcpClient - Received data: b'SDATA:1:1:1:0:0:-1\r\n'
+<multiprocessing.queues.Queue object at 0x13906D60>
+Sensor_val: ['1', '1', '1', '0', '0', '-1']
+Robot Direction: (1.0, 0.0)
+[18, 7]
+Obstacle Loc: (17.0, 10.0)
+Obstacle Loc: (18.0, 10.0)
+Obstacle Loc: (19.0, 10.0)
+Obstacle Loc: (20.0, 8.0)
+Obstacle Loc: (20.0, 6.0)
+Discovered Loc: (17.0, 9.0)
+Discovered Loc: (17.0, 10.0)
+Discovered Loc: (18.0, 9.0)
+Discovered Loc: (18.0, 10.0)
+Discovered Loc: (19.0, 9.0)
+Discovered Loc: (19.0, 10.0)
+Discovered Loc: (20.0, 8.0)
+Discovered Loc: (20.0, 6.0)
+Discovered Loc: (16.0, 8.0)
+Discovered Loc: (15.0, 8.0)
+Discovered Loc: (14.0, 8.0)
+Discovered Loc: (13.0, 8.0)
+Discovered Loc: (12.0, 8.0)
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000010000
+0000000X0010000
+000000000010000
+simulator robot moved forward
+In send queue function
+In send queue function
+Data to send: AA1
+TcpClient - Sent data: AA1
+Data to send: AC
+TcpClient - Sent data: AC
+Area Explored: 81
+In send queue function
+Updating android command queue & sensor value queue....
+Update Attempt:  0
+Receiving from client socket......
+TcpClient - Received data: b'SDATA:0:0:0:0:0:2\r\n'
+<multiprocessing.queues.Queue object at 0x13906D60>
+Sensor_val: ['0', '0', '0', '0', '0', '2']
+Robot Direction: (1.0, 0.0)
+[18, 8]
+Error computing obstacle location in real sense: list indices must be integers or slices, not float
+Obstacle Loc: (17.0, 10.0)
+Obstacle Loc: (18.0, 10.0)
+Obstacle Loc: (19.0, 10.0)
+Obstacle Loc: (20.0, 9.0)
+Obstacle Loc: (20.0, 7.0)
+Discovered Loc: (17.0, 10.0)
+Discovered Loc: (18.0, 10.0)
+Discovered Loc: (19.0, 10.0)
+Discovered Loc: (20.0, 9.0)
+Discovered Loc: (20.0, 7.0)
+Discovered Loc: (16.0, 9.0)
+Discovered Loc: (15.0, 9.0)
+Discovered Loc: (14.0, 9.0)
+Discovered Loc: (13.0, 9.0)
+Discovered Loc: (12.0, 9.0)
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000010000
+00000000X010000
+000000000010000
+Simulator robot rotated:  -90
+In send queue function
+In send queue function
+Data to send: B{"map": [{"explored": "c0038007000e0000000000000000000000000000000000fe01fc03f81ff03fe07ff0ffe1ffc3", "length": 300, "obstacle": "400801"}], "robotPosition": [7, 17, 90]}
+TcpClient - Sent data: B{"map": [{"explored": "c0038007000e0000000000000000000000000000000000fe01fc03f81ff03fe07ff0ffe1ffc3", "length": 300, "obstacle": "400801"}], "robotPosition": [7, 17, 90]}
+Data to send: AL
+TcpClient - Sent data: AL
+Data to send: AC
+TcpClient - Sent data: AC
+check for nextRealMove before turning left: 1
+Area Explored: 86
+In send queue function
+Data to send: B{"map": [{"explored": "c0038007000e0000000000000000000000000000000000ff01fe03fc1ff83ff07ff0ffe1ffc3", "length": 300, "obstacle": "400801"}], "robotPosition": [7, 17, 0]}
+TcpClient - Sent data: B{"map": [{"explored": "c0038007000e0000000000000000000000000000000000ff01fe03fc1ff83ff07ff0ffe1ffc3", "length": 300, "obstacle": "400801"}], "robotPosition": [7, 17, 0]}
+Updating android command queue & sensor value queue....
+Update Attempt:  0
+Receiving from client socket......
+TcpClient - Received data: b'SDATA:0:1:2:0:0:7\r\n'
+<multiprocessing.queues.Queue object at 0x13906D60>
+Sensor_val: ['0', '1', '2', '0', '0', '7']
+Robot Direction: (0.0, -1.0)
+[18, 8]
+Obstacle Loc: (16.0, 7.0)
+Obstacle Loc: (15.0, 8.0)
+Obstacle Loc: (17.0, 10.0)
+Obstacle Loc: (19.0, 10.0)
+Discovered Loc: (16.0, 7.0)
+Discovered Loc: (16.0, 8.0)
+Discovered Loc: (15.0, 8.0)
+Discovered Loc: (16.0, 9.0)
+Discovered Loc: (15.0, 9.0)
+Discovered Loc: (17.0, 10.0)
+Discovered Loc: (19.0, 10.0)
+Discovered Loc: (17.0, 6.0)
+Discovered Loc: (17.0, 5.0)
+Discovered Loc: (17.0, 4.0)
+Discovered Loc: (17.0, 3.0)
+Discovered Loc: (17.0, 2.0)
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000001000000
+000000010000000
+000000000010000
+00000000X010000
+000000000010000
+Area Explored: 86
+In send queue function
+Data to send: B{"map": [{"explored": "c0038007000e0000000000000000000000000000000000ff01fe03fc1ff83ff07ff0ffe1ffc3", "length": 300, "obstacle": "100800400801"}], "robotPosition": [7, 17, 0]}
+TcpClient - Sent data: B{"map": [{"explored": "c0038007000e0000000000000000000000000000000000ff01fe03fc1ff83ff07ff0ffe1ffc3", "length": 300, "obstacle": "100800400801"}], "robotPosition": [7, 17, 0]}
+Updating android command queue & sensor value queue....
+Update Attempt:  0
+Receiving from client socket......
+Error Receiving: timed out
+Update Attempt:  1
+Receiving from client socket......
+Error Receiving: timed out
+Update Attempt:  2
+Have called socket recv command 5 times but still no data coming from RPI
+Queue is empty
+Sensor_val: 0
+Robot Direction: (0.0, -1.0)
+[18, 8]
+Error computing obstacle location in real sense: 'int' object is not subscriptable
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000001000000
+000000010000000
+000000000010000
+00000000X010000
+000000000010000
+Area Explored: 86
+In send queue function
+Data to send: B{"map": [{"explored": "c0038007000e0000000000000000000000000000000000ff01fe03fc1ff83ff07ff0ffe1ffc3", "length": 300, "obstacle": "100800400801"}], "robotPosition": [7, 17, 0]}
+TcpClient - Sent data: B{"map": [{"explored": "c0038007000e0000000000000000000000000000000000ff01fe03fc1ff83ff07ff0ffe1ffc3", "length": 300, "obstacle": "100800400801"}], "robotPosition": [7, 17, 0]}
+Updating android command queue & sensor value queue....
+Update Attempt:  0
+Receiving from client socket......
+Error Receiving: timed out
+Update Attempt:  1
+Receiving from client socket......
+Error Receiving: timed out
+Update Attempt:  2
+Have called socket recv command 5 times but still no data coming from RPI
+Queue is empty
+Sensor_val: 0
+Robot Direction: (0.0, -1.0)
+[18, 8]
+Error computing obstacle location in real sense: 'int' object is not subscriptable
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000001000000
+000000010000000
+000000000010000
+00000000X010000
+000000000010000
+Area Explored: 86
+In send queue function
+Data to send: B{"map": [{"explored": "c0038007000e0000000000000000000000000000000000ff01fe03fc1ff83ff07ff0ffe1ffc3", "length": 300, "obstacle": "100800400801"}], "robotPosition": [7, 17, 0]}
+TcpClient - Sent data: B{"map": [{"explored": "c0038007000e0000000000000000000000000000000000ff01fe03fc1ff83ff07ff0ffe1ffc3", "length": 300, "obstacle": "100800400801"}], "robotPosition": [7, 17, 0]}
+Updating android command queue & sensor value queue....
+Update Attempt:  0
+Receiving from client socket......
+Error Receiving: timed out
+Update Attempt:  1
+Receiving from client socket......
+Error Receiving: timed out
+Update Attempt:  2
+Have called socket recv command 5 times but still no data coming from RPI
+Queue is empty
+Sensor_val: 0
+Robot Direction: (0.0, -1.0)
+[18, 8]
+Error computing obstacle location in real sense: 'int' object is not subscriptable
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000001000000
+000000010000000
+000000000010000
+00000000X010000
+000000000010000
+Area Explored: 86
+In send queue function
+Updating android command queue & sensor value queue....
+Update Attempt:  0
+Receiving from client socket......
+Error Receiving: timed out
+Update Attempt:  1
+Receiving from client socket......
+Error Receiving: timed out
+Update Attempt:  2
+Have called socket recv command 5 times but still no data coming from RPI
+Queue is empty
+Sensor_val: 0
+Robot Direction: (0.0, -1.0)
+[18, 8]
+Error computing obstacle location in real sense: 'int' object is not subscriptable
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000001000000
+000000010000000
+000000000010000
+00000000X010000
+000000000010000
+Area Explored: 86
+In send queue function
+Data to send: B{"map": [{"explored": "c0038007000e0000000000000000000000000000000000ff01fe03fc1ff83ff07ff0ffe1ffc3", "length": 300, "obstacle": "100800400801"}], "robotPosition": [7, 17, 0]}
+TcpClient - Sent data: B{"map": [{"explored": "c0038007000e0000000000000000000000000000000000ff01fe03fc1ff83ff07ff0ffe1ffc3", "length": 300, "obstacle": "100800400801"}], "robotPosition": [7, 17, 0]}
+Data to send: B{"map": [{"explored": "c0038007000e0000000000000000000000000000000000ff01fe03fc1ff83ff07ff0ffe1ffc3", "length": 300, "obstacle": "100800400801"}], "robotPosition": [7, 17, 0]}
+TcpClient - Sent data: B{"map": [{"explored": "c0038007000e0000000000000000000000000000000000ff01fe03fc1ff83ff07ff0ffe1ffc3", "length": 300, "obstacle": "100800400801"}], "robotPosition": [7, 17, 0]}
+Updating android command queue & sensor value queue....
+Update Attempt:  0
+Receiving from client socket......
+Error Receiving: timed out
+Update Attempt:  1
+Receiving from client socket......
+Error Receiving: timed out
+Update Attempt:  2
+Have called socket recv command 5 times but still no data coming from RPI
+Queue is empty
+Sensor_val: 0
+Robot Direction: (0.0, -1.0)
+[18, 8]
+Error computing obstacle location in real sense: 'int' object is not subscriptable
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000001000000
+000000010000000
+000000000010000
+00000000X010000
+000000000010000
+Area Explored: 86
+In send queue function
+Updating android command queue & sensor value queue....
+Update Attempt:  0
+Receiving from client socket......
+Error Receiving: timed out
+Update Attempt:  1
+Receiving from client socket......
+Error Receiving: timed out
+Update Attempt:  2
+Have called socket recv command 5 times but still no data coming from RPI
+Queue is empty
+Sensor_val: 0
+Robot Direction: (0.0, -1.0)
+[18, 8]
+Error computing obstacle location in real sense: 'int' object is not subscriptable
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000001000000
+000000010000000
+000000000010000
+00000000X010000
+000000000010000
+Area Explored: 86
+In send queue function
+Data to send: B{"map": [{"explored": "c0038007000e0000000000000000000000000000000000ff01fe03fc1ff83ff07ff0ffe1ffc3", "length": 300, "obstacle": "100800400801"}], "robotPosition": [7, 17, 0]}
+TcpClient - Sent data: B{"map": [{"explored": "c0038007000e0000000000000000000000000000000000ff01fe03fc1ff83ff07ff0ffe1ffc3", "length": 300, "obstacle": "100800400801"}], "robotPosition": [7, 17, 0]}
+Data to send: B{"map": [{"explored": "c0038007000e0000000000000000000000000000000000ff01fe03fc1ff83ff07ff0ffe1ffc3", "length": 300, "obstacle": "100800400801"}], "robotPosition": [7, 17, 0]}
+TcpClient - Sent data: B{"map": [{"explored": "c0038007000e0000000000000000000000000000000000ff01fe03fc1ff83ff07ff0ffe1ffc3", "length": 300, "obstacle": "100800400801"}], "robotPosition": [7, 17, 0]}
+Updating android command queue & sensor value queue....
+Update Attempt:  0
+Receiving from client socket......
+Error Receiving: timed out
+Update Attempt:  1
+Receiving from client socket......
+Error Receiving: timed out
+Update Attempt:  2
+Have called socket recv command 5 times but still no data coming from RPI
+Queue is empty
+Sensor_val: 0
+Robot Direction: (0.0, -1.0)
+[18, 8]
+Error computing obstacle location in real sense: 'int' object is not subscriptable
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000001000000
+000000010000000
+000000000010000
+00000000X010000
+000000000010000
+Area Explored: 86
+In send queue function
+Data to send: B{"map": [{"explored": "c0038007000e0000000000000000000000000000000000ff01fe03fc1ff83ff07ff0ffe1ffc3", "length": 300, "obstacle": "100800400801"}], "robotPosition": [7, 17, 0]}
+TcpClient - Sent data: B{"map": [{"explored": "c0038007000e0000000000000000000000000000000000ff01fe03fc1ff83ff07ff0ffe1ffc3", "length": 300, "obstacle": "100800400801"}], "robotPosition": [7, 17, 0]}
+Updating android command queue & sensor value queue....
+Update Attempt:  0
+Receiving from client socket......
+Error Receiving: timed out
+Update Attempt:  1
+Receiving from client socket......
+Error Receiving: timed out
+Update Attempt:  2
+Have called socket recv command 5 times but still no data coming from RPI
+Queue is empty
+Sensor_val: 0
+Robot Direction: (0.0, -1.0)
+[18, 8]
+Error computing obstacle location in real sense: 'int' object is not subscriptable
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000001000000
+000000010000000
+000000000010000
+00000000X010000
+000000000010000
+Area Explored: 86
+In send queue function
+Data to send: B{"map": [{"explored": "c0038007000e0000000000000000000000000000000000ff01fe03fc1ff83ff07ff0ffe1ffc3", "length": 300, "obstacle": "100800400801"}], "robotPosition": [7, 17, 0]}
+TcpClient - Sent data: B{"map": [{"explored": "c0038007000e0000000000000000000000000000000000ff01fe03fc1ff83ff07ff0ffe1ffc3", "length": 300, "obstacle": "100800400801"}], "robotPosition": [7, 17, 0]}
+Updating android command queue & sensor value queue....
+Update Attempt:  0
+Receiving from client socket......
+Error Receiving: timed out
+Update Attempt:  1
+Receiving from client socket......
+Error Receiving: timed out
+Update Attempt:  2
+Have called socket recv command 5 times but still no data coming from RPI
+Queue is empty
+Sensor_val: 0
+Robot Direction: (0.0, -1.0)
+[18, 8]
+Error computing obstacle location in real sense: 'int' object is not subscriptable
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000001000000
+000000010000000
+000000000010000
+00000000X010000
+000000000010000
+Area Explored: 86
+In send queue function
+Updating android command queue & sensor value queue....
+Update Attempt:  0
+Receiving from client socket......
+Error Receiving: timed out
+Update Attempt:  1
+Receiving from client socket......
+Error Receiving: timed out
+Update Attempt:  2
+Have called socket recv command 5 times but still no data coming from RPI
+Queue is empty
+Sensor_val: 0
+Robot Direction: (0.0, -1.0)
+[18, 8]
+Error computing obstacle location in real sense: 'int' object is not subscriptable
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000001000000
+000000010000000
+000000000010000
+00000000X010000
+000000000010000
+Area Explored: 86
+In send queue function
+Data to send: B{"map": [{"explored": "c0038007000e0000000000000000000000000000000000ff01fe03fc1ff83ff07ff0ffe1ffc3", "length": 300, "obstacle": "100800400801"}], "robotPosition": [7, 17, 0]}
+TcpClient - Sent data: B{"map": [{"explored": "c0038007000e0000000000000000000000000000000000ff01fe03fc1ff83ff07ff0ffe1ffc3", "length": 300, "obstacle": "100800400801"}], "robotPosition": [7, 17, 0]}
+Data to send: B{"map": [{"explored": "c0038007000e0000000000000000000000000000000000ff01fe03fc1ff83ff07ff0ffe1ffc3", "length": 300, "obstacle": "100800400801"}], "robotPosition": [7, 17, 0]}
+TcpClient - Sent data: B{"map": [{"explored": "c0038007000e0000000000000000000000000000000000ff01fe03fc1ff83ff07ff0ffe1ffc3", "length": 300, "obstacle": "100800400801"}], "robotPosition": [7, 17, 0]}
+Updating android command queue & sensor value queue....
+Update Attempt:  0
+Receiving from client socket......
+Error Receiving: timed out
+Update Attempt:  1
+Receiving from client socket......
+Error Receiving: timed out
+Update Attempt:  2
+Have called socket recv command 5 times but still no data coming from RPI
+Queue is empty
+Sensor_val: 0
+Robot Direction: (0.0, -1.0)
+[18, 8]
+Error computing obstacle location in real sense: 'int' object is not subscriptable
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000001000000
+000000010000000
+000000000010000
+00000000X010000
+000000000010000
+Area Explored: 86
+In send queue function
+Updating android command queue & sensor value queue....
+Update Attempt:  0
+Receiving from client socket......
+Error Receiving: timed out
+Update Attempt:  1
+Receiving from client socket......
+Error Receiving: timed out
+Update Attempt:  2
+Have called socket recv command 5 times but still no data coming from RPI
+Queue is empty
+Sensor_val: 0
+Robot Direction: (0.0, -1.0)
+[18, 8]
+Error computing obstacle location in real sense: 'int' object is not subscriptable
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000001000000
+000000010000000
+000000000010000
+00000000X010000
+000000000010000
+Area Explored: 86
+In send queue function
+Data to send: B{"map": [{"explored": "c0038007000e0000000000000000000000000000000000ff01fe03fc1ff83ff07ff0ffe1ffc3", "length": 300, "obstacle": "100800400801"}], "robotPosition": [7, 17, 0]}
+TcpClient - Sent data: B{"map": [{"explored": "c0038007000e0000000000000000000000000000000000ff01fe03fc1ff83ff07ff0ffe1ffc3", "length": 300, "obstacle": "100800400801"}], "robotPosition": [7, 17, 0]}
+Data to send: B{"map": [{"explored": "c0038007000e0000000000000000000000000000000000ff01fe03fc1ff83ff07ff0ffe1ffc3", "length": 300, "obstacle": "100800400801"}], "robotPosition": [7, 17, 0]}
+TcpClient - Sent data: B{"map": [{"explored": "c0038007000e0000000000000000000000000000000000ff01fe03fc1ff83ff07ff0ffe1ffc3", "length": 300, "obstacle": "100800400801"}], "robotPosition": [7, 17, 0]}
+Updating android command queue & sensor value queue....
+Update Attempt:  0
+Receiving from client socket......
+Error Receiving: timed out
+Update Attempt:  1
+Receiving from client socket......
+Error Receiving: timed out
+Update Attempt:  2
+Have called socket recv command 5 times but still no data coming from RPI
+Queue is empty
+Sensor_val: 0
+Robot Direction: (0.0, -1.0)
+[18, 8]
+Error computing obstacle location in real sense: 'int' object is not subscriptable
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000001000000
+000000010000000
+000000000010000
+00000000X010000
+000000000010000
+Area Explored: 86
+In send queue function
+Updating android command queue & sensor value queue....
+Update Attempt:  0
+Receiving from client socket......
+Error Receiving: timed out
+Update Attempt:  1
+Receiving from client socket......
+Error Receiving: timed out
+Update Attempt:  2
+Have called socket recv command 5 times but still no data coming from RPI
+Queue is empty
+Sensor_val: 0
+Robot Direction: (0.0, -1.0)
+[18, 8]
+Error computing obstacle location in real sense: 'int' object is not subscriptable
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000001000000
+000000010000000
+000000000010000
+00000000X010000
+000000000010000
+Area Explored: 86
+In send queue function
+Data to send: B{"map": [{"explored": "c0038007000e0000000000000000000000000000000000ff01fe03fc1ff83ff07ff0ffe1ffc3", "length": 300, "obstacle": "100800400801"}], "robotPosition": [7, 17, 0]}
+TcpClient - Sent data: B{"map": [{"explored": "c0038007000e0000000000000000000000000000000000ff01fe03fc1ff83ff07ff0ffe1ffc3", "length": 300, "obstacle": "100800400801"}], "robotPosition": [7, 17, 0]}
+Data to send: B{"map": [{"explored": "c0038007000e0000000000000000000000000000000000ff01fe03fc1ff83ff07ff0ffe1ffc3", "length": 300, "obstacle": "100800400801"}], "robotPosition": [7, 17, 0]}
+TcpClient - Sent data: B{"map": [{"explored": "c0038007000e0000000000000000000000000000000000ff01fe03fc1ff83ff07ff0ffe1ffc3", "length": 300, "obstacle": "100800400801"}], "robotPosition": [7, 17, 0]}
+Updating android command queue & sensor value queue....
+Update Attempt:  0
+Receiving from client socket......
+Error Receiving: timed out
+Update Attempt:  1
+Receiving from client socket......
+Error Receiving: timed out
+Update Attempt:  2
+Have called socket recv command 5 times but still no data coming from RPI
+Queue is empty
+Sensor_val: 0
+Robot Direction: (0.0, -1.0)
+[18, 8]
+Error computing obstacle location in real sense: 'int' object is not subscriptable
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000001000000
+000000010000000
+000000000010000
+00000000X010000
+000000000010000
+Area Explored: 86
+In send queue function
+Data to send: B{"map": [{"explored": "c0038007000e0000000000000000000000000000000000ff01fe03fc1ff83ff07ff0ffe1ffc3", "length": 300, "obstacle": "100800400801"}], "robotPosition": [7, 17, 0]}
+TcpClient - Sent data: B{"map": [{"explored": "c0038007000e0000000000000000000000000000000000ff01fe03fc1ff83ff07ff0ffe1ffc3", "length": 300, "obstacle": "100800400801"}], "robotPosition": [7, 17, 0]}
+Updating android command queue & sensor value queue....
+Update Attempt:  0
+Receiving from client socket......
+Error Receiving: timed out
+Update Attempt:  1
+Receiving from client socket......
+Error Receiving: timed out
+Update Attempt:  2
+Have called socket recv command 5 times but still no data coming from RPI
+Queue is empty
+Sensor_val: 0
+Robot Direction: (0.0, -1.0)
+[18, 8]
+Error computing obstacle location in real sense: 'int' object is not subscriptable
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000001000000
+000000010000000
+000000000010000
+00000000X010000
+000000000010000
+Area Explored: 86
+In send queue function
+Updating android command queue & sensor value queue....
+Update Attempt:  0
+Receiving from client socket......
+Error Receiving: timed out
+Update Attempt:  1
+Receiving from client socket......
+Error Receiving: timed out
+Update Attempt:  2
+Have called socket recv command 5 times but still no data coming from RPI
+Queue is empty
+Sensor_val: 0
+Robot Direction: (0.0, -1.0)
+[18, 8]
+Error computing obstacle location in real sense: 'int' object is not subscriptable
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000001000000
+000000010000000
+000000000010000
+00000000X010000
+000000000010000
+Area Explored: 86
+In send queue function
+Data to send: B{"map": [{"explored": "c0038007000e0000000000000000000000000000000000ff01fe03fc1ff83ff07ff0ffe1ffc3", "length": 300, "obstacle": "100800400801"}], "robotPosition": [7, 17, 0]}
+TcpClient - Sent data: B{"map": [{"explored": "c0038007000e0000000000000000000000000000000000ff01fe03fc1ff83ff07ff0ffe1ffc3", "length": 300, "obstacle": "100800400801"}], "robotPosition": [7, 17, 0]}
+Data to send: B{"map": [{"explored": "c0038007000e0000000000000000000000000000000000ff01fe03fc1ff83ff07ff0ffe1ffc3", "length": 300, "obstacle": "100800400801"}], "robotPosition": [7, 17, 0]}
+TcpClient - Sent data: B{"map": [{"explored": "c0038007000e0000000000000000000000000000000000ff01fe03fc1ff83ff07ff0ffe1ffc3", "length": 300, "obstacle": "100800400801"}], "robotPosition": [7, 17, 0]}
+Updating android command queue & sensor value queue....
+Update Attempt:  0
+Receiving from client socket......
+Error Receiving: timed out
+Update Attempt:  1
+Receiving from client socket......
+Error Receiving: timed out
+Update Attempt:  2
+Have called socket recv command 5 times but still no data coming from RPI
+Queue is empty
+Sensor_val: 0
+Robot Direction: (0.0, -1.0)
+[18, 8]
+Error computing obstacle location in real sense: 'int' object is not subscriptable
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000001000000
+000000010000000
+000000000010000
+00000000X010000
+000000000010000
+Area Explored: 86
+In send queue function
+Updating android command queue & sensor value queue....
+Update Attempt:  0
+Receiving from client socket......
+Error Receiving: timed out
+Update Attempt:  1
+Receiving from client socket......
+Error Receiving: timed out
+Update Attempt:  2
+Have called socket recv command 5 times but still no data coming from RPI
+Queue is empty
+Sensor_val: 0
+Robot Direction: (0.0, -1.0)
+[18, 8]
+Error computing obstacle location in real sense: 'int' object is not subscriptable
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000001000000
+000000010000000
+000000000010000
+00000000X010000
+000000000010000
+Area Explored: 86
+In send queue function
+Data to send: B{"map": [{"explored": "c0038007000e0000000000000000000000000000000000ff01fe03fc1ff83ff07ff0ffe1ffc3", "length": 300, "obstacle": "100800400801"}], "robotPosition": [7, 17, 0]}
+TcpClient - Sent data: B{"map": [{"explored": "c0038007000e0000000000000000000000000000000000ff01fe03fc1ff83ff07ff0ffe1ffc3", "length": 300, "obstacle": "100800400801"}], "robotPosition": [7, 17, 0]}
+Data to send: B{"map": [{"explored": "c0038007000e0000000000000000000000000000000000ff01fe03fc1ff83ff07ff0ffe1ffc3", "length": 300, "obstacle": "100800400801"}], "robotPosition": [7, 17, 0]}
+TcpClient - Sent data: B{"map": [{"explored": "c0038007000e0000000000000000000000000000000000ff01fe03fc1ff83ff07ff0ffe1ffc3", "length": 300, "obstacle": "100800400801"}], "robotPosition": [7, 17, 0]}
+Updating android command queue & sensor value queue....
+Update Attempt:  0
+Receiving from client socket......
+Error Receiving: timed out
+Update Attempt:  1
+Receiving from client socket......
+Error Receiving: timed out
+Update Attempt:  2
+Have called socket recv command 5 times but still no data coming from RPI
+Queue is empty
+Sensor_val: 0
+Robot Direction: (0.0, -1.0)
+[18, 8]
+Error computing obstacle location in real sense: 'int' object is not subscriptable
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000001000000
+000000010000000
+000000000010000
+00000000X010000
+000000000010000
+Area Explored: 86
+In send queue function
+Updating android command queue & sensor value queue....
+Update Attempt:  0
+Receiving from client socket......
+Error Receiving: timed out
+Update Attempt:  1
+Receiving from client socket......
+Error Receiving: timed out
+Update Attempt:  2
+Have called socket recv command 5 times but still no data coming from RPI
+Queue is empty
+Sensor_val: 0
+Robot Direction: (0.0, -1.0)
+[18, 8]
+Error computing obstacle location in real sense: 'int' object is not subscriptable
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000001000000
+000000010000000
+000000000010000
+00000000X010000
+000000000010000
+Area Explored: 86
+In send queue function
+Data to send: B{"map": [{"explored": "c0038007000e0000000000000000000000000000000000ff01fe03fc1ff83ff07ff0ffe1ffc3", "length": 300, "obstacle": "100800400801"}], "robotPosition": [7, 17, 0]}
+TcpClient - Sent data: B{"map": [{"explored": "c0038007000e0000000000000000000000000000000000ff01fe03fc1ff83ff07ff0ffe1ffc3", "length": 300, "obstacle": "100800400801"}], "robotPosition": [7, 17, 0]}
+Data to send: B{"map": [{"explored": "c0038007000e0000000000000000000000000000000000ff01fe03fc1ff83ff07ff0ffe1ffc3", "length": 300, "obstacle": "100800400801"}], "robotPosition": [7, 17, 0]}
+TcpClient - Sent data: B{"map": [{"explored": "c0038007000e0000000000000000000000000000000000ff01fe03fc1ff83ff07ff0ffe1ffc3", "length": 300, "obstacle": "100800400801"}], "robotPosition": [7, 17, 0]}
+Updating android command queue & sensor value queue....
+Update Attempt:  0
+Receiving from client socket......
+Error Receiving: timed out
+Update Attempt:  1
+Receiving from client socket......
+Error Receiving: timed out
+Update Attempt:  2
+Have called socket recv command 5 times but still no data coming from RPI
+Queue is empty
+Sensor_val: 0
+Robot Direction: (0.0, -1.0)
+[18, 8]
+Error computing obstacle location in real sense: 'int' object is not subscriptable
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000001000000
+000000010000000
+000000000010000
+00000000X010000
+000000000010000
+Area Explored: 86
+In send queue function
+Updating android command queue & sensor value queue....
+Update Attempt:  0
+Receiving from client socket......
+Error Receiving: timed out
+Update Attempt:  1
+Receiving from client socket......
+Error Receiving: timed out
+Update Attempt:  2
+Have called socket recv command 5 times but still no data coming from RPI
+Queue is empty
+Sensor_val: 0
+Robot Direction: (0.0, -1.0)
+[18, 8]
+Error computing obstacle location in real sense: 'int' object is not subscriptable
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000001000000
+000000010000000
+000000000010000
+00000000X010000
+000000000010000
+Area Explored: 86
+In send queue function
+Data to send: B{"map": [{"explored": "c0038007000e0000000000000000000000000000000000ff01fe03fc1ff83ff07ff0ffe1ffc3", "length": 300, "obstacle": "100800400801"}], "robotPosition": [7, 17, 0]}
+TcpClient - Sent data: B{"map": [{"explored": "c0038007000e0000000000000000000000000000000000ff01fe03fc1ff83ff07ff0ffe1ffc3", "length": 300, "obstacle": "100800400801"}], "robotPosition": [7, 17, 0]}
+Data to send: B{"map": [{"explored": "c0038007000e0000000000000000000000000000000000ff01fe03fc1ff83ff07ff0ffe1ffc3", "length": 300, "obstacle": "100800400801"}], "robotPosition": [7, 17, 0]}
+TcpClient - Sent data: B{"map": [{"explored": "c0038007000e0000000000000000000000000000000000ff01fe03fc1ff83ff07ff0ffe1ffc3", "length": 300, "obstacle": "100800400801"}], "robotPosition": [7, 17, 0]}
+Updating android command queue & sensor value queue....
+Update Attempt:  0
+Receiving from client socket......
+Error Receiving: timed out
+Update Attempt:  1
+Receiving from client socket......
+Error Receiving: timed out
+Update Attempt:  2
+Have called socket recv command 5 times but still no data coming from RPI
+Queue is empty
+Sensor_val: 0
+Robot Direction: (0.0, -1.0)
+[18, 8]
+Error computing obstacle location in real sense: 'int' object is not subscriptable
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000001000000
+000000010000000
+000000000010000
+00000000X010000
+000000000010000
+Area Explored: 86
+In send queue function
+Data to send: B{"map": [{"explored": "c0038007000e0000000000000000000000000000000000ff01fe03fc1ff83ff07ff0ffe1ffc3", "length": 300, "obstacle": "100800400801"}], "robotPosition": [7, 17, 0]}
+TcpClient - Sent data: B{"map": [{"explored": "c0038007000e0000000000000000000000000000000000ff01fe03fc1ff83ff07ff0ffe1ffc3", "length": 300, "obstacle": "100800400801"}], "robotPosition": [7, 17, 0]}
+Updating android command queue & sensor value queue....
+Update Attempt:  0
+Receiving from client socket......
+Error Receiving: timed out
+Update Attempt:  1
+Receiving from client socket......
+Error Receiving: timed out
+Update Attempt:  2
+Have called socket recv command 5 times but still no data coming from RPI
+Queue is empty
+Sensor_val: 0
+Robot Direction: (0.0, -1.0)
+[18, 8]
+Error computing obstacle location in real sense: 'int' object is not subscriptable
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000001000000
+000000010000000
+000000000010000
+00000000X010000
+000000000010000
+Area Explored: 86
+In send queue function
+Data to send: B{"map": [{"explored": "c0038007000e0000000000000000000000000000000000ff01fe03fc1ff83ff07ff0ffe1ffc3", "length": 300, "obstacle": "100800400801"}], "robotPosition": [7, 17, 0]}
+TcpClient - Sent data: B{"map": [{"explored": "c0038007000e0000000000000000000000000000000000ff01fe03fc1ff83ff07ff0ffe1ffc3", "length": 300, "obstacle": "100800400801"}], "robotPosition": [7, 17, 0]}
+Updating android command queue & sensor value queue....
+Update Attempt:  0
+Receiving from client socket......
+Error Receiving: timed out
+Update Attempt:  1
+Receiving from client socket......
+Error Receiving: timed out
+Update Attempt:  2
+Have called socket recv command 5 times but still no data coming from RPI
+Queue is empty
+Sensor_val: 0
+Robot Direction: (0.0, -1.0)
+[18, 8]
+Error computing obstacle location in real sense: 'int' object is not subscriptable
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000001000000
+000000010000000
+000000000010000
+00000000X010000
+000000000010000
+Area Explored: 86
+In send queue function
+Data to send: B{"map": [{"explored": "c0038007000e0000000000000000000000000000000000ff01fe03fc1ff83ff07ff0ffe1ffc3", "length": 300, "obstacle": "100800400801"}], "robotPosition": [7, 17, 0]}
+TcpClient - Sent data: B{"map": [{"explored": "c0038007000e0000000000000000000000000000000000ff01fe03fc1ff83ff07ff0ffe1ffc3", "length": 300, "obstacle": "100800400801"}], "robotPosition": [7, 17, 0]}
+Updating android command queue & sensor value queue....
+Update Attempt:  0
+Receiving from client socket......
+Traceback (most recent call last):
+  File "C:\Users\zmkok\Documents\MDP-group13\Simulator\commMgr.py", line 41, in recv
+    data = self.client_socket.recv(self.buffer_size)
+socket.timeout: timed out
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "simulatorMain.py", line 86, in <module>
+    sensor_val = player_robot.real_sense(arena_map,comm)
+  File "C:\Users\zmkok\Documents\MDP-group13\Simulator\robot.py", line 212, in real_sense
+    comm.update_queue()
+  File "C:\Users\zmkok\Documents\MDP-group13\Simulator\commMgr.py", line 201, in update_queue
+    self.recv()
+  File "C:\Users\zmkok\Documents\MDP-group13\Simulator\commMgr.py", line 41, in recv
+    data = self.client_socket.recv(self.buffer_size)
+KeyboardInterrupt
+^C
+C:\Users\zmkok\Documents\MDP-group13\Simulator>python simulatorMain.py
+pygame 1.9.6
+Hello from the pygame community. https://www.pygame.org/contribute.html
+connect called
+TcpClient - Connected on 192.168.13.13:4413
+In send ready function
+In send queue function
+Receiving from client socket......
+Data to send: AS
+TcpClient - Sent data: AS
+send ready called
+Updating android command queue & sensor value queue....
+Update Attempt:  0
+Receiving from client socket......
+TcpClient - Received data: b'SDATA:-1:-1:-1:-1:1:-1\r\n'
+Error Receiving: timed out
+<multiprocessing.queues.Queue object at 0x13425D60>
+Sensor_val: ['-1', '-1', '-1', '-1', '1', '-1']
+Robot Direction: (0.0, -1.0)
+[18, 1]
+Obstacle Loc: (19.0, 4.0)
+Discovered Loc: (16.0, 0.0)
+Discovered Loc: (15.0, 0.0)
+Discovered Loc: (16.0, 1.0)
+Discovered Loc: (15.0, 1.0)
+Discovered Loc: (16.0, 2.0)
+Discovered Loc: (15.0, 2.0)
+Discovered Loc: (17.0, 3.0)
+Discovered Loc: (17.0, 4.0)
+Discovered Loc: (19.0, 3.0)
+Discovered Loc: (19.0, 4.0)
+Discovered Loc: (17.0, -1.0)
+Discovered Loc: (17.0, -2.0)
+Discovered Loc: (17.0, -3.0)
+Discovered Loc: (17.0, -4.0)
+Discovered Loc: (17.0, -5.0)
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+0X0000000000000
+000010000000000
+check for nextRealMove before turning right: 0
+Simulator robot rotated:  90
+In send queue function
+In send queue function
+Data to send: AR
+TcpClient - Sent data: AR
+Data to send: AC
+TcpClient - Sent data: AC
+Area Explored: 28
+Updating android command queue & sensor value queue....
+Update Attempt:  0
+Receiving from client socket......
+TcpClient - Received data: b'SDATA:-1:1:1:0:0:-1\r\n'
+<multiprocessing.queues.Queue object at 0x13425D60>
+Sensor_val: ['-1', '1', '1', '0', '0', '-1']
+Robot Direction: (1.0, 0.0)
+[18, 1]
+Obstacle Loc: (18.0, 4.0)
+Obstacle Loc: (19.0, 4.0)
+Obstacle Loc: (20.0, 2.0)
+Obstacle Loc: (20.0, 0.0)
+Discovered Loc: (17.0, 3.0)
+Discovered Loc: (17.0, 4.0)
+Discovered Loc: (18.0, 3.0)
+Discovered Loc: (18.0, 4.0)
+Discovered Loc: (19.0, 3.0)
+Discovered Loc: (19.0, 4.0)
+Discovered Loc: (20.0, 2.0)
+Discovered Loc: (20.0, 0.0)
+Discovered Loc: (16.0, 2.0)
+Discovered Loc: (15.0, 2.0)
+Discovered Loc: (14.0, 2.0)
+Discovered Loc: (13.0, 2.0)
+Discovered Loc: (12.0, 2.0)
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+0X0010000000000
+000010000000000
+simulator robot moved forward
+In send queue function
+In send queue function
+Data to send: AA1
+TcpClient - Sent data: AA1
+Data to send: AC
+TcpClient - Sent data: AC
+Area Explored: 33
+Updating android command queue & sensor value queue....
+Update Attempt:  0
+Receiving from client socket......
+TcpClient - Received data: b'SDATA:-1:0:0:0:0:3\r\n'
+<multiprocessing.queues.Queue object at 0x13425D60>
+Sensor_val: ['-1', '0', '0', '0', '0', '3']
+Robot Direction: (1.0, 0.0)
+[18, 2]
+Error computing obstacle location in real sense: list indices must be integers or slices, not float
+Obstacle Loc: (18.0, 4.0)
+Obstacle Loc: (19.0, 4.0)
+Obstacle Loc: (20.0, 3.0)
+Obstacle Loc: (20.0, 1.0)
+Discovered Loc: (17.0, 4.0)
+Discovered Loc: (17.0, 5.0)
+Discovered Loc: (18.0, 4.0)
+Discovered Loc: (19.0, 4.0)
+Discovered Loc: (20.0, 3.0)
+Discovered Loc: (20.0, 1.0)
+Discovered Loc: (16.0, 3.0)
+Discovered Loc: (15.0, 3.0)
+Discovered Loc: (14.0, 3.0)
+Discovered Loc: (13.0, 3.0)
+Discovered Loc: (12.0, 3.0)
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+00X010000000000
+000010000000000
+Simulator robot rotated:  -90
+In send queue function
+In send queue function
+Data to send: AL
+TcpClient - Sent data: AL
+Data to send: AC
+TcpClient - Sent data: AC
+check for nextRealMove before turning left: 1
+Area Explored: 39
+Updating android command queue & sensor value queue....
+Update Attempt:  0
+Receiving from client socket......
+TcpClient - Received data: b'SDATA:-1:-1:-1:-1:0:-1\r\n'
+<multiprocessing.queues.Queue object at 0x13425D60>
+Sensor_val: ['-1', '-1', '-1', '-1', '0', '-1']
+Robot Direction: (0.0, -1.0)
+[18, 2]
+Obstacle Loc: (19.0, 4.0)
+Discovered Loc: (16.0, 1.0)
+Discovered Loc: (15.0, 1.0)
+Discovered Loc: (16.0, 2.0)
+Discovered Loc: (15.0, 2.0)
+Discovered Loc: (16.0, 3.0)
+Discovered Loc: (15.0, 3.0)
+Discovered Loc: (17.0, 4.0)
+Discovered Loc: (17.0, 5.0)
+Discovered Loc: (19.0, 4.0)
+Discovered Loc: (17.0, 0.0)
+Discovered Loc: (17.0, -1.0)
+Discovered Loc: (17.0, -2.0)
+Discovered Loc: (17.0, -3.0)
+Discovered Loc: (17.0, -4.0)
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+00X010000000000
+000010000000000
+simulator robot moved forward
+In send queue function
+In send queue function
+Data to send: AA1
+TcpClient - Sent data: AA1
+Data to send: AC
+TcpClient - Sent data: AC
+Area Explored: 39
+Updating android command queue & sensor value queue....
+Update Attempt:  0
+Receiving from client socket......
+TcpClient - Received data: b'SDATA:-1:-1:2:-1:0:-1\r\n'
+<multiprocessing.queues.Queue object at 0x13425D60>
+Sensor_val: ['-1', '-1', '2', '-1', '0', '-1']
+Robot Direction: (0.0, -1.0)
+[17, 2]
+Obstacle Loc: (18.0, 4.0)
+Discovered Loc: (15.0, 1.0)
+Discovered Loc: (14.0, 1.0)
+Discovered Loc: (15.0, 2.0)
+Discovered Loc: (14.0, 2.0)
+Discovered Loc: (15.0, 3.0)
+Discovered Loc: (14.0, 3.0)
+Discovered Loc: (16.0, 4.0)
+Discovered Loc: (16.0, 5.0)
+Discovered Loc: (18.0, 4.0)
+Discovered Loc: (16.0, 0.0)
+Discovered Loc: (16.0, -1.0)
+Discovered Loc: (16.0, -2.0)
+Discovered Loc: (16.0, -3.0)
+Discovered Loc: (16.0, -4.0)
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+00X000000000000
+000010000000000
+000010000000000
+simulator robot moved forward
+In send queue function
+In send queue function
+Data to send: AA1
+TcpClient - Sent data: AA1
+Data to send: AC
+TcpClient - Sent data: AC
+Area Explored: 42
+Updating android command queue & sensor value queue....
+Update Attempt:  0
+Receiving from client socket......
+TcpClient - Received data: b'SDATA:-1:-1:1:-1:-1:-1\r\n'
+Queue is empty
+Sensor_val: 0
+Robot Direction: (0.0, -1.0)
+[16, 2]
+Error computing obstacle location in real sense: 'int' object is not subscriptable
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+00X000000000000
+000000000000000
+000010000000000
+000010000000000
+check for nextRealMove before turning right: 0
+Simulator robot rotated:  90
+In send queue function
+In send queue function
+Data to send: AR
+TcpClient - Sent data: AR
+Data to send: AC
+TcpClient - Sent data: AC
+Area Explored: 42
+Updating android command queue & sensor value queue....
+Update Attempt:  0
+Receiving from client socket......
+TcpClient - Received data: b'SDATA:-1:-1:-1:2:2:-1\r\n'
+<multiprocessing.queues.Queue object at 0x13425D60>
+Sensor_val: ['-1', '-1', '-1', '2', '2', '-1']
+Robot Direction: (1.0, 0.0)
+[16, 2]
+Discovered Loc: (15.0, 4.0)
+Discovered Loc: (15.0, 5.0)
+Discovered Loc: (16.0, 4.0)
+Discovered Loc: (16.0, 5.0)
+Discovered Loc: (17.0, 4.0)
+Discovered Loc: (17.0, 5.0)
+Discovered Loc: (18.0, 3.0)
+Discovered Loc: (19.0, 3.0)
+Discovered Loc: (18.0, 1.0)
+Discovered Loc: (19.0, 1.0)
+Discovered Loc: (14.0, 3.0)
+Discovered Loc: (13.0, 3.0)
+Discovered Loc: (12.0, 3.0)
+Discovered Loc: (11.0, 3.0)
+Discovered Loc: (10.0, 3.0)
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+00X000000000000
+000000000000000
+000010000000000
+000010000000000
+check for nextRealMove after turning right: 1
+simulator robot moved forward
+In send queue function
+In send queue function
+Data to send: AA1
+TcpClient - Sent data: AA1
+Data to send: AC
+TcpClient - Sent data: AC
+Area Explored: 46
+Updating android command queue & sensor value queue....
+Update Attempt:  0
+Receiving from client socket......
+TcpClient - Received data: b'SDATA:-1:-1:-1:0:2:-1\r\n'
+<multiprocessing.queues.Queue object at 0x13425D60>
+Sensor_val: ['-1', '-1', '-1', '0', '2', '-1']
+Robot Direction: (1.0, 0.0)
+[16, 3]
+Obstacle Loc: (18.0, 4.0)
+Discovered Loc: (15.0, 5.0)
+Discovered Loc: (15.0, 6.0)
+Discovered Loc: (16.0, 5.0)
+Discovered Loc: (16.0, 6.0)
+Discovered Loc: (17.0, 5.0)
+Discovered Loc: (17.0, 6.0)
+Discovered Loc: (18.0, 4.0)
+Discovered Loc: (18.0, 2.0)
+Discovered Loc: (19.0, 2.0)
+Discovered Loc: (14.0, 4.0)
+Discovered Loc: (13.0, 4.0)
+Discovered Loc: (12.0, 4.0)
+Discovered Loc: (11.0, 4.0)
+Discovered Loc: (10.0, 4.0)
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000X00000000000
+000000000000000
+000010000000000
+000010000000000
+simulator robot moved forward
+In send queue function
+In send queue function
+Data to send: AA1
+TcpClient - Sent data: AA1
+Data to send: AC
+TcpClient - Sent data: AC
+Area Explored: 54
+Updating android command queue & sensor value queue....
+Update Attempt:  0
+Receiving from client socket......
+TcpClient - Received data: b'SDATA:-1:-1:-1:2:2:-1\r\n'
+<multiprocessing.queues.Queue object at 0x13425D60>
+Sensor_val: ['-1', '-1', '-1', '2', '2', '-1']
+Robot Direction: (1.0, 0.0)
+[16, 4]
+Discovered Loc: (15.0, 6.0)
+Discovered Loc: (15.0, 7.0)
+Discovered Loc: (16.0, 6.0)
+Discovered Loc: (16.0, 7.0)
+Discovered Loc: (17.0, 6.0)
+Discovered Loc: (17.0, 7.0)
+Discovered Loc: (18.0, 5.0)
+Discovered Loc: (19.0, 5.0)
+Discovered Loc: (18.0, 3.0)
+Discovered Loc: (19.0, 3.0)
+Discovered Loc: (14.0, 5.0)
+Discovered Loc: (13.0, 5.0)
+Discovered Loc: (12.0, 5.0)
+Discovered Loc: (11.0, 5.0)
+Discovered Loc: (10.0, 5.0)
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+0000X0000000000
+000000000000000
+000010000000000
+000010000000000
+simulator robot moved forward
+In send queue function
+In send queue function
+Data to send: AA1
+TcpClient - Sent data: AA1
+Data to send: AC
+TcpClient - Sent data: AC
+Area Explored: 64
+Updating android command queue & sensor value queue....
+Update Attempt:  0
+Receiving from client socket......
+TcpClient - Received data: b'SDATA:-1:-1:-1:2:0:-1\r\n'
+<multiprocessing.queues.Queue object at 0x13425D60>
+Sensor_val: ['-1', '-1', '-1', '2', '0', '-1']
+Robot Direction: (1.0, 0.0)
+[16, 5]
+Obstacle Loc: (18.0, 4.0)
+Discovered Loc: (15.0, 7.0)
+Discovered Loc: (15.0, 8.0)
+Discovered Loc: (16.0, 7.0)
+Discovered Loc: (16.0, 8.0)
+Discovered Loc: (17.0, 7.0)
+Discovered Loc: (17.0, 8.0)
+Discovered Loc: (18.0, 6.0)
+Discovered Loc: (19.0, 6.0)
+Discovered Loc: (18.0, 4.0)
+Discovered Loc: (14.0, 6.0)
+Discovered Loc: (13.0, 6.0)
+Discovered Loc: (12.0, 6.0)
+Discovered Loc: (11.0, 6.0)
+Discovered Loc: (10.0, 6.0)
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+00000X000000000
+000000000000000
+000010000000000
+000010000000000
+simulator robot moved forward
+In send queue function
+In send queue function
+Data to send: AA1
+TcpClient - Sent data: AA1
+Data to send: AC
+TcpClient - Sent data: AC
+Area Explored: 74
+Updating android command queue & sensor value queue....
+Update Attempt:  0
+Receiving from client socket......
+TcpClient - Received data: b'SDATA:2:2:2:2:2:-1\r\n'
+<multiprocessing.queues.Queue object at 0x13425D60>
+Sensor_val: ['2', '2', '2', '2', '2', '-1']
+Robot Direction: (1.0, 0.0)
+[16, 6]
+Discovered Loc: (15.0, 8.0)
+Discovered Loc: (15.0, 9.0)
+Discovered Loc: (16.0, 8.0)
+Discovered Loc: (16.0, 9.0)
+Discovered Loc: (17.0, 8.0)
+Discovered Loc: (17.0, 9.0)
+Discovered Loc: (18.0, 7.0)
+Discovered Loc: (19.0, 7.0)
+Discovered Loc: (18.0, 5.0)
+Discovered Loc: (19.0, 5.0)
+Discovered Loc: (14.0, 7.0)
+Discovered Loc: (13.0, 7.0)
+Discovered Loc: (12.0, 7.0)
+Discovered Loc: (11.0, 7.0)
+Discovered Loc: (10.0, 7.0)
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000X00000000
+000000000000000
+000010000000000
+000010000000000
+check for nextRealMove before turning right: 0
+Simulator robot rotated:  90
+In send queue function
+In send queue function
+Data to send: AR
+TcpClient - Sent data: AR
+Data to send: AC
+TcpClient - Sent data: AC
+Area Explored: 84
+Updating android command queue & sensor value queue....
+Update Attempt:  0
+Receiving from client socket......
+TcpClient - Received data: b'SDATA:2:2:2:-1:-1:2\r\n'
+<multiprocessing.queues.Queue object at 0x13425D60>
+Sensor_val: ['2', '2', '2', '-1', '-1', '2']
+Robot Direction: (-0.0, 1.0)
+[16, 6]
+Error computing obstacle location in real sense: list indices must be integers or slices, not float
+Discovered Loc: (18.0, 7.0)
+Discovered Loc: (19.0, 7.0)
+Discovered Loc: (18.0, 6.0)
+Discovered Loc: (19.0, 6.0)
+Discovered Loc: (18.0, 5.0)
+Discovered Loc: (19.0, 5.0)
+Discovered Loc: (17.0, 4.0)
+Discovered Loc: (17.0, 3.0)
+Discovered Loc: (15.0, 4.0)
+Discovered Loc: (15.0, 3.0)
+Discovered Loc: (17.0, 8.0)
+Discovered Loc: (17.0, 9.0)
+Discovered Loc: (17.0, 10.0)
+Discovered Loc: (17.0, 11.0)
+Discovered Loc: (17.0, 12.0)
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000X00000000
+000000000000000
+000010000000000
+000010000000000
+check for nextRealMove after turning right: 1
+simulator robot moved forward
+In send queue function
+In send queue function
+Data to send: AA1
+TcpClient - Sent data: AA1
+Data to send: AC
+TcpClient - Sent data: AC
+Area Explored: 87
+Updating android command queue & sensor value queue....
+Update Attempt:  0
+Receiving from client socket......
+TcpClient - Received data: b'SDATA:1:1:1:0:-1:2\r\n'
+<multiprocessing.queues.Queue object at 0x13425D60>
+Sensor_val: ['1', '1', '1', '0', '-1', '2']
+Robot Direction: (-0.0, 1.0)
+[17, 6]
+Error computing obstacle location in real sense: list indices must be integers or slices, not float
+Obstacle Loc: (20.0, 7.0)
+Obstacle Loc: (20.0, 6.0)
+Obstacle Loc: (20.0, 5.0)
+Obstacle Loc: (18.0, 4.0)
+Discovered Loc: (19.0, 7.0)
+Discovered Loc: (20.0, 7.0)
+Discovered Loc: (19.0, 6.0)
+Discovered Loc: (20.0, 6.0)
+Discovered Loc: (19.0, 5.0)
+Discovered Loc: (20.0, 5.0)
+Discovered Loc: (18.0, 4.0)
+Discovered Loc: (16.0, 4.0)
+Discovered Loc: (16.0, 3.0)
+Discovered Loc: (18.0, 8.0)
+Discovered Loc: (18.0, 9.0)
+Discovered Loc: (18.0, 10.0)
+Discovered Loc: (18.0, 11.0)
+Discovered Loc: (18.0, 12.0)
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000X00000000
+000010000000000
+000010000000000
+simulator robot moved forward
+In send queue function
+In send queue function
+Data to send: AA1
+TcpClient - Sent data: AA1
+Data to send: AC
+TcpClient - Sent data: AC
+Area Explored: 92
+Updating android command queue & sensor value queue....
+Update Attempt:  0
+Receiving from client socket......
+TcpClient - Received data: b'SDATA:0:0:0:0:-1:2\r\n'
+<multiprocessing.queues.Queue object at 0x13425D60>
+Sensor_val: ['0', '0', '0', '0', '-1', '2']
+Robot Direction: (-0.0, 1.0)
+[18, 6]
+Error computing obstacle location in real sense: list indices must be integers or slices, not float
+Obstacle Loc: (20.0, 7.0)
+Obstacle Loc: (20.0, 6.0)
+Obstacle Loc: (20.0, 5.0)
+Obstacle Loc: (19.0, 4.0)
+Discovered Loc: (20.0, 7.0)
+Discovered Loc: (20.0, 6.0)
+Discovered Loc: (20.0, 5.0)
+Discovered Loc: (19.0, 4.0)
+Discovered Loc: (17.0, 4.0)
+Discovered Loc: (17.0, 3.0)
+Discovered Loc: (19.0, 8.0)
+Discovered Loc: (19.0, 9.0)
+Discovered Loc: (19.0, 10.0)
+Discovered Loc: (19.0, 11.0)
+Discovered Loc: (19.0, 12.0)
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000010X00000000
+000010000000000
+Simulator robot rotated:  -90
+In send queue function
+In send queue function
+Data to send: AL
+TcpClient - Sent data: AL
+Data to send: AC
+TcpClient - Sent data: AC
+check for nextRealMove before turning left: 1
+Area Explored: 97
+Updating android command queue & sensor value queue....
+Update Attempt:  0
+Receiving from client socket......
+TcpClient - Received data: b'SDATA:2:2:2:0:0:-1\r\n'
+<multiprocessing.queues.Queue object at 0x13425D60>
+Sensor_val: ['2', '2', '2', '0', '0', '-1']
+Robot Direction: (1.0, 0.0)
+[18, 6]
+Obstacle Loc: (20.0, 7.0)
+Obstacle Loc: (20.0, 5.0)
+Discovered Loc: (17.0, 8.0)
+Discovered Loc: (17.0, 9.0)
+Discovered Loc: (18.0, 8.0)
+Discovered Loc: (18.0, 9.0)
+Discovered Loc: (19.0, 8.0)
+Discovered Loc: (19.0, 9.0)
+Discovered Loc: (20.0, 7.0)
+Discovered Loc: (20.0, 5.0)
+Discovered Loc: (16.0, 7.0)
+Discovered Loc: (15.0, 7.0)
+Discovered Loc: (14.0, 7.0)
+Discovered Loc: (13.0, 7.0)
+Discovered Loc: (12.0, 7.0)
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000010X00000000
+000010000000000
+simulator robot moved forward
+In send queue function
+In send queue function
+Data to send: AA1
+TcpClient - Sent data: AA1
+Data to send: AC
+TcpClient - Sent data: AC
+Area Explored: 97
+Updating android command queue & sensor value queue....
+Update Attempt:  0
+Receiving from client socket......
+TcpClient - Received data: b'SDATA:1:1:1:0:0:-1\r\n'
+<multiprocessing.queues.Queue object at 0x13425D60>
+Sensor_val: ['1', '1', '1', '0', '0', '-1']
+Robot Direction: (1.0, 0.0)
+[18, 7]
+Obstacle Loc: (17.0, 10.0)
+Obstacle Loc: (18.0, 10.0)
+Obstacle Loc: (19.0, 10.0)
+Obstacle Loc: (20.0, 8.0)
+Obstacle Loc: (20.0, 6.0)
+Discovered Loc: (17.0, 9.0)
+Discovered Loc: (17.0, 10.0)
+Discovered Loc: (18.0, 9.0)
+Discovered Loc: (18.0, 10.0)
+Discovered Loc: (19.0, 9.0)
+Discovered Loc: (19.0, 10.0)
+Discovered Loc: (20.0, 8.0)
+Discovered Loc: (20.0, 6.0)
+Discovered Loc: (16.0, 8.0)
+Discovered Loc: (15.0, 8.0)
+Discovered Loc: (14.0, 8.0)
+Discovered Loc: (13.0, 8.0)
+Discovered Loc: (12.0, 8.0)
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000010000
+0000100X0010000
+000010000010000
+simulator robot moved forward
+In send queue function
+In send queue function
+Data to send: AA1
+TcpClient - Sent data: AA1
+Data to send: AC
+TcpClient - Sent data: AC
+Area Explored: 100
+Updating android command queue & sensor value queue....
+Update Attempt:  0
+Receiving from client socket......
+TcpClient - Received data: b'SDATA:0:0:0:0:0:-1\r\n'
+<multiprocessing.queues.Queue object at 0x13425D60>
+Sensor_val: ['0', '0', '0', '0', '0', '-1']
+Robot Direction: (1.0, 0.0)
+[18, 8]
+Obstacle Loc: (17.0, 10.0)
+Obstacle Loc: (18.0, 10.0)
+Obstacle Loc: (19.0, 10.0)
+Obstacle Loc: (20.0, 9.0)
+Obstacle Loc: (20.0, 7.0)
+Discovered Loc: (17.0, 10.0)
+Discovered Loc: (18.0, 10.0)
+Discovered Loc: (19.0, 10.0)
+Discovered Loc: (20.0, 9.0)
+Discovered Loc: (20.0, 7.0)
+Discovered Loc: (16.0, 9.0)
+Discovered Loc: (15.0, 9.0)
+Discovered Loc: (14.0, 9.0)
+Discovered Loc: (13.0, 9.0)
+Discovered Loc: (12.0, 9.0)
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000010000
+00001000X010000
+000010000010000
+Simulator robot rotated:  -90
+In send queue function
+In send queue function
+Data to send: AL
+TcpClient - Sent data: AL
+Data to send: AC
+TcpClient - Sent data: AC
+check for nextRealMove before turning left: 1
+Area Explored: 103
+Updating android command queue & sensor value queue....
+Update Attempt:  0
+Receiving from client socket......
+TcpClient - Received data: b'SDATA:-1:-1:-1:0:0:-1\r\n'
+<multiprocessing.queues.Queue object at 0x13425D60>
+Sensor_val: ['-1', '-1', '-1', '0', '0', '-1']
+Robot Direction: (0.0, -1.0)
+[18, 8]
+Obstacle Loc: (17.0, 10.0)
+Obstacle Loc: (19.0, 10.0)
+Discovered Loc: (16.0, 7.0)
+Discovered Loc: (15.0, 7.0)
+Discovered Loc: (16.0, 8.0)
+Discovered Loc: (15.0, 8.0)
+Discovered Loc: (16.0, 9.0)
+Discovered Loc: (15.0, 9.0)
+Discovered Loc: (17.0, 10.0)
+Discovered Loc: (19.0, 10.0)
+Discovered Loc: (17.0, 6.0)
+Discovered Loc: (17.0, 5.0)
+Discovered Loc: (17.0, 4.0)
+Discovered Loc: (17.0, 3.0)
+Discovered Loc: (17.0, 2.0)
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000010000
+00001000X010000
+000010000010000
+simulator robot moved forward
+In send queue function
+In send queue function
+Data to send: AA1
+TcpClient - Sent data: AA1
+Data to send: AC
+TcpClient - Sent data: AC
+Area Explored: 103
+Updating android command queue & sensor value queue....
+Update Attempt:  0
+Receiving from client socket......
+TcpClient - Received data: b'SDATA:-1:-1:-1:0:0:-1\r\n'
+<multiprocessing.queues.Queue object at 0x13425D60>
+Sensor_val: ['-1', '-1', '-1', '0', '0', '-1']
+Robot Direction: (0.0, -1.0)
+[17, 8]
+Obstacle Loc: (16.0, 10.0)
+Obstacle Loc: (18.0, 10.0)
+Discovered Loc: (15.0, 7.0)
+Discovered Loc: (14.0, 7.0)
+Discovered Loc: (15.0, 8.0)
+Discovered Loc: (14.0, 8.0)
+Discovered Loc: (15.0, 9.0)
+Discovered Loc: (14.0, 9.0)
+Discovered Loc: (16.0, 10.0)
+Discovered Loc: (18.0, 10.0)
+Discovered Loc: (16.0, 6.0)
+Discovered Loc: (16.0, 5.0)
+Discovered Loc: (16.0, 4.0)
+Discovered Loc: (16.0, 3.0)
+Discovered Loc: (16.0, 2.0)
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000010000
+00000000X010000
+000010000010000
+000010000010000
+simulator robot moved forward
+In send queue function
+In send queue function
+Data to send: AA1
+TcpClient - Sent data: AA1
+Data to send: AC
+TcpClient - Sent data: AC
+Area Explored: 104
+Updating android command queue & sensor value queue....
+Update Attempt:  0
+Receiving from client socket......
+TcpClient - Received data: b'SDATA:-1:-1:-1:0:0:7\r\n'
+<multiprocessing.queues.Queue object at 0x13425D60>
+Sensor_val: ['-1', '-1', '-1', '0', '0', '7']
+Robot Direction: (0.0, -1.0)
+[16, 8]
+Obstacle Loc: (15.0, 10.0)
+Obstacle Loc: (17.0, 10.0)
+Discovered Loc: (14.0, 7.0)
+Discovered Loc: (13.0, 7.0)
+Discovered Loc: (14.0, 8.0)
+Discovered Loc: (13.0, 8.0)
+Discovered Loc: (14.0, 9.0)
+Discovered Loc: (13.0, 9.0)
+Discovered Loc: (15.0, 10.0)
+Discovered Loc: (17.0, 10.0)
+Discovered Loc: (15.0, 6.0)
+Discovered Loc: (15.0, 5.0)
+Discovered Loc: (15.0, 4.0)
+Discovered Loc: (15.0, 3.0)
+Discovered Loc: (15.0, 2.0)
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000010000
+00000000X010000
+000000000010000
+000010000010000
+000010000010000
+simulator robot moved forward
+In send queue function
+In send queue function
+Data to send: AA1
+TcpClient - Sent data: AA1
+Data to send: AC
+TcpClient - Sent data: AC
+Area Explored: 105
+Updating android command queue & sensor value queue....
+Update Attempt:  0
+Receiving from client socket......
+TcpClient - Received data: b'SDATA:-1:-1:-1:0:0:-1\r\n'
+<multiprocessing.queues.Queue object at 0x13425D60>
+Sensor_val: ['-1', '-1', '-1', '0', '0', '-1']
+Robot Direction: (0.0, -1.0)
+[15, 8]
+Obstacle Loc: (14.0, 10.0)
+Obstacle Loc: (16.0, 10.0)
+Discovered Loc: (13.0, 7.0)
+Discovered Loc: (12.0, 7.0)
+Discovered Loc: (13.0, 8.0)
+Discovered Loc: (12.0, 8.0)
+Discovered Loc: (13.0, 9.0)
+Discovered Loc: (12.0, 9.0)
+Discovered Loc: (14.0, 10.0)
+Discovered Loc: (16.0, 10.0)
+Discovered Loc: (14.0, 6.0)
+Discovered Loc: (14.0, 5.0)
+Discovered Loc: (14.0, 4.0)
+Discovered Loc: (14.0, 3.0)
+Discovered Loc: (14.0, 2.0)
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000010000
+00000000X010000
+000000000010000
+000000000010000
+000010000010000
+000010000010000
+simulator robot moved forward
+In send queue function
+In send queue function
+Data to send: AA1
+TcpClient - Sent data: AA1
+Data to send: AC
+TcpClient - Sent data: AC
+Area Explored: 106
+Updating android command queue & sensor value queue....
+Update Attempt:  0
+Receiving from client socket......
+TcpClient - Received data: b'SDATA:-1:-1:-1:1:0:3\r\n'
+<multiprocessing.queues.Queue object at 0x13425D60>
+Sensor_val: ['-1', '-1', '-1', '1', '0', '3']
+Robot Direction: (0.0, -1.0)
+[14, 8]
+Error computing obstacle location in real sense: list indices must be integers or slices, not float
+Obstacle Loc: (13.0, 11.0)
+Obstacle Loc: (15.0, 10.0)
+Discovered Loc: (12.0, 7.0)
+Discovered Loc: (11.0, 7.0)
+Discovered Loc: (12.0, 8.0)
+Discovered Loc: (11.0, 8.0)
+Discovered Loc: (12.0, 9.0)
+Discovered Loc: (11.0, 9.0)
+Discovered Loc: (13.0, 10.0)
+Discovered Loc: (13.0, 11.0)
+Discovered Loc: (15.0, 10.0)
+Discovered Loc: (13.0, 6.0)
+Discovered Loc: (13.0, 5.0)
+Discovered Loc: (13.0, 4.0)
+Discovered Loc: (13.0, 3.0)
+Discovered Loc: (13.0, 2.0)
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000001000
+00000000X010000
+000000000010000
+000000000010000
+000000000010000
+000010000010000
+000010000010000
+simulator robot moved forward
+In send queue function
+In send queue function
+Data to send: AA1
+TcpClient - Sent data: AA1
+Data to send: AC
+TcpClient - Sent data: AC
+Area Explored: 110
+Updating android command queue & sensor value queue....
+Update Attempt:  0
+Receiving from client socket......
+TcpClient - Received data: b'SDATA:-1:-1:-1:2:0:7\r\n'
+<multiprocessing.queues.Queue object at 0x13425D60>
+Sensor_val: ['-1', '-1', '-1', '2', '0', '7']
+Robot Direction: (0.0, -1.0)
+[13, 8]
+Obstacle Loc: (14.0, 10.0)
+Discovered Loc: (11.0, 7.0)
+Discovered Loc: (10.0, 7.0)
+Discovered Loc: (11.0, 8.0)
+Discovered Loc: (10.0, 8.0)
+Discovered Loc: (11.0, 9.0)
+Discovered Loc: (10.0, 9.0)
+Discovered Loc: (12.0, 10.0)
+Discovered Loc: (12.0, 11.0)
+Discovered Loc: (14.0, 10.0)
+Discovered Loc: (12.0, 6.0)
+Discovered Loc: (12.0, 5.0)
+Discovered Loc: (12.0, 4.0)
+Discovered Loc: (12.0, 3.0)
+Discovered Loc: (12.0, 2.0)
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+00000000X001000
+000000000010000
+000000000010000
+000000000010000
+000000000010000
+000010000010000
+000010000010000
+simulator robot moved forward
+In send queue function
+In send queue function
+Data to send: AA1
+TcpClient - Sent data: AA1
+Data to send: AC
+TcpClient - Sent data: AC
+Area Explored: 114
+Updating android command queue & sensor value queue....
+Update Attempt:  0
+Receiving from client socket......
+TcpClient - Received data: b'SDATA:-1:-1:-1:-1:1:-1\r\n'
+<multiprocessing.queues.Queue object at 0x13425D60>
+Sensor_val: ['-1', '-1', '-1', '-1', '1', '-1']
+Robot Direction: (0.0, -1.0)
+[12, 8]
+Obstacle Loc: (13.0, 11.0)
+Discovered Loc: (10.0, 7.0)
+Discovered Loc: (9.0, 7.0)
+Discovered Loc: (10.0, 8.0)
+Discovered Loc: (9.0, 8.0)
+Discovered Loc: (10.0, 9.0)
+Discovered Loc: (9.0, 9.0)
+Discovered Loc: (11.0, 10.0)
+Discovered Loc: (11.0, 11.0)
+Discovered Loc: (13.0, 10.0)
+Discovered Loc: (13.0, 11.0)
+Discovered Loc: (11.0, 6.0)
+Discovered Loc: (11.0, 5.0)
+Discovered Loc: (11.0, 4.0)
+Discovered Loc: (11.0, 3.0)
+Discovered Loc: (11.0, 2.0)
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+00000000X000000
+000000000001000
+000000000010000
+000000000010000
+000000000010000
+000000000010000
+000010000010000
+000010000010000
+check for nextRealMove before turning right: 0
+Simulator robot rotated:  90
+In send queue function
+In send queue function
+Data to send: AR
+TcpClient - Sent data: AR
+Data to send: AC
+TcpClient - Sent data: AC
+Area Explored: 120
+Updating android command queue & sensor value queue....
+Update Attempt:  0
+Receiving from client socket......
+TcpClient - Received data: b'SDATA:-1:2:1:-1:-1:-1\r\n'
+<multiprocessing.queues.Queue object at 0x13425D60>
+Sensor_val: ['-1', '2', '1', '-1', '-1', '-1']
+Robot Direction: (1.0, 0.0)
+[12, 8]
+Obstacle Loc: (13.0, 11.0)
+Discovered Loc: (11.0, 10.0)
+Discovered Loc: (11.0, 11.0)
+Discovered Loc: (12.0, 10.0)
+Discovered Loc: (12.0, 11.0)
+Discovered Loc: (13.0, 10.0)
+Discovered Loc: (13.0, 11.0)
+Discovered Loc: (14.0, 9.0)
+Discovered Loc: (15.0, 9.0)
+Discovered Loc: (14.0, 7.0)
+Discovered Loc: (15.0, 7.0)
+Discovered Loc: (10.0, 9.0)
+Discovered Loc: (9.0, 9.0)
+Discovered Loc: (8.0, 9.0)
+Discovered Loc: (7.0, 9.0)
+Discovered Loc: (6.0, 9.0)
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+00000000X000000
+000000000001000
+000000000010000
+000000000010000
+000000000010000
+000000000010000
+000010000010000
+000010000010000
+check for nextRealMove after turning right: 1
+simulator robot moved forward
+In send queue function
+In send queue function
+Data to send: AA1
+TcpClient - Sent data: AA1
+Data to send: AC
+TcpClient - Sent data: AC
+Area Explored: 123
+Updating android command queue & sensor value queue....
+Update Attempt:  0
+Receiving from client socket......
+TcpClient - Received data: b'SDATA:-1:1:0:0:-1:7\r\n'
+<multiprocessing.queues.Queue object at 0x13425D60>
+Sensor_val: ['-1', '1', '0', '0', '-1', '7']
+Robot Direction: (1.0, 0.0)
+[12, 9]
+Obstacle Loc: (12.0, 12.0)
+Obstacle Loc: (13.0, 11.0)
+Obstacle Loc: (14.0, 10.0)
+Discovered Loc: (11.0, 11.0)
+Discovered Loc: (11.0, 12.0)
+Discovered Loc: (12.0, 11.0)
+Discovered Loc: (12.0, 12.0)
+Discovered Loc: (13.0, 11.0)
+Discovered Loc: (14.0, 10.0)
+Discovered Loc: (14.0, 8.0)
+Discovered Loc: (15.0, 8.0)
+Discovered Loc: (10.0, 10.0)
+Discovered Loc: (9.0, 10.0)
+Discovered Loc: (8.0, 10.0)
+Discovered Loc: (7.0, 10.0)
+Discovered Loc: (6.0, 10.0)
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000X00100
+000000000001000
+000000000010000
+000000000010000
+000000000010000
+000000000010000
+000010000010000
+000010000010000
+Simulator robot rotated:  -90
+In send queue function
+In send queue function
+Data to send: AL
+TcpClient - Sent data: AL
+Data to send: AC
+TcpClient - Sent data: AC
+check for nextRealMove before turning left: 1
+Area Explored: 130
+Updating android command queue & sensor value queue....
+Update Attempt:  0
+Receiving from client socket......
+TcpClient - Received data: b'SDATA:-1:-1:-1:-1:0:-1\r\n'
+<multiprocessing.queues.Queue object at 0x13425D60>
+Sensor_val: ['-1', '-1', '-1', '-1', '0', '-1']
+Robot Direction: (0.0, -1.0)
+[12, 9]
+Obstacle Loc: (13.0, 11.0)
+Discovered Loc: (10.0, 8.0)
+Discovered Loc: (9.0, 8.0)
+Discovered Loc: (10.0, 9.0)
+Discovered Loc: (9.0, 9.0)
+Discovered Loc: (10.0, 10.0)
+Discovered Loc: (9.0, 10.0)
+Discovered Loc: (11.0, 11.0)
+Discovered Loc: (11.0, 12.0)
+Discovered Loc: (13.0, 11.0)
+Discovered Loc: (11.0, 7.0)
+Discovered Loc: (11.0, 6.0)
+Discovered Loc: (11.0, 5.0)
+Discovered Loc: (11.0, 4.0)
+Discovered Loc: (11.0, 3.0)
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000X00100
+000000000001000
+000000000010000
+000000000010000
+000000000010000
+000000000010000
+000010000010000
+000010000010000
+simulator robot moved forward
+In send queue function
+In send queue function
+Data to send: AA1
+TcpClient - Sent data: AA1
+Data to send: AC
+TcpClient - Sent data: AC
+Area Explored: 130
+Updating android command queue & sensor value queue....
+Update Attempt:  0
+Receiving from client socket......
+TcpClient - Received data: b'SDATA:-1:-1:-1:-1:1:-1\r\n'
+<multiprocessing.queues.Queue object at 0x13425D60>
+Sensor_val: ['-1', '-1', '-1', '-1', '1', '-1']
+Robot Direction: (0.0, -1.0)
+[11, 9]
+Obstacle Loc: (12.0, 12.0)
+Discovered Loc: (9.0, 8.0)
+Discovered Loc: (8.0, 8.0)
+Discovered Loc: (9.0, 9.0)
+Discovered Loc: (8.0, 9.0)
+Discovered Loc: (9.0, 10.0)
+Discovered Loc: (8.0, 10.0)
+Discovered Loc: (10.0, 11.0)
+Discovered Loc: (10.0, 12.0)
+Discovered Loc: (12.0, 11.0)
+Discovered Loc: (12.0, 12.0)
+Discovered Loc: (10.0, 7.0)
+Discovered Loc: (10.0, 6.0)
+Discovered Loc: (10.0, 5.0)
+Discovered Loc: (10.0, 4.0)
+Discovered Loc: (10.0, 3.0)
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000X00000
+000000000000100
+000000000001000
+000000000010000
+000000000010000
+000000000010000
+000000000010000
+000010000010000
+000010000010000
+check for nextRealMove before turning right: 0
+Simulator robot rotated:  90
+In send queue function
+In send queue function
+Data to send: AR
+TcpClient - Sent data: AR
+Data to send: AC
+TcpClient - Sent data: AC
+Area Explored: 133
+Updating android command queue & sensor value queue....
+Update Attempt:  0
+Receiving from client socket......
+TcpClient - Received data: b'SDATA:-1:-1:1:1:-1:-1\r\n'
+<multiprocessing.queues.Queue object at 0x13425D60>
+Sensor_val: ['-1', '-1', '1', '1', '-1', '-1']
+Robot Direction: (1.0, 0.0)
+[11, 9]
+Obstacle Loc: (12.0, 12.0)
+Obstacle Loc: (14.0, 10.0)
+Discovered Loc: (10.0, 11.0)
+Discovered Loc: (10.0, 12.0)
+Discovered Loc: (11.0, 11.0)
+Discovered Loc: (11.0, 12.0)
+Discovered Loc: (12.0, 11.0)
+Discovered Loc: (12.0, 12.0)
+Discovered Loc: (13.0, 10.0)
+Discovered Loc: (14.0, 10.0)
+Discovered Loc: (13.0, 8.0)
+Discovered Loc: (14.0, 8.0)
+Discovered Loc: (9.0, 10.0)
+Discovered Loc: (8.0, 10.0)
+Discovered Loc: (7.0, 10.0)
+Discovered Loc: (6.0, 10.0)
+Discovered Loc: (5.0, 10.0)
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000X00000
+000000000000100
+000000000001000
+000000000010000
+000000000010000
+000000000010000
+000000000010000
+000010000010000
+000010000010000
+check for nextRealMove after turning right: 1
+simulator robot moved forward
+In send queue function
+In send queue function
+Data to send: AA1
+TcpClient - Sent data: AA1
+Data to send: AC
+TcpClient - Sent data: AC
+Area Explored: 134
+Updating android command queue & sensor value queue....
+Update Attempt:  0
+Receiving from client socket......
+TcpClient - Received data: b'SDATA:-1:-1:0:0:-1:-1\r\n'
+<multiprocessing.queues.Queue object at 0x13425D60>
+Sensor_val: ['-1', '-1', '0', '0', '-1', '-1']
+Robot Direction: (1.0, 0.0)
+[11, 10]
+Obstacle Loc: (12.0, 12.0)
+Obstacle Loc: (13.0, 11.0)
+Discovered Loc: (10.0, 12.0)
+Discovered Loc: (10.0, 13.0)
+Discovered Loc: (11.0, 12.0)
+Discovered Loc: (11.0, 13.0)
+Discovered Loc: (12.0, 12.0)
+Discovered Loc: (13.0, 11.0)
+Discovered Loc: (13.0, 9.0)
+Discovered Loc: (14.0, 9.0)
+Discovered Loc: (9.0, 11.0)
+Discovered Loc: (8.0, 11.0)
+Discovered Loc: (7.0, 11.0)
+Discovered Loc: (6.0, 11.0)
+Discovered Loc: (5.0, 11.0)
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+0000000000X0000
+000000000000100
+000000000001000
+000000000010000
+000000000010000
+000000000010000
+000000000010000
+000010000010000
+000010000010000
+Simulator robot rotated:  -90
+In send queue function
+In send queue function
+Data to send: AL
+TcpClient - Sent data: AL
+Data to send: AC
+TcpClient - Sent data: AC
+check for nextRealMove before turning left: 1
+Area Explored: 141
+Updating android command queue & sensor value queue....
+Update Attempt:  0
+Receiving from client socket......
+TcpClient - Received data: b'SDATA:-1:-1:-1:-1:0:-1\r\n'
+<multiprocessing.queues.Queue object at 0x13425D60>
+Sensor_val: ['-1', '-1', '-1', '-1', '0', '-1']
+Robot Direction: (0.0, -1.0)
+[11, 10]
+Obstacle Loc: (12.0, 12.0)
+Discovered Loc: (9.0, 9.0)
+Discovered Loc: (8.0, 9.0)
+Discovered Loc: (9.0, 10.0)
+Discovered Loc: (8.0, 10.0)
+Discovered Loc: (9.0, 11.0)
+Discovered Loc: (8.0, 11.0)
+Discovered Loc: (10.0, 12.0)
+Discovered Loc: (10.0, 13.0)
+Discovered Loc: (12.0, 12.0)
+Discovered Loc: (10.0, 8.0)
+Discovered Loc: (10.0, 7.0)
+Discovered Loc: (10.0, 6.0)
+Discovered Loc: (10.0, 5.0)
+Discovered Loc: (10.0, 4.0)
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+0000000000X0000
+000000000000100
+000000000001000
+000000000010000
+000000000010000
+000000000010000
+000000000010000
+000010000010000
+000010000010000
+simulator robot moved forward
+In send queue function
+In send queue function
+Data to send: AA1
+TcpClient - Sent data: AA1
+Data to send: AC
+TcpClient - Sent data: AC
+Area Explored: 141
+Updating android command queue & sensor value queue....
+Update Attempt:  0
+Receiving from client socket......
+TcpClient - Received data: b'SDATA:-1:-1:-1:-1:-1:7\r\n'
+<multiprocessing.queues.Queue object at 0x13425D60>
+Sensor_val: ['-1', '-1', '-1', '-1', '-1', '7']
+Robot Direction: (0.0, -1.0)
+[10, 10]
+Discovered Loc: (8.0, 9.0)
+Discovered Loc: (7.0, 9.0)
+Discovered Loc: (8.0, 10.0)
+Discovered Loc: (7.0, 10.0)
+Discovered Loc: (8.0, 11.0)
+Discovered Loc: (7.0, 11.0)
+Discovered Loc: (9.0, 12.0)
+Discovered Loc: (9.0, 13.0)
+Discovered Loc: (11.0, 12.0)
+Discovered Loc: (11.0, 13.0)
+Discovered Loc: (9.0, 8.0)
+Discovered Loc: (9.0, 7.0)
+Discovered Loc: (9.0, 6.0)
+Discovered Loc: (9.0, 5.0)
+Discovered Loc: (9.0, 4.0)
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+0000000000X0000
+000000000000000
+000000000000100
+000000000001000
+000000000010000
+000000000010000
+000000000010000
+000000000010000
+000010000010000
+000010000010000
+check for nextRealMove before turning right: 0
+Simulator robot rotated:  90
+In send queue function
+In send queue function
+Data to send: AR
+TcpClient - Sent data: AR
+Data to send: AC
+TcpClient - Sent data: AC
+Area Explored: 146
+Updating android command queue & sensor value queue....
+Update Attempt:  0
+Receiving from client socket......
+TcpClient - Received data: b'SDATA:-1:-1:-1:2:-1:-1\r\n'
+<multiprocessing.queues.Queue object at 0x13425D60>
+Sensor_val: ['-1', '-1', '-1', '2', '-1', '-1']
+Robot Direction: (1.0, 0.0)
+[10, 10]
+Discovered Loc: (9.0, 12.0)
+Discovered Loc: (9.0, 13.0)
+Discovered Loc: (10.0, 12.0)
+Discovered Loc: (10.0, 13.0)
+Discovered Loc: (11.0, 12.0)
+Discovered Loc: (11.0, 13.0)
+Discovered Loc: (12.0, 11.0)
+Discovered Loc: (13.0, 11.0)
+Discovered Loc: (12.0, 9.0)
+Discovered Loc: (13.0, 9.0)
+Discovered Loc: (8.0, 11.0)
+Discovered Loc: (7.0, 11.0)
+Discovered Loc: (6.0, 11.0)
+Discovered Loc: (5.0, 11.0)
+Discovered Loc: (4.0, 11.0)
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+0000000000X0000
+000000000000000
+000000000000100
+000000000001000
+000000000010000
+000000000010000
+000000000010000
+000000000010000
+000010000010000
+000010000010000
+check for nextRealMove after turning right: 1
+simulator robot moved forward
+In send queue function
+In send queue function
+Data to send: AA1
+TcpClient - Sent data: AA1
+Data to send: AC
+TcpClient - Sent data: AC
+Area Explored: 147
+Updating android command queue & sensor value queue....
+Update Attempt:  0
+Receiving from client socket......
+TcpClient - Received data: b'SDATA:2:2:2:0:2:4\r\n'
+<multiprocessing.queues.Queue object at 0x13425D60>
+Sensor_val: ['2', '2', '2', '0', '2', '4']
+Robot Direction: (1.0, 0.0)
+[10, 11]
+Error computing obstacle location in real sense: list indices must be integers or slices, not float
+Obstacle Loc: (12.0, 12.0)
+Discovered Loc: (9.0, 13.0)
+Discovered Loc: (9.0, 14.0)
+Discovered Loc: (10.0, 13.0)
+Discovered Loc: (10.0, 14.0)
+Discovered Loc: (11.0, 13.0)
+Discovered Loc: (11.0, 14.0)
+Discovered Loc: (12.0, 12.0)
+Discovered Loc: (12.0, 10.0)
+Discovered Loc: (13.0, 10.0)
+Discovered Loc: (8.0, 12.0)
+Discovered Loc: (7.0, 12.0)
+Discovered Loc: (6.0, 12.0)
+Discovered Loc: (5.0, 12.0)
+Discovered Loc: (4.0, 12.0)
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+00000000000X000
+000000000000000
+000000000000100
+000000000001000
+000000000010000
+000000000010000
+000000000010000
+000000000010000
+000010000010000
+000010000010000
+simulator robot moved forward
+In send queue function
+In send queue function
+Data to send: AA1
+TcpClient - Sent data: AA1
+Data to send: AC
+TcpClient - Sent data: AC
+Area Explored: 155
+Updating android command queue & sensor value queue....
+Update Attempt:  0
+Receiving from client socket......
+TcpClient - Received data: b'SDATA:1:1:1:1:1:4\r\n'
+Queue is empty
+Sensor_val: 0
+Robot Direction: (1.0, 0.0)
+[10, 12]
+Error computing obstacle location in real sense: 'int' object is not subscriptable
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000X00
+000000000000000
+000000000000100
+000000000001000
+000000000010000
+000000000010000
+000000000010000
+000000000010000
+000010000010000
+000010000010000
+simulator robot moved forward
+In send queue function
+In send queue function
+Data to send: AA1
+TcpClient - Sent data: AA1
+Data to send: AC
+TcpClient - Sent data: AC
+Area Explored: 155
+Updating android command queue & sensor value queue....
+Update Attempt:  0
+Receiving from client socket......
+TcpClient - Received data: b'SDATA:0:0:0:0:0:3\r\n'
+<multiprocessing.queues.Queue object at 0x13425D60>
+Sensor_val: ['0', '0', '0', '0', '0', '3']
+Robot Direction: (1.0, 0.0)
+[10, 13]
+Error computing obstacle location in real sense: list indices must be integers or slices, not float
+Obstacle Loc: (9.0, 15.0)
+Obstacle Loc: (10.0, 15.0)
+Obstacle Loc: (11.0, 15.0)
+Obstacle Loc: (12.0, 14.0)
+Obstacle Loc: (12.0, 12.0)
+Discovered Loc: (9.0, 15.0)
+Discovered Loc: (10.0, 15.0)
+Discovered Loc: (11.0, 15.0)
+Discovered Loc: (12.0, 14.0)
+Discovered Loc: (12.0, 12.0)
+Discovered Loc: (8.0, 14.0)
+Discovered Loc: (7.0, 14.0)
+Discovered Loc: (6.0, 14.0)
+Discovered Loc: (5.0, 14.0)
+Discovered Loc: (4.0, 14.0)
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+0000000000000X0
+000000000000000
+000000000000101
+000000000001000
+000000000010000
+000000000010000
+000000000010000
+000000000010000
+000010000010000
+000010000010000
+Simulator robot rotated:  -90
+In send queue function
+In send queue function
+Data to send: AL
+TcpClient - Sent data: AL
+Data to send: AC
+TcpClient - Sent data: AC
+check for nextRealMove before turning left: 1
+Area Explored: 161
+Updating android command queue & sensor value queue....
+Update Attempt:  0
+Receiving from client socket......
+TcpClient - Received data: b'SDATA:0:0:0:0:0:-1\r\n'
+<multiprocessing.queues.Queue object at 0x13425D60>
+Sensor_val: ['0', '0', '0', '0', '0', '-1']
+Robot Direction: (0.0, -1.0)
+[10, 13]
+Obstacle Loc: (8.0, 12.0)
+Obstacle Loc: (8.0, 13.0)
+Obstacle Loc: (8.0, 14.0)
+Obstacle Loc: (9.0, 15.0)
+Obstacle Loc: (11.0, 15.0)
+Discovered Loc: (8.0, 12.0)
+Discovered Loc: (8.0, 13.0)
+Discovered Loc: (8.0, 14.0)
+Discovered Loc: (9.0, 15.0)
+Discovered Loc: (11.0, 15.0)
+Discovered Loc: (9.0, 11.0)
+Discovered Loc: (9.0, 10.0)
+Discovered Loc: (9.0, 9.0)
+Discovered Loc: (9.0, 8.0)
+Discovered Loc: (9.0, 7.0)
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000111
+000000000000000
+0000000000000X0
+000000000000000
+000000000000101
+000000000001000
+000000000010000
+000000000010000
+000000000010000
+000000000010000
+000010000010000
+000010000010000
+Area Explored: 162
+Updating android command queue & sensor value queue....
+Update Attempt:  0
+Receiving from client socket......
+Error Receiving: timed out
+Update Attempt:  1
+Receiving from client socket......
+Error Receiving: timed out
+Update Attempt:  2
+Have called socket recv command 5 times but still no data coming from RPI
+Queue is empty
+Sensor_val: 0
+Robot Direction: (0.0, -1.0)
+[10, 13]
+Error computing obstacle location in real sense: 'int' object is not subscriptable
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000111
+000000000000000
+0000000000000X0
+000000000000000
+000000000000101
+000000000001000
+000000000010000
+000000000010000
+000000000010000
+000000000010000
+000010000010000
+000010000010000
+Area Explored: 162
+Updating android command queue & sensor value queue....
+Update Attempt:  0
+Receiving from client socket......
+Traceback (most recent call last):
+  File "C:\Users\zmkok\Documents\MDP-group13\Simulator\commMgr.py", line 41, in recv
+    data = self.client_socket.recv(self.buffer_size)
+socket.timeout: timed out
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "simulatorMain.py", line 86, in <module>
+    sensor_val = player_robot.real_sense(arena_map,comm)
+  File "C:\Users\zmkok\Documents\MDP-group13\Simulator\robot.py", line 212, in real_sense
+    comm.update_queue()
+  File "C:\Users\zmkok\Documents\MDP-group13\Simulator\commMgr.py", line 201, in update_queue
+    self.recv()
+  File "C:\Users\zmkok\Documents\MDP-group13\Simulator\commMgr.py", line 41, in recv
+    data = self.client_socket.recv(self.buffer_size)
+KeyboardInterrupt
+^C
