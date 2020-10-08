@@ -83,6 +83,7 @@ class Exploration:
                 if cell.is_obstacle:
                     return False
         except IndexError:
+            print("!!!! Index Error !!!!")
             return False
 
         return True
@@ -128,6 +129,11 @@ class Exploration:
                     comm.send_movement_forward()
                     self.check = 0
                     print("check for nextRealMove after turning left:",self.check)
+                else:
+                    robot.rotate(-90)
+                    comm.send_movement_rotate_left()
+                    self.check = 1
+                    print("check for nextRealMove before turning left:",self.check)
             else:
                 robot.rotate(-90)
                 comm.send_movement_rotate_left()

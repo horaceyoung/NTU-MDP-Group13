@@ -28,9 +28,9 @@ comm = commMgr.TcpClient("192.168.13.13", 4413)
 comm.run()
 counter = 0
 exploration_instance = exploration.Exploration(300, 400, player_robot, arena_map, True, robot_group, screen,comm)
-#status = "NIL"
-#check = 0
-#started = 0
+status = "NIL"
+check = 0
+started = 0
 
 while running:
     # controls
@@ -40,12 +40,12 @@ while running:
             running = False
         if event.type == pg.KEYDOWN:
             if event.key == pg.K_w:
-                fastest_path.astar(arena_map, (18, 1), (1, 13))
+                fastest_path.astar(arena_map, player_robot, (18, 1), (1, 13), comm)
             if event.key == pg.K_e:
                 # exploration_instance = exploration.Exploration(298, 100, player_robot, arena_map, False)
                 exploration_instance.initialize_exploration()
             if event.key == pg.K_h:
-                fastest_path.astar(arena_map, player_robot.location, (18, 1))
+                fastest_path.astar(arena_map, player_robot, player_robot.location, (18, 1), comm)
                 player_robot.rotateBackDefault()
             if event.key == pg.K_UP:
                 comm.send_movement_forward()
@@ -88,7 +88,7 @@ while running:
     pg.display.update()
     arena_map.cells_group.draw(screen)
     #if exploration_instance.area_explored <= exploration_instance.coverage_limit or (exploration_instance.area_explored>=10 and player_robot.location != (18,1)):
-    '''
+
     if(check == 0):
         comm.update_queue()
         status = comm.get_android_command()
@@ -98,14 +98,14 @@ while running:
             started = 1
     if exploration_instance.area_explored < exploration_instance.coverage_limit or exploration_instance.start_time < exploration_instance.end_time or not started:
         exploration_instance.exploration_loop()
-    '''
-    if exploration_instance.area_explored < exploration_instance.coverage_limit or exploration_instance.start_time < exploration_instance.end_time:
+
+    # if exploration_instance.area_explored < exploration_instance.coverage_limit or exploration_instance.start_time < exploration_instance.end_time:
     
-        print("exploration loop function in simulatorMain runs")
-        exploration_instance.exploration_loop()
+    #     print("exploration loop function in simulatorMain runs")
+    #     exploration_instance.exploration_loop()
     else:
-        #started = 0
-        fastest_path.astar(arena_map, player_robot.location, 18, 1, comm)
+        started = 0
+        fastest_path.astar(arena_map, player_robot, player_robot.location, 18, 1, comm)
         player_robot.rotateBackDefault()
     robot_group.draw(screen)
     # map update

@@ -152,24 +152,28 @@ class TcpClient:
         except:
             pass
 
-    def send_movement_forward(self):
-        self.send_command("AA1")
-        self.send_movement_calibrate()
+    def send_movement_forward(self, step=1, calibrate=True):
+        self.send_command("AA" + str(step))
+        if calibrate:
+            self.send_movement_calibrate()
 
 
-    def send_movement_rotate_left(self):
+    def send_movement_rotate_left(self, calibrate=True):
         self.send_command("AL")
-        self.send_movement_calibrate()
+        if calibrate:
+            self.send_movement_calibrate()
 
 
-    def send_movement_rotate_right(self):
+    def send_movement_rotate_right(self, calibrate=True):
         self.send_command("AR")
-        self.send_movement_calibrate()
+        if calibrate:
+            self.send_movement_calibrate()
 
-    def send_movement_rotate_back(self):
+    def send_movement_rotate_back(self, calibrate=True):
         self.send_command("AR")
         self.send_command("AR")
-        self.send_movement_calibrate()
+        if calibrate:
+            self.send_movement_calibrate()
 
     def only1inqueue(self):
         length = self.sensor_value_queue.qsize()-1
