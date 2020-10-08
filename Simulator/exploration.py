@@ -40,7 +40,8 @@ class Exploration:
             )
         # (Added) Real Run ############################################
         else:
-            check = self.nextRealMove(self.robot, self.map, self.comm)
+            self.nextRealMove(self.robot, self.map, self.comm)
+            print("next real move executed")
 
         self.area_explored = self.calculate_area_explored()
         print("Area Explored: " + str(self.area_explored))
@@ -105,12 +106,12 @@ class Exploration:
         if self.look(Direction.RIGHT, robot, arena_map):
             if(self.check == 1):
                 if self.look(Direction.UP, robot, arena_map):
-                    print("###########nextRealMove:",self.check)
+                    print("check for nextRealMove after turning right:",self.check)
                     robot.move_forward()
                     comm.send_movement_forward()
                     self.check = 0
             else:
-                print("###################nextRealMove:",self.check)
+                print("check for nextRealMove before turning right:",self.check)
                 robot.rotate(90)
                 comm.send_movement_rotate_right()
                 self.check = 1
@@ -126,18 +127,17 @@ class Exploration:
                     robot.move_forward()
                     comm.send_movement_forward()
                     self.check = 0
-                    print("#############nextRealMove:",self.check)
+                    print("check for nextRealMove after turning left:",self.check)
             else:
                 robot.rotate(-90)
                 comm.send_movement_rotate_left()
                 self.check = 1
-                print("#############nextRealMove:",self.check)
+                print("check for nextRealMove before turning left:",self.check)
         else:
             robot.rotate(90)
-            comm.send_movement_rotate_right()
             robot.rotate(90)
-            comm.send_movement_rotate_right()
-            self.check = 0
+            comm.send_movement_rotate_back()
+            self.check = 1
 
 
     def calculate_area_explored(self):

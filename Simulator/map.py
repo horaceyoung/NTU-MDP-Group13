@@ -71,6 +71,7 @@ class Map:
                     and cell.is_start_goal_zone == False
                 ):
                     cell.update_color((0,0,255))
+                    self.cells_group.add(cell)
 
     def generate_descriptor_strings(self):
         # part1
@@ -89,9 +90,8 @@ class Map:
             part1_result+="\n"
             part2_result+='\n'
         part1_result += "11\n"
-        print("Part1 Map Representation: \n" + part1_result)
-        print("Part1 Map Representation in hex: " + str(hex(int(part1_result.replace("\n", ""),2))))
-        print("Part2 Map Representation: \n" + part2_result)
-        print("Part2 Map Representation in hex: " + str(hex(int(part2_result.replace("\n", ""), 2))))
+        #print("Part1 Map Representation: \n" + part1_result)
+        #print("Part1 Map Representation in hex: " + str(hex(int(part1_result.replace("\n", ""),2))))
+        #print("Part2 Map Representation: \n" + part2_result)
+        #print("Part2 Map Representation in hex: " + str(hex(int(part2_result.replace("\n", ""), 2))))
         return (str(hex(int(part1_result.replace("\n", ""),2))),str(hex(int(part2_result.replace("\n", ""), 2))))
-

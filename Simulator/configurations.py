@@ -89,7 +89,7 @@ def rotateBackDefault(curDir):
     return 4 - curIndex
 
 def getDirectionValue(curDir):
-    dir = {(0,-1):360,
+    dir = {(0,-1):0,
             (1,0):90,
             (0,1):180,
             (-1,0):270}

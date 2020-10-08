@@ -25,6 +25,7 @@ class Robot(pg.sprite.Sprite):
         self.location = pg.math.Vector2(18, 1)
         self.comm = comm if not comm else 0
         self.initialize_sensors()
+        #self.history = []
 
         # (ADDED)Set Up Communication Socket With RPI ###############################
         # self.comm = commMgr.CommMgr()
@@ -194,10 +195,13 @@ class Robot(pg.sprite.Sprite):
 
         if(counter == 1):
             self.rotate(90)
+            self.comm.send_movement_rotate_right()
             #self.comm.send_movement(Movement.RIGHT,Movement.RIGHT.value,0)
         else:
             self.rotate(90)
             self.rotate(90)
+            self.comm.send_movement_rotate_right()
+            self.comm.send_movement_rotate_right()
             #self.comm.send_movement(Movement.RIGHT,Movement.RIGHT.value,0)
             #self.comm.send_movement(Movement.RIGHT,Movement.RIGHT.value,0)
 
@@ -235,16 +239,57 @@ class Robot(pg.sprite.Sprite):
         try:
             obstacles = []
             discovered = []
+            obstacle_to_remove = []
+            check = 0
             for i in range(6):
-                reach = 3 if i != 5 else 7
-                if sensor_val[i] != "-1":
-                    reach = int(sensor_val[i]) + 1
-                    obstacles.append((self.location.x + lst[i][1] + reach * dir_lst[i][1], self.location.y + lst[i][0] + reach * dir_lst[i][0]))
-                for j in range(1,reach+1):
-                    discovered.append((self.location.x + lst[i][1] + j * dir_lst[i][1], self.location.y + lst[i][0] + j * dir_lst[i][0]))
+                if(i != 5):
+                    reach = 2
+                    if sensor_val[i] != "-1" and int(sensor_val[i]) < 2:
+                        reach = int(sensor_val[i]) + 1
+                        obstacles.append((self.location.x + lst[i][1] + reach * dir_lst[i][1], self.location.y + lst[i][0] + reach * dir_lst[i][0]))
+                    elif sensor_val[i] == "-1" and sensor_val[i] == "2":
+                        for z in range(1,reach+1):
+                            obstacle_to_remove.append((self.location.x + lst[i][1] + z * dir_lst[i][1], self.location.y + lst[i][0] + z * dir_lst[i][0]))
+                    '''
+                    if not self.history:
+                        if(check == 0):
+                            self.history.append(self.direction,int(sensor_val[i]))
+                            check = 1
+                        else:
+                            self.history.append(int(sensor_val[i]))
+                    '''
+                    for j in range(1,reach+1):
+                        discovered.append((self.location.x + lst[i][1] + j * dir_lst[i][1], self.location.y + lst[i][0] + j * dir_lst[i][0]))
+
+                else:
+                    reach = 5
+                    for j in range(1,reach+1):
+                        discovered.append((self.location.x + lst[i][1] + j * dir_lst[i][1], self.location.y + lst[i][0] + j * dir_lst[i][0]))
+                    if sensor_val[i] != "-1" and int(sensor_val[i]) < 6:
+                        posx = self.location.x + lst[i][1] + reach * dir_lst[i][1]
+                        posy = self.location.y + lst[i][0] + reach * dir_lst[i][0]
+                        if(arena_map.map_cells[posx][posy].discovered == False):
+                            reach = int(sensor_val[i]) + 1
+                            obstacles.append(posx, posy)
+                    '''
+                    elif sensor_val[i] == "-1":
+                        for z in range(1,reach+1):
+                            obstacle_to_remove.append((self.location.x + lst[i][1] + z * dir_lst[i][1], self.location.y + lst[i][0] + z * dir_lst[i][0]))
+                    '''
+
         except Exception as e:
             print("Error computing obstacle location in real sense:",e)
-
+        '''
+        if(self.history):
+            for g in range(len(self.history)):
+                if(self.history[0]==self.direction):
+                    for index in range(5):
+                        if(self.history[index+1] == "-1"):
+                            continue
+                        if(self.history[index+1]-1 != int(sensor_val[i])):
+                            obstacle_to_remove.append((self.location.x + lst[i][1] + (-1) * dir_lst[i][1], self.location.y + lst[i][0] + (-1) * dir_lst[i][0]))
+            self.history = []
+        '''
         try:
             for obstacle_loc in obstacles:
                 print("Obstacle Loc:",obstacle_loc)
@@ -258,6 +303,12 @@ class Robot(pg.sprite.Sprite):
                 y = int(discovered_loc[1])
                 if 0 <= x <= 19 and 0 <= y <= 14:
                     arena_map.map_cells[x][y].discovered = True
+            for to_remove in obstacle_to_remove:
+                print("Remove Loc:",to_remove)
+                x = int(to_remove[0])
+                y = int(to_remove[1])
+                if 0 <= x <= 19 and 0 <= y <= 14:
+                    arena_map.map_cells[x][y].is_obstacle=False
         except Exception as inst:
             print("Error updating obstacle location to map in real sense", inst)
 
@@ -266,7 +317,11 @@ class Robot(pg.sprite.Sprite):
             string = ""
             for row in range(20):
                 for col in range(15):
-                    if(arena_map.map_cells[row][col].is_obstacle):
+                    x = self.location[0]
+                    y = self.location[1]
+                    if row == x and col == y:
+                        string += "X"
+                    elif(arena_map.map_cells[row][col].is_obstacle):
                         string += "1"
                     else:
                         string += "0"

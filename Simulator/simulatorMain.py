@@ -27,7 +27,10 @@ comm = commMgr.TcpClient("192.168.13.13", 4413)
 #comm = commMgr.TcpClient("127.0.0.1", 22)
 comm.run()
 counter = 0
-exploration_instance = exploration.Exploration(300, 20, player_robot, arena_map, True, robot_group, screen,comm)
+exploration_instance = exploration.Exploration(300, 400, player_robot, arena_map, True, robot_group, screen,comm)
+#status = "NIL"
+#check = 0
+#started = 0
 
 while running:
     # controls
@@ -84,10 +87,29 @@ while running:
     arena_map.map_update()
     pg.display.update()
     arena_map.cells_group.draw(screen)
-    if sensor_val != 0:
+    #if exploration_instance.area_explored <= exploration_instance.coverage_limit or (exploration_instance.area_explored>=10 and player_robot.location != (18,1)):
+    '''
+    if(check == 0):
+        comm.update_queue()
+        status = comm.get_android_command()
+        check = 1
+        if(status == "ES"):
+            exploration_instance.exploration_loop()
+            started = 1
+    if exploration_instance.area_explored < exploration_instance.coverage_limit or exploration_instance.start_time < exploration_instance.end_time or not started:
         exploration_instance.exploration_loop()
+    '''
+    if exploration_instance.area_explored < exploration_instance.coverage_limit or exploration_instance.start_time < exploration_instance.end_time:
+        print("exploration loop function in simulatorMain runs")
+        exploration_instance.exploration_loop()
+    else:
+        #started = 0
+        fastest_path.astar(arena_map, player_robot.location, 18, 1, comm)
+        player_robot.rotateBackDefault()
     robot_group.draw(screen)
     # map update
     arena_map.map_update()
+    #descriptor = arena_map.generate_descriptor_strings()
+    #comm.send_mapdescriptor(descriptor[0],descriptor[1],player_robot.location[1],player_robot.location[0],getDirectionValue(player_robot.direction))
     pg.display.update()
-    pg.time.delay(3000)
+    pg.time.delay(1300)

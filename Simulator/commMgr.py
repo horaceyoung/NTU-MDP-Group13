@@ -4,6 +4,7 @@ import json
 import threading
 import time
 import re
+from configurations import *
 
 
 class TcpClient:
@@ -35,7 +36,7 @@ class TcpClient:
         data = None
         if self.connected:
             try:
-                self.client_socket.settimeout(1)
+                self.client_socket.settimeout(3)
                 print("Receiving from client socket......")
                 data = self.client_socket.recv(self.buffer_size)
                 #print("successfully called client socket receive command")
@@ -118,9 +119,9 @@ class TcpClient:
         '''
         self.send_queue.put(json.dumps({"map": arena.to_mdf_part1(), "gridP2": arena.to_mdf_part2()}))
         '''
-
-        #message = {"map":[{"explored":map, "length":300, "obstacle":obstacle, "robotPosition":[x,y,direction]}]}
-        message={"map":[{"explored":"ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff","length":300,"obstacle":"1000000040008071002600600e00101820100034000000000","robotPosition":[x,y,direction]}]}
+        #message = {"map":[{"explored":map, "length":300, "obstacle":obstacle}], "robotPosition":[int(x-1),convertY(int(y-1)),direction]}
+        message = {"map":[{"explored":map[2:], "length":300, "obstacle":obstacle[2:]}], "robotPosition":[int(x-1),int(y-1),direction]}
+        #message={"map":[{"explored":"ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff","length":300,"obstacle":"1000000040008071002600600e00101820100034000000000"}],"robotPosition":[int(x),int(y),direction]}
         jsonObj=json.dumps(message)
         command = "B"+jsonObj
         self.send_command(command)
@@ -162,6 +163,11 @@ class TcpClient:
 
 
     def send_movement_rotate_right(self):
+        self.send_command("AR")
+        self.send_movement_calibrate()
+
+    def send_movement_rotate_back(self):
+        self.send_command("AR")
         self.send_command("AR")
         self.send_movement_calibrate()
 
@@ -256,9 +262,9 @@ class TcpClient:
     '''
 
     #For debug or future use
-    def empty_queue(self):
-        while(not self.recv_string_queue.empty()):
-            self.recv_string_queue.get()
+    def empty_sensor_queue(self):
+        while(not self.sensor_val_queue.empty()):
+            self.sensor_val_queue.get()
 
 
 
