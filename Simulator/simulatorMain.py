@@ -110,7 +110,7 @@ while running:
     robot_group.draw(screen)
     # map update
     arena_map.map_update()
-    #descriptor = arena_map.generate_descriptor_strings()
-    #comm.send_mapdescriptor(descriptor[0],descriptor[1],player_robot.location[1],player_robot.location[0],getDirectionValue(player_robot.direction))
+    descriptor = arena_map.generate_descriptor_strings()
+    comm.send_mapdescriptor(descriptor[0],descriptor[1],player_robot.location[1],player_robot.location[0],getDirectionValue(player_robot.direction))
     pg.display.update()
     pg.time.delay(1500)
