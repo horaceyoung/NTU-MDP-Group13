@@ -98,13 +98,14 @@ while running:
             started = 1
     if exploration_instance.area_explored < exploration_instance.coverage_limit or exploration_instance.start_time < exploration_instance.end_time or not started:
         exploration_instance.exploration_loop()
-
+    elif exploration_instance.area_explored < exploration_instance.coverage_limit or exploration_instance.start_time < exploration_instance.end_time:
+        started = 0
     # if exploration_instance.area_explored < exploration_instance.coverage_limit or exploration_instance.start_time < exploration_instance.end_time:
-    
+
     #     print("exploration loop function in simulatorMain runs")
     #     exploration_instance.exploration_loop()
     else:
-        started = 0
+
         fastest_path.astar(arena_map, player_robot, player_robot.location, 18, 1, comm)
         player_robot.rotateBackDefault()
     robot_group.draw(screen)
