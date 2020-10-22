@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--<color name="colorPrimary">#039BE5</color>-->
+    <color name="colorPrimary">#292929</color>
+    <color name="colorPrimaryDark">#1C1C1E</color>
+    <color name="colorAccent">#D81B60</color>
+
+    <color name="border_color">#000000</color>
+    <color name="colorWhite">#FFFFFF</color>
+    <color name="colorRed">#FF0000</color>
+    <color name="colorBlack">#636363</color>
+    <color name="exploredColor">#FFF9FBE7</color>
+
+    <color name="neonPink">#FF68A8</color>
+
+    <!-- Switch Colors for Tilt -->
+    <color name="disable_forground_grey">#F5F5F5</color>
+    <color name="disable_thumb_grey">#707070</color>
+    <color name="enable_thumb_green">#03DAC6</color>
+
+</resources>

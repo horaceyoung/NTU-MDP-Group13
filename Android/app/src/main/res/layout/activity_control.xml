@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#1C1C1E">
+
+    <Button
+        android:id="@+id/calibrateButton"
+        android:layout_width="157dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:clickable="true"
+        android:text="CALIBRATE"
+        android:textColor="@color/colorWhite"
+        android:background="#393B44"
+        android:textAlignment="center"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.801"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/fastestToggleBtn" />
+
+    <Switch
+        android:id="@+id/phoneTiltSwitch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="8dp"
+        android:splitTrack="false"
+        android:text="TILT OFF"
+        android:textColor="@color/colorWhite"
+        android:theme="@style/SCBSwitch"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.086"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/backImageBtn" />
+
+    <ImageButton
+        android:id="@+id/rightImageBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="410dp"
+        android:layout_marginRight="410dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.946"
+        app:layout_constraintStart_toEndOf="@+id/leftImageBtn"
+        app:layout_constraintTop_toBottomOf="@+id/forwardImageBtn"
+        android:background="@android:color/transparent"
+        android:src="@drawable/ic_arrow_move_right" />
+
+    <ImageButton
+        android:id="@+id/backImageBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="60dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.136"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/forwardImageBtn"
+        app:layout_constraintVertical_bias="0.0"
+        android:background="@android:color/transparent"
+        android:src="@drawable/ic_arrow_move_backward" />
+
+    <ImageButton
+        android:id="@+id/leftImageBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/forwardImageBtn"
+        android:background="@android:color/transparent"
+        android:src="@drawable/ic_arrow_move_left" />
+
+    <ImageButton
+        android:id="@+id/forwardImageBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="72dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginLeft="72dp"
+        android:layout_marginEnd="302dp"
+        android:layout_marginRight="302dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/fastestTextView"
+        app:layout_constraintHorizontal_bias="0.136"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:background="@android:color/transparent"
+        android:src="@drawable/ic_arrow_move_forward" />
+
+    <ImageButton
+        android:id="@+id/exploreResetImageBtn"
+        style="@style/Widget.AppCompat.ImageButton"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/circle"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.525"
+        app:layout_constraintStart_toEndOf="@+id/exploreToggleBtn"
+        app:layout_constraintTop_toBottomOf="@+id/fastestTimeTextView"
+        android:src="@drawable/ic_refresh"
+        android:tint="@color/colorWhite"/>
+
+    <ToggleButton
+        android:id="@+id/exploreToggleBtn"
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="76dp"
+        android:layout_marginLeft="76dp"
+        android:layout_marginTop="8dp"
+        android:textStyle="bold"
+        android:text="Exploration"
+        android:textOff="EXPLORE"
+        android:textOn="STOP"
+        app:layout_constraintStart_toEndOf="@+id/rightImageBtn"
+        app:layout_constraintTop_toBottomOf="@+id/exploreTimeTextView" />
+
+    <TextView
+        android:id="@+id/exploreTextView"
+        android:layout_width="172dp"
+        android:layout_height="35dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginLeft="32dp"
+        android:layout_marginTop="12dp"
+        android:background="#292929"
+        android:gravity="center"
+        android:text="Exploration Time"
+        android:textSize="20sp"
+        android:textStyle="italic"
+        android:textColor="@color/colorWhite"
+        app:layout_constraintEnd_toStartOf="@+id/fastestTextView"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/rightImageBtn"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/fastestTimeTextView"
+        android:layout_width="157dp"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="12dp"
+        android:layout_marginBottom="92dp"
+        android:background="#2A969494"
+        android:gravity="center"
+        android:text="00:00"
+        android:textSize="26sp"
+        android:textColor="#10E7E2"
+        app:layout_constraintBottom_toTopOf="@+id/fastestResetImageBtn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/fastestTextView"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <ToggleButton
+        android:id="@+id/fastestToggleBtn"
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="76dp"
+        android:layout_marginLeft="76dp"
+        android:layout_marginTop="8dp"
+        android:textStyle="bold"
+        android:text="FASTEST"
+        android:textOff="FASTEST"
+        android:textOn="STOP"
+        app:layout_constraintStart_toEndOf="@+id/rightImageBtn"
+        app:layout_constraintTop_toBottomOf="@+id/exploreToggleBtn" />
+
+    <TextView
+        android:id="@+id/exploreTimeTextView"
+        android:layout_width="172dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="28dp"
+        android:layout_marginLeft="28dp"
+        android:background="#2A969494"
+        android:gravity="center"
+        android:text="00:00"
+        android:textSize="26sp"
+        android:textColor="#10E7E2"
+        app:layout_constraintEnd_toStartOf="@+id/fastestTimeTextView"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/rightImageBtn"
+        app:layout_constraintTop_toBottomOf="@+id/exploreTextView" />
+
+    <TextView
+        android:id="@+id/fastestTextView"
+        android:layout_width="157dp"
+        android:layout_height="35dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginRight="12dp"
+        android:background="#292929"
+        android:gravity="center"
+        android:text="Fastest Path"
+        android:textSize="20sp"
+        android:textStyle="italic"
+        android:textColor="@color/colorWhite"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageButton
+        android:id="@+id/fastestResetImageBtn"
+        style="@style/Widget.AppCompat.ImageButton"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/circle"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.552"
+        app:layout_constraintStart_toEndOf="@+id/fastestToggleBtn"
+        app:layout_constraintTop_toBottomOf="@+id/exploreResetImageBtn"
+        android:src="@drawable/ic_refresh"
+        android:tint="@color/colorWhite" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
